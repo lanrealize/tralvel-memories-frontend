@@ -1,0 +1,19 @@
+<view style="position: relative; width: 716rpx; height: 55.16vh; border-radius: 15rpx; overflow: hidden; margin-left: 18rpx; margin-right: 18rpx;">
+
+<video 
+  src="http://sr53nslhs.hd-bkt.clouddn.com/PhotoMemories-0.1.mp4" 
+  autoplay 
+  loop 
+  muted 
+  controls="{{false}}"
+  style="width: 100%; height: 100%; position: absolute; border-radius: 15rpx; object-fit: cover;"
+  object-fit="cover"
+></video>
+
+<view style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10rpx); display: flex; justify-content: center; align-items: center;">
+
+  <view style="border: 2rpx solid #fff; border-radius: 30rpx; width: 200rpx; height: 4.14vh; background: transparent; display: flex; align-items: center; justify-content: center;">
+    <text style="color: white; font-size: 28rpx; line-height: 2.76vh;">点击开始</text>
+  </view>
+</view>
+</view>
