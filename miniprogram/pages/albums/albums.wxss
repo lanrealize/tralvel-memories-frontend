@@ -1,0 +1,54 @@
+/* pages/albums/albums.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tm-index-text-0 {
+  color: rgba(166, 166, 166, 1);
+  margin-left: 25rpx;
+  font-size: 30.5rpx;
+  margin-top: 3.8vh;
+}
+
+.tm-index-text-1{
+  margin-top: 0.8vh;
+  font-size: 38rpx;
+  font-weight: 700;
+  line-height: 2.5vh;
+  color: rgba(56, 56, 56, 1);
+  margin-left: 25rpx;
+  margin-bottom: 80rpx;
+}
+
+.mock-swipper{
+  margin-left: auto;
+  margin-right: auto;
+  width: 30.5rpx;
+  height: 0.4vh;
+  background-color: black;
+  border-radius: 4rpx;
+  margin-top: 2.5vh;
+}
+
+.tm-index-text-2 {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28rpx;
+  font-weight: 700;
+  line-height: 2.5vh;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 4.05vh;
+}
+
+.tm-index-text-3 {
+  margin-top: 0.9vh;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20rpx;
+  font-weight: 400;
+  line-height: 1.8vh;
+  color: rgba(56, 56, 56, 1);
+}

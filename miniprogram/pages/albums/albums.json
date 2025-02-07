@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "background-video": "/components/backgroud-video/background-video"
+  }
+}
