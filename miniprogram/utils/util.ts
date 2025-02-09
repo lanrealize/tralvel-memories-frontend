@@ -1,4 +1,4 @@
-import { urlPrefix } from "../configs/network";
+import { devUrlPrefix } from "../configs/network";
 
 export const wxLogin = () => {
   return new Promise((resolve, reject) => {
@@ -11,15 +11,15 @@ export const wxLogin = () => {
         console.log('no openID')
         wx.login({
           success: (res) => {
-            console.log('login success')
             wx.request({
-              url: urlPrefix + '/auth/login',
+              url: devUrlPrefix + '/auth/login',
               method: 'POST',
               data: { code: res.code },
               success: (res: any) => {
                 console.log('get openID')
                 wx.setStorageSync('openID', res.data.openID);
                 resolve(res.data.openID);
+                console.log('login success');
               },
               fail: (e) => {
                 reject(e)
