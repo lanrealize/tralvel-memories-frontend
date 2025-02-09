@@ -1,0 +1,33 @@
+/* components/busy-indicator/busy-indicator.wxss */
+.sk-three-bounce {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.sk-three-bounce-publish {
+  width: 10vw;
+}
+
+.sk-three-bounce .sk-child {
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0.5vw;
+}
+
+.sk-three-bounce .sk-bounce1 {
+  animation-delay: -0.32s;
+}
+
+.photo-creation-color-white {
+  background-color: #ffffff;
+}
+
+.sk-three-bounce .sk-bounce2 {
+  animation-delay: -0.16s;
+}

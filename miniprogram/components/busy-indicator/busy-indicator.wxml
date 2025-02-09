@@ -1,0 +1,6 @@
+<!--components/busy-indicator/busy-indicator.wxml-->
+<view class="sk-three-bounce sk-three-bounce-publish" style="line-height: {{menuHeight}}px;" wx:if="{{isCreating}}">
+  <view class="sk-child sk-bounce1 photo-creation-color-white"></view>
+  <view class="sk-child sk-bounce2 photo-creation-color-white"></view>
+  <view class="sk-child photo-creation-color-white"></view>
+</view>
