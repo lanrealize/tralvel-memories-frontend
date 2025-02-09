@@ -1,19 +1,36 @@
-export const formatTime = (date: Date) => {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+import { urlPrefix } from "../configs/network";
 
-  return (
-    [year, month, day].map(formatNumber).join('/') +
-    ' ' +
-    [hour, minute, second].map(formatNumber).join(':')
-  )
-}
-
-const formatNumber = (n: number) => {
-  const s = n.toString()
-  return s[1] ? s : '0' + s
+export const wxLogin = () => {
+  return new Promise((resolve, reject) => {
+    try {
+      let openID = wx.getStorageSync('openID');
+      if (openID) {
+        console.log('has openID')
+        resolve(openID)
+      } else {
+        console.log('no openID')
+        wx.login({
+          success: (res) => {
+            console.log('login success')
+            wx.request({
+              url: urlPrefix + '/auth/login',
+              method: 'POST',
+              data: { code: res.code },
+              success: (res: any) => {
+                console.log('get openID')
+                wx.setStorageSync('openID', res.data.openID);
+                resolve(res.data.openID);
+              },
+              fail: (e) => {
+                reject(e)
+              }
+            })
+          },
+          fail: (e) => { reject(e) }
+        })
+      }
+    } catch (e) {
+      reject(e)
+    }
+  })
 }

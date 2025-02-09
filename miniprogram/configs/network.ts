@@ -1,0 +1,1 @@
+export const urlPrefix = 'https://www.lifeprint.site/api/mp'
