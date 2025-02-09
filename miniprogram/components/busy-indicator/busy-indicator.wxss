@@ -10,14 +10,12 @@
 }
 
 .sk-three-bounce .sk-child {
-  width: 1.5vw;
-  height: 1.5vw;
   border-radius: 100%;
   display: inline-block;
   animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
   margin-top: auto;
   margin-bottom: auto;
-  margin-left: 0.5vw;
+  margin-left: 1vw;
 }
 
 .sk-three-bounce .sk-bounce1 {
@@ -30,4 +28,24 @@
 
 .sk-three-bounce .sk-bounce2 {
   animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes sk-three-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
 }
