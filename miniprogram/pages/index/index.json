@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "background-video": "/components/backgroud-video/background-video",
-    "albums": "/components/albums/albums"
+    "albums": "/components/albums/albums",
+    "album": "/components/album/album"
   }
 }
