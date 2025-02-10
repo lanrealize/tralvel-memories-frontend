@@ -1,1 +1,37 @@
 /* components/album/album.wxss */
+.tm-album-container {
+  width: 95.4vw;
+  height: 49.3vh;
+  margin-left: 2.3vw;
+  margin-right: 2.3vw;
+  position: relative;
+}
+
+.tm-album-main-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+}
+
+.tm-album-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3.3vh;
+  width: 84vw;
+  height: 8.5vh;
+  background: rgba(56, 56, 56, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 2vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3.5vw;
+}
+
+.tm-image-container {
+  width: 12.5vw;
+  height: 12.5vw;
+  background: #fff;
+}

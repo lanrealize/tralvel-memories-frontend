@@ -1,2 +1,12 @@
 <!--components/album/album.wxml-->
-<text>components/album/album.wxml</text>
+<view style="height: 15vh;"></view>
+<view class="tm-album-container">
+  <image class="tm-album-main-image" mode="aspectFill" src="https://upload-images.jianshu.io/upload_images/15219429-8950836e290475a3.jpeg?imageMogr2/auto-orient/strip|imageView2/2/w/600/format/webp" />
+  <view class="tm-album-mask">
+    <view class="tm-image-container"></view>
+    <view class="tm-image-container"></view>
+    <view class="tm-image-container"></view>
+    <view class="tm-image-container"></view>
+    <view class="tm-image-container"></view>
+  </view>
+</view>
