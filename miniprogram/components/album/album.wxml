@@ -1,5 +1,4 @@
 <!--components/album/album.wxml-->
-<view style="height: 15vh;"></view>
 <view class="tm-album-container">
   <image class="tm-album-main-image" mode="aspectFill" src="{{mainImageUrl}}" />
   <view class="tm-album-title">{{albumTitle}}</view>
