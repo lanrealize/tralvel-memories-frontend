@@ -1,5 +1,19 @@
 <!--components/albums/albums.wxml-->
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="tm-albums-swiper" layout-type="transformer" transformer-type="deepthPage">
+<swiper
+indicator-dots="{{indicatorDots}}" 
+autoplay="{{autoplay}}" 
+interval="{{interval}}" 
+duration="{{duration}}" 
+circular="{{circular}}" 
+indicator-type="{{indicatorType}}" 
+indicator-offset="{{offsetValue}}" 
+indicator-spacing="{{spacing}}"
+indicator-radius="{{radius}}"
+indicator-width="{{width}}"
+indicator-height="{{height}}"
+layout-type="transformer" 
+transformer-type="scaleAndFade" 
+class="tm-albums-swiper" >
   <block wx:for="{{imgUrls}}" wx:key="unique">
     <swiper-item>
       <view style="height: 50vh; margin-left: 3vw; margin-right: 3vw;">

@@ -1,6 +1,19 @@
 // components/albums/albums.ts
 Component({
 
+  lifetimes: {
+    attached: function() {
+      const systemInfo = wx.getSystemInfoSync();
+      const windowHeight = systemInfo.windowHeight;
+      console.log(windowHeight)
+      const offsetInVh = 3.8;
+      const offsetInPx = (windowHeight * offsetInVh) / 100;
+      this.setData({
+        offsetValue: [0, offsetInPx]
+      });
+    }
+  },
+
   /**
    * 组件的属性列表
    */
@@ -20,14 +33,21 @@ Component({
     indicatorDots: true,
     autoplay: true,
     interval: 2000,
-    duration: 500,
-    circular: true
+    duration: 800,
+    circular: true,
+    indicatorType: "expand",
+    offsetValue: [0, 0],
+    spacing: 6,
+    radius: 3,
+    width: 6,
+    height: 5,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    
   }
+
 })
