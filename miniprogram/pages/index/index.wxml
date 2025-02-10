@@ -1,7 +1,8 @@
 <!--index.wxml-->
-<view class="tm-index-text-0">欢迎来到</view>
+<!-- <view class="tm-index-text-0">欢迎来到</view>
 <view class="tm-index-text-1">我的旅行纪念册</view>
 <background-video></background-video>
 <view class="mock-swipper"></view>
 <view class="tm-index-text-2">Fireart Studio</view>
-<view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view>
+<view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view> -->
+<albums></albums>

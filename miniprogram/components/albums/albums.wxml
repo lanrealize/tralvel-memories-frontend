@@ -1,0 +1,10 @@
+<!--components/albums/albums.wxml-->
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="tm-albums-swiper">
+  <block wx:for="{{imgUrls}}" wx:key="unique">
+    <swiper-item>
+      <view style="height: 50vh;">
+        <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>

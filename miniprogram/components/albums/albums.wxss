@@ -1,0 +1,10 @@
+/* components/albums/albums.wxss */
+.tm-albums-swiper {
+  height: 50vh;
+  width: 100vw;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+}
