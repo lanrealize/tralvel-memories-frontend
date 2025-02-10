@@ -20,7 +20,7 @@ page {
   line-height: 2.5vh;
   color: rgba(56, 56, 56, 1);
   margin-left: 25rpx;
-  margin-bottom: 3vh;
+  margin-bottom: 3.5vh;
 }
 
 .mock-swipper{
@@ -40,7 +40,7 @@ page {
   font-weight: 700;
   line-height: 2.5vh;
   color: rgba(0, 0, 0, 1);
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .tm-index-text-3 {
