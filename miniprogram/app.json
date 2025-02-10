@@ -1,4 +1,12 @@
 {
+  "renderer": "skyline",
+  "rendererOptions": {
+      "skyline": {
+          "disableABTest": true,
+          "defaultDisplayBlock": true
+      }
+  },
+
   "pages": [
     "pages/index/index"
   ],
@@ -9,4 +17,5 @@
   "style": "v2",
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents"
+  
 }

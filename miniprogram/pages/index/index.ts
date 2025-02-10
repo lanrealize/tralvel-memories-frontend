@@ -12,7 +12,7 @@ Component({
     },
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    canIUseNicknameComp: wx.canIUse('input.type.nickname')
   },
   methods: {
     // 事件处理函数

@@ -1,9 +1,9 @@
 <!--components/albums/albums.wxml-->
-<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="tm-albums-swiper">
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="tm-albums-swiper" layout-type="transformer" transformer-type="deepthPage">
   <block wx:for="{{imgUrls}}" wx:key="unique">
     <swiper-item>
-      <view style="height: 50vh;">
-        <image src="{{item}}" class="slide-image" mode="scaleToFill"/>
+      <view style="height: 50vh; margin-left: 3vw; margin-right: 3vw;">
+        <image src="{{item}}" class="slide-image" mode="aspectFill"/>
       </view>
     </swiper-item>
   </block>
