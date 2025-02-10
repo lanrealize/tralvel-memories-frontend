@@ -1,15 +1,15 @@
 // components/albums/albums.ts
+import { getAlbums } from '../../utils/apis';
+import { mockWxLogin } from '../../utils/utils';
+
 Component({
 
   lifetimes: {
     attached: async function() {
-      const systemInfo = wx.getSystemInfoSync();
-      const windowHeight = systemInfo.windowHeight;
-      const offsetInVh = 3.8;
-      const offsetInPx = (windowHeight * offsetInVh) / 100;
-      this.setData({
-        offsetValue: [0, offsetInPx]
-      });
+      this.setOffsetValue();
+      await mockWxLogin();
+      await this.updateAlubms();
+      console.log(this.data.albums);
     }
   },
 
@@ -40,13 +40,39 @@ Component({
     radius: 3,
     width: 6,
     height: 5,
+    albums: [] as object[]
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    
+
+    setOffsetValue() {
+      const systemInfo = wx.getSystemInfoSync();
+      const windowHeight = systemInfo.windowHeight;
+      const offsetInVh = 3.8;
+      const offsetInPx = (windowHeight * offsetInVh) / 100;
+      this.setData({
+        offsetValue: [0, offsetInPx]
+      });
+    },
+
+    setAlbums(albums: any): void {
+      this.setData({
+        'albums': albums
+      });
+    },
+
+    async updateAlubms() {
+      try {
+        const albumList = await getAlbums();
+        this.setAlbums(albumList);
+      } catch (e) {
+        throw (e);
+      }
+    }
+
   }
 
 })

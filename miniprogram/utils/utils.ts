@@ -1,5 +1,10 @@
 import { devUrlPrefix } from "../configs/network";
 
+export const mockWxLogin = () => {
+  console.log("oHya266aR6YbGmbD8v8OYi0kfJEM")
+  wx.setStorageSync('openID', "oHya266aR6YbGmbD8v8OYi0kfJEM");
+}
+
 export const wxLogin = () => {
   return new Promise((resolve, reject) => {
     try {

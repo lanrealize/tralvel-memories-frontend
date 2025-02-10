@@ -1,5 +1,5 @@
 // components/backgroud-video/background-video.ts
-import { wxLogin } from "../../utils/util";
+import { wxLogin } from "../../utils/utils";
 
 Component({
 

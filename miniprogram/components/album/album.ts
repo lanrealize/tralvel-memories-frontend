@@ -5,11 +5,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    albumDate: {
+    albumId: {
       type: String,
       value: undefined
     },
-    albumLocation: {
+    albumTitle: {
       type: String,
       value: undefined
     },
