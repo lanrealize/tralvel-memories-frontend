@@ -10,17 +10,17 @@ page {
   color: rgba(166, 166, 166, 1);
   margin-left: 25rpx;
   font-size: 30.5rpx;
-  margin-top: 3.8vh;
+  margin-top: 17.5vh;
 }
 
 .tm-index-text-1{
-  margin-top: 0.8vh;
+  margin-top: 0.3vh;
   font-size: 38rpx;
   font-weight: 700;
   line-height: 2.5vh;
   color: rgba(56, 56, 56, 1);
   margin-left: 25rpx;
-  margin-bottom: 80rpx;
+  margin-bottom: 3vh;
 }
 
 .mock-swipper{

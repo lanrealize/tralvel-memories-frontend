@@ -1,4 +1,4 @@
-<view style="position: relative; width: 716rpx; height: 55.16vh; border-radius: 15rpx; overflow: hidden; margin-left: 18rpx; margin-right: 18rpx;">
+<view style="position: relative; width: 95.4vw; height: 50vh; border-radius: 2vw; overflow: hidden; margin: 0 2.3vw;">
 
   <video 
     src="http://sr53nslhs.hd-bkt.clouddn.com/PhotoMemories-0.1.mp4" 
