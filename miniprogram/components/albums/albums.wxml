@@ -16,7 +16,7 @@ transformer-type="scaleAndFade"
 class="tm-albums-swiper" >
   <block wx:for="{{imgUrls}}" wx:key="unique">
     <swiper-item>
-      <view style="height: 50vh; margin-left: 3vw; margin-right: 3vw;">
+      <view style="height: 50vh;">
         <image src="{{item}}" class="slide-image" mode="aspectFill"/>
       </view>
     </swiper-item>

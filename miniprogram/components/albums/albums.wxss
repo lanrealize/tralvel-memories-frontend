@@ -2,7 +2,7 @@
 .tm-albums-swiper {
   height: 50vh;
   width: 100vw;
-  margin-top: 15vh;
+  margin-bottom: 3vh;
 }
 
 .slide-image {
