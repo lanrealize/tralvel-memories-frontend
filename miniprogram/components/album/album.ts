@@ -5,7 +5,38 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    albumDate: {
+      type: String,
+      value: undefined
+    },
+    albumLocation: {
+      type: String,
+      value: undefined
+    },
+    mainImageUrl: {
+      type: String,
+      value: undefined
+    },
+    subImageUrl0: {
+      type: String,
+      value: undefined
+    },
+    subImageUrl1: {
+      type: String,
+      value: undefined
+    },
+    subImageUrl2: {
+      type: String,
+      value: undefined
+    },
+    subImageUrl3: {
+      type: String,
+      value: undefined
+    },
+    subImageUrl4: {
+      type: String,
+      value: undefined
+    }
   },
 
   /**

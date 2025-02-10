@@ -2,10 +2,9 @@
 Component({
 
   lifetimes: {
-    attached: function() {
+    attached: async function() {
       const systemInfo = wx.getSystemInfoSync();
       const windowHeight = systemInfo.windowHeight;
-      console.log(windowHeight)
       const offsetInVh = 3.8;
       const offsetInPx = (windowHeight * offsetInVh) / 100;
       this.setData({
