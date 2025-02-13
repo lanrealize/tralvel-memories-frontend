@@ -7,11 +7,11 @@ import { AlbumsComponentData } from '../../models/component-data/albums-data'
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
-  storeBindings: {
+  storeBindings: [{
     store: albumsStore,
     fields: ['albums'],
     actions: ['setAlbums'],
-  },
+  }],
 
   lifetimes: {
     attached: async function() {
