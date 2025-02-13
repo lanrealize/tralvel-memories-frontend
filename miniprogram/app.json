@@ -1,12 +1,4 @@
 {
-  "renderer": "skyline",
-  "rendererOptions": {
-      "skyline": {
-          "disableABTest": true,
-          "defaultDisplayBlock": true
-      }
-  },
-
   "pages": [
     "pages/index/index"
   ],
