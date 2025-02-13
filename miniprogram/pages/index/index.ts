@@ -1,21 +1,25 @@
 // index.ts
-import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { generalStore } from '../../stores/generalStore';
 
+Page({
 
-ComponentWithStore({
-  storeBindings: [
-    {
-      store: generalStore,
-      fields: ['loginStatus'],
-      actions: {setLoginStatus: 'setLoginStatus'}
-    }],
+  storageBinding: undefined as any,
 
   data: {
     
   },
+
   methods: {
 
   },
+
+  onLoad() {
+    this.storageBinding = createStoreBindings(this, {
+      store: generalStore,
+      fields: ['loginStatus'],
+      actions: {setLoginStatus: 'setLoginStatus'}
+    });
+  }
 
 })
