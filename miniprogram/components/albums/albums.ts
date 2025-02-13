@@ -1,8 +1,17 @@
 // components/albums/albums.ts
 import { getAlbums } from '../../utils/apis';
 import { mockWxLogin } from '../../utils/utils';
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { albumsStore } from '../../stores/albumsStore'
+import { AlbumsComponentData } from '../../models/component-data/albums-data'
 
-Component({
+ComponentWithStore<any, AlbumsComponentData, any, any, any>({
+
+  storeBindings: {
+    store: albumsStore,
+    fields: ['albums'],
+    actions: ['setAlbums'],
+  },
 
   lifetimes: {
     attached: async function() {
@@ -34,8 +43,7 @@ Component({
     spacing: 6,
     radius: 3,
     width: 6,
-    height: 5,
-    albums: [] as object[]
+    height: 5
   },
 
   /**
@@ -50,12 +58,6 @@ Component({
       const offsetInPx = (windowHeight * offsetInVh) / 100;
       this.setData({
         offsetValue: [0, offsetInPx]
-      });
-    },
-
-    setAlbums(albums: any): void {
-      this.setData({
-        'albums': albums
       });
     },
 
