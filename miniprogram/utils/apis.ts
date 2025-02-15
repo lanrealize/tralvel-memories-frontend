@@ -32,13 +32,9 @@ export const postAlbum = async (
   })
 }
 
-export const getAlbums = async (): Promise<{ images: { imageUrl: string }[] }[]> => {
+export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: string }[] }[]> => {
   return new Promise((resolve, reject) => {
     try {
-      let openID = wx.getStorageSync('openID');
-      if (!openID) {
-        reject('Without openID');
-      }
       wx.request({
         url: devUrlPrefix + '/users/' + openID + '/albums',
         method: 'GET',

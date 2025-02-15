@@ -11,7 +11,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
     {
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation'],
-      actions: ['setImageCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation']
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation']
     }
   ],
 
@@ -39,19 +39,19 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   methods: {
 
     onCancelClick() {
-      this.setImageCreationComponentTop(0);
+      this.setPhotoCreationComponentTop(100);
     },
 
     async onPublishClick() {
       if (this.data.isCreating) { return; }
       this.setIsCreating(true);
       try {
-        if (this.data.page == "albums") {
-          // Step 0: Post album and photo
+        if (this.data.page == "index") {
+          // Step 1: Post album and photo
           const openID = wx.getStorageSync('openID');
           const albumID = await postAlbum(openID, generateMockAlbumTitle()) as string;
           await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, 'test');
-          // Step 1: Adjust display
+          // Step 2: Adjust display
           this.setImageCreationComponentTop(100);
           wx.navigateTo({ url: '/pages/photos/photos' });
         } else if (this.data.page == "photos") {

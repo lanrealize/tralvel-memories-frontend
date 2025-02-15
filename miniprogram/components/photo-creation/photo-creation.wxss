@@ -62,14 +62,14 @@
 }
 
 .photo-creation-image {
-  padding-left: 8vw;
-  padding-top: 4.5vh;
-  height: 30vh;
-  width: 30vh;
+  padding-left: 6vw;
+  padding-top: 3vh;
+  height: 88vw;
+  width: 88vw;
 }
 
 .photo-creation-time-picker {
-  margin-top: 6vh;
+  margin-top: 5vh;
 }
 
 .photo-creation-location {
@@ -87,7 +87,7 @@
 
 .photo-creation-location-text {
   grid-area: location-text;
-  margin-left: 4.95vw;
+  margin-left: 6.95vw;
 }
 
 .photo-creation-copyright {

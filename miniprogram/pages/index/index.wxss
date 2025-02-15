@@ -52,3 +52,9 @@ page {
   line-height: 1.8vh;
   color: rgba(56, 56, 56, 1);
 }
+
+.albums-photo-creation {
+  border-radius: 2vh;
+  position: fixed;
+  transition: top 0.8s cubic-bezier(.2, 1, 0, 1);
+}

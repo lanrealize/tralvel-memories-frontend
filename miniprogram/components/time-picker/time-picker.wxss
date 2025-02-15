@@ -4,7 +4,7 @@
   padding-right: 8vw;
 
   display: grid;
-  grid-template-columns: 6vw 3vw 78vw;
+  grid-template-columns: 6vw 5vw 76vw;
   grid-template-areas: "picker-icon . picker-date";
 }
 
