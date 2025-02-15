@@ -48,9 +48,8 @@ ComponentWithStore<any, TimePickerComponentData, any, any, any>({
     },
 
     bindChange(event: any) {
-      // const indices = event.detail.value;
-
-      // this.setPhoteCreationTime(concateDateStrings(this.data.years[indices[0]], this.data.months[indices[1]], this.data.days[indices[2]], this.data.hours[indices[3]], this.data.minutes[indices[4]]));
+      const indices = event.detail.value;
+      this.setPhotoCreationTime(indices);
     }
   },
 

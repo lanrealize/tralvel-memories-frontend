@@ -10,7 +10,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   storeBindings: [
     {
       store: photoCreationStore,
-      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation'],
+      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime'],
       actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation']
     }
   ],
