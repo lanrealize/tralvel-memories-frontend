@@ -3,6 +3,5 @@ export interface TimePickerComponentData {
   months: string[],
   days: string[],
   hours: string[],
-  minutes: string[],
-  value: number[]
+  minutes: string[]
 }

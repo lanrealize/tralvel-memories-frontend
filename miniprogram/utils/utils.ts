@@ -116,3 +116,15 @@ export const getCurrentTime = () => {
 export const concateDateStrings = (year: string, month: string, day: string, hour: string, minute: string) => {
   return `${year}/${month}/${day}/${hour}/${minute}`
 }
+
+export const getIndicesFromDate = (date: string) => {
+  const dateArray = date.split('/');
+  const dateSelections = getDateSelections();
+  return [
+    dateSelections.years.indexOf(dateArray[0]),
+    dateSelections.months.indexOf(dateArray[1]),
+    dateSelections.days.indexOf(dateArray[2]),
+    dateSelections.hours.indexOf(dateArray[3]),
+    dateSelections.minutes.indexOf(dateArray[4])
+  ]
+}
