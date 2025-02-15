@@ -1,7 +1,18 @@
 // components/time-picker/time-picker.
 import { getDateSelections, getCurrentTime, concateDateStrings } from "../../utils/utils"
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { photoCreationStore } from '../../stores/photoCreationStore'
+import { TimePickerComponentData } from '../../models/component-model/time-picker-model'
 
-Component({
+ComponentWithStore<any, TimePickerComponentData, any, any, any>({
+
+  storeBindings: [
+    {
+      store: photoCreationStore,
+      fields: ['photeCreationTime'],
+      actions: ['setPhoteCreationTime']
+    }
+  ],
 
   /**
    * 组件的属性列表
@@ -61,8 +72,8 @@ Component({
 
     bindChange(event: any) {
       // const indices = event.detail.value;
-      // const app: IAppOption = getApp();
-      // app.setPhotoCreationTimestamp(concateDateStrings(this.data.years[indices[0]], this.data.months[indices[1]], this.data.days[indices[2]], this.data.hours[indices[3]], this.data.minutes[indices[4]]));
+
+      // this.setPhoteCreationTime(concateDateStrings(this.data.years[indices[0]], this.data.months[indices[1]], this.data.days[indices[2]], this.data.hours[indices[3]], this.data.minutes[indices[4]]));
     }
   },
 

@@ -76,7 +76,7 @@ export const chooseImage = (): Promise<string> => {
   })
 }
 
-export const generateMockAlbumTitle = () => {
+export const generateAlbumTitle = () => {
   return "Temp Album Title"
 }
 

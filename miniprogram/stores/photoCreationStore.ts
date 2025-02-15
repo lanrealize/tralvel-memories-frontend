@@ -1,4 +1,5 @@
 import { action, observable } from "mobx-miniprogram";
+import { getCurrentTime } from "../utils/utils"
 
 export const photoCreationStore = observable({
 
@@ -23,10 +24,17 @@ export const photoCreationStore = observable({
     }
   ),
 
-  photeCreationLocation: "",
+  photeCreationLocation: "上海",
   setPhoteCreationLocation: action(
     (photeCreationLocation: string) => {
       photoCreationStore.photeCreationLocation = photeCreationLocation
+    }
+  ),
+
+  photeCreationTime: getCurrentTime(),
+  setPhoteCreationTime: action(
+    (photeCreationTime: string) => {
+      photoCreationStore.photeCreationTime = photeCreationTime
     }
   ),
 

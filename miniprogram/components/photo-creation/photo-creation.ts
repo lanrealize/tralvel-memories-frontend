@@ -2,7 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
-import { generateMockAlbumTitle } from '../../utils/utils'
+import { generateAlbumTitle } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
