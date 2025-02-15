@@ -1,5 +1,5 @@
 // components/time-picker/time-picker.
-import { getDateSelections, getCurrentTime, concateDateStrings } from "../../utils/utils"
+import { getDateSelections, getCurrentTime, getIndicesFromDate } from "../../utils/utils"
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { TimePickerComponentData } from '../../models/component-model/time-picker-model'
@@ -47,28 +47,6 @@ ComponentWithStore<any, TimePickerComponentData, any, any, any>({
       })
     },
 
-    setValue(date: string) {
-      const indices = this.getIndicesFromDate(date);
-      if (JSON.stringify(indices) === JSON.stringify(this.data.value)) {
-        return;
-      } else {
-        this.setData({
-          value: indices
-        });
-      }
-    },
-
-    getIndicesFromDate(date: string) {
-      const dateArray = date.split('/');
-      return [
-        this.data.years.indexOf(dateArray[0]),
-        this.data.months.indexOf(dateArray[1]),
-        this.data.days.indexOf(dateArray[2]),
-        this.data.hours.indexOf(dateArray[3]),
-        this.data.minutes.indexOf(dateArray[4])
-      ]
-    },
-
     bindChange(event: any) {
       // const indices = event.detail.value;
 
@@ -79,7 +57,7 @@ ComponentWithStore<any, TimePickerComponentData, any, any, any>({
   lifetimes: {
     attached() {
       this.setDateinitialSelections();
-      console.log(this.data.photoCreationTime)
+      this.setPhotoCreationTime(getIndicesFromDate(getCurrentTime()));
     }
   }
 })
