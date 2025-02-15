@@ -76,8 +76,10 @@ export const chooseImage = (): Promise<string> => {
   })
 }
 
-export const generateAlbumTitle = () => {
-  return "Temp Album Title"
+export const generateAlbumTitle = (date: number[], location: string) => {
+  const timestamp = getDatefromIndices(date).split('/');
+  return timestamp[0] + '年' + timestamp[1] + '月' + ' ' + location;
+  
 }
 
 /**
@@ -127,4 +129,15 @@ export const getIndicesFromDate = (date: string) => {
     dateSelections.hours.indexOf(dateArray[3]),
     dateSelections.minutes.indexOf(dateArray[4])
   ]
+}
+
+export const getDatefromIndices = (indices: number[]) => {
+  const dateSelections = getDateSelections();
+  return concateDateStrings(
+    dateSelections.years[indices[0]], 
+    dateSelections.months[indices[1]], 
+    dateSelections.days[indices[2]], 
+    dateSelections.hours[indices[3]], 
+    dateSelections.minutes[indices[4]]
+  )
 }
