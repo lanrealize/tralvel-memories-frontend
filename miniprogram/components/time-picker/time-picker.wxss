@@ -24,6 +24,7 @@
 .time-picker-column-item {
   line-height: 3vh;
   text-align: center;
+  color: #A6A6A6;
 }
 
 .time-picker-indicator {
@@ -48,6 +49,7 @@
 .time-picker-p {
   margin: auto;
   line-height: 3vh;
+  color: #A6A6A6;
 }
 
 .time-picker-seperate-line {

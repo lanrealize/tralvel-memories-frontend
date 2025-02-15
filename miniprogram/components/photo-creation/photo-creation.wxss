@@ -76,9 +76,8 @@
   padding-top: 2.5vh;
   padding-left: 8vw;
   padding-right: 8vw;
-  display: grid;
-  grid-template-columns: 6vw 5vw 73vw;
-  grid-template-areas: "location-icon . location-text";
+  display: flex;
+  align-items: center;
 }
 
 .photo-creation-location-icon {
@@ -89,7 +88,7 @@
 
 .photo-creation-location-text {
   grid-area: location-text;
-  padding-top: 0.1vh;
+  margin-left: 5.2vw;
 }
 
 .photo-creation-copyright {
