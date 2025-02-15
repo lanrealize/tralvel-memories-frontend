@@ -4,6 +4,7 @@ import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
 import { generateAlbumTitle, getDatefromIndices } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
+import { albumsStore } from '../../stores/albumsStore';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
@@ -49,14 +50,17 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
         if (this.data.page == "index") {
           // Step 1: Post album and photo
           const openID = wx.getStorageSync('openID');
+          console.log(openID);
+          console.log(generateAlbumTitle(this.data.photoCreationTime, this.data.photeCreationLocation));
           const albumID = await postAlbum(
             openID, 
             generateAlbumTitle(this.data.photoCreationTime, this.data.photeCreationLocation)
-            ) as string;
-          await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
-          // Step 2: Adjust display
-          this.setImageCreationComponentTop(100);
-          wx.navigateTo({ url: '/pages/photos/photos' });
+          ) as string;
+          console.log(albumID);
+          // await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
+          // // Step 2: Adjust display
+          // this.setImageCreationComponentTop(100);
+          // wx.navigateTo({ url: '/pages/photos/photos' });
         } else if (this.data.page == "photos") {
             console.log("Need to be done.")
         } else {

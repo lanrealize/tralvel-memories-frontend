@@ -60,9 +60,8 @@ Page({
   },
 
   async receiveLoginSuccess() {
-    console.log('a');
     await this.updateAlubms();
-    if (0 === (this as any).data.albums.length) {
+    if (1 === (this as any).data.albums.length) {
       const photoPath = await chooseImage();
       (this as any).setPhotoCreationPath(photoPath);
       (this as any).setPhotoCreationComponentTop(0);

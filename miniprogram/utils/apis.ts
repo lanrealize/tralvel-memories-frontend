@@ -9,7 +9,6 @@ import { devUrlPrefix } from "../configs/network";
 export const postAlbum = async (
   openID: string, 
   title: string) => {
-  
   return new Promise((resolve, reject) => {
     try {
       wx.request({
