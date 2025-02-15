@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "time-picker": "/components/time-picker/time-picker",
+    "busy-indicator": "/components/busy-indicator/busy-indicator"
+  }
+}

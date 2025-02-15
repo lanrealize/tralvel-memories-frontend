@@ -1,22 +1,17 @@
 // components/backgroud-video/background-video.ts
 import { wxLogin } from "../../utils/utils";
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { albumsStore } from '../../stores/albumsStore'
 import { generalStore } from '../../stores/generalStore'
 
 ComponentWithStore({
 
   storeBindings: [
     {
-      store: albumsStore,
-      fields: ['albums'],
-      actions: {setAlbums: 'setAlbums'}
-    },
-    {
       store: generalStore,
       fields: ['loginStatus'],
       actions: {setLoginStatus: 'setLoginStatus'}
-    }],
+    }
+  ],
 
   /**
    * 组件的属性列表
@@ -43,6 +38,7 @@ ComponentWithStore({
         const openID = await wxLogin();
         console.log(openID);
         (this as any).setLoginStatus(true);
+        this.triggerEvent('onLoginSuccess');
       } catch (e) {
         console.log("Login failed: " + e);
       } finally {

@@ -2,7 +2,8 @@
 
 interface IAppOption {
   globalData: {
-    userInfo?: WechatMiniprogram.UserInfo,
+    navigationInfo?: any
   }
-  userInfoReadyCallback?: WechatMiniprogram.GetUserInfoSuccessCallback,
+
+  setNavigationInfo?: any
 }

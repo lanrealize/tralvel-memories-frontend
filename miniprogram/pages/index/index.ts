@@ -30,18 +30,7 @@ Page({
         actions: ['setAlbums']
       }
     );
-
-
-    await this.updateAlubms();
-    // Promise.resolve().then(() => {
-    //   this.updateAlubms();
-    //   console.log(this.data);
-    // });
-
-    setTimeout(() => {
-      console.log(this.data.albums)
-    }, 0);
-
+ 
   },
 
   onUnload() {
@@ -54,9 +43,15 @@ Page({
       const albumList = await getAlbums();
       (this as any).setAlbums(albumList);
       this.albumsStorageBinding.updateStoreBindings();
-      console.log((this as any).data.albums);
     } catch (e) {
       throw (e);
+    }
+  },
+
+  async receiveLoginSuccess() {
+    await this.updateAlubms();
+    if ((this as any).data.albums.length = 0) {
+      
     }
   }
 

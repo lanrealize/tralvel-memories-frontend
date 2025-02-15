@@ -3,7 +3,7 @@ import { getAlbums } from '../../utils/apis';
 import { mockWxLogin } from '../../utils/utils';
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { albumsStore } from '../../stores/albumsStore'
-import { AlbumsComponentData } from '../../models/component-data/albums-data'
+import { AlbumsComponentData } from '../../models/component-model/albums-model'
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 

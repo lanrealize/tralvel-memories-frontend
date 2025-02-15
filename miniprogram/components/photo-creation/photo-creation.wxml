@@ -1,0 +1,27 @@
+<!--components/photo-creation/photo-creation.wxml-->
+<view class="photo-creation-root">
+  <view class="photo-creation-title" style="padding-top: {{menuTop}}px; height: {{menuHeight}}px;"></view>
+  <view class="photo-creation-actions">
+    <view class="photo-creation-cancel" style="line-height: {{menuHeight}}px; display: flex;">
+      <view style="margin: auto;" bindtap="onCancelClick">取消</view>
+    </view>
+    <view class="photo-creation-submit"  bindtap="onPublishClick" style="line-height: {{menuHeight}}px; display: flex; align-items: center ;">
+      <busy-indicator wx:if="{{isCreating}}"></busy-indicator>
+      <view style="margin: auto;">添加</view>
+    </view>
+  </view>
+  <view class="photo-creation-description">{{photeCreationDescription}}...</view>
+  <view class="photo-creation-description-action">
+    <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image>
+    <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
+    <busy-indicator wx:if="{{isRefreshing}}"></busy-indicator>
+  </view>
+  <image src="{{photoCreationPath}}" class="photo-creation-image" mode="aspectFill"></image>
+  <view class="photo-creation-time-picker">
+    <time-picker></time-picker>
+  </view>
+  <view class="photo-creation-location">
+    <image src="/assets/icons/location.svg" class="photo-creation-location-icon"></image>
+    <view class="photo-creation-location-text"><input placeholder="请输入位置信息" value="{{photeCreationLocation}}" bindinput="onLocationInput" /></view>
+  </view>
+</view>

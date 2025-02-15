@@ -1,0 +1,36 @@
+<!--components/time-picker/time-picker.wxml-->
+<view class="time-picker-root">
+  <image class="time-picker-icon" src="/assets/icons/date.svg"></image>
+
+  <picker-view indicator-class="time-picker-indicator" class="time-picker-date" value="{{value}}" bindchange="bindChange">
+    <picker-view-column style="flex: 0 0 24%;">
+      <view wx:for="{{years}}" wx:for-item="year" wx:key="key" wx:for-index="index" class="time-picker-column-item">
+        {{year}}年
+      </view>
+    </picker-view-column>
+    <p class="time-picker-p">/</p>
+    <picker-view-column style="flex: 0 0 19%;">
+      <view wx:for="{{months}}" wx:for-item="month" wx:key="key" wx:for-index="index" class="time-picker-column-item">
+        {{month}}月
+      </view>
+    </picker-view-column>
+    <p class="time-picker-p">/</p>
+    <picker-view-column style="flex: 0 0 19%;">
+      <view wx:for="{{days}}" wx:for-item="day" wx:key="key" wx:for-index="index" class="time-picker-column-item">
+        {{day}}日
+      </view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{hours}}" wx:for-item="hour" wx:key="key" wx:for-index="index" class="time-picker-column-item">
+        {{hour}}
+      </view>
+    </picker-view-column>
+    <p class="time-picker-p">:</p>
+    <picker-view-column>
+      <view wx:for="{{minutes}}" wx:for-item="minute" wx:key="key" wx:for-index="index" class="time-picker-column-item">
+        {{minute}}
+      </view>
+    </picker-view-column>
+  </picker-view>
+
+</view>

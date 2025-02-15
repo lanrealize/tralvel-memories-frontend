@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/photos/photos"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -10,5 +11,4 @@
   "style": "v2",
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents"
-  
 }

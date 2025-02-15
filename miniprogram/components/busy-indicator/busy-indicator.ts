@@ -8,6 +8,10 @@ Component({
     size: {
       type: Number,
       value: 1
+    },
+    lineHeight: {
+      type: Number,
+      value: 100
     }
   },
 
