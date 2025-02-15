@@ -54,7 +54,7 @@
 
 .time-picker-seperate-line {
   margin: auto;
-  background-color: gray;
+  background-color: #A6A6A6;
   width: 0.3vw;
   height: 1.5vh;
 }

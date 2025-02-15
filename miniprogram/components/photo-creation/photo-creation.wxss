@@ -74,21 +74,20 @@
 
 .photo-creation-location {
   padding-top: 2.5vh;
-  padding-left: 8vw;
+  padding-left: 7.75vw;
   padding-right: 8vw;
   display: flex;
   align-items: center;
 }
 
 .photo-creation-location-icon {
-  width: 6vw;
-  height: 6vw;
-  grid-area: location-icon;
+  width: 6.5vw;
+  height: 6.5vw;
 }
 
 .photo-creation-location-text {
   grid-area: location-text;
-  margin-left: 5.2vw;
+  margin-left: 4.95vw;
 }
 
 .photo-creation-copyright {
