@@ -2,7 +2,7 @@
 <view class="time-picker-root">
   <image class="time-picker-icon" src="/assets/icons/date.svg"></image>
 
-  <picker-view indicator-class="time-picker-indicator" class="time-picker-date" value="{{photeCreationTime}}" bindchange="bindChange">
+  <picker-view indicator-class="time-picker-indicator" class="time-picker-date" value="{{photoCreationTime}}" bindchange="bindChange">
     <picker-view-column style="flex: 0 0 24%;">
       <view wx:for="{{years}}" wx:for-item="year" wx:key="key" wx:for-index="index" class="time-picker-column-item">
         {{year}}年
