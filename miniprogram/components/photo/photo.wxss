@@ -9,8 +9,8 @@
 }
 
 .tm-photo-title-container {
-  margin-left: 5vw;
-  margin-right: 5vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,7 +22,7 @@
   line-height: 27.44px;
   color: rgba(0, 0, 0, 1);
   display: inline-block; */
-  font-size: 30rpx;
+  font-size: 33rpx;
   font-weight: 600;
   line-height: 27.44px;
   color: black;
@@ -41,13 +41,17 @@
 .tm-photo-more-icon {
   width: 6.2vw;
   height: 6.2vw;
+  margin-bottom: 0.5vh;
 }
 
 .tm-photo-photo {
-  width: 100vw;
-  margin-top: 1.5vh;
-  /* margin-bottom: 1.5vh; */
-  margin-bottom: 3.5vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  width: 95vw;
+  margin-top: 1.3vh;
+  margin-bottom: 0.8vh;
+  border-radius: 15rpx;
+  /* margin-bottom: 3.5vh; */
 }
 
 .tm-photo-photo-vertical {
@@ -63,7 +67,7 @@
   font-weight: 400;
   line-height: 3vh;
   color: rgba(128, 128, 128, 1);
-  margin-left: 5vw;
-  margin-right: 5vw;
-  /* margin-bottom: 4vh; */
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-bottom: 4vh;
 }
