@@ -3,6 +3,7 @@
     "background-video": "/components/backgroud-video/background-video",
     "albums": "/components/albums/albums",
     "album": "/components/album/album",
-    "photo-creation": "/components/photo-creation/photo-creation"
+    "photo-creation": "/components/photo-creation/photo-creation",
+    "photo": "/components/photo/photo"
   }
 }

@@ -61,7 +61,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
         } else if (this.data.page == "photos") {
             console.log("Need to be done.")
         } else {
-          throw("Publish photo failed: not 'albums' or 'photos'.")
+          throw("Publish photo failed: not 'index' or 'photos'.")
         }
       } catch (e) {
         console.log(e);
