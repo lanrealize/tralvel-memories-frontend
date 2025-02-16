@@ -7,7 +7,6 @@
       <view class="tm-photo-main-title">21:07</view>
       <view class="tm-photo-sub-title">2024年12月21日</view>
     </view>
-    <!-- <image src="/assets/icons/more.svg" class="tm-photo-more-icon" bindtap="onMoreClick"></image> -->
   </view>
   <image src="http://images.wltech-service.site/Cat%20Datong.jpg" class="tm-photo-photo-horizontal tm-photo-photo" mode="aspectFill"></image>
   <view class="tm-photo-description">记得离家那一日，我曾蹲在花台旁。</view>
@@ -18,7 +17,6 @@
       <view class="tm-photo-main-title">21:07</view>
       <view class="tm-photo-sub-title">2024年12月21日</view>
     </view>
-    <!-- <image src="/assets/icons/more.svg" class="tm-photo-more-icon" bindtap="onMoreClick"></image> -->
   </view>
   <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
   <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
@@ -29,7 +27,6 @@
       <view class="tm-photo-main-title">21:07</view>
       <view class="tm-photo-sub-title">2024年12月21日</view>
     </view>
-    <!-- <image src="/assets/icons/more.svg" class="tm-photo-more-icon" bindtap="onMoreClick"></image> -->
   </view>
   <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
   <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
@@ -40,7 +37,6 @@
       <view class="tm-photo-main-title">21:07</view>
       <view class="tm-photo-sub-title">2024年12月21日</view>
     </view>
-    <!-- <image src="/assets/icons/more.svg" class="tm-photo-more-icon" bindtap="onMoreClick"></image> -->
   </view>
   <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
   <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>

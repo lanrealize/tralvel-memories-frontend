@@ -17,11 +17,6 @@
 }
 
 .tm-photo-main-title {
-  /* font-size: 40rpx;
-  font-weight: 700;
-  line-height: 27.44px;
-  color: rgba(0, 0, 0, 1);
-  display: inline-block; */
   font-size: 33rpx;
   font-weight: 600;
   line-height: 27.44px;
@@ -38,20 +33,10 @@
   margin-left: 2vw;
 }
 
-.tm-photo-more-icon {
-  width: 6.2vw;
-  height: 6.2vw;
-  margin-bottom: 0.5vh;
-}
-
 .tm-photo-photo {
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
-  width: 95vw;
+  width: 100vw;
   margin-top: 1.3vh;
-  margin-bottom: 0.8vh;
-  border-radius: 15rpx;
-  /* margin-bottom: 3.5vh; */
+  margin-bottom: 1.0vh;
 }
 
 .tm-photo-photo-vertical {
@@ -59,7 +44,7 @@
 }
 
 .tm-photo-photo-horizontal {
-  height: 60vw;
+  height: 70vw;
 }
 
 .tm-photo-description {
