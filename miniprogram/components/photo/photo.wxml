@@ -1,44 +1,47 @@
 <!--components/photo/photo.wxml-->
-<view style="height: 15vh;"></view>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh;">
-  <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
-  <view class="tm-photo-title-container">
-    <view>
-      <view class="tm-photo-main-title">21:07</view>
-      <view class="tm-photo-sub-title">2024年12月21日</view>
+<view style="display: flex; flex-direction: column; height: 100vh;">
+  <view class="tm-photo-top-menu"></view>
+  <scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; position: absolute; top: 0; z-index: 1;">
+    <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
+    <view style="height: 15vh;"></view>
+    <view class="tm-photo-title-container">
+      <view>
+        <view class="tm-photo-main-title">21:07</view>
+        <view class="tm-photo-sub-title">2024年12月21日</view>
+      </view>
     </view>
-  </view>
-  <image src="http://images.wltech-service.site/Cat%20Datong.jpg" class="tm-photo-photo-horizontal tm-photo-photo" mode="aspectFill"></image>
-  <view class="tm-photo-description">记得离家那一日，我曾蹲在花台旁。</view>
-  
+    <image src="http://images.wltech-service.site/Cat%20Datong.jpg" class="tm-photo-photo-horizontal tm-photo-photo" mode="aspectFill"></image>
+    <view class="tm-photo-description">记得离家那一日，我曾蹲在花台旁。</view>
+    
 
-  <view class="tm-photo-title-container">
-    <view>
-      <view class="tm-photo-main-title">21:07</view>
-      <view class="tm-photo-sub-title">2024年12月21日</view>
+    <view class="tm-photo-title-container">
+      <view>
+        <view class="tm-photo-main-title">21:07</view>
+        <view class="tm-photo-sub-title">2024年12月21日</view>
+      </view>
     </view>
-  </view>
-  <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-  <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
-  
+    <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
+    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    
 
-  <view class="tm-photo-title-container">
-    <view>
-      <view class="tm-photo-main-title">21:07</view>
-      <view class="tm-photo-sub-title">2024年12月21日</view>
+    <view class="tm-photo-title-container">
+      <view>
+        <view class="tm-photo-main-title">21:07</view>
+        <view class="tm-photo-sub-title">2024年12月21日</view>
+      </view>
     </view>
-  </view>
-  <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-  <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
-  
+    <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
+    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    
 
-  <view class="tm-photo-title-container">
-    <view>
-      <view class="tm-photo-main-title">21:07</view>
-      <view class="tm-photo-sub-title">2024年12月21日</view>
+    <view class="tm-photo-title-container">
+      <view>
+        <view class="tm-photo-main-title">21:07</view>
+        <view class="tm-photo-sub-title">2024年12月21日</view>
+      </view>
     </view>
-  </view>
-  <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-  <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
-  <view style="height: 15vh;"></view>
-</scroll-view>
+    <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
+    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    <view style="height: 15vh;"></view>
+  </scroll-view>
+</view>
