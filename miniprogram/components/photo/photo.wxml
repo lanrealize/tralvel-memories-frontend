@@ -1,9 +1,9 @@
 <!--components/photo/photo.wxml-->
 <view style="display: flex; flex-direction: column; height: 100vh;">
-  <view class="tm-photo-top-menu"></view>
-  <scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; position: absolute; top: 0; z-index: 1;">
+  <scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;">
     <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
-    <view style="height: 15vh;"></view>
+    <view style="height: 17vh;"></view>
+    <view class="test">文章 3</view>
     <view class="tm-photo-title-container">
       <view>
         <view class="tm-photo-main-title">21:07</view>
@@ -21,7 +21,7 @@
       </view>
     </view>
     <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    <view class="tm-photo-description">我开始没有了期待，但如果你来，我一定会喜笑颜开。</view>
     
 
     <view class="tm-photo-title-container">
@@ -31,7 +31,7 @@
       </view>
     </view>
     <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    <view class="tm-photo-description">看烟花，看山河，看鼓楼……</view>
     
 
     <view class="tm-photo-title-container">
@@ -41,7 +41,7 @@
       </view>
     </view>
     <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">看鼓楼，看山川，看大海。</view>
+    <view class="tm-photo-description">最近认识了很多人，但我知道他们都不是你。</view>
     <view style="height: 15vh;"></view>
   </scroll-view>
 </view>

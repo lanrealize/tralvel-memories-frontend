@@ -1,0 +1,7 @@
+<!--components/photos-top-menu/photos-top-menu.wxml-->
+<view class="tm-photos-top-menu-root">
+  <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
+    <p>{{title}}</p>
+    <image src="/assets/icons/home.svg" class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image>
+  </view>
+</view>

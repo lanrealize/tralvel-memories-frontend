@@ -1,0 +1,42 @@
+/* components/photos-top-menu/photos-top-menu.wxss */
+/* .tm-photos-top-menu-root {
+  height: 17vh;
+  width: 100vw;
+  opacity: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: blur(1px);
+  position: absolute; 
+  top: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+.tm-photos-top-menu-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
+  width: 100vw;
+}
+
+.tm-photos-top-menu-sub-root {
+  display: flex; 
+  align-items: center; 
+  color: white; 
+  font-size: 36rpx; 
+  font-weight: 600;
+  margin-right: 3vw;
+}
+
+.tm-photos-top-menu-home-icon {
+  left: 6vw;
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  /* padding-bottom: 0.5vw; */
+}

@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "photo": "/components/photo/photo",
+    "photos-top-menu": "/components/photos-top-menu/photos-top-menu"
+  },
+  "window": {
+    "navigationBarTextStyle": "white"
+  }
 }
+

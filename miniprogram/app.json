@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/photos/photos"
+    "pages/photos/photos",
+    "pages/index/index"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationStyle": "custom"
   },
