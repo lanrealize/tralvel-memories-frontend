@@ -3,7 +3,7 @@
   <scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;">
     <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
     <view style="height: 17vh;"></view>
-    <view class="test">文章 3</view>
+    <!-- <view class="test">文章 3</view> -->
     <view class="tm-photo-title-container">
       <view>
         <view class="tm-photo-main-title">21:07</view>
