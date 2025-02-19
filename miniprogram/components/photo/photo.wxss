@@ -27,31 +27,38 @@
 }
 
 .tm-photo-main-title {
-  font-size: 33rpx;
+  /* font-size: 33rpx;
   font-weight: 600;
-  line-height: 27.44px;
+  line-height: 27.44px; */
   color: black;
   display: inline-block;
+  font-size: 32rpx;
+  font-weight: 500;
 }
 
 .tm-photo-sub-title {
-  font-size: 30rpx;
+  /* font-size: 30rpx;
   font-weight: 400;
   line-height: 27.44px;
   color: black;
+  margin-left: 2vw; */
   display: inline-block;
-  margin-left: 2vw;
+
+  font-size: 24rpx;
+  font-weight: 500;
+  padding-left: 1.5vw;
+  color: rgb(128, 128, 128)
 }
 
 .tm-photo-photo {
-  /* width: 100vw; */
+  width: 100vw;
   margin-top: 1.3vh;
   margin-bottom: 1.0vh;
   
-  margin-left: 2.5vw;
+  /* margin-left: 2.5vw;
   margin-right: 2.5vw;
   width: 95vw;
-  border-radius: 15rpx;
+  border-radius: 15rpx; */
 }
 
 .tm-photo-photo-vertical {

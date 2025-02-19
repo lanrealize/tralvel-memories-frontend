@@ -5,7 +5,7 @@
     <image src="/assets/icons/home.svg" class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image>
   </view>
   <view class="tm-photos-top-menu-options-root">
-    <view class="tm-photos-top-menu-options-grid-container">
+    <!-- <view class="tm-photos-top-menu-options-grid-container">
       <view class="tm-photos-top-menu-options-option-container tm-photos-top-menu-options-option-0" bindtap="onModeClick" data-item="normal">
         <view style="color: white;" class="tm-photos-top-menu-options-option-text">顺序浏览</view>
         <view style="width: {{widthNormal}}vh;" class="tm-photos-top-menu-options-option-selected"></view>
@@ -20,6 +20,6 @@
         <image src='/assets/icons/top.svg' class="tm-photos-top-menu-options-icon"></image>
         <image src='/assets/icons/config.svg' class="tm-photos-top-menu-options-icon"></image>
       </view>
-    </view>
+    </view> -->
   </view>
 </view>

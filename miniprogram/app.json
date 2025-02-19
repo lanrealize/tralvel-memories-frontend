@@ -5,7 +5,8 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

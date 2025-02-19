@@ -20,22 +20,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);
-  backdrop-filter: blur(3px);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
+  /* background-color: white; */
+  backdrop-filter: blur(1px);
   width: 100vw;
 }
 
 .tm-photos-top-menu-sub-root {
   display: flex; 
   align-items: center; 
-  color: white; 
-  font-size: 36rpx; 
-  font-weight: 600;
-  margin-right: 3vw;
+  color: black; 
+  font-size: 32rpx;
+  /* font-weight: 600; */
+  margin-right: 5vw;
 }
 
 .tm-photos-top-menu-home-icon {
-  left: 6vw;
+  left: 3vw;
   width: 5vw;
   height: 5vw;
   position: absolute;
@@ -43,7 +44,7 @@
 }
 
 .tm-photos-top-menu-options-root {
-  height: 6vh;
+  height: 4vh;
   width: 96.5vw;
   padding-left: 1.75vw;
   padding-right: 1.75vw;
