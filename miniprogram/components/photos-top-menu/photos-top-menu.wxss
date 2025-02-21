@@ -15,6 +15,13 @@
   justify-content: center;
 } */
 
+.tm-photos-top-menu-container-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 12.4vh;
+}
+
 .tm-photos-top-menu-root {
   display: flex;
   justify-content: center;
@@ -22,7 +29,7 @@
   flex-direction: column;
   background: linear-gradient(180deg, rgba(255, 255, 255, 1) 20%, rgba(255, 255, 255, 0) 100%);
   /* background-color: white; */
-  backdrop-filter: blur(1px);
+  /* backdrop-filter: blur(10px); */
   width: 100vw;
 }
 

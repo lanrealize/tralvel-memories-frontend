@@ -1,24 +1,12 @@
-<view class="container">
-    <view class="content-wrapper">
-      <view class="gradient-overlay left-overlay"
-           style="-webkit-mask-image: linear-gradient(90deg, black 40%, transparent); backdrop-filter: blur(10px);"></view>
-      <view class="gradient-overlay left-overlay"
-           style="background:  linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);"></view>
-      
-      <view class="scroll-container">
-        <view class="card"><view class="letter">A</view></view>
-        <view class="card"><view class="letter">B</view></view>
-        <view class="card"><view class="letter">C</view></view>
-        <view class="card"><view class="letter">D</view></view>
-        <view class="card"><view class="letter">E</view></view>
-        <view class="card"><view class="letter">F</view></view>
-        <view class="card"><view class="letter">G</view></view>
-        <view class="card"><view class="letter">H</view></view>
-      </view>
+<view style="padding: 2vw; max-width: 70vw; margin: 0 auto;">
+  <image src="http://images.wltech-service.site/00.jpg" style="width: 100vw; height: 35\vh;"></image>
+  <image src="http://images.wltech-service.site/00.jpg" style="width: 100vw; height: 35vh;"></image>
+  <image src="http://images.wltech-service.site/00.jpg" style="width: 100vw; height: 35vh;"></image>
+  <image src="http://images.wltech-service.site/00.jpg" style="width: 100vw; height: 35vh;"></image>
+  <image src="http://images.wltech-service.site/00.jpg" style="width: 100vw; height: 35vh;"></image>
+</view>
 
-      <view class="gradient-overlay right-overlay"
-           style="-webkit-mask-image: linear-gradient(-90deg, black 40%, transparent); backdrop-filter: blur(10px);"></view>
-      <view class="gradient-overlay right-overlay"
-           style="background: linear-gradient(-90deg, white, transparent)"></view>
-    </view>
-  </view>
+<view class="blurred-overlay">
+  <view class="outlined"></view>
+  <view class="blur"></view>
+</view>

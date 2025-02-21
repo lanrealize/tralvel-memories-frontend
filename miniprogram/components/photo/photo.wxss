@@ -1,50 +1,23 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: white;
+.blur {
+	-webkit-mask-image: linear-gradient(#000, #000, transparent);
+	backdrop-filter: blur(8px);
+  height: 50vh;
+  width: 100vw;
+  overflow: visible;
+  float: left;
 }
-
-.content-wrapper {
-  position: relative;
+.outlined {
+  height: 50vh;
+  width: 50vw;
+  position: fixed;
+  border-top: 0;
+  border-left: 0;
+  z-index: 2;
 }
-
-.scroll-container {
-  width: 720px;
-  height: 256px; /* h-64 */
-  display: flex;
-  overflow: auto;
-  padding: 3rem 6rem; /* py-12 px-24 */
-  gap: 1rem; /* gap-4 */
-}
-
-.card {
-  background-color: #f87171; /* bg-red-400 */
-  height: 7.5rem; /* h-30 */
-  width: 12rem; /* w-48 */
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.letter {
-  font-size: 4.5rem; /* text-7xl */
-  color: #b91c1c; /* text-red-700 */
-}
-
-.gradient-overlay {
-  position: absolute;
-  top: -1rem; /* -top-4 */
-  width: 6rem; /* w-24 */
-  height: 256px; /* h-64 */
-}
-
-.left-overlay {
+.blurred-overlay {
+  position: fixed;
+  top: 0;
   left: 0;
-}
-
-.right-overlay {
   right: 0;
+  z-index: 1;
 }
