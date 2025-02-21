@@ -1,47 +1,24 @@
-<!--components/photo/photo.wxml-->
-<view style="display: flex; flex-direction: column; height: 100vh;">
-  <scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;">
-    <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
-    <view style="height: 14.5vh;"></view>
-    <!-- <view class="test">文章 3</view> -->
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
+<view class="container">
+    <view class="content-wrapper">
+      <view class="gradient-overlay left-overlay"
+           style="-webkit-mask-image: linear-gradient(90deg, black 40%, transparent); backdrop-filter: blur(10px);"></view>
+      <view class="gradient-overlay left-overlay"
+           style="background:  linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%);"></view>
+      
+      <view class="scroll-container">
+        <view class="card"><view class="letter">A</view></view>
+        <view class="card"><view class="letter">B</view></view>
+        <view class="card"><view class="letter">C</view></view>
+        <view class="card"><view class="letter">D</view></view>
+        <view class="card"><view class="letter">E</view></view>
+        <view class="card"><view class="letter">F</view></view>
+        <view class="card"><view class="letter">G</view></view>
+        <view class="card"><view class="letter">H</view></view>
       </view>
-    </view>
-    <image src="http://images.wltech-service.site/00.jpg" class="tm-photo-photo-horizontal tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">记得离家那一日，我曾蹲在花台旁。</view>
-    
 
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
+      <view class="gradient-overlay right-overlay"
+           style="-webkit-mask-image: linear-gradient(-90deg, black 40%, transparent); backdrop-filter: blur(10px);"></view>
+      <view class="gradient-overlay right-overlay"
+           style="background: linear-gradient(-90deg, white, transparent)"></view>
     </view>
-    <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">我开始没有了期待，但如果你来，我一定会喜笑颜开。</view>
-    
-
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
-    </view>
-    <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">看烟花，看山河，看鼓楼……</view>
-    
-
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
-    </view>
-    <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">最近认识了很多人，但我知道他们都不是你。</view>
-    <view style="height: 15vh;"></view>
-  </scroll-view>
-</view>
+  </view>
