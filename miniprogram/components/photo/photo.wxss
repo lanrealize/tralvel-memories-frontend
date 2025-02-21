@@ -51,14 +51,14 @@
 }
 
 .tm-photo-photo {
-  width: 100vw;
+  /* width: 100vw; */
   margin-top: 1.3vh;
   margin-bottom: 1.0vh;
   
-  /* margin-left: 2.5vw;
+  margin-left: 2.5vw;
   margin-right: 2.5vw;
   width: 95vw;
-  border-radius: 15rpx; */
+  border-radius: 15rpx;
 }
 
 .tm-photo-photo-vertical {
