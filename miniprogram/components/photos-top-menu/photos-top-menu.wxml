@@ -3,6 +3,7 @@
   <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
     <p>{{title}}</p>
     <image src="/assets/icons/home.svg" class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image>
+    <!-- <image src="/assets/icons/updown.svg" style="left: 11vw;" class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image> -->
   </view>
   <view class="tm-photos-top-menu-options-root">
     <!-- <view class="tm-photos-top-menu-options-grid-container">
