@@ -71,10 +71,16 @@
   padding-bottom: 1.2vh;
 }
 
-.tm-photo-main-main-photo {
+.tm-photo-main-main-photo-horizontal {
   position: relative;
-  max-width: 84vw;
-  max-height: 30vh;
+  width: 88.5vw;
+  height: 30vh;
+}
+
+.tm-photo-main-main-photo-vertical {
+  position: relative;
+  width: 88.5vw;
+  height: 45vh;
 }
 
 .tm-photo-main-main-photo-cover {

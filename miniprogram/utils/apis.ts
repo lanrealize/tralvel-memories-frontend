@@ -41,15 +41,7 @@ export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: s
           type: 'createdAlbums',
         },
         success: (res: any) => {
-          const newArray = res.data.map((item: { subTitle: any; title: any; }) => {
-            const [year, location] = item.subTitle.split('·');
-            const newTitle = `${year}年${item.title}${location ? `${location}` : ''}`;
-            return {
-              ...item,
-              newTitle: newTitle
-            };
-          });
-          resolve(newArray.slice(0, 5));
+          resolve(res.data);
         },
         fail: (e) => {
           reject(e)
@@ -97,6 +89,34 @@ export const postPhoto = async (
     }
   })
 }
+
+export const getAlbumPhotos = async (openID: string, albumID: string): Promise<{ timestamp: string, imageUrl: string }[]> => {
+  return new Promise((resolve, reject) => {
+    try {
+      wx.request({
+        url: devUrlPrefix + '/users/' + openID + '/albums/' + albumID + '/pictures',
+        method: 'GET',
+        data: {
+          type: 'createdAlbums',
+        },
+        success: (res: any) => {
+          resolve(res.data)
+        },
+        fail: (e) => {
+          reject(e)
+        }
+      })
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
+/**
+ * ===============================================
+ * Words Related
+ * ===============================================
+*/
 
 export const getRandomWord = async (): Promise<string> => {
   return new Promise((resolve, reject) => {

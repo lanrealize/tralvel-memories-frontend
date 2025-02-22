@@ -54,10 +54,11 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             openID, 
             generateAlbumTitle(this.data.photoCreationTime, this.data.photeCreationLocation)
           ) as string;
+          wx.setStorageSync('albumID', albumID);
           await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
           // Step 2: Adjust display
           this.setPhotoCreationComponentTop(100);
-          wx.navigateTo({ url: '/pages/photos/photos' });
+          wx.navigateTo({ url: `/pages/photos/photos` });
         } else if (this.data.page == "photos") {
             console.log("Need to be done.")
         } else {

@@ -1,6 +1,17 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;">
+<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}">
   <view style="height: calc({{menuTop + menuHeight}}px + 5vh);"></view>
-  <photo></photo>
+  <view class="tm-general-container" style="{{style}}">
+    <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
+      <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}">
+      </photo>
+    </view>
+    <photo type="end" title="无更多内容"></photo>
+  </view>
 </scroll-view>
+
+<view class="tm-photos-loading" wx:if="{{loading}}">
+  <view class="tm-photos-loading-text">加载中</view>
+  <busy-indicator color="rgb(160, 160, 160)" size="1.5"></busy-indicator>
+</view>

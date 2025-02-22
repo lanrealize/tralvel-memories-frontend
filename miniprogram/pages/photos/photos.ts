@@ -1,22 +1,42 @@
 // pages/photos/photos.ts
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import { photosStore } from '../../stores/photosStore';
+
 Page({
+
+  photosStorageBinding: undefined as any,
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    style: 'opacity: 1; transition: opacity 0.5s ease-in-out;',
+    title: '',
+    subTitle: '',
+    loading: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
+  onLoad: async function() {
+
+    this.photosStorageBinding = createStoreBindings(this, 
+      {
+        store: photosStore,
+        fields: ['photos'],
+        actions: ['updatePhotos', 'reversePhotos']
+      }
+    );
+
     const app: IAppOption = getApp();
     this.setData({
       menuHeight: app.globalData.navigationInfo.menuHeight,
       menuTop: app.globalData.navigationInfo.menuTop,
-    })
+    });
+
+    await this.updatePhotosOnPage();
+
   },
 
   /**
@@ -44,7 +64,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-
+    this.photosStorageBinding.destroy();
   },
 
   /**
@@ -66,5 +86,25 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  async updatePhotosOnPage() {
+    const openID =wx.getStorageSync('openID');
+    const albumID =wx.getStorageSync('albumID');
+    (this as any).updatePhotos(openID, albumID);
+    this.setFadeInOut();
+
+  },
+
+  setFadeInOut() {
+    this.setData({
+      style: 'opacity: 0;'
+    });
+    wx.nextTick(() => {
+      this.setData({
+        style: 'opacity: 1; transition: opacity 0.5s ease-in-out;'
+      });
+    })
   }
+
 })

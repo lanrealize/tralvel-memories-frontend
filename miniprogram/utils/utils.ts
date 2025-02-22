@@ -79,7 +79,6 @@ export const chooseImage = (): Promise<string> => {
 export const generateAlbumTitle = (date: number[], location: string) => {
   const timestamp = getDatefromIndices(date).split('/');
   return timestamp[0] + '年' + timestamp[1] + '月' + ' ' + location;
-  
 }
 
 /**
@@ -140,4 +139,9 @@ export const getDatefromIndices = (indices: number[]) => {
     dateSelections.hours[indices[3]], 
     dateSelections.minutes[indices[4]]
   )
+}
+
+export const parseDate = (dateString: string) => {
+  const [year, month, day, hours, minutes] = dateString.split('/').map(Number);
+  return new Date(year, month - 1, day, hours, minutes);
 }

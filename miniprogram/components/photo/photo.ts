@@ -36,6 +36,10 @@ Component({
     photoUrls: {
       type: Array,
       value: []
+    },
+    photoOrientation: {
+      type: String,
+      value: ''
     }
   },
 

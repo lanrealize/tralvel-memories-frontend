@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/photos/photos",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/photos/photos"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",

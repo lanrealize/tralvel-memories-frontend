@@ -12,7 +12,7 @@
     <view class="tm-photo-main-line"></view>
     <view class="tm-photo-main-main">
       <view class="tm-photo-main-main-text">{{description}}</view>
-      <image src="{{photoUrl}}" mode="aspectFill" class="tm-photo-main-main-photo" bindtap="previewImage" bindlongpress="onLongPress">
+      <image src="{{photoUrl}}" mode="aspectFill" class="{{photoOrientation === 'horizontal' ? 'tm-photo-main-main-photo-horizontal' : 'tm-photo-main-main-photo-vertical'}}" bindtap="previewImage" bindlongpress="onLongPress">
         <view class="tm-photo-main-main-photo-cover" style="opacity: {{opacity}}; pointer-events: {{opacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
           <view style="margin: auto; display: flex; flex-direction: column;">
             <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick"></image>

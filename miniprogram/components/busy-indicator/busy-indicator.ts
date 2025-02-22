@@ -12,6 +12,10 @@ Component({
     lineHeight: {
       type: Number,
       value: 100
+    },
+    color: {
+      type: String,
+      value: "white"
     }
   },
 

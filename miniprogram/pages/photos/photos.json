@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "photo": "/components/photo/photo",
-    "photos-top-menu": "/components/photos-top-menu/photos-top-menu"
+    "photos-top-menu": "/components/photos-top-menu/photos-top-menu",
+    "busy-indicator": "/components/busy-indicator/busy-indicator"
   },
   "navigationBarTextStyle": "white"
 }
