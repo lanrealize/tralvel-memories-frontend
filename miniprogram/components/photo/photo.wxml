@@ -1,44 +1,28 @@
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;">
-    <!-- <view class="tm-photo-title">2024年9月 大同</view> -->
-    <view style="height: 15vh;"></view>
-    <!-- <view class="test">文章 3</view> -->
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
+<view class="tm-photo-root">
+  <view class="tm-photo-title tm-photo-row-container">
+    <view class="tm-photo-title-point-container">
+      <view class="tm-photo-title-point-instance"></view>
     </view>
-    <image src="http://images.wltech-service.site/00.jpg" class="tm-photo-photo-horizontal tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">记得离家那一日，我曾蹲在花台旁。</view>
-    
+    <view class="tm-photo-title-text">
+      <p>{{title}}<span class="tm-photo-title-text-subtext">{{subTitle}}</span></p>
+    </view>
+  </view>
 
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
+  <view class="tm-photo-main tm-photo-row-container" wx:if="{{type != 'end'}}">
+    <view class="tm-photo-main-line"></view>
+    <view class="tm-photo-main-main">
+      <view class="tm-photo-main-main-text">{{description}}</view>
+      <image src="{{photoUrl}}" mode="aspectFill" class="tm-photo-main-main-photo" bindtap="previewImage" bindlongpress="onLongPress">
+        <view class="tm-photo-main-main-photo-cover" style="opacity: {{opacity}}; pointer-events: {{opacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
+          <view style="margin: auto; display: flex; flex-direction: column;">
+            <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick"></image>
+          </view>
+        </view>
+      </image>
+      <view class="tm-photo-main-main-placeholder"></view>
     </view>
-    <image src="http://images.wltech-service.site/02.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">我开始没有了期待，但如果你来，我一定会喜笑颜开。</view>
-    
+  </view>
 
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
-    </view>
-    <image src="http://images.wltech-service.site/03.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">看烟花，看山河，看鼓楼……</view>
-    
+  <view class="tm-photo-end" wx:if="{{type == 'end'}}"></view>
 
-    <view class="tm-photo-title-container">
-      <view>
-        <view class="tm-photo-main-title">21:07</view>
-        <view class="tm-photo-sub-title">2024年12月21日</view>
-      </view>
-    </view>
-    <image src="http://images.wltech-service.site/04.jpg" class="tm-photo-photo-vertical tm-photo-photo" mode="aspectFill"></image>
-    <view class="tm-photo-description">最近认识了很多人，但我知道他们都不是你。</view>
-    <view style="height: 15vh;"></view>
-  </scroll-view>
+</view>

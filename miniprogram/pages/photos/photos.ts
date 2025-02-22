@@ -12,7 +12,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    const app: IAppOption = getApp();
+    this.setData({
+      menuHeight: app.globalData.navigationInfo.menuHeight,
+      menuTop: app.globalData.navigationInfo.menuTop,
+    })
   },
 
   /**
