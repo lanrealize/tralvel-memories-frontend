@@ -1,5 +1,4 @@
 <!--components/photos-top-menu/photos-top-menu.wxml-->
-<view class="tm-photos-top-menu-container-overlay" style="-webkit-mask-image: linear-gradient(90deg, black 40%, transparent); backdrop-filter: blur(10px);"></view>
 <view class="tm-photos-top-menu-root tm-photos-top-menu-container-overlay">
   <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
     <p>{{title}}</p>

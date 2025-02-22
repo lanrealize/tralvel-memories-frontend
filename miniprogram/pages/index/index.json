@@ -5,7 +5,5 @@
     "album": "/components/album/album",
     "photo-creation": "/components/photo-creation/photo-creation"
   },
-  "window": {
-    "navigationBarTextStyle": "black"
-  }
+  "navigationBarTextStyle": "black"
 }

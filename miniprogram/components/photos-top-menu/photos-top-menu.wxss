@@ -15,13 +15,6 @@
   justify-content: center;
 } */
 
-.tm-photos-top-menu-container-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 12.4vh;
-}
-
 .tm-photos-top-menu-root {
   display: flex;
   justify-content: center;
@@ -36,7 +29,7 @@
 .tm-photos-top-menu-sub-root {
   display: flex; 
   align-items: center; 
-  color: black; 
+  color: white; 
   font-size: 32rpx;
   /* font-weight: 600; */
   margin-right: 5vw;
