@@ -42,8 +42,3 @@
     <view class="tm-photo-description">最近认识了很多人，但我知道他们都不是你。</view>
     <view style="height: 15vh;"></view>
   </scroll-view>
-
-<view class="blurred-overlay">
-  <view class="blur"></view>
-  <view class="gradient"></view>
-</view>

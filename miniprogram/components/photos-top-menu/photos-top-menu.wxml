@@ -1,26 +1,13 @@
 <!--components/photos-top-menu/photos-top-menu.wxml-->
-<view class="tm-photos-top-menu-root tm-photos-top-menu-container-overlay">
+<view class="tm-photos-top-menu-root">
   <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
-    <p>{{title}}</p>
-    <image src="/assets/icons/home.svg" class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image>
-    <image src="/assets/icons/updown.svg" style="left: 11vw; " class="tm-photos-top-menu-home-icon" bindtap="onHomeClick"></image>
+    <p class="tm-photos-top-menu-title">{{title}}</p>
+    <image src="/assets/icons/home.svg" style="left: 3vw;" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
+    <image src="/assets/icons/updown.svg" style="left: 11vw; " class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
   </view>
-  <view class="tm-photos-top-menu-options-root">
-    <!-- <view class="tm-photos-top-menu-options-grid-container">
-      <view class="tm-photos-top-menu-options-option-container tm-photos-top-menu-options-option-0" bindtap="onModeClick" data-item="normal">
-        <view style="color: white;" class="tm-photos-top-menu-options-option-text">顺序浏览</view>
-        <view style="width: {{widthNormal}}vh;" class="tm-photos-top-menu-options-option-selected"></view>
-      </view>
-      <view class="tm-photos-top-menu-options-option-container tm-photos-top-menu-options-option-1"  bindtap="onModeClick" data-item="reverse">
-        <view style="color: #f0f0f0;" class="tm-photos-top-menu-options-option-text">倒序浏览</view>
-        <view style="width: {{widthReverse}}vh;" class="tm-photos-top-menu-options-option-selected"></view>
-      </view>
-      <view class="tm-photos-top-menu-options-option-container tm-photos-top-menu-options-option-2">随机浏览</view>
-      <view class="tm-photos-top-menu-options-option-container tm-photos-top-menu-options-option-3">回忆模式</view>
-      <view class="tm-photos-top-menu-options-option-4">
-        <image src='/assets/icons/top.svg' class="tm-photos-top-menu-options-icon"></image>
-        <image src='/assets/icons/config.svg' class="tm-photos-top-menu-options-icon"></image>
-      </view>
-    </view> -->
-  </view>
+</view>
+
+<view class="blurred-overlay">
+  <view class="blur" style="height: calc({{menuTop + menuHeight}}px + 4vh);"></view>
+  <view class="gradient" style="height: calc({{menuTop + menuHeight}}px + 4vh);"></view>
 </view>
