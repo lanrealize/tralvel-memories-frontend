@@ -1,15 +1,15 @@
 <view class="tm-photo-root">
   <view class="tm-photo-title tm-photo-row-container">
-    <!-- <view class="tm-photo-title-point-container">
+    <view class="tm-photo-title-point-container">
       <view class="tm-photo-title-point-instance"></view>
-    </view> -->
+    </view>
     <view class="tm-photo-title-text">
       <p>{{title}}<span class="tm-photo-title-text-subtext">{{subTitle}}</span></p>
     </view>
   </view>
 
-  <view class="tm-photo-main tm-photo-row-photo-container" wx:if="{{type != 'end'}}">
-    <!-- <view class="tm-photo-main-line"></view> -->
+  <view class="tm-photo-main tm-photo-row-container" wx:if="{{type != 'end'}}">
+    <view class="tm-photo-main-line"></view>
     <view class="tm-photo-main-main">
       <view class="tm-photo-main-main-text">{{description}}</view>
       <image src="{{photoUrl}}" mode="aspectFill" class="{{photoOrientation === 'horizontal' ? 'tm-photo-main-main-photo-horizontal' : 'tm-photo-main-main-photo-vertical'}}" bindtap="previewImage" bindlongpress="onLongPress">
