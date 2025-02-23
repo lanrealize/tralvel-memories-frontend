@@ -2,7 +2,9 @@
   "usingComponents": {
     "photo": "/components/photo/photo",
     "photos-top-menu": "/components/photos-top-menu/photos-top-menu",
-    "busy-indicator": "/components/busy-indicator/busy-indicator"
+    "photos-bottom-menu": "/components/photos-bottom-menu/photos-bottom-menu",
+    "busy-indicator": "/components/busy-indicator/busy-indicator",
+    "photo-creation": "/components/photo-creation/photo-creation"
   },
   "navigationBarTextStyle": "white"
 }

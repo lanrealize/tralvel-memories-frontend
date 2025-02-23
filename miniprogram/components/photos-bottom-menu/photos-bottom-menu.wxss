@@ -1,0 +1,128 @@
+/* components/photos-bottom-menu/photos-bottom-menu.wxss */
+/* effect part */
+.blur {
+	-webkit-mask-image: linear-gradient(transparent, #000, #000);
+	backdrop-filter: blur(8px);
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  float: left;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  float: left;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.blurred-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 11vh;
+}
+
+/* content part */
+.tm-photos-bottom-menu-root {
+  position: fixed;
+  height: 11vh;
+  width: 100vw;
+  z-index: 3;
+  bottom: 0;
+}
+
+.tm-photos-bottom-menu-main {
+  height: 10vh;
+  width: 100vw;
+
+  display: grid;
+  grid-template-columns: 47vw 15vw 15vw 23vw;
+  grid-template-areas: "title play share add";
+}
+
+.tm-photos-bottom-menu-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-photos-bottom-menu-main-play {
+  grid-area: play;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-photos-bottom-menu-main-share {
+  grid-area: share;
+  position: relative;
+}
+
+.tm-photos-bottom-menu-icon {
+  height: 6vw;
+  width: 6vw;
+}
+
+.tm-photos-bottom-menu-icon-text {
+  font-size: 20rpx;
+  color: white;
+  font-weight: 600;
+}
+
+.tm-photos-bottom-menu-icon-share {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+}
+
+.tm-photos-bottom-menu-add {
+  grid-area: add;
+  font-size: 30rpx;
+  color: white;
+  font-weight: 600;
+}
+
+.tm-photos-bottom-menu-main-title {
+  grid-area: title;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.tm-photos-bottom-menu-main-title-image {
+  height: 10vw;
+  width: 10vw;
+  border-radius: 5vw;
+  margin-left: 5vw;
+}
+
+.tm-photos-bottom-menu-main-title-text {
+  flex-direction: column;
+  padding-left: 3vw;
+}
+
+.tm-photos-bottom-menu-main-title-text-main {
+  font-size: 24rpx;
+  color: #ffffff;
+  margin-bottom: 0.3vh;
+  font-weight: 600;
+}
+
+.tm-photos-bottom-menu-main-title-text-sub {
+  font-size: 16rpx;
+  color: #f0f0f0;
+  font-weight: 600;
+}
+

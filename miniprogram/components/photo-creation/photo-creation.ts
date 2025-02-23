@@ -4,7 +4,7 @@ import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
 import { generateAlbumTitle, getDatefromIndices } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
-import { albumsStore } from '../../stores/albumsStore';
+import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
@@ -13,6 +13,11 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime'],
       actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation']
+    },
+    {
+      store: photosStore,
+      fields: ['photos'],
+      actions: ['updatePhotos']
     }
   ],
 
@@ -60,7 +65,13 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           this.setPhotoCreationComponentTop(100);
           wx.navigateTo({ url: `/pages/photos/photos` });
         } else if (this.data.page == "photos") {
-            console.log("Need to be done.")
+            // Step 1: Post photo
+            const openID = wx.getStorageSync('openID');
+            const albumID = wx.getStorageSync('albumID');
+            await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
+            // Step 2: Adjust display
+            await this.updatePhotos(openID, albumID);
+            this.setPhotoCreationComponentTop(100);
         } else {
           throw("Publish photo failed: not 'index' or 'photos'.")
         }

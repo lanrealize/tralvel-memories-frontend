@@ -24,4 +24,9 @@
     <image src="/assets/icons/location.svg" class="photo-creation-location-icon"></image>
     <view class="photo-creation-location-text"><input placeholder="请输入位置信息" placeholder-style="color: #A6A6A6" value="{{photeCreationLocation}}" bindinput="onLocationInput" /></view>
   </view>
+
+  <view class="photo-creation-top-placeholder" wx:if="{{page === 'photos'}}" style="height: {{menuTop + menuHeight}}px;"></view>
+
 </view>
+
+

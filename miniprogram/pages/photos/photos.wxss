@@ -13,3 +13,9 @@
   color: rgb(160, 160, 160);
   margin-bottom: 1vh;
 }
+
+.tm-photos-photo-creation {
+  border-radius: 2vh;
+  position: fixed;
+  transition: top 0.8s cubic-bezier(.2, 1, 0, 1);
+}

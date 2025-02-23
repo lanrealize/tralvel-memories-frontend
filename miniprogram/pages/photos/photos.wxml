@@ -9,9 +9,14 @@
     </view>
     <photo type="end" title="无更多内容"></photo>
   </view>
+  <view style="height: 11vh;"></view>
 </scroll-view>
 
 <view class="tm-photos-loading" wx:if="{{loading}}">
   <view class="tm-photos-loading-text">加载中</view>
   <busy-indicator color="rgb(160, 160, 160)" size="1.5"></busy-indicator>
 </view>
+
+<photos-bottom-menu style="z-index: 3; position: fixed; bottom: 0;"></photos-bottom-menu>
+
+<photo-creation page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>

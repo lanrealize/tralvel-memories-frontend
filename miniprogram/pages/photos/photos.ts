@@ -1,10 +1,12 @@
 // pages/photos/photos.ts
 import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
+import { photoCreationStore } from '../../stores/photoCreationStore';
 
 Page({
 
   photosStorageBinding: undefined as any,
+  photoCreationStoreBinding: undefined as any,
 
   /**
    * 页面的初始数据
@@ -26,6 +28,14 @@ Page({
         store: photosStore,
         fields: ['photos'],
         actions: ['updatePhotos', 'reversePhotos']
+      }
+    );
+
+    this.photoCreationStoreBinding = createStoreBindings(this, 
+      {
+        store: photoCreationStore,
+        fields: ['photoCreationComponentTop'],
+        actions: ['setPhotoCreationComponentTop']
       }
     );
 
@@ -65,6 +75,7 @@ Page({
    */
   onUnload() {
     this.photosStorageBinding.destroy();
+    this.photoCreationStoreBinding.destroy();
   },
 
   /**

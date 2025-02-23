@@ -47,6 +47,7 @@ Page({
   onUnload() {
     this.generalStorageBinding.destroy();
     this.albumsStorageBinding.destroy();
+    this.photoCreationStoreBinding.destroy();
   },
 
   async updateAlubms() {
