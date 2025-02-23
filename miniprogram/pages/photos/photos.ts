@@ -26,7 +26,7 @@ Page({
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
-        fields: ['photos'],
+        fields: ['photos', 'photoUrls'],
         actions: ['updatePhotos', 'reversePhotos']
       }
     );
