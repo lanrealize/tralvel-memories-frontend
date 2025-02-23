@@ -79,7 +79,7 @@
 
 .tm-photo-main-main-photo-vertical {
   position: relative;
-  width: 88.5vw;
+  width: 75vw;
   height: 45vh;
 }
 

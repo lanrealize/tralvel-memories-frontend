@@ -25,19 +25,15 @@ export const photosStore = observable({
     }
   ),
 
-  orderPhotos: action(
-    () => {
-      photosStore.photos.sort((a, b) => {
-        const dateA = parseDate(a.timestamp);
-        const dateB = parseDate(b.timestamp);
-        if (photosStore.normalOrdered) {
-          return dateA.getTime() - dateB.getTime();
-        } else {
-          return dateB.getTime() - dateA.getTime();
-        }
-      });
-      photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
-    }
-  )
+  orderPhotos: action(() => {
+    photosStore.photos = photosStore.photos.slice().sort((a, b) => {
+      const dateA = parseDate(a.timestamp);
+      const dateB = parseDate(b.timestamp);
+      return photosStore.normalOrdered ? 
+        dateA.getTime() - dateB.getTime() :
+        dateB.getTime() - dateA.getTime();
+    });
+    photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
+  })
 
 });

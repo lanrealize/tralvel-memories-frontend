@@ -28,7 +28,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
    * 组件的初始数据
    */
   data: {
-    indicatorDots: true,
+    indicatorDots: false,
     autoplay: true,
     interval: 2000,
     duration: 800,
