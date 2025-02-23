@@ -1,16 +1,24 @@
 /* components/photo/photo.wxss */
 .tm-photo-root {
-  width: 94vw;
+  width: 100vw;
   margin: 0 auto;
 
   display: grid;
   grid-template-rows: auto auto;
   grid-template-areas: "title" "main";
+
 }
 
 .tm-photo-row-container {
   display: grid;
   grid-template-columns: 2vw 3vw 88vw;
+  grid-template-areas: "photo-row-left . photo-row-right";
+  margin: 0 3vw;
+}
+
+.tm-photo-row-photo-container {
+  display: grid;
+  grid-template-columns: 5vw 3vw 92vw;
   grid-template-areas: "photo-row-left . photo-row-right";
 }
 
@@ -34,6 +42,7 @@
   grid-area: photo-row-right;
   font-size: 32rpx;
   font-weight: 500;
+  margin-left: -5vw;
 }
 
 .tm-photo-title-text-subtext {
@@ -62,6 +71,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: left;
+  margin-left: -8vw;
 }
 
 .tm-photo-main-main-text {
@@ -69,6 +79,7 @@
   color: #808080;
   padding-top: 0.6vh;
   padding-bottom: 1.2vh;
+  margin-left: 3vw;
 }
 
 .tm-photo-main-main-photo-horizontal {
@@ -79,8 +90,10 @@
 
 .tm-photo-main-main-photo-vertical {
   position: relative;
-  width: 86vw;
-  height: 110vw;
+  width: 96vw;
+  height: 120vw;
+  border-radius: 10px;
+  margin-left: 2vw;
 }
 
 .tm-photo-main-main-photo-cover {
@@ -98,7 +111,7 @@
 }
 
 .tm-photo-main-main-placeholder {
-  height: 1vh;
+  height: 4vh;
 }
 
 .tm-photo-end {

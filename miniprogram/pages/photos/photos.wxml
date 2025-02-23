@@ -7,7 +7,7 @@
       <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}">
       </photo>
     </view>
-    <photo type="end" title="无更多内容"></photo>
+    <!-- <photo type="end" title="无更多内容"></photo> -->
   </view>
   <view style="height: 11vh;"></view>
 </scroll-view>
