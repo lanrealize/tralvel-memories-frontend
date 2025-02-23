@@ -116,7 +116,6 @@
 .tm-photos-bottom-menu-main-title-text-main {
   font-size: 24rpx;
   color: #ffffff;
-  margin-bottom: 0.3vh;
   font-weight: 600;
 }
 
