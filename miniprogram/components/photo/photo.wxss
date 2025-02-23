@@ -79,8 +79,8 @@
 
 .tm-photo-main-main-photo-vertical {
   position: relative;
-  width: 60vw;
-  height: 36vh;
+  width: 86vw;
+  height: 110vw;
 }
 
 .tm-photo-main-main-photo-cover {
