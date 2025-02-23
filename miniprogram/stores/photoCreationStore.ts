@@ -23,7 +23,7 @@ export const photoCreationStore = observable({
     }
   ),
 
-  photeCreationLocation: "上海",
+  photeCreationLocation: "大同",
   setPhoteCreationLocation: action(
     (photeCreationLocation: string) => {
       photoCreationStore.photeCreationLocation = photeCreationLocation

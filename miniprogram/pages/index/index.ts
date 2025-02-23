@@ -3,7 +3,6 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { generalStore } from '../../stores/generalStore';
 import { albumsStore } from '../../stores/albumsStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
-import { getAlbums } from '../../utils/apis';
 import { chooseImage } from '../../utils/utils';
 
 Page({
@@ -30,7 +29,7 @@ Page({
       {
         store: albumsStore,
         fields: ['albums'],
-        actions: ['setAlbums']
+        actions: ['updateAlbums']
       }
     );
 
@@ -50,24 +49,14 @@ Page({
     this.photoCreationStoreBinding.destroy();
   },
 
-  async updateAlubms() {
-    try {
-      const albumList = await getAlbums(wx.getStorageSync("openID"));
-      (this as any).setAlbums(albumList);
-      this.albumsStorageBinding.updateStoreBindings();
-    } catch (e) {
-      throw (e);
-    }
-  },
-
   async receiveLoginSuccess() {
-    await this.updateAlubms();
+    const openID = wx.getStorageSync("openID");
+    await (this as any).updateAlbums(openID);
+    this.albumsStorageBinding.updateStoreBindings();
     if (0 === (this as any).data.albums.length) {
       const photoPath = await chooseImage();
       (this as any).setPhotoCreationPath(photoPath);
       (this as any).setPhotoCreationComponentTop(0);
-    } else {
-      // show albums
     }
   }
 

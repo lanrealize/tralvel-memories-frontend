@@ -1,6 +1,4 @@
 // components/albums/albums.ts
-import { getAlbums } from '../../utils/apis';
-import { mockWxLogin } from '../../utils/utils';
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { albumsStore } from '../../stores/albumsStore'
 import { AlbumsComponentData } from '../../models/component-model/albums-model'
@@ -10,15 +8,12 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
   storeBindings: [{
     store: albumsStore,
     fields: ['albums'],
-    actions: ['setAlbums'],
+    actions: ['uddateAlbums'],
   }],
 
   lifetimes: {
     attached: async function() {
       this.setOffsetValue();
-      await mockWxLogin();
-      await this.updateAlubms();
-      console.log(this.data.albums);
     }
   },
 
@@ -61,13 +56,10 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       });
     },
 
-    async updateAlubms() {
-      try {
-        const albumList = await getAlbums();
-        this.setAlbums(albumList);
-      } catch (e) {
-        throw (e);
-      }
+    onAlbumClick(event: any) {
+      var albumid = event.currentTarget.dataset.albumid;
+      wx.setStorageSync('albumID', albumid);
+      wx.navigateTo({ url: `/pages/photos/photos` });
     }
 
   }

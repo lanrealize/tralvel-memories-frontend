@@ -32,6 +32,7 @@ export const postAlbum = async (
 }
 
 export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: string }[] }[]> => {
+  console.log(openID);
   return new Promise((resolve, reject) => {
     try {
       wx.request({

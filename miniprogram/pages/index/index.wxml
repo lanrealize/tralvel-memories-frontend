@@ -2,8 +2,9 @@
 
 <view class="tm-index-text-0">欢迎来到</view>
 <view class="tm-index-text-1">我的旅行纪念册</view>
-<background-video bind:onLoginSuccess="receiveLoginSuccess"></background-video>
-<view class="mock-swipper"></view>
+<background-video bind:onLoginSuccess="receiveLoginSuccess" wx:if="{{!loginStatus}}"></background-video>
+<albums wx:if="{{loginStatus}}"></albums>
+<view class="mock-swipper" wx:if="{{!loginStatus}}"></view>
 <view class="tm-index-text-2">Fireart Studio</view>
 <view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view>
 

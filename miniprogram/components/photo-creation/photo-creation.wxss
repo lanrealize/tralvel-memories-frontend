@@ -4,7 +4,7 @@
   height: 100vh;
   width: 100vw;
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: absolute;
 }
 
 .photo-creation-title {
