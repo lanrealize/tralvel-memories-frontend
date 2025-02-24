@@ -10,6 +10,7 @@
   z-index: 3;
   position: fixed;
   left: 0;
+  background-color: white;
 }
 
 .tm-photos-top-menu-sub-root {
@@ -26,9 +27,9 @@
 }
 
 .tm-photos-top-menu-title {
-  color: white; 
+  color: black; 
   font-size: 32rpx;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 /* effect part */

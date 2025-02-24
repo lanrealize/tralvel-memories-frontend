@@ -3,7 +3,6 @@
     <!-- <view class="tm-photo-title-point-container">
       <view class="tm-photo-title-point-instance"></view>
     </view> -->
-    <image src="/assets/icons/tag.svg" style="width: 4vw; height: 4vw; margin-top: 1.15vw;"></image>
     <view class="tm-photo-title-text">
       <p>{{title}}<span class="tm-photo-title-text-subtext">{{subTitle}}</span></p>
     </view>

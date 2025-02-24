@@ -5,9 +5,10 @@
     <image src="/assets/icons/home.svg" style="left: 3vw;" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
     <image src="/assets/icons/updown.svg" style="left: 11vw; " class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
   </view>
+  <view style="height: 2vh;"></view>
 </view>
 
-<view class="blurred-overlay">
-  <view class="blur" style="height: calc({{menuTop + menuHeight}}px + 4vh);"></view>
-  <view class="gradient" style="height: calc({{menuTop + menuHeight}}px + 4vh);"></view>
-</view>
+<!-- <view class="blurred-overlay">
+  <view class="blur" style="height: calc({{menuTop + menuHeight}}px + 3vh);"></view>
+  <view class="gradient" style="height: calc({{menuTop + menuHeight}}px + 3vh);"></view>
+</view> -->

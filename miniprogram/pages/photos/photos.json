@@ -6,6 +6,6 @@
     "busy-indicator": "/components/busy-indicator/busy-indicator",
     "photo-creation": "/components/photo-creation/photo-creation"
   },
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "black"
 }
 
