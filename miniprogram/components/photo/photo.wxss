@@ -42,7 +42,7 @@
   grid-area: photo-row-right;
   font-size: 32rpx;
   font-weight: 500;
-  margin-left: -5vw;
+  margin-left: 0.5vw;
 }
 
 .tm-photo-title-text-subtext {
@@ -91,7 +91,7 @@
 .tm-photo-main-main-photo-vertical {
   position: relative;
   width: 96vw;
-  height: 120vw;
+  height: 115vw;
   border-radius: 10px;
   margin-left: 2vw;
 }
