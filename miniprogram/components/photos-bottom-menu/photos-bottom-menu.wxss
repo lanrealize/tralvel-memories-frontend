@@ -75,7 +75,7 @@
 .tm-photos-bottom-menu-icon-text {
   font-size: 20rpx;
   color: white;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .tm-photos-bottom-menu-icon-share {

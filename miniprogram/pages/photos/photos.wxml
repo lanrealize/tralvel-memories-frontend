@@ -1,6 +1,6 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}">
+<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll">
   <view style="height: calc({{menuTop + menuHeight}}px + 3vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">

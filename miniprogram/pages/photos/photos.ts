@@ -2,11 +2,13 @@
 import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
+import { pagesStore } from '../../stores/pagesStore';
 
 Page({
 
   photosStorageBinding: undefined as any,
   photoCreationStoreBinding: undefined as any,
+  pagesStorageBinding: undefined as any,
 
   /**
    * 页面的初始数据
@@ -15,13 +17,16 @@ Page({
     style: 'opacity: 1; transition: opacity 0.5s ease-in-out;',
     title: '',
     subTitle: '',
-    loading: false
+    loading: false,
+    threshold: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function() {
+
+    this.calculateScrollThreshold();
 
     this.photosStorageBinding = createStoreBindings(this, 
       {
@@ -36,6 +41,14 @@ Page({
         store: photoCreationStore,
         fields: ['photoCreationComponentTop'],
         actions: ['setPhotoCreationComponentTop']
+      }
+    );
+
+    this.pagesStorageBinding = createStoreBindings(this, 
+      {
+        store: pagesStore,
+        fields: ['photosTitleColor'],
+        actions: ['setPhotosTitleColor']
       }
     );
 
@@ -76,6 +89,7 @@ Page({
   onUnload() {
     this.photosStorageBinding.destroy();
     this.photoCreationStoreBinding.destroy();
+    this.photosStorageBinding.destroy();
   },
 
   /**
@@ -116,6 +130,26 @@ Page({
         style: 'opacity: 1; transition: opacity 0.5s ease-in-out;'
       });
     })
+  },
+
+  onScroll(event: any) {
+    if (event.detail.scrollTop > this.data.threshold) {
+      if ((this as any).data.photosTitleColor === "black") {
+        (this as any).setPhotosTitleColor('white');
+      }
+    } else {
+      if ((this as any).data.photosTitleColor === "white") {
+        (this as any).setPhotosTitleColor('black');
+      }
+    }
+  },
+
+  calculateScrollThreshold() {
+    const app: IAppOption = getApp();
+    const threshold = app.globalData.navigationInfo.menuTop + app.globalData.navigationInfo.menuHeight
+    this.setData({
+      threshold: threshold
+    });
   }
 
 })

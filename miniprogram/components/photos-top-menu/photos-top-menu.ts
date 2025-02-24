@@ -1,5 +1,16 @@
 // components/photos-top-menu/photos-top-menu.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { pagesStore } from '../../stores/pagesStore'
+
+ComponentWithStore({
+
+  storeBindings: [
+    {
+      store: pagesStore,
+      fields: ['photosTitleColor'],
+      actions: {setLoginStatus: 'setPhotosTitleColor'}
+    }
+  ],
 
   /**
    * 组件的属性列表
