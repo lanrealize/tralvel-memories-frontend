@@ -10,7 +10,6 @@
   z-index: 3;
   position: fixed;
   left: 0;
-  /* background-color: white; */
 }
 
 .tm-photos-top-menu-sub-root {
@@ -27,9 +26,9 @@
 }
 
 .tm-photos-top-menu-title {
+  color: black; 
   font-size: 32rpx;
   font-weight: 400;
-  transition: color 0.4s ease-in-out;
 }
 
 /* effect part */
@@ -47,7 +46,7 @@
   width: 100vw;
   overflow: visible;
   float: left;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .blurred-overlay {

@@ -1,11 +1,11 @@
 <!--components/photos-top-menu/photos-top-menu.wxml-->
 <view class="tm-photos-top-menu-root">
   <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
-    <p class="tm-photos-top-menu-title" style="color: {{photosTitleColor === 'black' ? '#000' : '#fff'}}">{{title}}</p>
+    <p class="tm-photos-top-menu-title">{{title}}</p>
     <image src="/assets/icons/home.svg" style="left: 3vw;" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
     <image src="/assets/icons/updown.svg" style="left: 11vw; " class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
   </view>
-  <!-- <view style="height: 2vh;"></view> -->
+  <view style="height: 2vh;"></view>
 </view>
 
 <view class="blurred-overlay">
