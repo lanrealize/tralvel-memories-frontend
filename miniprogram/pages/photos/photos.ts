@@ -2,7 +2,7 @@
 import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
-import { pagesStore } from '../../stores/pagesStore';
+import { uiStore } from '../../stores/uiStore';
 
 Page({
 
@@ -46,7 +46,7 @@ Page({
 
     this.pagesStorageBinding = createStoreBindings(this, 
       {
-        store: pagesStore,
+        store: uiStore,
         fields: ['photosTitleColor'],
         actions: ['setPhotosTitleColor']
       }

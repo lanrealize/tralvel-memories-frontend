@@ -3,13 +3,15 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { generalStore } from '../../stores/generalStore';
 import { albumsStore } from '../../stores/albumsStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
-import { chooseImage } from '../../utils/utils';
+import { uiStore } from '../../stores/uiStore'
+import { chooseImage, wxLogin } from '../../utils/utils';
 
 Page({
 
   generalStorageBinding: undefined as any,
   albumsStorageBinding: undefined as any,
   photoCreationStoreBinding: undefined as any,
+  uiStoreBinding: undefined as any,
 
   data: {
     
@@ -40,6 +42,14 @@ Page({
         actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath']
       }
     );
+
+    this.uiStoreBinding = createStoreBindings(this, 
+      {
+        store: uiStore,
+        fields: ['mainStartLoading'],
+        actions: ['setMainStartLoading']
+      }
+    );
  
   },
 
@@ -47,17 +57,33 @@ Page({
     this.generalStorageBinding.destroy();
     this.albumsStorageBinding.destroy();
     this.photoCreationStoreBinding.destroy();
+    this.uiStoreBinding.destroy();
   },
 
   async receiveLoginSuccess() {
-    const openID = wx.getStorageSync("openID");
-    await (this as any).updateAlbums(openID);
-    this.albumsStorageBinding.updateStoreBindings();
-    if (0 === (this as any).data.albums.length) {
-      const photoPath = await chooseImage();
-      (this as any).setPhotoCreationPath(photoPath);
-      (this as any).setPhotoCreationComponentTop(0);
+    try {
+      (this as any).setMainStartLoading(true);
+      const openID = await wxLogin();
+      await (this as any).updateAlbums(openID);
+      this.albumsStorageBinding.updateStoreBindings();
+      (this as any).setLoginStatus(true);
+      if (0 === (this as any).data.albums.length) {
+        const photoPath = await chooseImage();
+        (this as any).setPhotoCreationPath(photoPath);
+        (this as any).setPhotoCreationComponentTop(0);
+      }
+    } catch (e) {
+      console.log("Login failed: " + e);
+    } finally {
+      (this as any).setMainStartLoading(false);
     }
+
+    
+
+
+    
+    
+
   }
 
 })

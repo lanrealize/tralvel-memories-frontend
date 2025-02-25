@@ -1,12 +1,12 @@
 // components/photos-top-menu/photos-top-menu.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { pagesStore } from '../../stores/pagesStore'
+import { uiStore } from '../../stores/uiStore'
 
 ComponentWithStore({
 
   storeBindings: [
     {
-      store: pagesStore,
+      store: uiStore,
       fields: ['photosTitleColor'],
       actions: {setLoginStatus: 'setPhotosTitleColor'}
     }

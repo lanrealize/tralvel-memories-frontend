@@ -1,15 +1,14 @@
 // components/backgroud-video/background-video.ts
-import { wxLogin } from "../../utils/utils";
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { generalStore } from '../../stores/generalStore'
+import { uiStore } from '../../stores/uiStore'
 
 ComponentWithStore({
 
   storeBindings: [
     {
-      store: generalStore,
-      fields: ['loginStatus'],
-      actions: {setLoginStatus: 'setLoginStatus'}
+      store: uiStore,
+      fields: ['mainStartLoading'],
+      actions: ['setMainStartLoading']
     }
   ],
 
@@ -24,7 +23,7 @@ ComponentWithStore({
    * 组件的初始数据
    */
   data: {
-    isLogging: false
+
   },
 
   /**
@@ -33,24 +32,8 @@ ComponentWithStore({
   methods: {
 
     async onStartClick() {
-      try {
-        this.setIsLogging(true);
-        const openID = await wxLogin();
-        console.log(openID);
-        (this as any).setLoginStatus(true);
-        this.triggerEvent('onLoginSuccess');
-      } catch (e) {
-        console.log("Login failed: " + e);
-      } finally {
-        this.setIsLogging(false);
-      }
+      this.triggerEvent('onLoginSuccess');
     },
-
-    setIsLogging(isLogging: boolean) {
-      this.setData({
-        isLogging: isLogging
-      });
-    }
 
   }
 })

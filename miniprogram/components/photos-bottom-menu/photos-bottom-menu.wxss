@@ -90,7 +90,7 @@
   grid-area: add;
   font-size: 30rpx;
   color: white;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .tm-photos-bottom-menu-main-title {
