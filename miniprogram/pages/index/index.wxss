@@ -11,6 +11,7 @@ page {
   margin-left: 25rpx;
   font-size: 30.5rpx;
   margin-top: 17.5vh;
+  line-height: 2.3vh;
 }
 
 .tm-index-text-1{
