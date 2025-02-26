@@ -54,10 +54,10 @@ Page({
   },
 
   onUnload() {
-    this.generalStorageBinding.destroy();
-    this.albumsStorageBinding.destroy();
-    this.photoCreationStoreBinding.destroy();
-    this.uiStoreBinding.destroy();
+    this.generalStorageBinding.destroyStoreBindings();
+    this.albumsStorageBinding.destroyStoreBindings();
+    this.photoCreationStoreBinding.destroyStoreBindings();
+    this.uiStoreBinding.destroyStoreBindings();
   },
 
   async receiveLoginSuccess() {
@@ -77,13 +77,6 @@ Page({
     } finally {
       (this as any).setMainStartLoading(false);
     }
-
-    
-
-
-    
-    
-
   }
 
 })

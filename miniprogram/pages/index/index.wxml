@@ -1,10 +1,14 @@
 <!--index.wxml-->
-
 <view class="tm-index-text-0">欢迎来到</view>
 <view class="tm-index-text-1">我的旅行纪念册</view>
-<background-video bind:onLoginSuccess="receiveLoginSuccess" wx:if="{{!loginStatus}}"></background-video>
-<albums wx:if="{{loginStatus}}"></albums>
-<view class="mock-swipper" wx:if="{{!loginStatus}}"></view>
+<view style="position: relative;">
+  <background-video bind:onLoginSuccess="receiveLoginSuccess" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; visibility: {{((loginStatus && albums.length === 0) || !loginStatus) ? 'visible' : 'hidden'}}; position: relative; top: 0;"></background-video>
+
+  <albums wx:if="{{loginStatus}}" style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; visibility: {{(loginStatus && albums.length > 0) ? 'visible' : 'hidden'}}; position: absolute; top: 0;"></albums>
+</view>
+
+<view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; visibility: {{((loginStatus && albums.length === 0) || !loginStatus) ? 'visible' : 'hidden'}};"></view>
+
 <view class="tm-index-text-2">Fireart Studio</view>
 <view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view>
 

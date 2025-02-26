@@ -87,9 +87,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    this.photosStorageBinding.destroy();
-    this.photoCreationStoreBinding.destroy();
-    this.photosStorageBinding.destroy();
+    this.photosStorageBinding.destroyStoreBindings();
+    this.photoCreationStoreBinding.destroyStoreBindings();
+    this.pagesStorageBinding.destroyStoreBindings();
   },
 
   /**
