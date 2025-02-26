@@ -6,7 +6,9 @@
 
 <albums style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -50vh;"></albums>
 
-<view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view>
+<!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
+
+<view class="mock-swipper"></view>
 
 <view class="tm-index-text-2">Fireart Studio</view>
 <view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view>
