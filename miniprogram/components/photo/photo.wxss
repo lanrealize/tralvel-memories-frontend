@@ -37,7 +37,7 @@
   height: 1.6vw;
   border-radius: 1vw;
   background-color: rgba(166, 166, 166, 1);
-  margin-top: -2rpx;
+  margin-top: -5rpx;
 }
 
 .tm-photo-title-text {
@@ -64,7 +64,7 @@
   width: 1.5px;
   height: 1.2vh;
   background: linear-gradient(360deg, rgba(166, 166, 166, 1) 0%, rgba(166, 166, 166, 0) 100%);
-  margin-bottom: -11.5rpx;
+  margin-bottom: -12rpx;
 }
 
 .tm-photo-main-line-bottom {
@@ -73,7 +73,7 @@
   width: 1.5px;
   height: 90%;
   background: linear-gradient(180deg, rgba(166, 166, 166, 1) 0%, rgba(166, 166, 166, 0) 100%);
-  margin-top: -13.5rpx;
+  margin-top: -15.5rpx;
 }
 
 .tm-photo-main-main {
