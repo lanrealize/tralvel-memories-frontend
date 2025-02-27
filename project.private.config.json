@@ -3,7 +3,7 @@
   "projectname": "MyTravelMemos",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false,
+    "urlCheck": true,
     "skylineRenderEnable": true
   },
   "libVersion": "development"

@@ -11,14 +11,14 @@
 
 .tm-photo-row-container {
   display: grid;
-  grid-template-columns: 2vw 2.5vw 92vw;
+  grid-template-columns: 2vw 3vw 92vw;
   grid-template-areas: "photo-row-left . photo-row-right";
   margin: 0 2vw;
 }
 
 .tm-photo-row-description-container {
   display: grid;
-  grid-template-columns: 2vw 2.5vw 92vw;
+  grid-template-columns: 2vw 3vw 92vw;
   grid-template-areas: "photo-row-left . photo-row-right";
   margin: 0 2vw;
 }
@@ -37,7 +37,7 @@
   height: 1.6vw;
   border-radius: 1vw;
   background-color: rgba(166, 166, 166, 1);
-  margin-top: -5rpx;
+  margin-top: -3rpx;
 }
 
 .tm-photo-title-text {
@@ -64,7 +64,7 @@
   width: 1.5px;
   height: 1.2vh;
   background: linear-gradient(360deg, rgba(166, 166, 166, 1) 0%, rgba(166, 166, 166, 0) 100%);
-  margin-bottom: -12rpx;
+  margin-bottom: -13.4rpx;
 }
 
 .tm-photo-main-line-bottom {
@@ -73,7 +73,7 @@
   width: 1.5px;
   height: 90%;
   background: linear-gradient(180deg, rgba(166, 166, 166, 1) 0%, rgba(166, 166, 166, 0) 100%);
-  margin-top: -15.5rpx;
+  margin-top: -14rpx;
 }
 
 .tm-photo-main-main {
@@ -122,7 +122,7 @@
 }
 
 .tm-photo-main-main-placeholder {
-  height: 4vh;
+  height: 3vh;
 }
 
 .tm-photo-end {
