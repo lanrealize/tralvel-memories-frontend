@@ -1,4 +1,11 @@
 /* pages/photos/photos.wxss */
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 .tm-photos-loading {
   display: flex;
   flex-direction: column;

@@ -14,7 +14,7 @@ Page({
   uiStoreBinding: undefined as any,
 
   data: {
-    
+    photoCreationComponentTop: 100
   },
 
   async onLoad() {
