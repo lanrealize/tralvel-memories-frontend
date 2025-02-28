@@ -12,6 +12,24 @@
   width: 100%;
   height: 100%;
   border-radius: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  /* filter: blur(5px); */
+
+  transition: transform 5s ease-in-out; 
+  transition: background-image 2s ease-in-out; 
+}
+
+.tm-album-main-image-mask {
+  background-color: rgba(0, 0, 0, 0.15);
+  /* background-color: transparent; */
+  backdrop-filter: blur(2px);
+  z-index: 2;
 }
 
 .tm-album-title {
@@ -26,30 +44,3 @@
   margin: 0 auto;
 }
 
-.tm-album-mask {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 3.3vh;
-  width: 84vw;
-  height: 8.5vh;
-  background: rgba(56, 56, 56, 0.15);
-  backdrop-filter: blur(10px);
-  border-radius: 2vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2.5vw;
-}
-
-.tm-image-container {
-  width: 13.5vw;
-  height: 13.5vw;
-}
-
-.tm-sub-image {
-  width: 100%; /* 图片宽度占满容器 */
-  height: 100%; /* 图片高度占满容器 */
-  border-radius: inherit; /* 继承容器的圆角 */
-}

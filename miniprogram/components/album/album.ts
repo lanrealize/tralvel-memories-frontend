@@ -13,29 +13,9 @@ Component({
       type: String,
       value: undefined
     },
-    mainImageUrl: {
-      type: String,
-      value: undefined
-    },
-    subImageUrl0: {
-      type: String,
-      value: undefined
-    },
-    subImageUrl1: {
-      type: String,
-      value: undefined
-    },
-    subImageUrl2: {
-      type: String,
-      value: undefined
-    },
-    subImageUrl3: {
-      type: String,
-      value: undefined
-    },
-    subImageUrl4: {
-      type: String,
-      value: undefined
+    photos: {
+      type: Array,
+      value: [{imageUrl: ''}]
     }
   },
 
@@ -43,13 +23,38 @@ Component({
    * 组件的初始数据
    */
   data: {
+    isShown: true,
+    backgroundUrl: ''
+  },
 
+  lifetimes: {
+    attached: function() {
+      this.changeBgWithTimeout(0);
+    },
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    changeBgWithTimeout(currentIndex: number): void {
+      console.log('changed')
+      if (this.data.isShown) {
+        const currentValue = this.data.photos[currentIndex].imageUrl;
+        this.setBackgroundUrl(currentValue)
+        currentIndex = (currentIndex + 1) % this.data.photos.length;
+      } else {
+        return;
+      }
+      setTimeout(() => this.changeBgWithTimeout(currentIndex), 5000);
+    },
 
-  }
+    setBackgroundUrl(bgUrl: string): void {
+      this.setData({
+        backgroundUrl: bgUrl
+      });
+    },
+
+  },
+
 })

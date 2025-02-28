@@ -17,7 +17,7 @@ class="tm-albums-swiper" >
   <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique">
     <swiper-item>
       <view style="height: 50vh; width: 100vw;">
-        <album albumId="{{album.id}}" albumTitle="{{album.title}}" subImageUrl0="{{album.images[1].imageUrl ? album.images[1].imageUrl : ''}}" subImageUrl1="{{album.images[2].imageUrl ? album.images[2].imageUrl : ''}}" subImageUrl2="{{album.images[3].imageUrl ? album.images[3].imageUrl : ''}}" subImageUrl3="{{album.images[4].imageUrl ? album.images[4].imageUrl : ''}}" subImageUrl4="{{album.images[5].imageUrl ? album.images[5].imageUrl : ''}}" mainImageUrl="{{album.images[0].imageUrl}}" bindtap="onAlbumClick" data-albumid="{{album.id}}"></album>
+        <album albumId="{{album.id}}" albumTitle="{{album.title}}" photos="{{album.images}}" bindtap="onAlbumClick" data-albumid="{{album.id}}"></album>
       </view>
     </swiper-item>
   </block>

@@ -1,22 +1,7 @@
 <!--components/album/album.wxml-->
 <view class="tm-album-container">
-  <image class="tm-album-main-image" mode="aspectFill" src="{{mainImageUrl}}" />
-  <view class="tm-album-title">{{albumTitle}}</view>
-  <view class="tm-album-mask">
-    <view class="tm-image-container">
-      <image src="{{subImageUrl0}}" mode="aspectFill" class="tm-sub-image"></image>
-    </view>
-    <view class="tm-image-container">
-      <image src="{{subImageUrl1}}" mode="aspectFill" class="tm-sub-image"></image>
-    </view>
-    <view class="tm-image-container">
-      <image src="{{subImageUrl2}}" mode="aspectFill" class="tm-sub-image"></image>
-    </view>
-    <view class="tm-image-container">
-      <image src="{{subImageUrl3}}" mode="aspectFill" class="tm-sub-image"></image>
-    </view>
-    <view class="tm-image-container">
-      <image src="{{subImageUrl4}}" mode="aspectFill" class="tm-sub-image"></image>
-    </view>
-  </view>
+  <view class="tm-album-main-image tm-album-main-image-mask"></view>
+  <!-- <image class="tm-album-main-image" mode="aspectFill" src="{{backgroundUrl}}" /> -->
+  <view class="tm-album-main-image" style="transform: scale({{scale}}); background-image: url({{backgroundUrl}});"></view>
+  <!-- <view class="tm-album-title">{{albumTitle}}</view> -->
 </view>

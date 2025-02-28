@@ -40,6 +40,10 @@ Component({
     photoOrientation: {
       type: String,
       value: ''
+    },
+    index: {
+      type: Number,
+      value: 0
     }
   },
 
