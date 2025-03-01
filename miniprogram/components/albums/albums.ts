@@ -1,15 +1,23 @@
 // components/albums/albums.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { albumsStore } from '../../stores/albumsStore'
-import { AlbumsComponentData } from '../../models/component-model/albums-model'
+import { albumsStore } from '../../stores/albumsStore';
+import { AlbumsComponentData } from '../../models/component-model/albums-model';
+import { uiStore } from '../../stores/uiStore'
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
-  storeBindings: [{
-    store: albumsStore,
-    fields: ['albums'],
-    actions: ['uddateAlbums'],
-  }],
+  storeBindings: [
+    {
+      store: albumsStore,
+      fields: ['albums'],
+      actions: ['uddateAlbums'],
+    },
+    {
+      store: uiStore,
+      fields: ['displayedAlbumIndex'],
+      actions: ['setDisplayedAlbumIndex'],
+    }
+  ],
 
   lifetimes: {
     attached: async function() {
@@ -60,6 +68,10 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       var albumid = event.currentTarget.dataset.albumid;
       wx.setStorageSync('albumID', albumid);
       wx.navigateTo({ url: `/pages/photos/photos` });
+    },
+
+    onSwiperChange(event: any) {
+      (this as any).setDisplayedAlbumIndex(event.detail.current);
     }
 
   }

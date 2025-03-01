@@ -13,7 +13,8 @@ indicator-width="{{width}}"
 indicator-height="{{height}}"
 layout-type="transformer" 
 transformer-type="scaleAndFade" 
-class="tm-albums-swiper" >
+class="tm-albums-swiper"
+bindchange="onSwiperChange">
   <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique">
     <swiper-item>
       <view style="height: 56vh; width: 100vw;">
