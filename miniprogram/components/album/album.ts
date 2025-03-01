@@ -24,12 +24,17 @@ Component({
    */
   data: {
     isShown: true,
-    backgroundUrl: ''
+    firstImageUrl: '',
+    secondImageUrl: '',
+    activatedIndex: 0,
+    currentImageIndex: 0
   },
 
   lifetimes: {
     attached: function() {
-      this.changeBgWithTimeout(0);
+      this.setData({
+        firstImageUrl: this.data.photos[0].imageUrl
+      });
     },
   },
 
@@ -37,22 +42,36 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    changeBgWithTimeout(currentIndex: number): void {
-      console.log('changed')
-      if (this.data.isShown) {
-        const currentValue = this.data.photos[currentIndex].imageUrl;
-        this.setBackgroundUrl(currentValue)
-        currentIndex = (currentIndex + 1) % this.data.photos.length;
-      } else {
-        return;
-      }
-      setTimeout(() => this.changeBgWithTimeout(currentIndex), 5000);
+    onFirstImageLoad() {
+      this.setData({
+        activatedIndex: 0
+      });
+      setTimeout(() => {
+        const newIndex = (this.data.currentImageIndex + 1) % this.data.photos.length;
+        const url = this.data.photos[newIndex].imageUrl
+        this.setData({
+          currentImageIndex: newIndex
+        });
+        this.setData({
+          secondImageUrl: url
+        });
+      }, 4000);
     },
 
-    setBackgroundUrl(bgUrl: string): void {
+    onSecondImageLoad() {
       this.setData({
-        backgroundUrl: bgUrl
+        activatedIndex: 1
       });
+      setTimeout(() => {
+        const newIndex = (this.data.currentImageIndex + 1) % this.data.photos.length;
+        const url = this.data.photos[newIndex].imageUrl
+        this.setData({
+          currentImageIndex: newIndex
+        });
+        this.setData({
+          firstImageUrl: url
+        });
+      }, 4000);
     },
 
   },

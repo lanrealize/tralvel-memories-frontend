@@ -16,13 +16,27 @@
   top: 0;
   left: 0;
 
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  /* filter: blur(5px); */
+  transition: all 5s ease-in-out;
+}
 
-  transition: transform 5s ease-in-out; 
-  transition: background-image 2s ease-in-out; 
+.tm-album-main-image-avtive {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+.tm-album-main-image-deavtive {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }
 
 .tm-album-main-image-mask {
