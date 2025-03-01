@@ -19,6 +19,9 @@ Page({
 
   async onLoad() {
 
+  },
+
+  onReady() {
     this.generalStorageBinding = createStoreBindings(this, 
       {
         store: generalStore,
@@ -50,7 +53,6 @@ Page({
         actions: ['setMainStartLoading']
       }
     );
- 
   },
 
   onUnload() {

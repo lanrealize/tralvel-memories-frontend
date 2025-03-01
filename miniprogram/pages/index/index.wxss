@@ -24,6 +24,32 @@ page {
   margin-bottom: 3vh;
 }
 
+.tm-index-add-button-add {
+  position: fixed;
+  top: 18.1vh;
+  right: 2.58vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10vw;
+  height: 10vw;
+  font-size: 50rpx;
+  font-weight: 300;
+  color: rgba(100, 100, 100, 1);
+}
+
+.tm-index-add-button-circle {
+  border: 1.5px solid rgba(229, 229, 229, 1);
+  border-radius: 5vw;
+  position: fixed;
+  top: 18.4vh;
+  right: 2.8vw;
+  width: 9vw;
+  height: 9vw;
+}
+
+
+
 .mock-swipper{
   position: relative;
   margin-left: auto;
@@ -53,7 +79,7 @@ page {
   font-size: 20rpx;
   font-weight: 400;
   line-height: 1.8vh;
-  color: rgba(56, 56, 56, 1);
+  color: rgba(180, 180, 180, 1);
 }
 
 .albums-photo-creation {
