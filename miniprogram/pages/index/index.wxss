@@ -58,7 +58,7 @@ page {
   height: 0.4vh;
   background-color: black;
   border-radius: 4rpx;
-  margin-top: 2.5vh;
+  margin-top: 1.5vh;
 }
 
 .tm-index-text-2 {
@@ -73,7 +73,7 @@ page {
 
 .tm-index-text-3 {
   /* margin-top: 0.9vh; */
-  margin-top: 2.5vh;
+  margin-top: 3vh;
   margin-left: auto;
   margin-right: auto;
   font-size: 20rpx;

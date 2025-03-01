@@ -5,6 +5,7 @@ import { PhotoCreationComponentData } from "../../models/component-model/photo-c
 import { generateAlbumTitle, getDatefromIndices } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
+import { albumsStore } from '../../stores/albumsStore';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
@@ -18,6 +19,11 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       store: photosStore,
       fields: ['photos'],
       actions: ['updatePhotos']
+    },
+    {
+      store: albumsStore,
+      fields: ['albums'],
+      actions: ['updateAlbums']
     }
   ],
 
@@ -61,7 +67,9 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           ) as string;
           wx.setStorageSync('albumID', albumID);
           await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
-          // Step 2: Adjust display
+          // Step 2: Update albums
+          (this as any).updateAlbums(openID);
+          // Step 3: Adjust display
           this.setPhotoCreationComponentTop(100);
           wx.navigateTo({ url: `/pages/photos/photos` });
         } else if (this.data.page == "photos") {

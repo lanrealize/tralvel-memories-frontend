@@ -29,8 +29,8 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
    */
   data: {
     indicatorDots: false,
-    autoplay: true,
-    interval: 2000,
+    autoplay: false,
+    interval: 6000,
     duration: 800,
     circular: true,
     indicatorType: "expand",

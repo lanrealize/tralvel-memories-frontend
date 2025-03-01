@@ -2,7 +2,7 @@
 <view class="tm-index-text-0">欢迎来到</view>
 <view class="tm-index-text-1">我的旅行纪念册</view>
 
-<view>
+<view style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;" bind:tap="onNewAlbum">
   <view class="tm-index-add-button-add">+</view>
   <view class="tm-index-add-button-circle"></view>  
 </view>

@@ -81,6 +81,12 @@ Page({
         (this as any).setMainStartLoading(false);
       }, 500);
     }
-  }
+  },
+
+  async onNewAlbum() {
+    const photoPath = await chooseImage();
+    (this as any).setPhotoCreationPath(photoPath);
+    (this as any).setPhotoCreationComponentTop(0);
+  },
 
 })
