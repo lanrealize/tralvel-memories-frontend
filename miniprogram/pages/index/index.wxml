@@ -4,13 +4,13 @@
 
 <background-video bind:onLoginSuccess="receiveLoginSuccess" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></background-video>
 
-<albums style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -50vh;"></albums>
+<albums style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -56vh;"></albums>
 
 <!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
 
 <view class="mock-swipper"></view>
 
-<view class="tm-index-text-2">Fireart Studio</view>
-<view class="tm-index-text-3">You srategy, design and technology partner. Hold this place for UI</view>
+<!-- <view class="tm-index-text-2">更多好玩的？</view> -->
+<view class="tm-index-text-3">提示：在长按照片后可以根据按钮对图片进行删除操作。</view>
 
 <photo-creation page="index" class="albums-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 2;"></photo-creation>

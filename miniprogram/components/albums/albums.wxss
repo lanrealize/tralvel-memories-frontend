@@ -1,6 +1,6 @@
 /* components/albums/albums.wxss */
 .tm-albums-swiper {
-  height: 50vh;
+  height: 56vh;
   width: 100vw;
 }
 

@@ -16,7 +16,7 @@ transformer-type="scaleAndFade"
 class="tm-albums-swiper" >
   <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique">
     <swiper-item>
-      <view style="height: 50vh; width: 100vw;">
+      <view style="height: 56vh; width: 100vw;">
         <album albumId="{{album.id}}" albumTitle="{{album.title}}" photos="{{album.images}}" bindtap="onAlbumClick" data-albumid="{{album.id}}"></album>
       </view>
     </swiper-item>

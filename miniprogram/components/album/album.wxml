@@ -6,4 +6,11 @@
 
   <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 1 ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
 
+  <view class="tm-album-texts-container">
+    <view class="tm-album-title">{{albumTitle}}</view>
+    <!-- <view class="tm-album-detail-button" bindtap="onViewClick">
+      <text style="color: white; font-size: 28rpx; line-height: 2.76vh;">查看详情</text>
+    </view> -->
+  </view>
+
 </view>

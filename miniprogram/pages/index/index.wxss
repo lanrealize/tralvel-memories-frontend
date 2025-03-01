@@ -21,7 +21,7 @@ page {
   line-height: 2.5vh;
   color: rgba(56, 56, 56, 1);
   margin-left: 25rpx;
-  margin-bottom: 3.5vh;
+  margin-bottom: 3vh;
 }
 
 .mock-swipper{
@@ -41,12 +41,13 @@ page {
   font-size: 28rpx;
   font-weight: 700;
   line-height: 2.5vh;
-  color: rgba(0, 0, 0, 1);
+  color: rgba(120, 120, 120, 1);
   margin-top: 3vh;
 }
 
 .tm-index-text-3 {
-  margin-top: 0.9vh;
+  /* margin-top: 0.9vh; */
+  margin-top: 2.5vh;
   margin-left: auto;
   margin-right: auto;
   font-size: 20rpx;
