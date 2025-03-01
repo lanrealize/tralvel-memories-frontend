@@ -2,8 +2,8 @@
 <view class="tm-album-container">
   <view class="tm-album-main-image tm-album-main-image-mask"></view>
 
-  <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 0 ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out"/>
+  <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 0 ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
 
-  <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 1 ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out"/>
+  <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 1 ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
 
 </view>

@@ -1,5 +1,6 @@
 /* components/album/album.wxss */
 .tm-album-container {
+  overflow: hidden;
   width: 95.4vw;
   height: 50vh;
   margin-left: 2.3vw;
@@ -27,6 +28,7 @@
   top: 0;
   left: 0;
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .tm-album-main-image-deavtive {
@@ -37,11 +39,11 @@
   top: 0;
   left: 0;
   opacity: 0;
+  transform: scale(1);
 }
 
 .tm-album-main-image-mask {
   background-color: rgba(0, 0, 0, 0.15);
-  /* background-color: transparent; */
   backdrop-filter: blur(2px);
   z-index: 2;
 }
