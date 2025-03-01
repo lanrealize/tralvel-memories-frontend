@@ -1,5 +1,15 @@
 // components/album/album.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { uiStore } from '../../stores/uiStore'
+
+ComponentWithStore({
+  storeBindings: [
+    {
+      store: uiStore,
+      fields: ['displayedAlbumIndex'],
+      actions: ['setDisplayedAlbumIndex'],
+    }
+  ],
 
   /**
    * 组件的属性列表
@@ -23,7 +33,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    isShown: true,
     firstImageUrl: '',
     secondImageUrl: '',
     activatedIndex: -1,
