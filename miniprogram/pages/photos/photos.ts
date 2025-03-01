@@ -18,7 +18,8 @@ Page({
     title: '',
     subTitle: '',
     loading: false,
-    threshold: 0
+    threshold: 0,
+    photoCreationComponentTop: 100
   },
 
   /**

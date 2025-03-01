@@ -4,7 +4,7 @@
   <view style="height: calc({{menuTop + menuHeight}}px + 2vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
-      <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}">
+      <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}" index="{{index}}">
       </photo>
     </view>
     <!-- <photo type="end" title="无更多内容"></photo> -->
