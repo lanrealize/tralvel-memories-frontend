@@ -26,8 +26,8 @@ Component({
     isShown: true,
     firstImageUrl: '',
     secondImageUrl: '',
-    activatedIndex: 0,
-    currentImageIndex: 0
+    activatedIndex: -1,
+    currentImageIndex: 0,
   },
 
   lifetimes: {

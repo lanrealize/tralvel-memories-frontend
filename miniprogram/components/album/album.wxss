@@ -7,6 +7,7 @@
   margin-right: 2.3vw;
   position: relative;
   text-align: center;
+  border-radius: 2vw;
 }
 
 .tm-album-main-image {
@@ -28,7 +29,7 @@
   top: 0;
   left: 0;
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .tm-album-main-image-deavtive {
@@ -44,7 +45,7 @@
 
 .tm-album-main-image-mask {
   background-color: rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(1.5px);
   z-index: 2;
 }
 
