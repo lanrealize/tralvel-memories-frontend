@@ -14,8 +14,8 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     },
     {
       store: uiStore,
-      fields: ['displayedAlbumIndex'],
-      actions: ['setDisplayedAlbumIndex'],
+      fields: ['displayedAlbumIndex', 'displayedAlbumTitle'],
+      actions: ['setDisplayedAlbumIndex', 'setDisplayedAlbumTitle'],
     }
   ],
 
@@ -77,17 +77,23 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       if (child) {
         child.continueSwitching();
       }
+    },
+
+    onSwiperTransition() {
+      if (!this.data.isSwitching) {
+        this.setData({
+          isSwitching: true
+        });
+        setTimeout(() => {
+          this.setDisplayedAlbumTitle(this.data.albums[this.data.displayedAlbumIndex].title);
+        }, 150);
+      }
+    },
+
+    onAnimationFinish() {
       this.setData({
         isSwitching: false
       });
-      console.log(this.data.isSwitching)
-    },
-
-    onAnimationStart() {
-      this.setData({
-        isSwitching: true
-      });
-      console.log(this.data.isSwitching)
     }
 
   }

@@ -5,6 +5,7 @@ export const uiStore = observable({
   photosTitleColor: 'black',
   mainStartLoading: false,
   displayedAlbumIndex: 0,
+  displayedAlbumTitle: '',
 
   setPhotosTitleColor: action(
     (photosTitleColor: string) => {
@@ -21,6 +22,12 @@ export const uiStore = observable({
   setDisplayedAlbumIndex: action(
     (displayedAlbumIndex: number) => {
       uiStore.displayedAlbumIndex = displayedAlbumIndex
+    }
+  ),
+
+  setDisplayedAlbumTitle: action(
+    (displayedAlbumTitle: string) => {
+      uiStore.displayedAlbumTitle = displayedAlbumTitle
     }
   )
 

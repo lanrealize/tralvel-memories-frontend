@@ -16,7 +16,8 @@
     transformer-type="scaleAndFade" 
     class="tm-albums-swiper"
     bindchange="onSwiperChange"
-    bindanimationstart="onAnimationStart">
+    bindtransition="onSwiperTransition"
+    bindanimationfinish="onAnimationFinish">
     <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
       <swiper-item>
         <view style="height: 56vh; width: 100vw;">
@@ -33,6 +34,6 @@
       </swiper-item>
     </block>
   </swiper>
-  <view class="tm-albums-album-title" style="opacity: {{isSwitching ? 0 : 1}};">{{albums[displayedAlbumIndex].title}}</view>
+  <view class="tm-albums-album-title" style="opacity: {{isSwitching ? 0 : 1}};">{{displayedAlbumTitle}}</view>
 </view>
 

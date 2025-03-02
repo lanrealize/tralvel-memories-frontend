@@ -49,8 +49,8 @@ Page({
     this.uiStoreBinding = createStoreBindings(this, 
       {
         store: uiStore,
-        fields: ['mainStartLoading'],
-        actions: ['setMainStartLoading']
+        fields: ['mainStartLoading', 'displayedAlbumTitle', 'displayedAlbumIndex'],
+        actions: ['setMainStartLoading', 'setDisplayedAlbumTitle']
       }
     );
   },
@@ -68,6 +68,7 @@ Page({
       const openID = await wxLogin();
       await (this as any).updateAlbums(openID);
       this.albumsStorageBinding.updateStoreBindings();
+      (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
       (this as any).setLoginStatus(true);
       if (0 === (this as any).data.albums.length) {
         const photoPath = await chooseImage();
