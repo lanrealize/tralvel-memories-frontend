@@ -55,7 +55,7 @@
 }
 
 .tm-album-main-image-mask {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(1.5px);
   z-index: 2;
 }
