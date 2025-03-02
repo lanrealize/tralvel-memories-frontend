@@ -102,6 +102,8 @@ ComponentWithStore({
       this.preloadDeactivatedImageInSeconds(4000);
     },
 
+
+    // when only 2 images, 1st container load 1st iamge, 2nd container preload 2nd iamge. Then 1st container preload 1st image again (if we have more than 2 iamge then in this situation 1st container will preload 3rd imgae) which will not trigger bindload method.
     preloadDeactivatedImageInSeconds(timeout: number) {
       if ((this as any).data.imageSwitching) {
         return;
