@@ -41,6 +41,7 @@ ComponentWithStore({
     secondImageUrl: '',
     activatedIndex: -1,
     currentImageIndex: 0,
+    pending: true
   },
 
   lifetimes: {
@@ -58,7 +59,9 @@ ComponentWithStore({
         activatedIndex: 0
       });
       if (this.data.index === (this as any).data.displayedAlbumIndex) {
-        console.log(`index: ${this.data.index}, changed photo`);
+        this.setData({
+          pending: false
+        });
         setTimeout(() => {
           const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
           const url = this.data.photos[newIndex].imageUrl
@@ -69,6 +72,10 @@ ComponentWithStore({
             secondImageUrl: url
           });
         }, 4000);
+      } else {
+        this.setData({
+          pending: true
+        });
       }
     },
 
@@ -77,7 +84,9 @@ ComponentWithStore({
         activatedIndex: 1
       });
       if (this.data.index === (this as any).data.displayedAlbumIndex) {
-        console.log(`index: ${this.data.index}, changed photo`);
+        this.setData({
+          pending: false
+        });
         setTimeout(() => {
           const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
           const url = this.data.photos[newIndex].imageUrl
@@ -88,6 +97,10 @@ ComponentWithStore({
             firstImageUrl: url
           });
         }, 4000);
+      } else {
+        this.setData({
+          pending: true
+        });
       }
     },
 
@@ -100,20 +113,25 @@ ComponentWithStore({
     },
 
     continueSwitching() {
-      const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
-      const url = this.data.photos[newIndex].imageUrl
       this.setData({
-        currentImageIndex: newIndex
+        pending: false
       });
-      if ((this as any).data.activatedIndex === 0) {
+      setTimeout(() => {
+        const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
+        const url = this.data.photos[newIndex].imageUrl
         this.setData({
-          secondImageUrl: url
+          currentImageIndex: newIndex
         });
-      } else {
-        this.setData({
-          firstImageUrl: url
-        });
-      }
+        if ((this as any).data.activatedIndex === 0) {
+          this.setData({
+            secondImageUrl: url
+          });
+        } else {
+          this.setData({
+            firstImageUrl: url
+          });
+        }
+      }, 4000);
     }
 
   },

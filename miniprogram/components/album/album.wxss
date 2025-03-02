@@ -43,6 +43,17 @@
   transform: scale(1);
 }
 
+.tm-album-main-image-pending {
+  width: 100%;
+  height: 100%;
+  border-radius: 2vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transform: scale(1);
+}
+
 .tm-album-main-image-mask {
   background-color: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(1.5px);
