@@ -78,7 +78,9 @@ Page({
       console.log("Login failed: " + e);
     } finally {
       setTimeout(() => {
-        (this as any).setMainStartLoading(false);
+        if ((this as any).setMainStartLoading) {
+          (this as any).setMainStartLoading(false);
+        }
       }, 500);
     }
   },

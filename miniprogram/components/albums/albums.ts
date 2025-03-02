@@ -46,7 +46,8 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     spacing: 6,
     radius: 3,
     width: 6,
-    height: 5
+    height: 5,
+    isSwitching: false
   },
 
   /**
@@ -76,6 +77,17 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       if (child) {
         child.continueSwitching();
       }
+      this.setData({
+        isSwitching: false
+      });
+      console.log(this.data.isSwitching)
+    },
+
+    onAnimationStart() {
+      this.setData({
+        isSwitching: true
+      });
+      console.log(this.data.isSwitching)
     }
 
   }

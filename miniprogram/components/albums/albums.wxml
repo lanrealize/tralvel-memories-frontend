@@ -1,33 +1,38 @@
 <!--components/albums/albums.wxml-->
-<swiper
-indicator-dots="{{indicatorDots}}" 
-autoplay="{{autoplay}}" 
-interval="{{interval}}" 
-duration="{{duration}}" 
-circular="{{circular}}" 
-indicator-type="expand" 
-indicator-offset="{{offsetValue}}" 
-indicator-spacing="{{spacing}}"
-indicator-radius="{{radius}}"
-indicator-width="{{width}}"
-indicator-height="{{height}}"
-layout-type="transformer" 
-transformer-type="scaleAndFade" 
-class="tm-albums-swiper"
-bindchange="onSwiperChange">
-  <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
-    <swiper-item>
-      <view style="height: 56vh; width: 100vw;">
-        <album 
-          class="albums--{{index}}" 
-          albumId="{{album.id}}" 
-          albumTitle="{{album.title}}" 
-          photos="{{album.images}}" 
-          index="{{index}}" 
-          bindtap="onAlbumClick" 
-          data-albumid="{{album.id}}">
-        </album>
-      </view>
-    </swiper-item>
-  </block>
-</swiper>
+<view class="tm-albums-root">
+  <swiper
+    indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" 
+    interval="{{interval}}" 
+    duration="{{duration}}" 
+    circular="{{circular}}" 
+    indicator-type="expand" 
+    indicator-offset="{{offsetValue}}" 
+    indicator-spacing="{{spacing}}"
+    indicator-radius="{{radius}}"
+    indicator-width="{{width}}"
+    indicator-height="{{height}}"
+    layout-type="transformer" 
+    transformer-type="scaleAndFade" 
+    class="tm-albums-swiper"
+    bindchange="onSwiperChange"
+    bindanimationstart="onAnimationStart">
+    <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
+      <swiper-item>
+        <view style="height: 56vh; width: 100vw;">
+          <album 
+            class="albums--{{index}}" 
+            albumId="{{album.id}}" 
+            albumTitle="{{album.title}}" 
+            photos="{{album.images}}" 
+            index="{{index}}" 
+            bindtap="onAlbumClick" 
+            data-albumid="{{album.id}}">
+          </album>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="tm-albums-album-title" style="opacity: {{isSwitching ? 0 : 1}};">{{albums[displayedAlbumIndex].title}}</view>
+</view>
+

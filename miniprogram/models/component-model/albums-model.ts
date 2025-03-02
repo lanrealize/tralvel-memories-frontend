@@ -10,4 +10,5 @@ export interface AlbumsComponentData {
   radius: number;
   width: number;
   height: number;
+  isSwitching: boolean;
 }
