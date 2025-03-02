@@ -5,6 +5,7 @@ import { albumsStore } from '../../stores/albumsStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore'
 import { chooseImage, wxLogin } from '../../utils/utils';
+import { getRandomWord } from '../../utils/apis';
 
 Page({
 
@@ -42,7 +43,7 @@ Page({
       {
         store: photoCreationStore,
         fields: ['photoCreationComponentTop', 'photoCreationPath'],
-        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath']
+        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription']
       }
     );
 
@@ -73,6 +74,8 @@ Page({
       if (0 === (this as any).data.albums.length) {
         const photoPath = await chooseImage();
         (this as any).setPhotoCreationPath(photoPath);
+        const description = await getRandomWord();
+        (this as any).setPhoteCreationDescription(description);
         (this as any).setPhotoCreationComponentTop(0);
       }
     } catch (e) {
@@ -89,6 +92,8 @@ Page({
   async onNewAlbum() {
     const photoPath = await chooseImage();
     (this as any).setPhotoCreationPath(photoPath);
+    const description = await getRandomWord();
+    (this as any).setPhoteCreationDescription(description);
     (this as any).setPhotoCreationComponentTop(0);
   },
 

@@ -2,6 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { chooseImage } from '../../utils/utils';
+import { getRandomWord } from '../../utils/apis';
 
 ComponentWithStore({
 
@@ -9,7 +10,7 @@ ComponentWithStore({
     {
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath']
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription']
     }
   ],
 
@@ -35,6 +36,8 @@ ComponentWithStore({
       try {
         const photoPath = await chooseImage();
         (this as any).setPhotoCreationPath(photoPath);
+        const description = await getRandomWord();
+        (this as any).setPhoteCreationDescription(description);
         (this as any).setPhotoCreationComponentTop(0);
       } catch (e) {
         console.log(e);

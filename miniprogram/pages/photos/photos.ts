@@ -151,6 +151,10 @@ Page({
     this.setData({
       threshold: threshold
     });
+  },
+
+  receivePhotoDelete() {
+    // this.setFadeInOut();
   }
 
 })

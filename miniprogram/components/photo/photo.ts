@@ -96,6 +96,7 @@ ComponentWithStore({
       await deletePhoto(openID, albumID, this.properties.photoId);
       (this as any).updatePhotos(openID, albumID);
       this.setOpacity(0);
+      this.triggerEvent('onDeletedPhoto');
     }
   }
 })
