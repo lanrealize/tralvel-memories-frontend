@@ -13,7 +13,7 @@
 
 <!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
 
-<view class="mock-swipper"></view>
+<swiper-indicator style="position: absolute; top: 83.5vh; left: 0; right: 0;"></swiper-indicator>
 
 <!-- <view class="tm-index-text-2">更多好玩的？</view> -->
 <view class="tm-index-text-3">提示：在长按照片后可以根据按钮对图片进行删除操作。</view>

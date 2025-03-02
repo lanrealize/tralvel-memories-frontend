@@ -1,0 +1,6 @@
+<!--components/swiper-indicator/swiper-indicator.wxml-->
+<view class="tm-swiper-indicator-root">
+  <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
+    <view class="tm-swiper-indicator-item" style="width: {{index === displayedAlbumIndex ? 2 : 0.5}}vh; background-color: {{index === displayedAlbumIndex ? 'rgb(100, 100, 100)' : 'rgb(180, 180, 180)'}};"></view>
+  </block>
+</view>

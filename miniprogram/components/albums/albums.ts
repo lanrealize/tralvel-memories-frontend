@@ -40,7 +40,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     autoplay: false,
     interval: 6000,
     duration: 800,
-    circular: true,
+    circular: false,
     indicatorType: "expand",
     offsetValue: [0, 0],
     spacing: 6,

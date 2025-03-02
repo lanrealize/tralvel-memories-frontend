@@ -1,0 +1,15 @@
+/* components/swiper-indicator/swiper-indicator.wxss */
+.tm-swiper-indicator-root {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.tm-swiper-indicator-item {
+  width: 2vh;
+  height: 0.5vh;
+  border-radius: 1vh;
+  margin: auto 0.5vh;
+  transition: width 0.5s ease-in-out, background-color 0.5s ease-in-out;
+}
