@@ -72,6 +72,10 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
     onSwiperChange(event: any) {
       (this as any).setDisplayedAlbumIndex(event.detail.current);
+      const child = this.selectComponent(`.albums--${event.detail.current}`);
+      if (child) {
+        child.continueSwitching();
+      }
     }
 
   }

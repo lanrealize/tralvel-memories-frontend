@@ -26,6 +26,10 @@ ComponentWithStore({
     photos: {
       type: Array,
       value: [{imageUrl: ''}]
+    },
+    index: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -41,9 +45,7 @@ ComponentWithStore({
 
   lifetimes: {
     attached: function() {
-      this.setData({
-        firstImageUrl: this.data.photos[0].imageUrl
-      });
+      this.initialize();
     },
   },
 
@@ -55,33 +57,64 @@ ComponentWithStore({
       this.setData({
         activatedIndex: 0
       });
-      setTimeout(() => {
-        const newIndex = (this.data.currentImageIndex + 1) % this.data.photos.length;
-        const url = this.data.photos[newIndex].imageUrl
-        this.setData({
-          currentImageIndex: newIndex
-        });
-        this.setData({
-          secondImageUrl: url
-        });
-      }, 4000);
+      if (this.data.index === (this as any).data.displayedAlbumIndex) {
+        console.log(`index: ${this.data.index}, changed photo`);
+        setTimeout(() => {
+          const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
+          const url = this.data.photos[newIndex].imageUrl
+          this.setData({
+            currentImageIndex: newIndex
+          });
+          this.setData({
+            secondImageUrl: url
+          });
+        }, 4000);
+      }
     },
 
     onSecondImageLoad() {
       this.setData({
         activatedIndex: 1
       });
-      setTimeout(() => {
-        const newIndex = (this.data.currentImageIndex + 1) % this.data.photos.length;
-        const url = this.data.photos[newIndex].imageUrl
+      if (this.data.index === (this as any).data.displayedAlbumIndex) {
+        console.log(`index: ${this.data.index}, changed photo`);
+        setTimeout(() => {
+          const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
+          const url = this.data.photos[newIndex].imageUrl
+          this.setData({
+            currentImageIndex: newIndex
+          });
+          this.setData({
+            firstImageUrl: url
+          });
+        }, 4000);
+      }
+    },
+
+    initialize() {
+      this.setData({
+        activatedIndex: -1,
+        currentImageIndex: 0,
+        firstImageUrl: this.data.photos[0].imageUrl,
+      });
+    },
+
+    continueSwitching() {
+      const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
+      const url = this.data.photos[newIndex].imageUrl
+      this.setData({
+        currentImageIndex: newIndex
+      });
+      if ((this as any).data.activatedIndex === 0) {
         this.setData({
-          currentImageIndex: newIndex
+          secondImageUrl: url
         });
+      } else {
         this.setData({
           firstImageUrl: url
         });
-      }, 4000);
-    },
+      }
+    }
 
   },
 
