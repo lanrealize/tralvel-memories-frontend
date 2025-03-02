@@ -1,7 +1,7 @@
 <!--components/photos-top-menu/photos-top-menu.wxml-->
 <view class="tm-photos-top-menu-root">
   <view class="tm-photos-top-menu-sub-root" style="padding-top: {{menuTop}}px; line-height: {{menuHeight}}px;">
-    <p class="tm-photos-top-menu-title" style="color: {{photosTitleColor === 'black' ? '#000' : '#fff'}}">{{title}}</p>
+    <p class="tm-photos-top-menu-title" style="color: {{photosTitleColor === 'black' ? '#000' : '#fff'}}">{{displayedAlbumTitle}}</p>
     <image src="/assets/icons/home.svg" style="left: 3vw; filter: {{photosTitleColor === 'black' ? 'none' : 'invert(100%)'}};" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
     <image src="/assets/icons/updown.svg" style="left: 11vw; filter: {{photosTitleColor === 'black' ? 'none' : 'invert(100%)'}};" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
   </view>

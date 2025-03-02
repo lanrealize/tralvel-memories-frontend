@@ -7,7 +7,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: uiStore,
-      fields: ['photosTitleColor'],
+      fields: ['photosTitleColor', 'displayedAlbumTitle'],
       actions: {setLoginStatus: 'setPhotosTitleColor'}
     }
   ],
@@ -16,10 +16,7 @@ ComponentWithStore({
    * 组件的属性列表
    */
   properties: {
-    title: {
-      type: String,
-      value: "2024年9月 大同"
-    }
+
   },
 
   /**
