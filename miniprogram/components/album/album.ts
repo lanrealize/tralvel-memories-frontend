@@ -41,7 +41,8 @@ ComponentWithStore({
     secondImageUrl: '',
     activatedIndex: -1,
     currentImageIndex: 0,
-    pending: true
+    pending: true,
+    imageSwitching: false 
   },
 
   lifetimes: {
@@ -62,16 +63,7 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
-        setTimeout(() => {
-          const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
-          const url = this.data.photos[newIndex].imageUrl
-          this.setData({
-            currentImageIndex: newIndex
-          });
-          this.setData({
-            secondImageUrl: url
-          });
-        }, 4000);
+        this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
           pending: true
@@ -87,16 +79,7 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
-        setTimeout(() => {
-          const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
-          const url = this.data.photos[newIndex].imageUrl
-          this.setData({
-            currentImageIndex: newIndex
-          });
-          this.setData({
-            firstImageUrl: url
-          });
-        }, 4000);
+        this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
           pending: true
@@ -116,6 +99,19 @@ ComponentWithStore({
       this.setData({
         pending: false
       });
+      this.preloadDeactivatedImageInSeconds(4000);
+    },
+
+    preloadDeactivatedImageInSeconds(timeout: number) {
+      if ((this as any).data.imageSwitching) {
+        return;
+      }
+
+      this.setData({
+        imageSwitching: true
+      });
+
+      console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       setTimeout(() => {
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl
@@ -131,7 +127,11 @@ ComponentWithStore({
             firstImageUrl: url
           });
         }
-      }, 4000);
+
+        this.setData({
+          imageSwitching: false
+        });
+      }, timeout);
     }
 
   },
