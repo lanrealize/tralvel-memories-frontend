@@ -113,6 +113,32 @@ export const getAlbumPhotos = async (openID: string, albumID: string): Promise<{
   })
 }
 
+export const deletePhoto = async (
+  openID: string, 
+  albumID: string, 
+  photoID: string): Promise<any> => {
+
+  return new Promise((resolve, reject) => {
+    try {
+      wx.request({
+        url: devUrlPrefix + '/users/' + openID + '/albums/' + albumID + '/pictures/' + photoID,
+        method: 'DELETE',
+        data: {
+          type: 'createdAlbums',
+        },
+        success: (res: any) => {
+          resolve(`Photo ${photoID} deleted.`);
+        },
+        fail: (e) => {
+          reject(e)
+        }
+      })
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
 /**
  * ===============================================
  * Words Related
