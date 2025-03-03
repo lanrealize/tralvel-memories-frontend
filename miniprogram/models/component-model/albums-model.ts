@@ -11,5 +11,6 @@ export interface AlbumsComponentData {
   width: number;
   height: number;
   isSwitching: boolean;
-  albumMaskOpacity: number
+  albumMaskOpacity: number;
+  albumIndexTarget: number;
 }

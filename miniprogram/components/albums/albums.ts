@@ -40,7 +40,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     indicatorDots: false,
     autoplay: false,
     interval: 6000,
-    duration: 800,
+    duration: 1000,
     circular: false,
     indicatorType: "expand",
     offsetValue: [0, 0],
@@ -49,7 +49,8 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     width: 6,
     height: 5,
     isSwitching: false,
-    albumMaskOpacity: 0
+    albumMaskOpacity: 0,
+    albumIndexTarget: 0
   },
 
   /**
@@ -113,15 +114,23 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     async onDeleteClick() {
       const newAlbumIndex = (this as any).data.displayedAlbumIndex === 0 ? 0 : (this as any).data.displayedAlbumIndex - 1;
       (this as any).setDisplayedAlbumIndex(newAlbumIndex);
+      this.setData({
+        cici: newAlbumIndex
+      });
 
       const openID = wx.getStorageSync('openID');
       const albumID = wx.getStorageSync('albumID');
       await deleteAlbum(openID, albumID);
-      await this.updateAlbums(openID);
+
+      setTimeout(async () => {
+        await this.updateAlbums(openID);
+      }, 1000);
+      
 
       this.setData({
         albumMaskOpacity: 0
       });
+
     }
 
   }
