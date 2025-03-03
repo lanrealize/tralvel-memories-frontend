@@ -11,6 +11,8 @@
 
 <albums style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -56vh;"></albums>
 
+<view class="tm-index-mask" style="opacity: {{indexInitialized ? 0 : 1}}; pointer-events: {{indexInitialized ? 'none' : 'auto'}};"></view>
+
 <!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
 
 <swiper-indicator style="position: absolute; top: 83.5vh; left: 0; right: 0;"></swiper-indicator>

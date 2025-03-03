@@ -91,3 +91,13 @@ page {
   position: fixed;
   transition: top 0.8s cubic-bezier(.2, 1, 0, 1);
 }
+
+.tm-index-mask {
+  background-color: black;
+  width: 95.4vw; 
+  height: 56vh;
+  z-index: 5;
+  border-radius: 2vw;
+  margin: 0 2.3vw;
+  transition: opacity 0.4s ease-in-out;
+}

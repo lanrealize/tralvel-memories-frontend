@@ -50,7 +50,7 @@ Page({
     this.uiStoreBinding = createStoreBindings(this, 
       {
         store: uiStore,
-        fields: ['mainStartLoading', 'displayedAlbumTitle', 'displayedAlbumIndex'],
+        fields: ['mainStartLoading', 'displayedAlbumTitle', 'displayedAlbumIndex', 'indexInitialized'],
         actions: ['setMainStartLoading', 'setDisplayedAlbumTitle', 'setIndexInitialized']
       }
     );
