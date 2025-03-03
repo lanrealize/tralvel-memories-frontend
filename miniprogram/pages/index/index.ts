@@ -4,7 +4,7 @@ import { generalStore } from '../../stores/generalStore';
 import { albumsStore } from '../../stores/albumsStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore'
-import { chooseImage, wxLogin } from '../../utils/utils';
+import { chooseImage, wxLogin, isTimeDiffGreaterThanThreshold } from '../../utils/utils';
 import { getRandomWord } from '../../utils/apis';
 
 Page({
@@ -19,7 +19,7 @@ Page({
   },
 
   async onLoad() {
-
+    this.initialize();
   },
 
   onReady() {
@@ -66,10 +66,9 @@ Page({
   async receiveLoginSuccess() {
     try {
       (this as any).setMainStartLoading(true);
-      const openID = await wxLogin();
+      const openID = wx.getStorageSync('openID') ? wx.getStorageSync('openID') : await wxLogin();
       await (this as any).updateAlbums(openID);
       this.albumsStorageBinding.updateStoreBindings();
-      (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
       (this as any).setLoginStatus(true);
       if (0 === (this as any).data.albums.length) {
         const photoPath = await chooseImage();
@@ -77,6 +76,8 @@ Page({
         const description = await getRandomWord();
         (this as any).setPhoteCreationDescription(description);
         (this as any).setPhotoCreationComponentTop(0);
+      } else {
+        (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
       }
     } catch (e) {
       console.log("Login failed: " + e);
@@ -96,5 +97,25 @@ Page({
     (this as any).setPhoteCreationDescription(description);
     (this as any).setPhotoCreationComponentTop(0);
   },
+
+  async initialize() {
+    const openID = wx.getStorageSync('openID');
+    const lastLoginTime = wx.getStorageSync('loginTime');
+    if (!openID || !lastLoginTime) {
+      console.log('e')
+      return;
+    }
+
+    const now = new Date();
+    if (isTimeDiffGreaterThanThreshold(now, new Date(lastLoginTime))) {
+      wx.removeStorageSync('openID');
+    } else {
+      await (this as any).updateAlbums(openID);
+      if (0 < (this as any).data.albums.length) {
+        (this as any).setLoginStatus(true);
+        (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
+      } 
+    }
+  }
 
 })

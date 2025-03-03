@@ -1,4 +1,5 @@
 import { devUrlPrefix } from "../configs/network";
+import { loginTimeThreshold } from "../configs/normal"
 
 /**
  * ===============================================
@@ -9,6 +10,7 @@ export const wxLogin = () => {
   return new Promise((resolve, reject) => {
     try {
       let openID = wx.getStorageSync('openID');
+      // According to current logic, if code reach here openID can not be true, so will not go into if branch and will absolutely go to else branch
       if (openID) {
         console.log('has openID')
         resolve(openID)
@@ -23,6 +25,10 @@ export const wxLogin = () => {
               success: (res: any) => {
                 console.log('get openID')
                 wx.setStorageSync('openID', res.data.openID);
+                // Handle loginTime
+                const now = new Date();
+                wx.setStorageSync('loginTime', now.toISOString());
+
                 resolve(res.data.openID);
                 console.log('login success');
               },
@@ -138,4 +144,15 @@ export const getDatefromIndices = (indices: number[]) => {
 export const parseDate = (dateString: string) => {
   const [year, month, day, hours, minutes] = dateString.split('/').map(Number);
   return new Date(year, month - 1, day, hours, minutes);
+}
+
+/**
+ * ===============================================
+ * time related methods
+ * ===============================================
+*/
+export const isTimeDiffGreaterThanThreshold = (dateA: any, dateB: any) => {
+  const diffMs = dateA.getTime() - dateB.getTime();
+  const diffMinutes = Math.abs(Math.round(diffMs / 60000)); 
+  return diffMinutes > loginTimeThreshold ? true : false;
 }
