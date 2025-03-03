@@ -15,8 +15,7 @@ Page({
   uiStoreBinding: undefined as any,
 
   data: {
-    photoCreationComponentTop: 100,
-    initialized: false
+    photoCreationComponentTop: 100
   },
 
   async onLoad() {
@@ -52,7 +51,7 @@ Page({
       {
         store: uiStore,
         fields: ['mainStartLoading', 'displayedAlbumTitle', 'displayedAlbumIndex'],
-        actions: ['setMainStartLoading', 'setDisplayedAlbumTitle']
+        actions: ['setMainStartLoading', 'setDisplayedAlbumTitle', 'setIndexInitialized']
       }
     );
 
@@ -121,9 +120,7 @@ Page({
         } 
       }
     } finally {
-      this.setData({
-        initialized: true
-      });
+      (this as any).setIndexInitialized(true);
     }
     
   }

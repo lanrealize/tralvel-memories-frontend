@@ -18,4 +18,4 @@
 <!-- <view class="tm-index-text-2">更多好玩的？</view> -->
 <view class="tm-index-text-3">提示：在长按照片后可以根据按钮对图片进行删除操作。</view>
 
-<photo-creation page="index" class="albums-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 5;"></photo-creation>
+<photo-creation page="index" class="albums-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 6;"></photo-creation>
