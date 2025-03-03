@@ -92,6 +92,7 @@ ComponentWithStore({
     },
 
     async onDeleteClick() {
+      console.log('hrecalled')
       this.setData({
         deleted: true
       })
@@ -100,6 +101,11 @@ ComponentWithStore({
       await deletePhoto(openID, albumID, this.properties.photoId);
       setTimeout(() => {
         (this as any).updatePhotos(openID, albumID);
+        setTimeout(() => {
+          this.setData({
+            deleted: false
+          });
+        }, 100);
       }, 300);
       this.setOpacity(0);
       this.triggerEvent('onDeletedPhoto');
