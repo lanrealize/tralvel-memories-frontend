@@ -40,7 +40,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     indicatorDots: false,
     autoplay: false,
     interval: 6000,
-    duration: 1000,
+    duration: 800,
     circular: false,
     indicatorType: "expand",
     offsetValue: [0, 0],
@@ -124,7 +124,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
       setTimeout(async () => {
         await this.updateAlbums(openID);
-      }, 1000);
+      }, 800);
       
 
       this.setData({

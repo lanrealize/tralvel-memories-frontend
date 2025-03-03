@@ -62,7 +62,8 @@ ComponentWithStore({
    * 组件的初始数据
    */
   data: {
-    opacity: 0
+    opacity: 0,
+    deleted: false
   },
 
   /**
@@ -83,7 +84,7 @@ ComponentWithStore({
     setOpacity(opacity: number) {
       this.setData({
         opacity: opacity
-      })
+      });
     },
 
     onCoverClick() {
@@ -91,10 +92,15 @@ ComponentWithStore({
     },
 
     async onDeleteClick() {
+      this.setData({
+        deleted: true
+      })
       const openID = wx.getStorageSync('openID');
       const albumID = wx.getStorageSync('albumID');
       await deletePhoto(openID, albumID, this.properties.photoId);
-      (this as any).updatePhotos(openID, albumID);
+      setTimeout(() => {
+        (this as any).updatePhotos(openID, albumID);
+      }, 300);
       this.setOpacity(0);
       this.triggerEvent('onDeletedPhoto');
     }

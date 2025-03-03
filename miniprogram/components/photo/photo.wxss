@@ -7,6 +7,7 @@
   grid-template-rows: auto auto auto;
   grid-template-areas: "top" "title" "main";
 
+  transition: opacity 0.3s ease-in-out;
 }
 
 .tm-photo-row-container {
