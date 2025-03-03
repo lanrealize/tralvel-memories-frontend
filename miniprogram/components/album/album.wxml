@@ -1,5 +1,5 @@
 <!--components/album/album.wxml-->
-<view class="tm-album-container">
+<view class="tm-album-container" style="opacity: {{deleted ? 0 : 1}};">
   <view class="tm-album-main-image tm-album-main-image-mask"></view>
 
   <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 1 ? 'tm-album-main-image-deavtive' : pending ? 'tm-album-main-image-pending' : 'tm-album-main-image-avtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>

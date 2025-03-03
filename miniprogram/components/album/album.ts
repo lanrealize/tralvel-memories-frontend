@@ -42,7 +42,8 @@ ComponentWithStore({
     activatedIndex: -1,
     currentImageIndex: 0,
     pending: true,
-    imageSwitching: false 
+    imageSwitching: false,
+    deleted: false
   },
 
   lifetimes: {
@@ -134,6 +135,12 @@ ComponentWithStore({
           imageSwitching: false
         });
       }, timeout);
+    },
+
+    onDeleting() {
+      this.setData({
+        deleted: true
+      });
     }
 
   },
