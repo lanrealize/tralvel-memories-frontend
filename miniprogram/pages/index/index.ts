@@ -15,11 +15,12 @@ Page({
   uiStoreBinding: undefined as any,
 
   data: {
-    photoCreationComponentTop: 100
+    photoCreationComponentTop: 100,
+    initialized: false
   },
 
   async onLoad() {
-    this.initialize();
+   
   },
 
   onReady() {
@@ -54,6 +55,8 @@ Page({
         actions: ['setMainStartLoading', 'setDisplayedAlbumTitle']
       }
     );
+
+    this.initialize();
   },
 
   onUnload() {
@@ -99,22 +102,30 @@ Page({
   },
 
   async initialize() {
-    const openID = wx.getStorageSync('openID');
-    const lastLoginTime = wx.getStorageSync('loginTime');
-    if (!openID || !lastLoginTime) {
-      return;
+    try {
+      const openID = wx.getStorageSync('openID');
+      const lastLoginTime = wx.getStorageSync('loginTime');
+      if (!openID || !lastLoginTime) {
+        return;
+      }
+  
+      const now = new Date();
+      if (isTimeDiffGreaterThanThreshold(now, new Date(lastLoginTime))) {
+        wx.removeStorageSync('openID');
+      } else {
+        await (this as any).updateAlbums(openID);
+        this.albumsStorageBinding.updateStoreBindings();
+        if (0 < (this as any).data.albums.length) {
+          (this as any).setLoginStatus(true);
+          (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
+        } 
+      }
+    } finally {
+      this.setData({
+        initialized: true
+      });
     }
-
-    const now = new Date();
-    if (isTimeDiffGreaterThanThreshold(now, new Date(lastLoginTime))) {
-      wx.removeStorageSync('openID');
-    } else {
-      await (this as any).updateAlbums(openID);
-      if (0 < (this as any).data.albums.length) {
-        (this as any).setLoginStatus(true);
-        (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
-      } 
-    }
+    
   }
 
 })
