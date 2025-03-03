@@ -19,7 +19,7 @@
     bindtransition="onSwiperTransition"
     bindanimationfinish="onAnimationFinish"
     bindlongpress="onAlbumLongPress"
-    current="{{cici}}">
+    current="{{albumIndexTarget}}">
     <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
       <swiper-item>
         <view style="height: 56vh; width: 100vw;">

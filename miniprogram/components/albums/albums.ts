@@ -112,10 +112,10 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     },
 
     async onDeleteClick() {
-      const newAlbumIndex = (this as any).data.displayedAlbumIndex === 0 ? 0 : (this as any).data.displayedAlbumIndex - 1;
+      const newAlbumIndex = (this as any).data.displayedAlbumIndex === 1 ? 0 : (this as any).data.displayedAlbumIndex - 1;
       (this as any).setDisplayedAlbumIndex(newAlbumIndex);
       this.setData({
-        cici: newAlbumIndex
+        albumIndexTarget: newAlbumIndex
       });
 
       const openID = wx.getStorageSync('openID');
