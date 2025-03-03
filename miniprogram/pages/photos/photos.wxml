@@ -1,10 +1,29 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll">
+<view style="width: 30vw; height: 8vh; background-color: black; position: fixed; top: 20vh; z-index: 100; color: white;" bind:tap="test">test</view> 
+<scroll-view 
+  class="scrollarea" 
+  scroll-y type="list" 
+  style="flex: 1; height: 100vh; background-color: #ffffff;" 
+  wx:if="{{!loading}}" 
+  bindscroll="onScroll"
+  scroll-into-view="{{photoDisplayTarget}}"
+  scroll-with-animation="{{true}}">
+
   <view style="height: calc({{menuTop + menuHeight}}px + 2vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
-      <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}" index="{{index}}" bind:onDeletedPhoto="receivePhotoDelete">
+      <photo 
+        photoId="{{photo.id}}" 
+        title="{{photo.title}}" 
+        subTitle="{{photo.subTitle}}" 
+        photoUrl="{{photo.imageUrl}}" 
+        description="{{photo.description}}" 
+        photoUrls="{{photoUrls}}" 
+        photoOrientation="{{photo.orientation}}" 
+        id="photos--{{index}}"
+        index="{{index}}" 
+        bind:onDeletedPhoto="receivePhotoDelete">
       </photo>
     </view>
     <!-- <photo type="end" title="无更多内容"></photo> -->
