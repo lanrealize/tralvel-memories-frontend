@@ -17,7 +17,8 @@
     class="tm-albums-swiper"
     bindchange="onSwiperChange"
     bindtransition="onSwiperTransition"
-    bindanimationfinish="onAnimationFinish">
+    bindanimationfinish="onAnimationFinish"
+    bindlongpress="onAlbumLongPress">
     <block wx:for="{{albums}}" wx:for-item="album" wx:key="unique" wx:for-index="index">
       <swiper-item>
         <view style="height: 56vh; width: 100vw;">
@@ -35,5 +36,11 @@
     </block>
   </swiper>
   <view class="tm-albums-album-title" style="opacity: {{isSwitching ? 0 : 1}};">{{displayedAlbumTitle}}</view>
+  <!-- <view class="tm-albums-album-mask"></view> -->
+  <view class="tm-albums-album-mask" style="opacity: {{albumMaskOpacity}}; pointer-events: {{albumMaskOpacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
+      <view style="margin: auto; display: flex; flex-direction: column;">
+        <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick"></image>
+      </view>
+    </view>
 </view>
 

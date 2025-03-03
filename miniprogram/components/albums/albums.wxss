@@ -27,3 +27,17 @@
   z-index: 3;
   transition: opacity 0.2s ease-in-out;
 }
+
+.tm-albums-album-mask {
+  position: absolute;
+  height: 100%;
+  width: 96vw;
+  z-index: 4;
+  border-radius: 2vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

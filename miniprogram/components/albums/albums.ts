@@ -47,7 +47,8 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     radius: 3,
     width: 6,
     height: 5,
-    isSwitching: false
+    isSwitching: false,
+    albumMaskOpacity: 0
   },
 
   /**
@@ -94,6 +95,22 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       this.setData({
         isSwitching: false
       });
+    },
+
+    onAlbumLongPress() {
+      this.setData({
+        albumMaskOpacity: 1
+      });
+    },
+
+    onCoverClick() {
+      this.setData({
+        albumMaskOpacity: 0
+      });
+    },
+
+    onDeleteClick() {
+      console.log('delete album')
     }
 
   }
