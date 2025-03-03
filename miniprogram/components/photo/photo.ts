@@ -100,13 +100,12 @@ ComponentWithStore({
       const albumID = wx.getStorageSync('albumID');
       await deletePhoto(openID, albumID, this.properties.photoId);
       setTimeout(() => {
+        this.setData({
+          deleted: false
+        });
         (this as any).updatePhotos(openID, albumID);
-        setTimeout(() => {
-          this.setData({
-            deleted: false
-          });
-        }, 100);
       }, 300);
+
       this.setOpacity(0);
       this.triggerEvent('onDeletedPhoto');
     }
