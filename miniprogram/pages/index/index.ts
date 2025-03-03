@@ -102,7 +102,6 @@ Page({
     const openID = wx.getStorageSync('openID');
     const lastLoginTime = wx.getStorageSync('loginTime');
     if (!openID || !lastLoginTime) {
-      console.log('e')
       return;
     }
 
