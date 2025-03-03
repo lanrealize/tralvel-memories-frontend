@@ -160,7 +160,7 @@ Page({
 
   test() {
     this.setData({
-      photoDisplayTarget: 'photos--0'
+      photoDisplayTarget: 'photos--1'
     });
   }
 
