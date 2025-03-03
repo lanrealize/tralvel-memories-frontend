@@ -3,6 +3,7 @@ import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { albumsStore } from '../../stores/albumsStore';
 import { AlbumsComponentData } from '../../models/component-model/albums-model';
 import { uiStore } from '../../stores/uiStore'
+import { deleteAlbum } from '../../utils/apis'
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
@@ -10,7 +11,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     {
       store: albumsStore,
       fields: ['albums'],
-      actions: ['uddateAlbums'],
+      actions: ['updateAlbums'],
     },
     {
       store: uiStore,
@@ -109,8 +110,18 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       });
     },
 
-    onDeleteClick() {
-      console.log('delete album')
+    async onDeleteClick() {
+      const newAlbumIndex = (this as any).data.displayedAlbumIndex === 0 ? 0 : (this as any).data.displayedAlbumIndex - 1;
+      (this as any).setDisplayedAlbumIndex(newAlbumIndex);
+
+      const openID = wx.getStorageSync('openID');
+      const albumID = wx.getStorageSync('albumID');
+      await deleteAlbum(openID, albumID);
+      await this.updateAlbums(openID);
+
+      this.setData({
+        albumMaskOpacity: 0
+      });
     }
 
   }

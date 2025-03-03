@@ -54,6 +54,28 @@ export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: s
   })
 }
 
+export const deleteAlbum = (openID: string, albumID: string) => {
+  return new Promise((resolve, reject) => {
+    try {
+      wx.request({
+        url: devUrlPrefix + '/users/' + openID + '/albums/' + albumID,
+        method: 'DELETE',
+        data: {
+          type: 'createdAlbums'
+        },
+        success: (res: any) => {
+          resolve(`Album ${albumID} deleted.`)
+        },
+        fail: (e) => {
+          reject(e)
+        }
+      })
+    } catch (e) {
+      reject(e)
+    }
+  })
+}
+
 /**
  * ===============================================
  * Photo Layer
