@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "busy-indicator": "/components/busy-indicator/busy-indicator"
+  }
 }

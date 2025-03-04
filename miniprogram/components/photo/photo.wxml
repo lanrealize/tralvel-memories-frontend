@@ -22,7 +22,11 @@
   <image src="{{photoUrl}}" mode="aspectFill" class="{{photoOrientation === 'horizontal' ? 'tm-photo-main-main-photo-horizontal' : 'tm-photo-main-main-photo-vertical'}}" bindtap="previewImage" bindlongpress="onLongPress">
     <view class="tm-photo-main-main-photo-cover" style="opacity: {{opacity}}; pointer-events: {{opacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
       <view style="margin: auto; display: flex; flex-direction: column;">
-        <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick"></image>
+
+        <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick" wx:if="{{!isDeleting}}"></image>
+
+        <busy-indicator size='1.5' wx:if="{{isDeleting}}"></busy-indicator>
+
       </view>
     </view>
   </image>

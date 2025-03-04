@@ -63,7 +63,8 @@ ComponentWithStore({
    */
   data: {
     opacity: 0,
-    deleted: false
+    deleted: false,
+    isDeleting: false
   },
 
   /**
@@ -92,22 +93,34 @@ ComponentWithStore({
     },
 
     async onDeleteClick() {
-      console.log('hrecalled')
-      this.setData({
-        deleted: true
-      })
-      const openID = wx.getStorageSync('openID');
-      const albumID = wx.getStorageSync('albumID');
-      await deletePhoto(openID, albumID, this.properties.photoId);
-      setTimeout(() => {
+      try {
         this.setData({
-          deleted: false
+          isDeleting: true
         });
-        (this as any).updatePhotos(openID, albumID);
-      }, 300);
 
-      this.setOpacity(0);
-      this.triggerEvent('onDeletedPhoto');
+        const openID = wx.getStorageSync('openID');
+        const albumID = wx.getStorageSync('albumID');
+        await deletePhoto(openID, albumID, this.properties.photoId);
+  
+        this.setData({
+          deleted: true
+        })
+  
+        setTimeout(async () => {
+          await (this as any).updatePhotos(openID, albumID);
+          this.setData({
+            deleted: false
+          });
+        }, 200);
+
+        this.triggerEvent('onDeletedPhoto');
+      } finally {
+        this.setData({
+          isDeleting: false
+        });
+        this.setOpacity(0);
+      }
+      
     }
   }
 })
