@@ -11,7 +11,12 @@
 
 <albums style="opacity: {{(indexInitialized && (loginStatus && albums.length > 0)) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -56vh;"></albums>
 
-<view class="tm-index-mask" style="opacity: {{indexInitialized ? 0 : 1}}; pointer-events: {{indexInitialized ? 'none' : 'auto'}};"></view>
+<view class="tm-index-mask" style="opacity: {{indexInitialized ? 0 : 1}}; pointer-events: {{indexInitialized ? 'none' : 'auto'}};">
+  <busy-indicator 
+  size='2' 
+  wx:if="{{!indexInitialized}}" 
+  style="transition: opacity 0.4s ease-in-out; opacity: {{longTimeInitialize ? 1 : 0}};"></busy-indicator>
+</view>
 
 <!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
 

@@ -4,6 +4,7 @@
     "albums": "/components/albums/albums",
     "album": "/components/album/album",
     "photo-creation": "/components/photo-creation/photo-creation",
+    "busy-indicator": "/components/busy-indicator/busy-indicator",
     "swiper-indicator": "/components/swiper-indicator/swiper-indicator"
   },
   "navigationBarTextStyle": "black"

@@ -15,7 +15,8 @@ Page({
   uiStoreBinding: undefined as any,
 
   data: {
-    photoCreationComponentTop: 100
+    photoCreationComponentTop: 100,
+    longTimeInitialize: false
   },
 
   async onLoad() {
@@ -23,6 +24,13 @@ Page({
   },
 
   onReady() {
+    setTimeout(() => {
+      this.setData({
+        longTimeInitialize: true
+      });
+    }, 1000);
+    
+
     this.generalStorageBinding = createStoreBindings(this, 
       {
         store: generalStore,
