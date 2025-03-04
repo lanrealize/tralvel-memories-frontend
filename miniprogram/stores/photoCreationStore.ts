@@ -1,4 +1,5 @@
 import { action, observable } from "mobx-miniprogram";
+import { getCurrentTime, getIndicesFromDate } from "../utils/utils"
 
 export const photoCreationStore = observable({
 
@@ -34,6 +35,11 @@ export const photoCreationStore = observable({
   setPhotoCreationTime: action(
     (photoCreationTime: number[]) => {
       photoCreationStore.photoCreationTime = photoCreationTime;
+    }
+  ),
+  correctPhotoCreationTime: action(
+    () => {
+      photoCreationStore.setPhotoCreationTime(getIndicesFromDate(getCurrentTime()));
     }
   ),
 

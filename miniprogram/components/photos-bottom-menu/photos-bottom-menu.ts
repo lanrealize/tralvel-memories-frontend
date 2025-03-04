@@ -10,7 +10,7 @@ ComponentWithStore({
     {
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription']
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime']
     }
   ],
 
@@ -38,6 +38,7 @@ ComponentWithStore({
         (this as any).setPhotoCreationPath(photoPath);
         const description = await getRandomWord();
         (this as any).setPhoteCreationDescription(description);
+        (this as any).correctPhotoCreationTime();
         (this as any).setPhotoCreationComponentTop(0);
       } catch (e) {
         console.log(e);

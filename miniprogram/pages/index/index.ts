@@ -43,7 +43,7 @@ Page({
       {
         store: photoCreationStore,
         fields: ['photoCreationComponentTop', 'photoCreationPath'],
-        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription']
+        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime']
       }
     );
 
@@ -77,6 +77,7 @@ Page({
         (this as any).setPhotoCreationPath(photoPath);
         const description = await getRandomWord();
         (this as any).setPhoteCreationDescription(description);
+        (this as any).correctPhotoCreationTime();
         (this as any).setPhotoCreationComponentTop(0);
       } else {
         (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
@@ -97,6 +98,7 @@ Page({
     (this as any).setPhotoCreationPath(photoPath);
     const description = await getRandomWord();
     (this as any).setPhoteCreationDescription(description);
+    (this as any).correctPhotoCreationTime();
     (this as any).setPhotoCreationComponentTop(0);
   },
 

@@ -10,7 +10,7 @@ ComponentWithStore<any, TimePickerComponentData, any, any, any>({
     {
       store: photoCreationStore,
       fields: ['photoCreationTime'],
-      actions: ['setPhotoCreationTime']
+      actions: ['setPhotoCreationTime', 'correctPhotoCreationTime']
     }
   ],
 
@@ -56,7 +56,7 @@ ComponentWithStore<any, TimePickerComponentData, any, any, any>({
   lifetimes: {
     attached() {
       this.setDateinitialSelections();
-      this.setPhotoCreationTime(getIndicesFromDate(getCurrentTime()));
+      this.correctPhotoCreationTime();
     }
   }
 })
