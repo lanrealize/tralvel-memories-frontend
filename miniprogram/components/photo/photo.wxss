@@ -100,8 +100,8 @@
 
 .tm-photo-main-main-photo-horizontal {
   position: relative;
-  width: 88.5vw;
-  height: 30vh;
+  width: 100vw;
+  height: 75vw;
 }
 
 .tm-photo-main-main-photo-vertical {
