@@ -141,6 +141,12 @@ ComponentWithStore({
       this.setData({
         deleted: true
       });
+    },
+
+    onDeleted() {
+      this.setData({
+        deleted: false
+      });
     }
 
   },

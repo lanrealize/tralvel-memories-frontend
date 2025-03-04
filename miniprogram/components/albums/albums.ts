@@ -113,6 +113,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
     async onDeleteClick() {
       const oldAlbumIndex = (this as any).data.displayedAlbumIndex;
+      const oldAlbumId = (this as any).data.albums[oldAlbumIndex].id;
       const newAlbumIndex = (this as any).data.displayedAlbumIndex === 1 ? 0 : (this as any).data.displayedAlbumIndex - 1;
       (this as any).setDisplayedAlbumIndex(newAlbumIndex);
       this.setData({
@@ -125,11 +126,13 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       }
 
       const openID = wx.getStorageSync('openID');
-      const albumID = wx.getStorageSync('albumID');
-      await deleteAlbum(openID, albumID);
+      await deleteAlbum(openID, oldAlbumId);
 
       setTimeout(async () => {
         await this.updateAlbums(openID);
+        if (child) {
+          child.onDeleted();
+        }
       }, 800);
       
       this.setData({
