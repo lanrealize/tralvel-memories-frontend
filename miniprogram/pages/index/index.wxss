@@ -99,5 +99,5 @@ page {
   z-index: 5;
   border-radius: 2vw;
   margin: 0 2.3vw;
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
