@@ -60,7 +60,7 @@
 }
 
 .tm-photo-main-line-top {
-  background: linear-gradient(360deg, rgba(166, 166, 166, 1) 20%, rgba(166, 166, 166, 0) 100%);
+  background: linear-gradient(360deg, rgba(166, 166, 166, 1) 50%, rgba(166, 166, 166, 0) 100%);
   /* height: 3.5vh; */
   /* background: rgba(166, 166, 166, 1); */
   width: 1.5px;
@@ -76,7 +76,7 @@
   margin: auto;
   width: 1.5px;
   height: 150%;
-  background: linear-gradient(180deg, rgba(166, 166, 166, 1) 20%, rgba(166, 166, 166, 0) 90%);
+  background: linear-gradient(180deg, rgba(166, 166, 166, 1) 40%, rgba(166, 166, 166, 0) 100%);
   /* background: rgba(166, 166, 166, 1); */
   margin-top: -18rpx;
 }
@@ -106,10 +106,10 @@
 
 .tm-photo-main-main-photo-vertical {
   position: relative;
-  width: 96vw;
+  width: 100vw;
   height: 115vw;
-  border-radius: 10px;
-  margin-left: 2vw;
+  /* border-radius: 10px;
+  margin-left: 2vw; */
 }
 
 .tm-photo-main-main-photo-cover {

@@ -1,1 +1,1 @@
-export const loginTimeThreshold = 1
+export const loginTimeThreshold = 720
