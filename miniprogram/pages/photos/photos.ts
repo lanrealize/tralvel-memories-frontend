@@ -48,8 +48,8 @@ Page({
     this.pagesStorageBinding = createStoreBindings(this, 
       {
         store: uiStore,
-        fields: ['photosTitleColor'],
-        actions: ['setPhotosTitleColor']
+        fields: ['photosTitleColor', 'photoPlayerShown', 'photoPlayerOpacity'],
+        actions: ['setPhotosTitleColor', 'setPhotoPlayerShown']
       }
     );
 

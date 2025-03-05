@@ -1,0 +1,4 @@
+<!--components/photo-player/photo-player.wxml-->
+<view class="tm-photo-player-root" bind:tap="onQuit">
+
+</view>

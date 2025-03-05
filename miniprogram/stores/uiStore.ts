@@ -7,6 +7,8 @@ export const uiStore = observable({
   displayedAlbumIndex: 0,
   displayedAlbumTitle: '',
   indexInitialized: false,
+  photoPlayerShown: false,
+  photoPlayerOpacity: 0,
 
   setPhotosTitleColor: action(
     (photosTitleColor: string) => {
@@ -35,6 +37,18 @@ export const uiStore = observable({
   setIndexInitialized: action(
     (indexInitialized: boolean) => {
       uiStore.indexInitialized = indexInitialized
+    }
+  ),
+
+  setPhotoPlayerShown: action(
+    (photoPlayerShown: boolean) => {
+      uiStore.photoPlayerShown = photoPlayerShown
+    }
+  ),
+
+  setPhotoPlayerOpacity: action(
+    (photoPlayerOpacity: number) => {
+      uiStore.photoPlayerOpacity = photoPlayerOpacity
     }
   )
 

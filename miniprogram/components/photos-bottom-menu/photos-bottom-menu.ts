@@ -1,6 +1,7 @@
 // components/photos-bottom-menu/photos-bottom-menu.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { photoCreationStore } from '../../stores/photoCreationStore'
+import { photoCreationStore } from '../../stores/photoCreationStore';
+import { uiStore } from '../../stores/uiStore'
 import { chooseImage } from '../../utils/utils';
 import { getRandomWord } from '../../utils/apis';
 
@@ -11,6 +12,11 @@ ComponentWithStore({
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath'],
       actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime']
+    },
+    {
+      store: uiStore,
+      fields: ['photoPlayerShown'],
+      actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity'],
     }
   ],
 
@@ -44,5 +50,20 @@ ComponentWithStore({
         console.log(e);
       }
     },
+
+    onPlayClick() {
+      (this as any).setPhotoPlayerShown(true);
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#ff0000',
+        animation: {
+          duration: 400,
+          timingFunc: 'easeIn'
+        }
+      });
+      wx.nextTick(() => {
+        (this as any).setPhotoPlayerOpacity(1);
+      });
+    }
   }
 })

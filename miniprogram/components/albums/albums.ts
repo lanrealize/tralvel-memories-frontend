@@ -71,7 +71,9 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     onAlbumClick(event: any) {
       var albumid = event.currentTarget.dataset.albumid;
       wx.setStorageSync('albumID', albumid);
-      wx.navigateTo({ url: `/pages/photos/photos` });
+      wx.navigateTo({ 
+        url: `/pages/photos/photos`
+      });
     },
 
     onSwiperChange(event: any) {

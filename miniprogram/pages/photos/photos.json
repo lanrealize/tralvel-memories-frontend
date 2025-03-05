@@ -4,7 +4,8 @@
     "photos-top-menu": "/components/photos-top-menu/photos-top-menu",
     "photos-bottom-menu": "/components/photos-bottom-menu/photos-bottom-menu",
     "busy-indicator": "/components/busy-indicator/busy-indicator",
-    "photo-creation": "/components/photo-creation/photo-creation"
+    "photo-creation": "/components/photo-creation/photo-creation",
+    "photo-player": "/components/photo-player/photo-player"
   },
   "navigationBarTextStyle": "black"
 }
