@@ -57,7 +57,7 @@ ComponentWithStore({
         frontColor: '#ffffff',
         backgroundColor: '#ff0000',
         animation: {
-          duration: 400,
+          duration: 15000,
           timingFunc: 'easeIn'
         }
       });

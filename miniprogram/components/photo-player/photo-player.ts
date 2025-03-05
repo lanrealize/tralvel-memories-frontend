@@ -32,10 +32,10 @@ ComponentWithStore({
     onQuit() {
       (this as any).setPhotoPlayerOpacity(0);
       wx.setNavigationBarColor({
-        frontColor: '#ffffff',
+        frontColor: '#000000',
         backgroundColor: '#ff0000',
         animation: {
-          duration: 400,
+          duration: 15000,
           timingFunc: 'easeIn'
         }
       });
