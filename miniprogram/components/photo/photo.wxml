@@ -1,6 +1,6 @@
 <view class="tm-photo-root" style="opacity: {{deleted ? 0 : 1}}">
   <view style="grid-area: top;" class="tm-photo-row-description-container" wx:if="{{type != 'end'}}">
-    <view class="tm-photo-main-line-top" style="height: {{index === 0 ? 2.5 : 8}}vh;"></view>
+    <view class="tm-photo-main-line-top" style="height: {{index === 0 ? 3 : 8}}vh;"></view>
   </view>
 
   <view class="tm-photo-title tm-photo-row-container">
