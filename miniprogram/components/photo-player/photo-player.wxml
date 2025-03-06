@@ -1,4 +1,6 @@
 <!--components/photo-player/photo-player.wxml-->
 <view class="tm-photo-player-root" bind:tap="onQuit">
+  <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 1 ? 'tm-album-main-image-deavtive' : 'tm-album-main-image-avtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
 
+  <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 0 ? 'tm-album-main-image-deavtive' : 'tm-album-main-image-avtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
 </view>
