@@ -31,6 +31,8 @@ ComponentWithStore({
     photoPlayerOpacity: 0,
     firstImageUrl: '',
     secondImageUrl: '',
+    firstImageDescription: '',
+    secondImageDescription: '',
     activatedIndex: 1,
     imageSwitching: false,
     currentImageIndex: 0
@@ -86,17 +88,20 @@ ComponentWithStore({
 
       setTimeout(() => {
         const newIndex = ((this as any).data.currentImageIndex + 1) % (this as any).data.photos.length;
-        const url = (this as any).data.photos[newIndex].imageUrl
+        const url = (this as any).data.photos[newIndex].imageUrl;
+        const description = (this as any).data.photos[newIndex].description;
         this.setData({
           currentImageIndex: newIndex
         });
         if ((this as any).data.activatedIndex === 0) {
           this.setData({
-            secondImageUrl: url
+            secondImageUrl: url,
+            secondImageDescription: description
           });
         } else {
           this.setData({
-            firstImageUrl: url
+            firstImageUrl: url,
+            firstImageDescription: description
           });
         }
 
@@ -110,6 +115,7 @@ ComponentWithStore({
       setTimeout(() => {
         this.setData({
           firstImageUrl: (this as any).data.photos[0].imageUrl,
+          firstImageDescription: (this as any).data.photos[0].description,
         });
       }, 1500);
     },
