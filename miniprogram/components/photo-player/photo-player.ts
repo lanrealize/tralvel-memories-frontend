@@ -8,7 +8,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: uiStore,
-      fields: ['photoPlayerShown', 'photoPlayerOpacity'],
+      fields: ['photoPlayerShown', 'photoPlayerOpacity', 'photosTitleColor'],
       actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity'],
     },
     {
@@ -51,7 +51,9 @@ ComponentWithStore({
   methods: {
     onQuit() {
       (this as any).setPhotoPlayerOpacity(0);
-      setNavBarTextColor('black');
+      if ((this as any).data.photosTitleColor === 'black') {
+        setNavBarTextColor('black');
+      }
       setTimeout(() => {
         (this as any).setPhotoPlayerShown(false);
       }, 1200);
