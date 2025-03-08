@@ -31,7 +31,9 @@ ComponentWithStore({
    */
   methods: {
     onHomeClick() {
-      wx.navigateBack();
+      wx.navigateTo({ 
+        url: `/pages/index/index`
+      });
     }
   },
 

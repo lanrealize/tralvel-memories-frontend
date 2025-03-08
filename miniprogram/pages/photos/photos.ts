@@ -50,7 +50,7 @@ Page({
       {
         store: uiStore,
         fields: ['photosTitleColor', 'photoPlayerShown', 'photoPlayerOpacity'],
-        actions: ['setPhotosTitleColor', 'setPhotoPlayerShown']
+        actions: ['setPhotosTitleColor', 'setPhotoPlayerShown', 'setPhotoPlayerOpacity']
       }
     );
 
@@ -90,6 +90,8 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
+    (this as any).setPhotoPlayerOpacity(0);
+    (this as any).setPhotoPlayerShown(false);
     this.photosStorageBinding.destroyStoreBindings();
     this.photoCreationStoreBinding.destroyStoreBindings();
     this.pagesStorageBinding.destroyStoreBindings();
