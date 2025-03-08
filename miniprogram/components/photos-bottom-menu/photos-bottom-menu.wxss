@@ -46,7 +46,7 @@
   width: 100vw;
 
   display: grid;
-  grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
+  grid-template-columns: 2vw 32vw 32vw 32vw 2vw;
   grid-template-areas: ". play share add .";
 
   border-radius: 3.5vh;

@@ -2,6 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { uiStore } from '../../stores/uiStore'
 import { photosStore } from '../../stores/photosStore';
+import { setNavBarTextColor } from '../../utils/utils';
 
 ComponentWithStore({
   storeBindings: [
@@ -50,14 +51,7 @@ ComponentWithStore({
   methods: {
     onQuit() {
       (this as any).setPhotoPlayerOpacity(0);
-      wx.setNavigationBarColor({
-        frontColor: '#000000',
-        backgroundColor: '#ff0000',
-        animation: {
-          duration: 15000,
-          timingFunc: 'easeIn'
-        }
-      });
+      setNavBarTextColor('black');
       setTimeout(() => {
         (this as any).setPhotoPlayerShown(false);
       }, 1200);

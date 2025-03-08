@@ -3,6 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
+import { getScrollViewTop, setNavBarTextColor } from '../../utils/utils'
 
 Page({
 
@@ -73,8 +74,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
+  async onShow() {
+    const scrollTop = await getScrollViewTop('scrollarea');
+    this.adjustTitlebar(scrollTop as number);
   },
 
   /**
@@ -134,20 +136,12 @@ Page({
   },
 
   onScroll(event: any) {
-    if (event.detail.scrollTop > this.data.threshold) {
-      if ((this as any).data.photosTitleColor === "black") {
-        (this as any).setPhotosTitleColor('white');
-      }
-    } else {
-      if ((this as any).data.photosTitleColor === "white") {
-        (this as any).setPhotosTitleColor('black');
-      }
-    }
+    this.adjustTitlebar(event.detail.scrollTop);
   },
 
   calculateScrollThreshold() {
     const app: IAppOption = getApp();
-    const threshold = app.globalData.navigationInfo.menuTop + app.globalData.navigationInfo.menuHeight
+    const threshold = app.globalData.navigationInfo.menuTop + app.globalData.navigationInfo.menuHeight - 70;
     this.setData({
       threshold: threshold
     });
@@ -155,6 +149,24 @@ Page({
 
   receivePhotoDelete() {
     // this.setFadeInOut();
+  },
+
+  // async adjustTitleBar() {
+  //   const scrollTop = await getScrollViewTop('scrollarea');
+  // },
+
+  adjustTitlebar(ScrollTop: number) {
+    if (ScrollTop > this.data.threshold) {
+      if ((this as any).data.photosTitleColor === "black") {
+        (this as any).setPhotosTitleColor('white');
+        setNavBarTextColor('white');
+      };
+    } else {
+      if ((this as any).data.photosTitleColor === "white") {
+        (this as any).setPhotosTitleColor('black');
+        setNavBarTextColor('black');
+      }
+    }
   }
 
 })

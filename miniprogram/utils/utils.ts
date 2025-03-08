@@ -156,3 +156,56 @@ export const isTimeDiffGreaterThanThreshold = (dateA: any, dateB: any) => {
   const diffMinutes = Math.abs(Math.round(diffMs / 60000)); 
   return diffMinutes > loginTimeThreshold ? true : false;
 }
+
+/**
+ * ===============================================
+ * Scroll view related methods
+ * ===============================================
+*/
+export const getScrollViewTop = (scrollViewId: string) => {
+  return new Promise((resolve, reject) => {
+    const query = wx.createSelectorQuery();
+    query.select(`.${scrollViewId}`).fields({
+      scrollOffset: true
+    });
+    query.exec((res) => {
+      if (res[0]) {
+        resolve(res[0].scrollTop);
+      } else {
+        reject(new Error('Failed to get scroll-view node.'));
+      }
+    });
+  });
+}
+
+/**
+ * ===============================================
+ * Navigation bar related methods
+ * ===============================================
+*/
+export const setNavBarTextColor = (color: string) => {
+  setTimeout(() => {
+    
+    if (color === 'white') {
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: '#ff0000',
+        animation: {
+          duration: 900,
+          timingFunc: 'easeInOut'
+        }
+      });
+    } else {
+      wx.setNavigationBarColor({
+        frontColor: '#000000',
+        backgroundColor: '#ff0000',
+        animation: {
+          duration: 900,
+          timingFunc: 'easeInOut'
+        }
+      });
+    }
+
+  }, 200);
+}
+

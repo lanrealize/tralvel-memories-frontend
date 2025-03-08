@@ -2,7 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore'
-import { chooseImage } from '../../utils/utils';
+import { chooseImage, setNavBarTextColor } from '../../utils/utils';
 import { getRandomWord } from '../../utils/apis';
 
 ComponentWithStore({
@@ -53,14 +53,7 @@ ComponentWithStore({
 
     onPlayClick() {
       (this as any).setPhotoPlayerShown(true);
-      wx.setNavigationBarColor({
-        frontColor: '#ffffff',
-        backgroundColor: '#ff0000',
-        animation: {
-          duration: 15000,
-          timingFunc: 'easeIn'
-        }
-      });
+      setNavBarTextColor('white');
       wx.nextTick(() => {
         (this as any).setPhotoPlayerOpacity(1);
       });
