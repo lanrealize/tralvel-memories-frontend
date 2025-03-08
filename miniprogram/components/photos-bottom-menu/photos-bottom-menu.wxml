@@ -19,13 +19,21 @@
       <image src="/assets/icons/play.svg" class="tm-photos-bottom-menu-icon"></image>
       <view class="tm-photos-bottom-menu-icon-text">播放</view>
     </view>
+
     <view class="tm-photos-bottom-menu-main-share tm-photos-bottom-menu-icon-container">
       <image src="/assets/icons/share.svg" class="tm-photos-bottom-menu-icon"></image>
       <view class="tm-photos-bottom-menu-icon-text">分享</view>
       <button style="width: 14.5vw;" open-type="share" class="tm-photos-bottom-menu-icon-share"></button>
     </view>
-    <view class="tm-photos-bottom-menu-add tm-photos-bottom-menu-icon-container" bindtap="onAddClick">
-      添加
+
+    <view class="tm-photos-bottom-menu-main-add tm-photos-bottom-menu-icon-container" bind:tap="onAddClick">
+      <image src="/assets/icons/add.svg" class="tm-photos-bottom-menu-icon"></image>
+      <view class="tm-photos-bottom-menu-icon-text">添加</view>
+      <button style="width: 14.5vw;" class="tm-photos-bottom-menu-icon-share"></button>
     </view>
+
+    <!-- <view class="tm-photos-bottom-menu-add tm-photos-bottom-menu-icon-container" bindtap="onAddClick">
+      添加
+    </view> -->
   </view>
 </view>

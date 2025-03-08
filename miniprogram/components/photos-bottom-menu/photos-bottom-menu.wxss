@@ -16,7 +16,7 @@
   height: 100%;
   overflow: visible;
   float: left;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 .blurred-overlay {
@@ -36,15 +36,22 @@
   width: 100vw;
   z-index: 3;
   bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tm-photos-bottom-menu-main {
-  height: 10vh;
+  height: 7vh;
   width: 100vw;
 
   display: grid;
-  grid-template-columns: 47vw 15vw 15vw 23vw;
-  grid-template-areas: "title play share add";
+  grid-template-columns: 5vw 30vw 30vw 30vw 5vw;
+  grid-template-areas: ". play share add .";
+
+  border-radius: 3.5vh;
+  /* background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px); */
 }
 
 .tm-photos-bottom-menu-icon-container {
@@ -64,6 +71,11 @@
 
 .tm-photos-bottom-menu-main-share {
   grid-area: share;
+  position: relative;
+}
+
+.tm-photos-bottom-menu-main-add {
+  grid-area: add;
   position: relative;
 }
 
