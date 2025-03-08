@@ -63,17 +63,17 @@ ComponentWithStore({
       this.setData({
         activatedIndex: 'first'
       });
-      this.preloadDeactivatedImageInSeconds(4000);
+      this.preloadDeactivatedImageInSeconds('second', 4000);
     },
 
     onSecondImageLoad() {
       this.setData({
         activatedIndex: 'second'
       });
-      this.preloadDeactivatedImageInSeconds(4000);
+      this.preloadDeactivatedImageInSeconds('first', 4000);
     },
 
-    preloadDeactivatedImageInSeconds(timeout: number) {
+    preloadDeactivatedImageInSeconds(target: string, timeout: number) {
       if ((this as any).data.imageSwitching) {
         return;
       }
@@ -89,16 +89,13 @@ ComponentWithStore({
         this.setData({
           currentImageIndex: newIndex
         });
-        if ((this as any).data.activatedIndex === 'first') {
-          this.updateImageData('second', url, description);
-        } else {
-          this.updateImageData('first', url, description);
-        }
+        this.updateImageData(target, url, description);
 
         this.setData({
           imageSwitching: false
         });
-      }, timeout);
+      }, 
+      timeout);
     },
 
     initialize() {
