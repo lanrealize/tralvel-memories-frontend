@@ -34,7 +34,7 @@ ComponentWithStore({
     secondImageUrl: '',
     firstImageDescription: '',
     secondImageDescription: '',
-    activatedIndex: 1,
+    activatedIndex: 'blank',
     imageSwitching: false,
     currentImageIndex: 0
   },
@@ -61,14 +61,14 @@ ComponentWithStore({
 
     onFirstImageLoad() {
       this.setData({
-        activatedIndex: 0
+        activatedIndex: '1st'
       });
       this.preloadDeactivatedImageInSeconds(4000);
     },
 
     onSecondImageLoad() {
       this.setData({
-        activatedIndex: 1
+        activatedIndex: '2nd'
       });
       this.preloadDeactivatedImageInSeconds(4000);
     },
@@ -89,7 +89,7 @@ ComponentWithStore({
         this.setData({
           currentImageIndex: newIndex
         });
-        if ((this as any).data.activatedIndex === 0) {
+        if ((this as any).data.activatedIndex === '1st') {
           if (url === (this as any).data.secondImageUrl) {
             this.setData({
               secondImageUrl: ''

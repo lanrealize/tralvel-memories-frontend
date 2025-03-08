@@ -20,7 +20,7 @@
   left: 0;
 }
 
-.tm-photo-player-text-deavtive {
+.tm-photo-player-text-deactive {
   color: white;
   font-size: 33rpx;
   font-weight: 600;

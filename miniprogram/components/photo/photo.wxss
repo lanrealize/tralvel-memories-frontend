@@ -12,14 +12,14 @@
 
 .tm-photo-row-container {
   display: grid;
-  grid-template-columns: 5vw 3.5vw 91.5vw;
+  grid-template-columns: 5vw 1.5vw 91.5vw;
   grid-template-areas: "photo-row-left . photo-row-right";
   margin: 0 3vw;
 }
 
 .tm-photo-row-description-container {
   display: grid;
-  grid-template-columns: 5vw 3.5vw 91.5vw;
+  grid-template-columns: 5vw 1.5vw 91.5vw;
   grid-template-areas: "photo-row-left . photo-row-right";
   margin: 0 3vw;
 }
@@ -111,7 +111,7 @@
   height: 115vw;
   border-radius: 10px;
   margin-left: 2vw;
-  /* box-shadow: 2px 4px 4px  rgba(0, 0, 0, 0.25); */
+  /* box-shadow: 4px 4px 4px  rgba(0, 0, 0, 0.25); */
 }
 
 .tm-photo-main-main-photo-cover {
