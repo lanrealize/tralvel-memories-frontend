@@ -29,6 +29,7 @@
   bottom: 10vh;
   margin-left: 10vw;
   margin-right: 10vw;
+  width: 80vw;
   opacity: 0;
 }
 
@@ -41,6 +42,7 @@
   bottom: 10vh;
   margin-left: 10vw;
   margin-right: 10vw;
+  width: 80vw;
   opacity: 1;
 }
 

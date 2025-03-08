@@ -34,7 +34,7 @@ ComponentWithStore({
     secondImageUrl: '',
     firstImageDescription: '',
     secondImageDescription: '',
-    activatedIndex: 'blank',
+    activatedIndex: '',
     imageSwitching: false,
     currentImageIndex: 0
   },
