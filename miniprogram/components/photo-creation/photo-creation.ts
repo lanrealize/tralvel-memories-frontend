@@ -68,7 +68,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           wx.setStorageSync('albumID', albumID);
           await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
           // Step 2: Update albums
-          (this as any).updateAlbums(openID);
+          await (this as any).updateAlbums(openID);
           // Step 3: Adjust display
           this.setPhotoCreationComponentTop(100);
           wx.navigateTo({ url: `/pages/photos/photos` });
@@ -78,7 +78,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             const albumID = wx.getStorageSync('albumID');
             await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
             // Step 2: Update albums
-            (this as any).updateAlbums(openID);
+            await (this as any).updateAlbums(openID);
             // Step 3: Adjust display
             await this.updatePhotos(openID, albumID);
             this.setPhotoCreationComponentTop(100);

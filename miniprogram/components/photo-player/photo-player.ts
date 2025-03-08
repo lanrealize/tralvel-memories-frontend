@@ -90,11 +90,21 @@ ComponentWithStore({
           currentImageIndex: newIndex
         });
         if ((this as any).data.activatedIndex === 0) {
+          if (url === (this as any).data.secondImageUrl) {
+            this.setData({
+              secondImageUrl: ''
+            });
+          }
           this.setData({
             secondImageUrl: url,
             secondImageDescription: description
           });
         } else {
+          if(url === (this as any).data.firstImageUrl) {
+            this.setData({
+              firstImageUrl: ''
+            });
+          }
           this.setData({
             firstImageUrl: url,
             firstImageDescription: description
