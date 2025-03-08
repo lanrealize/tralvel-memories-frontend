@@ -77,7 +77,9 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             const openID = wx.getStorageSync('openID');
             const albumID = wx.getStorageSync('albumID');
             await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
-            // Step 2: Adjust display
+            // Step 2: Update albums
+            (this as any).updateAlbums(openID);
+            // Step 3: Adjust display
             await this.updatePhotos(openID, albumID);
             this.setPhotoCreationComponentTop(100);
         } else {
