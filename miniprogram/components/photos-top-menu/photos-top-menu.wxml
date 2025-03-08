@@ -5,10 +5,11 @@
     <image src="/assets/icons/home.svg" style="left: 3vw; filter: {{photosTitleColor === 'black' ? 'none' : 'invert(100%)'}};" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
     <image src="/assets/icons/updown.svg" style="left: 11vw; filter: {{photosTitleColor === 'black' ? 'none' : 'invert(100%)'}};" class="tm-photos-top-menu-icon" bindtap="onHomeClick"></image>
   </view>
-  <!-- <view style="height: 2vh;"></view> -->
+  <!-- <view style="height: 20vh;"></view> -->
 </view>
 
 <view class="blurred-overlay">
-  <view class="blur" style="height: calc({{menuTop + menuHeight}}px + 3vh);"></view>
-  <view class="gradient" style="height: calc({{menuTop + menuHeight}}px + 3vh); background: {{photosTitleColor === 'black' ? 'linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)' : 'linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)'}};"></view>
+  <view class="blur" style="height: calc({{menuTop + menuHeight}}px + 5vh);"></view>
+  <view class="gradient white-gradient" style="height: calc({{menuTop + menuHeight}}px + 5vh); opacity: {{photosTitleColor === 'black' ? 1 : 0}};"></view>
+  <view class="gradient black-gradient" style="height: calc({{menuTop + menuHeight}}px + 5vh); opacity: {{photosTitleColor === 'black' ? 0 : 1}};"></view>
 </view>

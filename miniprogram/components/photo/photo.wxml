@@ -1,6 +1,9 @@
 <view class="tm-photo-root" style="opacity: {{deleted ? 0 : 1}}">
   <view style="grid-area: top;" class="tm-photo-row-description-container" wx:if="{{type != 'end'}}">
-    <view class="tm-photo-main-line-top" style="height: {{index === 0 ? 3 : 8}}vh;"></view>
+    <view 
+    class="tm-photo-main-line-top" 
+    style="height: {{index === 0 ? 3.5 : 5}}vh; background: linear-gradient(360deg, rgba(166, 166, 166, 1) {{index === 0 ? 3 : 6}}0%, rgba(166, 166, 166, 0) 100%);">
+    </view>
   </view>
 
   <view class="tm-photo-title tm-photo-row-container">

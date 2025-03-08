@@ -7,13 +7,13 @@
 <view class="tm-photos-bottom-menu-root">
   <view class="tm-photos-bottom-menu-main">
 
-    <view class="tm-photos-bottom-menu-main-title">
+    <!-- <view class="tm-photos-bottom-menu-main-title">
       <image class="tm-photos-bottom-menu-main-title-image" src="/assets/icon.png"></image>
       <view class="tm-photos-bottom-menu-main-title-text">
         <view class="tm-photos-bottom-menu-main-title-text-main">我的旅行纪念册</view>
         <view class="tm-photos-bottom-menu-main-title-text-sub">记录旅行中中的每一次感动</view>
       </view>
-    </view>
+    </view> -->
 
     <view class="tm-photos-bottom-menu-main-play tm-photos-bottom-menu-icon-container" bindtap="onPlayClick">
       <image src="/assets/icons/play.svg" class="tm-photos-bottom-menu-icon"></image>
