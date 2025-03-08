@@ -4,7 +4,11 @@
   <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 'first' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
   <view class="{{activatedIndex === 'first' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{firstImageDescription}}</view>
 
-  <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 'second' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
-  <view class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view>
+  <view style="position: absolute; width: 100vw; top: 0; height: 65vh; overflow: hidden;">
+    <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 'second' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out; height: 65vh;"/>
+  </view>
+
+  
+  <view class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out; bottom: 45vh;">{{secondImageDescription}}</view>
 
 </view>
