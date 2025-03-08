@@ -61,14 +61,14 @@ ComponentWithStore({
 
     onFirstImageLoad() {
       this.setData({
-        activatedIndex: '1st'
+        activatedIndex: 'first'
       });
       this.preloadDeactivatedImageInSeconds(4000);
     },
 
     onSecondImageLoad() {
       this.setData({
-        activatedIndex: '2nd'
+        activatedIndex: 'second'
       });
       this.preloadDeactivatedImageInSeconds(4000);
     },
@@ -89,26 +89,10 @@ ComponentWithStore({
         this.setData({
           currentImageIndex: newIndex
         });
-        if ((this as any).data.activatedIndex === '1st') {
-          if (url === (this as any).data.secondImageUrl) {
-            this.setData({
-              secondImageUrl: ''
-            });
-          }
-          this.setData({
-            secondImageUrl: url,
-            secondImageDescription: description
-          });
+        if ((this as any).data.activatedIndex === 'first') {
+          this.updateImageData('second', url, description);
         } else {
-          if(url === (this as any).data.firstImageUrl) {
-            this.setData({
-              firstImageUrl: ''
-            });
-          }
-          this.setData({
-            firstImageUrl: url,
-            firstImageDescription: description
-          });
+          this.updateImageData('first', url, description);
         }
 
         this.setData({
@@ -125,5 +109,20 @@ ComponentWithStore({
         });
       }, 1500);
     },
+
+    updateImageData(activatedIndex: string, url: string, description: string) {
+      const prefix = activatedIndex;
+      const urlKey = `${prefix}ImageUrl`;
+      const descriptionKey = `${prefix}ImageDescription`;
+    
+      if (url === (this as any).data[urlKey]) {
+        this.setData({ [urlKey]: '' });
+      }
+      
+      this.setData({
+        [urlKey]: url,
+        [descriptionKey]: description
+      });
+    }
   }
 })
