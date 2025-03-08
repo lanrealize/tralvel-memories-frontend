@@ -105,10 +105,11 @@
 
 .tm-photo-main-main-photo-vertical {
   position: relative;
-  width: 100vw;
+  width: 96vw;
   height: 115vw;
-  /* border-radius: 10px;
-  margin-left: 2vw; */
+  border-radius: 10px;
+  margin-left: 2vw;
+  /* box-shadow: 2px 4px 4px  rgba(0, 0, 0, 0.25); */
 }
 
 .tm-photo-main-main-photo-cover {
