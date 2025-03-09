@@ -114,7 +114,7 @@ ComponentWithStore({
         imageSwitching: true
       });
 
-      console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
+      // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       setTimeout(() => {
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl

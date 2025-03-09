@@ -115,7 +115,7 @@ ComponentWithStore({
 
     initialize() {
       const nextIndex = this.getNextIndex();
-      console.log(`Got next index of ${nextIndex}`)
+      console.log(`Initialize: Got next index of ${nextIndex}`)
 
       setTimeout(() => {
         this.updateImageData(nextIndex, (this as any).data.photos[0].imageUrl, (this as any).data.photos[0].description);
@@ -175,7 +175,7 @@ ComponentWithStore({
       if (currentIndex === 'eleventh') { return 'twelfth' }
       if (currentIndex === 'thirteenth') { return 'fourteenth' }
 
-      const nextIndex = ((this as any).data.currentImageIndex + 1) % (this as any).data.photos.length;
+      const nextIndex = currentIndex === '' ? 0 : ((this as any).data.currentImageIndex + 1) % (this as any).data.photos.length;
       const nextPhotoOrientation = (this as any).data.photos[nextIndex].orientation;
       if (nextIndex + 1 === (this as any).data.photos.length) {
         if (nextPhotoOrientation === 'vertical') {
@@ -184,7 +184,7 @@ ComponentWithStore({
           return currentIndex === 'fifteenth' ? 'sixteenth' : 'fifteenth';
         }
       } else {
-        const nextNextIndex = ((this as any).data.currentImageIndex + 2) % (this as any).data.photos.length;
+        const nextNextIndex = currentIndex === '' ? 1 : ((this as any).data.currentImageIndex + 2) % (this as any).data.photos.length;
         const nextNextPhotoOrientation = (this as any).data.photos[nextNextIndex].orientation;
 
         if (nextPhotoOrientation === 'vertical') {

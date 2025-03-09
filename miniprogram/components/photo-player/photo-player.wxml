@@ -8,7 +8,7 @@
   <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view>
 
   <view style="position: absolute; width: 100vw; top: 0; height: 65vh; overflow: hidden;">
-    <image wx:if="{{thirdImageExist || thirdImageExist}}" mode="aspectFill" src="{{thirdImageUrl}}" bindload="onThirdImageLoad" data-src="{{thirdImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-v {{(activatedIndex === 'third' || activatedIndex === 'fourth') ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
+    <image wx:if="{{thirdImageExist || fourthImageExist}}" mode="aspectFill" src="{{thirdImageUrl}}" bindload="onThirdImageLoad" data-src="{{thirdImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-v {{(activatedIndex === 'third' || activatedIndex === 'fourth') ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
     <!-- <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view> -->
   </view>
   <view style="position: absolute; width: 100vw; top: 65vh; height: 35vh; overflow: hidden;">
