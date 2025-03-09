@@ -1,10 +1,10 @@
 <!--components/photo-player/photo-player.wxml-->
 <view class="tm-photo-player-root" bind:tap="onQuit">
 
-  <image mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 'first' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
-  <view class="{{activatedIndex === 'first' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{firstImageDescription}}</view>
+  <image wx:if="{{firstImageExist}}" mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 'first' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
+  <view wx:if="{{firstImageExist}}" class="{{activatedIndex === 'first' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{firstImageDescription}}</view>
 
-  <image mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 'second' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
-  <view class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view>
+  <image wx:if="{{secondImageExist}}" mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 'second' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
+  <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view>
 
 </view>
