@@ -30,10 +30,15 @@ ComponentWithStore({
    */
   data: {
     photoPlayerOpacity: 0,
+
     firstImageUrl: '',
-    secondImageUrl: '',
     firstImageDescription: '',
+    firstImageExist: false,
+
+    secondImageUrl: '',
     secondImageDescription: '',
+    secondImageExist: false,
+
     activatedIndex: '',
     imageSwitching: false,
     currentImageIndex: 0
@@ -60,17 +65,11 @@ ComponentWithStore({
     },
 
     onFirstImageLoad() {
-      this.setData({
-        activatedIndex: 'first'
-      });
-      this.preloadDeactivatedImageInSeconds('second', 4000);
+      this.onImageLoad('first', 'second');
     },
 
     onSecondImageLoad() {
-      this.setData({
-        activatedIndex: 'second'
-      });
-      this.preloadDeactivatedImageInSeconds('first', 4000);
+      this.onImageLoad('second', 'first');
     },
 
     preloadDeactivatedImageInSeconds(target: string, timeout: number) {
@@ -101,16 +100,24 @@ ComponentWithStore({
     initialize() {
       setTimeout(() => {
         this.setData({
+          firstImageExist: true
+        });
+        this.setData({
           firstImageUrl: (this as any).data.photos[0].imageUrl,
-          firstImageDescription: (this as any).data.photos[0].description,
+          firstImageDescription: (this as any).data.photos[0].description
         });
       }, 1500);
     },
 
-    updateImageData(activatedIndex: string, url: string, description: string) {
-      const prefix = activatedIndex;
+    updateImageData(toBeActivatedIndex: string, url: string, description: string) {
+      const prefix = toBeActivatedIndex;
       const urlKey = `${prefix}ImageUrl`;
       const descriptionKey = `${prefix}ImageDescription`;
+      const existKey = `${prefix}ImageExist`;
+
+      this.setData({
+        [existKey]: true
+      });
     
       if (url === (this as any).data[urlKey]) {
         this.setData({ [urlKey]: '' });
@@ -120,6 +127,27 @@ ComponentWithStore({
         [urlKey]: url,
         [descriptionKey]: description
       });
+    },
+
+    clearLastImage() {
+      const prefix = (this as any).data.activatedIndex;
+      const existKey = `${prefix}ImageExist`;
+      const urlKey = `${prefix}ImageUrl`;
+
+      setTimeout(() => {
+        this.setData({
+          [urlKey]: '',
+          [existKey]: false 
+        });
+      }, 2000);
+    },
+
+    onImageLoad(instance: string, target: string) {
+      this.clearLastImage();
+      this.setData({
+        activatedIndex: instance
+      });
+      this.preloadDeactivatedImageInSeconds(target, 4000);
     }
   }
 })
