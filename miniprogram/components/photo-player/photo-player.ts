@@ -115,7 +115,6 @@ ComponentWithStore({
 
     initialize() {
       const nextIndex = this.getNextIndex();
-      console.log(`Initialize: Got next index of ${nextIndex}`)
 
       setTimeout(() => {
         this.updateImageData(nextIndex, (this as any).data.photos[0].imageUrl, (this as any).data.photos[0].description);
@@ -142,8 +141,8 @@ ComponentWithStore({
       });
     },
 
-    clearLastImage() {
-      const prefix = (this as any).data.activatedIndex;
+    clearLastImage(index: string) {
+      const prefix = index;
       const existKey = `${prefix}ImageExist`;
       const urlKey = `${prefix}ImageUrl`;
 
@@ -156,7 +155,15 @@ ComponentWithStore({
     },
 
     onImageLoad(instance: string) {
-      this.clearLastImage();
+      const currentIndex = (this as any).data.activatedIndex;
+      if (currentIndex === 'forth') {
+        this.clearLastImage('forth');
+        this.clearLastImage('third');
+      } else if (currentIndex === 'third') {
+      } else {
+        this.clearLastImage(currentIndex);
+      }
+      
       this.setData({
         activatedIndex: instance
       });
@@ -202,5 +209,6 @@ ComponentWithStore({
         }
       }
     }
+    
   }
 })

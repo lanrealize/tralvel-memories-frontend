@@ -21,29 +21,31 @@
 }
 
 .tm-photo-player-text-deactive {
-  color: white;
-  font-size: 33rpx;
-  font-weight: 600;
-  z-index: 20;
-  position: absolute;
-  bottom: 10vh;
-  margin-left: 10vw;
-  margin-right: 10vw;
-  width: 80vw;
   opacity: 0;
 }
 
 .tm-photo-player-text-active {
+  opacity: 1;
+}
+
+.tm-photo-player-text {
   color: white;
   font-size: 33rpx;
   font-weight: 600;
   z-index: 20;
   position: absolute;
-  bottom: 10vh;
   margin-left: 10vw;
   margin-right: 10vw;
   width: 80vw;
-  opacity: 1;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.tm-photo-player-text-high {
+  bottom: 10vh;
+}
+
+.tm-photo-player-text-short {
+  bottom: 5vh;
 }
 
 .tm-photo-player-photo-avtive {
