@@ -1,10 +1,22 @@
 <!--components/photo-player/photo-player.wxml-->
 <view class="tm-photo-player-root" bind:tap="onQuit">
 
-  <image wx:if="{{firstImageExist}}" mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="{{activatedIndex === 'first' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
+  <image wx:if="{{firstImageExist}}" mode="aspectFill" src="{{firstImageUrl}}" bindload="onFirstImageLoad" data-src="{{firstImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-v {{activatedIndex === 'first' ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
   <view wx:if="{{firstImageExist}}" class="{{activatedIndex === 'first' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{firstImageDescription}}</view>
 
-  <image wx:if="{{secondImageExist}}" mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="{{activatedIndex === 'second' ? 'tm-album-main-image-avtive' : 'tm-album-main-image-deavtive'}}" style="transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;"/>
+  <image wx:if="{{secondImageExist}}" mode="aspectFill" src="{{secondImageUrl}}" bindload="onSecondImageLoad" data-src="{{secondImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-v {{activatedIndex === 'second' ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
   <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view>
+
+  <view style="position: absolute; width: 100vw; top: 0; height: 65vh; overflow: hidden;">
+    <image wx:if="{{thirdImageExist || thirdImageExist}}" mode="aspectFill" src="{{thirdImageUrl}}" bindload="onThirdImageLoad" data-src="{{thirdImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-v {{(activatedIndex === 'third' || activatedIndex === 'fourth') ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
+    <!-- <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view> -->
+  </view>
+  <view style="position: absolute; width: 100vw; top: 65vh; height: 35vh; overflow: hidden;">
+    <image wx:if="{{fourthImageExist}}" mode="aspectFill" src="{{fourthImageUrl}}" bindload="onFourthImageLoad" data-src="{{fourthImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-h {{activatedIndex === 'fourth' ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
+    <!-- <view wx:if="{{secondImageExist}}" class="{{activatedIndex === 'second' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{secondImageDescription}}</view> -->
+  </view>
+
+
+  
 
 </view>

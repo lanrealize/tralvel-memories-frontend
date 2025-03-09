@@ -39,6 +39,14 @@ ComponentWithStore({
     secondImageDescription: '',
     secondImageExist: false,
 
+    thirdImageUrl: '',
+    thirdImageDescription: '',
+    thirdImageExist: false,
+
+    fourthImageUrl: '',
+    fourthImageDescription: '',
+    fourthImageExist: false,
+
     activatedIndex: '',
     imageSwitching: false,
     currentImageIndex: 0
@@ -65,11 +73,19 @@ ComponentWithStore({
     },
 
     onFirstImageLoad() {
-      this.onImageLoad('first', 'second');
+      this.onImageLoad('first');
     },
 
     onSecondImageLoad() {
-      this.onImageLoad('second', 'first');
+      this.onImageLoad('second');
+    },
+
+    onThirdImageLoad() {
+      this.onImageLoad('third');
+    },
+
+    onFourthImageLoad() {
+      this.onImageLoad('fourth');
     },
 
     preloadDeactivatedImageInSeconds(target: string, timeout: number) {
@@ -98,14 +114,11 @@ ComponentWithStore({
     },
 
     initialize() {
+      const nextIndex = this.getNextIndex();
+      console.log(`Got next index of ${nextIndex}`)
+
       setTimeout(() => {
-        this.setData({
-          firstImageExist: true
-        });
-        this.setData({
-          firstImageUrl: (this as any).data.photos[0].imageUrl,
-          firstImageDescription: (this as any).data.photos[0].description
-        });
+        this.updateImageData(nextIndex, (this as any).data.photos[0].imageUrl, (this as any).data.photos[0].description);
       }, 1500);
     },
 
@@ -142,12 +155,52 @@ ComponentWithStore({
       }, 2000);
     },
 
-    onImageLoad(instance: string, target: string) {
+    onImageLoad(instance: string) {
       this.clearLastImage();
       this.setData({
         activatedIndex: instance
       });
-      this.preloadDeactivatedImageInSeconds(target, 4000);
+      const toBeActivatedIndex = this.getNextIndex();
+      this.preloadDeactivatedImageInSeconds(toBeActivatedIndex, 4000);
+    },
+
+    getNextIndex() {
+
+      const currentIndex = (this as any).data.activatedIndex;
+
+      if (currentIndex === 'third') { return 'fourth' }
+      if (currentIndex === 'fifth') { return 'sixth' }
+      if (currentIndex === 'seventh') { return 'eighth' }
+      if (currentIndex === 'ninth') { return 'tenth' }
+      if (currentIndex === 'eleventh') { return 'twelfth' }
+      if (currentIndex === 'thirteenth') { return 'fourteenth' }
+
+      const nextIndex = ((this as any).data.currentImageIndex + 1) % (this as any).data.photos.length;
+      const nextPhotoOrientation = (this as any).data.photos[nextIndex].orientation;
+      if (nextIndex + 1 === (this as any).data.photos.length) {
+        if (nextPhotoOrientation === 'vertical') {
+          return currentIndex === 'first' ? 'second' : 'first';
+        } else {
+          return currentIndex === 'fifteenth' ? 'sixteenth' : 'fifteenth';
+        }
+      } else {
+        const nextNextIndex = ((this as any).data.currentImageIndex + 2) % (this as any).data.photos.length;
+        const nextNextPhotoOrientation = (this as any).data.photos[nextNextIndex].orientation;
+
+        if (nextPhotoOrientation === 'vertical') {
+          if (nextNextPhotoOrientation === 'vertical') {
+            return currentIndex === 'first' ? 'second' : 'first';
+          } else {
+            return currentIndex === 'fourth' ? 'fifth' : 'third'; 
+          }
+        } else {
+          if (nextNextPhotoOrientation === 'vertical') {
+            return currentIndex === 'eighth' ? 'ninth' : 'seventh'; 
+          } else {
+            return currentIndex === 'twelfth' ? 'thirteenth' : 'eleventh'; 
+          }
+        }
+      }
     }
   }
 })
