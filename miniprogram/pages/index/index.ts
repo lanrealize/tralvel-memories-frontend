@@ -81,12 +81,7 @@ Page({
       this.albumsStorageBinding.updateStoreBindings();
       (this as any).setLoginStatus(true);
       if (0 === (this as any).data.albums.length) {
-        const photoPath = await chooseImage();
-        (this as any).setPhotoCreationPath(photoPath);
-        const description = await getRandomWord();
-        (this as any).setPhoteCreationDescription(description);
-        (this as any).correctPhotoCreationTime();
-        (this as any).setPhotoCreationComponentTop(0);
+        await this.chooseImageAndCallCreatin();
       } else {
         (this as any).setDisplayedAlbumTitle((this as any).data.albums[(this as any).data.displayedAlbumIndex].title);
       }
@@ -102,12 +97,7 @@ Page({
   },
 
   async onNewAlbum() {
-    const photoPath = await chooseImage();
-    (this as any).setPhotoCreationPath(photoPath);
-    const description = await getRandomWord();
-    (this as any).setPhoteCreationDescription(description);
-    (this as any).correctPhotoCreationTime();
-    (this as any).setPhotoCreationComponentTop(0);
+    await this.chooseImageAndCallCreatin();
   },
 
   async initialize() {
@@ -133,6 +123,17 @@ Page({
       (this as any).setIndexInitialized(true);
     }
     
+  },
+
+  async chooseImageAndCallCreatin() {
+    const photoPath = await chooseImage();
+    (this as any).setPhotoCreationPath(photoPath);
+    try {
+      const description = await getRandomWord();
+      (this as any).setPhoteCreationDescription(description);
+    } catch { console.log('Failed to get random word') }
+    (this as any).correctPhotoCreationTime();
+    (this as any).setPhotoCreationComponentTop(0);
   }
 
 })
