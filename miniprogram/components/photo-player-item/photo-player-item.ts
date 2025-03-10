@@ -1,5 +1,15 @@
 // components/photo-player-item/photo-player-item.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { uiStore } from '../../stores/uiStore'
+
+ComponentWithStore({
+  storeBindings: [
+    {
+      store: uiStore,
+      fields: ['photoPlayerNodeActivatedIndex'],
+      actions: ['setPhotoPlayerNodeActivatedIndex'],
+    }
+  ],
 
   /**
    * 组件的属性列表
@@ -13,11 +23,7 @@ Component({
       type: Number,
       value: 0
     },
-    imageExist: {
-      type: Boolean,
-      value: false
-    },
-    ImageUrl: {
+    imageUrl: {
       type: String,
       value: ''
     },

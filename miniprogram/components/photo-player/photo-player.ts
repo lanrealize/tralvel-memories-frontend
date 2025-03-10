@@ -1,6 +1,6 @@
 // components/photo-player/photo-player.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { uiStore } from '../../stores/uiStore'
+import { uiStore } from '../../stores/uiStore';
 import { photosStore } from '../../stores/photosStore';
 import { setNavBarTextColor } from '../../utils/utils';
 
@@ -8,8 +8,8 @@ ComponentWithStore({
   storeBindings: [
     {
       store: uiStore,
-      fields: ['photoPlayerShown', 'photoPlayerOpacity', 'photosTitleColor'],
-      actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity'],
+      fields: ['photoPlayerShown', 'photoPlayerOpacity', 'photosTitleColor', 'photoPlayerNodeActivatedIndex'],
+      actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity', 'setPhotoPlayerNodeActivatedIndex'],
     },
     {
       store: photosStore,
@@ -47,7 +47,7 @@ ComponentWithStore({
     fourthImageDescription: '',
     fourthImageExist: false,
 
-    activatedIndex: '',
+    photoPlayerNodeActivatedIndex: '',
     imageSwitching: false,
     currentImageIndex: 0
   },
@@ -155,7 +155,7 @@ ComponentWithStore({
     },
 
     onImageLoad(instance: string) {
-      const currentIndex = (this as any).data.activatedIndex;
+      const currentIndex = (this as any).data.photoPlayerNodeActivatedIndex;
       if (currentIndex === 'forth') {
         this.clearLastImage('forth');
         this.clearLastImage('third');
@@ -164,16 +164,16 @@ ComponentWithStore({
         this.clearLastImage(currentIndex);
       }
       
-      this.setData({
-        activatedIndex: instance
+      (this as any).setPhotoPlayerNodeActivatedIndex(instance);
+      wx.nextTick(() => {
+        const toBeActivatedIndex = this.getNextIndex();
+        this.preloadDeactivatedImageInSeconds(toBeActivatedIndex, 4000);
       });
-      const toBeActivatedIndex = this.getNextIndex();
-      this.preloadDeactivatedImageInSeconds(toBeActivatedIndex, 4000);
     },
 
     getNextIndex() {
 
-      const currentIndex = (this as any).data.activatedIndex;
+      const currentIndex = (this as any).data.photoPlayerNodeActivatedIndex;
 
       if (currentIndex === 'third') { return 'fourth' }
       if (currentIndex === 'fifth') { return 'sixth' }

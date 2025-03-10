@@ -9,6 +9,7 @@ export const uiStore = observable({
   indexInitialized: false,
   photoPlayerShown: false,
   photoPlayerOpacity: 0,
+  photoPlayerNodeActivatedIndex: '',
 
   setPhotosTitleColor: action(
     (photosTitleColor: string) => {
@@ -50,6 +51,12 @@ export const uiStore = observable({
     (photoPlayerOpacity: number) => {
       uiStore.photoPlayerOpacity = photoPlayerOpacity
     }
-  )
+  ),
+
+  setPhotoPlayerNodeActivatedIndex: action(
+    (photoPlayerNodeActivatedIndex: string) => {
+      uiStore.photoPlayerNodeActivatedIndex = photoPlayerNodeActivatedIndex
+    }
+  ),
 
 });

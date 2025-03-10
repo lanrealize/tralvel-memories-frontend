@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "item": "/components/photo-player-item/photo-player-item"
+  }
 }
