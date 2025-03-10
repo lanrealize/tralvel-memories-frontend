@@ -23,6 +23,10 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
   lifetimes: {
     attached: async function() {
       this.setOffsetValue();
+      const albumIndex = (this as any).data.displayedAlbumIndex;
+      this.setData({
+        albumIndexTarget: albumIndex
+      });
     }
   },
 
