@@ -1,6 +1,6 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff; position: absolute;" wx:if="{{!loading}}" bindscroll="onScroll" scroll-with-animation="{{true}}" scroll-into-view="{{photoDisplayTarget}}">
+<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll" scroll-with-animation="{{true}}" scroll-into-view="{{photoDisplayTarget}}">
   <view style="height: calc({{menuTop + menuHeight}}px + 1vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
@@ -17,13 +17,8 @@
   <busy-indicator color="rgb(160, 160, 160)" size="1.5"></busy-indicator>
 </view>
 
-<!-- <photos-bottom-menu style="z-index: 3; position: fixed; bottom: 0;"></photos-bottom-menu> -->
+<photos-bottom-menu style="z-index: 3; position: fixed; bottom: 0;"></photos-bottom-menu>
 
 <photo-creation bind:onAddNewPhoto="onAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
 
 <photo-player wx:if="{{photoPlayerShown}}" style="opacity: {{photoPlayerOpacity}}; transition: opacity 1.5s ease-in-out; z-index: 10;"></photo-player>
-
-
-<view style="position: absolute; top: 95.1vh; left: 15.4vw; font-size: 20rpx; color: white; z-index: 100;  mix-blend-mode: difference;">播放</view> 
-<image src="/assets/icons/play.svg" style="color: white; z-index: 100;  mix-blend-mode: difference; position: absolute; top: 92.3vh; left: 15vw; height: 6vw; width: 6vw;"></image>
-<view style="position: absolute; top: 91.8vh; left: 11.6vw; width: 12vw; height: 12vw; border-radius: 6vw; mix-blend-mode: difference; border: 2rpx solid #fff;"></view>

@@ -88,7 +88,6 @@
   font-size: 20rpx;
   color: white;
   font-weight: 400;
-  mix-blend-mode: difference;
 }
 
 .tm-photos-bottom-menu-icon-share {
