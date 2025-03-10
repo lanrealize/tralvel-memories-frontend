@@ -1,6 +1,6 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll" bounces="{{false}}" enhanced="{{true}}" 	refresher-enabled="{{true}}">
+<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll">
   <view style="height: calc({{menuTop + menuHeight}}px + 1vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
@@ -9,7 +9,7 @@
     </view>
     <!-- <photo type="end" title="无更多内容"></photo> -->
   </view>
-  <view style="height: 14vh; background: linear-gradient(0deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%);"></view>
+  <view style="height: 14vh;"></view>
 </scroll-view>
 
 <view class="tm-photos-loading" wx:if="{{loading}}">
