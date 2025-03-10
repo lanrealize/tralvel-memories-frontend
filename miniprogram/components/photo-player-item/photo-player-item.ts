@@ -31,9 +31,17 @@ ComponentWithStore({
       type: String,
       value: ''
     },
+    backupOpacityIndex: {
+      type: String,
+      value: ''
+    },
     imageDescription: {
       type: String,
       value: ''
+    },
+    textStyle: {
+      type: String,
+      value: 'high'
     }
   },
 

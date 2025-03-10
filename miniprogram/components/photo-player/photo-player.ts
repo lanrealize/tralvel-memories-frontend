@@ -31,22 +31,6 @@ ComponentWithStore({
   data: {
     photoPlayerOpacity: 0,
 
-    firstImageUrl: '',
-    firstImageDescription: '',
-    firstImageExist: false,
-
-    secondImageUrl: '',
-    secondImageDescription: '',
-    secondImageExist: false,
-
-    thirdImageUrl: '',
-    thirdImageDescription: '',
-    thirdImageExist: false,
-
-    fourthImageUrl: '',
-    fourthImageDescription: '',
-    fourthImageExist: false,
-
     photoPlayerNodeActivatedIndex: '',
     imageSwitching: false,
     currentImageIndex: 0

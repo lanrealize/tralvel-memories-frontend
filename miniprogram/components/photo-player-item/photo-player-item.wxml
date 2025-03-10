@@ -1,5 +1,5 @@
 <!--components/photo-player-item/photo-player-item.wxml-->
 <view style="position: absolute; width: 100vw; left: 0; top: {{top}}vh; height: {{height}}vh; overflow: hidden;">
-  <image mode="aspectFill" src="{{imageUrl}}" bindload="onimageLoad" data-src="{{imageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-v {{photoPlayerNodeActivatedIndex === selfIndex ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
-  <view class="tm-photo-player-text-high tm-photo-player-text {{photoPlayerNodeActivatedIndex === selfIndex ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{imageDescription}}</view>
+  <image mode="aspectFill" src="{{imageUrl}}" bindload="onimageLoad" data-src="{{imageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-v {{(photoPlayerNodeActivatedIndex === selfIndex || photoPlayerNodeActivatedIndex === backupOpacityIndex) ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
+  <view class="tm-photo-player-text-{{textStyle}} tm-photo-player-text {{(photoPlayerNodeActivatedIndex === selfIndex || photoPlayerNodeActivatedIndex === backupOpacityIndex) ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}" style="transition: opacity 1.5s ease-in-out;">{{imageDescription}}</view>
 </view>

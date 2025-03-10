@@ -5,13 +5,8 @@
 
   <item wx:if="{{secondImageExist}}" top="{{0}}" height="{{100}}" imageUrl="{{secondImageUrl}}" bind:onImageLoad="onSecondImageLoad" selfIndex="second" imageDescription="{{secondImageDescription}}"></item>
 
-  <view style="position: absolute; width: 100vw; top: 0; height: 65vh; overflow: hidden;">
-    <image wx:if="{{thirdImageExist}}" mode="aspectFill" src="{{thirdImageUrl}}" bindload="onThirdImageLoad" data-src="{{thirdImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-v {{(photoPlayerNodeActivatedIndex === 'third' || photoPlayerNodeActivatedIndex === 'fourth') ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
-    <view wx:if="{{thirdImageExist}}" class="tm-photo-player-text-short tm-photo-player-text {{(photoPlayerNodeActivatedIndex === 'third' || photoPlayerNodeActivatedIndex === 'fourth') ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}">{{thirdImageDescription}}</view>
-  </view>
-  <view style="position: absolute; width: 100vw; top: 65vh; height: 35vh; overflow: hidden;">
-    <image wx:if="{{fourthImageExist}}" mode="aspectFill" src="{{fourthImageUrl}}" bindload="onFourthImageLoad" data-src="{{fourthImageUrl}}" class="tm-photo-player-photo tm-photo-player-photo-vh-h {{photoPlayerNodeActivatedIndex === 'fourth' ? 'tm-photo-player-photo-avtive' : 'tm-photo-player-photo-deavtive'}}"/>
-    <view wx:if="{{fourthImageExist}}" class="tm-photo-player-text-short tm-photo-player-text {{photoPlayerNodeActivatedIndex === 'fourth' ? 'tm-photo-player-text-active' : 'tm-photo-player-text-deactive'}}">{{fourthImageDescription}}</view>
-  </view>
+  <item wx:if="{{thirdImageExist}}" top="{{0}}" height="{{65}}" imageUrl="{{thirdImageUrl}}" bind:onImageLoad="onThirdImageLoad" selfIndex="third" backupOpacityIndex='fourth' imageDescription="{{thirdImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{fourthImageExist}}" top="{{65}}" height="{{35}}" imageUrl="{{fourthImageUrl}}" bind:onImageLoad="onFourthImageLoad" selfIndex="fourth" imageDescription="{{fourthImageDescription}}" textStyle="short"></item>
 
 </view>
