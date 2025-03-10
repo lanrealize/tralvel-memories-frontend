@@ -1,0 +1,30 @@
+/* components/photo-player-item/photo-player-item.wxss */
+.tm-photo-player-photo-avtive {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.tm-photo-player-photo-deavtive {
+  opacity: 0;
+  transform: scale(1);
+}
+
+.tm-photo-player-photo {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity 1.5s ease-in-out, transform 5s ease-in-out;
+}
+
+.tm-photo-player-photo-v {
+  height: 100%;
+}
+
+.tm-photo-player-photo-vh-v {
+  height: 65vh;
+}
+
+.tm-photo-player-photo-vh-h {
+  height: 35vh;
+}

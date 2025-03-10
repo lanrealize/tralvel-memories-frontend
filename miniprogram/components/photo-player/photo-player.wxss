@@ -12,14 +12,6 @@
   align-items: center;
 }
 
-.tm-photo-player-image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .tm-photo-player-text-deactive {
   opacity: 0;
 }
