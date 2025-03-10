@@ -24,20 +24,6 @@ page {
   margin-bottom: 3vh;
 }
 
-.tm-index-add-button-add {
-  position: fixed;
-  top: 18.1vh;
-  right: 2.58vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 10vw;
-  height: 10vw;
-  font-size: 50rpx;
-  font-weight: 300;
-  color: rgba(100, 100, 100, 1);
-}
-
 .tm-index-add-button-circle {
   border: 1.5px solid rgba(229, 229, 229, 1);
   border-radius: 5vw;
@@ -46,9 +32,16 @@ page {
   right: 2.8vw;
   width: 9vw;
   height: 9vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-
+.tm-photos-bottom-menu-icon {
+  width: 5vw;
+  height: 6vw;
+}
 
 .mock-swipper {
   position: absolute;
