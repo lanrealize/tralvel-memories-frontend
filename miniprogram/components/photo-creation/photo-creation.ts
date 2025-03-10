@@ -76,12 +76,15 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             // Step 1: Post photo
             const openID = wx.getStorageSync('openID');
             const albumID = wx.getStorageSync('albumID');
-            await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
+            const photoID = await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
             // Step 2: Update albums
             await (this as any).updateAlbums(openID);
             // Step 3: Adjust display
             await this.updatePhotos(openID, albumID);
             this.setPhotoCreationComponentTop(100);
+            // Step 4: Trigger event
+            console.log(photoID);
+            this.triggerEvent('onAddNewPhoto', {id: `photos--${photoID}`});
         } else {
           throw("Publish photo failed: not 'index' or 'photos'.")
         }
@@ -95,7 +98,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
     setIsCreating(isCreating: boolean) {
       this.setData({
         isCreating: isCreating
-      })
+      });
     },
 
     setIsRefreshing(isRefreshing: boolean) {

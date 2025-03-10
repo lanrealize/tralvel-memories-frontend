@@ -101,7 +101,7 @@ export const postPhoto = async (
           type: 'createdAlbums'
         },
         success: (res: any) => {
-          resolve(res.data.id);
+          resolve(JSON.parse(res.data).id);
         },
         fail: (e) => {
           reject(e);

@@ -1,15 +1,15 @@
 <!--pages/photos/photos.wxml-->
 <photos-top-menu style="z-index: 3; position: fixed; top: 0;"></photos-top-menu>
-<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll">
+<scroll-view class="scrollarea" scroll-y type="list" style="flex: 1; height: 100vh; background-color: #ffffff;" wx:if="{{!loading}}" bindscroll="onScroll" scroll-with-animation="{{true}}" scroll-into-view="{{photoDisplayTarget}}" bounces="{{false}}" enhanced="{{true}}">
   <view style="height: calc({{menuTop + menuHeight}}px + 1vh);"></view>
   <view class="tm-general-container" style="{{style}}">
     <view wx:for="{{photos}}" wx:for-item="photo" wx:key="index" wx:for-index="index">
-      <photo photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}" index="{{index}}" bind:onDeletedPhoto="receivePhotoDelete">
+      <photo id="photos--{{photo.id}}" photoId="{{photo.id}}" title="{{photo.title}}" subTitle="{{photo.subTitle}}" photoUrl="{{photo.imageUrl}}" description="{{photo.description}}" photoUrls="{{photoUrls}}" photoOrientation="{{photo.orientation}}" index="{{index}}" bind:onDeletedPhoto="receivePhotoDelete">
       </photo>
     </view>
     <!-- <photo type="end" title="无更多内容"></photo> -->
   </view>
-  <view style="height: 14vh;"></view>
+  <view style="height: 14vh; background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);"></view>
 </scroll-view>
 
 <view class="tm-photos-loading" wx:if="{{loading}}">
@@ -19,6 +19,6 @@
 
 <photos-bottom-menu style="z-index: 3; position: fixed; bottom: 0;"></photos-bottom-menu>
 
-<photo-creation page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
+<photo-creation bind:onAddNewPhoto="onAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
 
 <photo-player wx:if="{{photoPlayerShown}}" style="opacity: {{photoPlayerOpacity}}; transition: opacity 1.5s ease-in-out; z-index: 10;"></photo-player>

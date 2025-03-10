@@ -20,7 +20,8 @@ Page({
     subTitle: '',
     loading: false,
     threshold: 0,
-    photoCreationComponentTop: 100
+    photoCreationComponentTop: 100,
+    photoDisplayTarget: ''
   },
 
   /**
@@ -169,6 +170,14 @@ Page({
         setNavBarTextColor('black');
       }
     }
+  },
+
+  onAddNewPhoto(event: any) {
+    wx.nextTick(() => {
+      this.setData({
+        photoDisplayTarget: event.detail.id
+      });
+    });
   }
 
 })
