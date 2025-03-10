@@ -27,3 +27,14 @@ export const DIRECT_MAPPING: {
   [NodeIndex.ELEVENTH]: NodeIndex.TWELFTH,
   [NodeIndex.THIRTEENTH]: NodeIndex.FOURTEENTH
 };
+
+export const REVERSED_DIRECT_MAPPING: {
+  [key in NodeIndex.FOURTH | NodeIndex.SIXTH | NodeIndex.EIGHTH | NodeIndex.TENTH | NodeIndex.TWELFTH | NodeIndex.FOURTEENTH]: NodeIndex
+} = {
+  [NodeIndex.FOURTH]: NodeIndex.THIRD,
+  [NodeIndex.SIXTH]: NodeIndex.FIFTH,
+  [NodeIndex.EIGHTH]: NodeIndex.SEVENTH,
+  [NodeIndex.TENTH]: NodeIndex.NINTH,
+  [NodeIndex.TWELFTH]: NodeIndex.ELEVENTH,
+  [NodeIndex.FOURTEENTH]: NodeIndex.THIRTEENTH
+};

@@ -9,4 +9,28 @@
 
   <item wx:if="{{fourthImageExist}}" top="{{65}}" height="{{35}}" imageUrl="{{fourthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="fourth" imageDescription="{{fourthImageDescription}}" textStyle="short"></item>
 
+  <item wx:if="{{fifthImageExist}}" top="{{0}}" height="{{65}}" imageUrl="{{fifthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="fifth" backupOpacityIndex='sixth' imageDescription="{{fifthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{sixthImageExist}}" top="{{65}}" height="{{35}}" imageUrl="{{sixthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="sixth" imageDescription="{{sixthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{seventhImageExist}}" top="{{0}}" height="{{35}}" imageUrl="{{seventhImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="seventh" backupOpacityIndex='eighth' imageDescription="{{seventhImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{eighthImageExist}}" top="{{35}}" height="{{65}}" imageUrl="{{eighthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="eighth" imageDescription="{{eighthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{ninthImageExist}}" top="{{0}}" height="{{35}}" imageUrl="{{ninthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="ninth" backupOpacityIndex='tenth' imageDescription="{{ninthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{tenthImageExist}}" top="{{35}}" height="{{65}}" imageUrl="{{tenthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="tenth" imageDescription="{{tenthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{eleventhImageExist}}" top="{{0}}" height="{{50}}" imageUrl="{{eleventhImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="eleventh" backupOpacityIndex='twelfth' imageDescription="{{eleventhImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{twelfthImageExist}}" top="{{50}}" height="{{50}}" imageUrl="{{twelfthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="twelfth" imageDescription="{{twelfthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{thirteenthImageExist}}" top="{{0}}" height="{{50}}" imageUrl="{{thirteenthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="thirteenth" backupOpacityIndex='fourteenth' imageDescription="{{thirteenthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{fourteenthImageExist}}" top="{{50}}" height="{{50}}" imageUrl="{{fourteenthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="fourteenth" imageDescription="{{fourteenthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{fifteenthImageExist}}" top="{{25}}" height="{{50}}" imageUrl="{{fifteenthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="fifteenth" imageDescription="{{fifteenthImageDescription}}" textStyle="short"></item>
+
+  <item wx:if="{{sixteenthImageExist}}" top="{{25}}" height="{{50}}" imageUrl="{{sixteenthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="sixteenth" imageDescription="{{sixteenthImageDescription}}" textStyle="short"></item>
+
 </view>

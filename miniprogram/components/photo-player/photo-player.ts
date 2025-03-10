@@ -3,6 +3,7 @@ import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { uiStore } from '../../stores/uiStore';
 import { photosStore } from '../../stores/photosStore';
 import { setNavBarTextColor } from '../../utils/utils';
+import { DIRECT_MAPPING, REVERSED_DIRECT_MAPPING } from '../../configs/photoPlayer';
 
 ComponentWithStore({
   storeBindings: [
@@ -38,7 +39,10 @@ ComponentWithStore({
 
   lifetimes: {
     attached: function() {
-      this.initialize();
+      (this as any).setPhotoPlayerNodeActivatedIndex('');
+      wx.nextTick(() => {
+        this.initialize();
+      });
     },
   },
 
@@ -128,10 +132,11 @@ ComponentWithStore({
 
     onImageLoad(instance: string) {
       const currentIndex = (this as any).data.photoPlayerNodeActivatedIndex;
-      if (currentIndex === 'forth') {
-        this.clearLastImage('forth');
-        this.clearLastImage('third');
-      } else if (currentIndex === 'third') {
+      if (currentIndex in REVERSED_DIRECT_MAPPING) {
+        this.clearLastImage(currentIndex);
+        this.clearLastImage(REVERSED_DIRECT_MAPPING[currentIndex as keyof typeof REVERSED_DIRECT_MAPPING]);
+      } else if (currentIndex in DIRECT_MAPPING) {
+        {}
       } else {
         this.clearLastImage(currentIndex);
       }
@@ -147,12 +152,9 @@ ComponentWithStore({
 
       const currentIndex = (this as any).data.photoPlayerNodeActivatedIndex;
 
-      if (currentIndex === 'third') { return 'fourth' }
-      if (currentIndex === 'fifth') { return 'sixth' }
-      if (currentIndex === 'seventh') { return 'eighth' }
-      if (currentIndex === 'ninth') { return 'tenth' }
-      if (currentIndex === 'eleventh') { return 'twelfth' }
-      if (currentIndex === 'thirteenth') { return 'fourteenth' }
+      if (currentIndex in DIRECT_MAPPING) {
+        return DIRECT_MAPPING[currentIndex as keyof typeof DIRECT_MAPPING];
+      }
 
       const nextIndex = currentIndex === '' ? 0 : ((this as any).data.currentImageIndex + 1) % (this as any).data.photos.length;
       const nextPhotoOrientation = (this as any).data.photos[nextIndex].orientation;
