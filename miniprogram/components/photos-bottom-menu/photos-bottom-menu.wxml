@@ -1,8 +1,8 @@
 <!--components/photos-bottom-menu/photos-bottom-menu.wxml-->
-<view class="blurred-overlay">
+<!-- <view class="blurred-overlay">
   <view class="blur"></view>
   <view class="gradient"></view>
-</view>
+</view> -->
 
 <view class="tm-photos-bottom-menu-root">
   <view class="tm-photos-bottom-menu-main">
