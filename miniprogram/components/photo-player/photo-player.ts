@@ -56,20 +56,8 @@ ComponentWithStore({
       }, 1200);
     },
 
-    onFirstImageLoad() {
-      this.onImageLoad('first');
-    },
-
-    onSecondImageLoad() {
-      this.onImageLoad('second');
-    },
-
-    onThirdImageLoad() {
-      this.onImageLoad('third');
-    },
-
-    onFourthImageLoad() {
-      this.onImageLoad('fourth');
+    onItemImageLoad(event: any) {
+      this.onImageLoad(event.detail.index);
     },
 
     preloadDeactivatedImageInSeconds(target: string, timeout: number) {

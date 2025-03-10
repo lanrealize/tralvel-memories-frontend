@@ -1,12 +1,12 @@
 <!--components/photo-player/photo-player.wxml-->
 <view class="tm-photo-player-root" bind:tap="onQuit">
 
-  <item wx:if="{{firstImageExist}}" top="{{0}}" height="{{100}}" imageUrl="{{firstImageUrl}}" bind:onImageLoad="onFirstImageLoad" selfIndex="first" imageDescription="{{firstImageDescription}}"></item>
+  <item wx:if="{{firstImageExist}}" top="{{0}}" height="{{100}}" imageUrl="{{firstImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="first" imageDescription="{{firstImageDescription}}"></item>
 
-  <item wx:if="{{secondImageExist}}" top="{{0}}" height="{{100}}" imageUrl="{{secondImageUrl}}" bind:onImageLoad="onSecondImageLoad" selfIndex="second" imageDescription="{{secondImageDescription}}"></item>
+  <item wx:if="{{secondImageExist}}" top="{{0}}" height="{{100}}" imageUrl="{{secondImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="second" imageDescription="{{secondImageDescription}}"></item>
 
-  <item wx:if="{{thirdImageExist}}" top="{{0}}" height="{{65}}" imageUrl="{{thirdImageUrl}}" bind:onImageLoad="onThirdImageLoad" selfIndex="third" backupOpacityIndex='fourth' imageDescription="{{thirdImageDescription}}" textStyle="short"></item>
+  <item wx:if="{{thirdImageExist}}" top="{{0}}" height="{{65}}" imageUrl="{{thirdImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="third" backupOpacityIndex='fourth' imageDescription="{{thirdImageDescription}}" textStyle="short"></item>
 
-  <item wx:if="{{fourthImageExist}}" top="{{65}}" height="{{35}}" imageUrl="{{fourthImageUrl}}" bind:onImageLoad="onFourthImageLoad" selfIndex="fourth" imageDescription="{{fourthImageDescription}}" textStyle="short"></item>
+  <item wx:if="{{fourthImageExist}}" top="{{65}}" height="{{35}}" imageUrl="{{fourthImageUrl}}" bind:onImageLoad="onItemImageLoad" selfIndex="fourth" imageDescription="{{fourthImageDescription}}" textStyle="short"></item>
 
 </view>
