@@ -33,7 +33,7 @@ ComponentWithStore({
     },
     backupOpacityIndex: {
       type: String,
-      value: ''
+      value: 'blank'
     },
     imageDescription: {
       type: String,
