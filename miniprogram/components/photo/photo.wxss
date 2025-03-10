@@ -128,6 +128,20 @@
   display: flex;
 }
 
+.tm-photo-main-main-photo-loading-cover {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(215, 215, 215);
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .tm-photo-main-main-placeholder {
   /* height: 1.5vh; */
   height: 0vh;

@@ -64,7 +64,8 @@ ComponentWithStore({
   data: {
     opacity: 0,
     deleted: false,
-    isDeleting: false
+    isDeleting: false,
+    isLoading: true
   },
 
   /**
@@ -121,6 +122,12 @@ ComponentWithStore({
         this.setOpacity(0);
       }
       
+    },
+
+    onPhotoLoad() {
+      this.setData({
+        isLoading: false
+      });
     }
   }
 })
