@@ -2,7 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
-import { generateAlbumTitle, getDatefromIndices } from '../../utils/utils'
+import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocationInfo } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { albumsStore } from '../../stores/albumsStore';
@@ -130,6 +130,13 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
     onLocationInput(event: any) {
       const location = event.detail.value;
       this.setLocationValue(location);
+    },
+
+    async onGetLocationClick() {
+      const result = await getLocationPermission();
+      console.log(result);
+      const loc = await getLocationInfo();
+      console.log(loc);
     }
   },
 

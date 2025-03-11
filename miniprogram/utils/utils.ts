@@ -1,5 +1,5 @@
 import { devUrlPrefix } from "../configs/network";
-import { loginTimeThreshold } from "../configs/normal"
+import { loginTimeThreshold, qqmapkey } from "../configs/normal"
 
 /**
  * ===============================================
@@ -209,3 +209,72 @@ export const setNavBarTextColor = (color: string) => {
   }, 200);
 }
 
+/**
+ * ===============================================
+ * Location related methods
+ * ===============================================
+*/
+export const getLocationPermission = () => {
+  return new Promise((resolve, reject) => {
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              resolve('Got location permission.');
+            },
+            fail() {
+              reject('Failed to get location permission');
+            }
+          });
+        } else {
+          resolve('Already got location permission.');
+        }
+      },
+      fail() {
+        reject('Failed to get location permission');
+      }
+    });
+  });
+}
+
+export const getLocationInfo = () => {
+  return new Promise((resolve, reject) => {
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        wx.request({
+          url: 'https://apis.map.qq.com/ws/geocoder/v1/',
+          data: {
+            location: `${res.latitude},${res.longitude}`,
+            key: qqmapkey,
+            get_poi: 0
+          },
+          success(res) {
+            if ((res as any).data.status === 0) {
+              const result = (res as any).data.result;
+              resolve({
+                city: result.address_component.city,
+                address: result.address
+              });
+            } else {
+              console.log(res)
+              reject('解析位置失败');
+            }
+          },
+          fail() {
+            reject('QQ map request failed.');
+          }
+        });
+      },
+      fail(e: any) {
+        wx.showToast({
+          title: '获取位置失败',
+          icon: 'none'
+        });
+        reject(e);
+      }
+    });
+  });
+}
