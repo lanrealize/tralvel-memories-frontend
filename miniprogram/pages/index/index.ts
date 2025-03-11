@@ -128,10 +128,12 @@ Page({
   async chooseImageAndCallCreatin() {
     const photoPath = await chooseImage();
     (this as any).setPhotoCreationPath(photoPath);
-    try {
+
+    async () => {
       const description = await getRandomWord();
       (this as any).setPhoteCreationDescription(description);
-    } catch { console.log('Failed to get random word') }
+    }
+    
     (this as any).correctPhotoCreationTime();
     (this as any).setPhotoCreationComponentTop(0);
   }

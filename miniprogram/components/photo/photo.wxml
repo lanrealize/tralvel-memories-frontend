@@ -33,7 +33,7 @@
       </view>
     </view>
 
-    <view class="tm-photo-main-main-photo-loading-cover" style="opacity: {{isLoading ? 1 : 0}};">
+    <view class="tm-photo-main-main-photo-loading-cover" style="pointer-events: none;opacity: {{isLoading ? 1 : 0}};">
       <view class="skeleton-image"></view>
     </view>
 
