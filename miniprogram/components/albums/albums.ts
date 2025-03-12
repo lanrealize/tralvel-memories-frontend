@@ -82,6 +82,9 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
     onSwiperChange(event: any) {
       (this as any).setDisplayedAlbumIndex(event.detail.current);
+      wx.nextTick(() => {
+        this.setDisplayedAlbumTitle(this.data.albums[this.data.displayedAlbumIndex].title);
+      })
       const child = this.selectComponent(`.albums--${event.detail.current}`);
       if (child) {
         child.continueSwitching();
@@ -93,9 +96,6 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
         this.setData({
           isSwitching: true
         });
-        setTimeout(() => {
-          this.setDisplayedAlbumTitle(this.data.albums[this.data.displayedAlbumIndex].title);
-        }, 150);
       }
     },
 

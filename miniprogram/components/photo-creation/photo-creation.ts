@@ -133,10 +133,9 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
     },
 
     async onGetLocationClick() {
-      const result = await getLocationPermission();
-      console.log(result);
-      const loc = await getLocationInfo();
-      console.log(loc);
+      await getLocationPermission();
+      const location = await getLocationInfo();
+      (this as any).setPhoteCreationLocation(location);
     }
   },
 

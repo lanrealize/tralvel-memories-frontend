@@ -32,11 +32,32 @@ export const postAlbum = async (
 }
 
 export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: string }[] }[]> => {
-  console.log(openID);
   return new Promise((resolve, reject) => {
     try {
       wx.request({
         url: devUrlPrefix + '/users/' + openID + '/albums',
+        method: 'GET',
+        data: {
+          type: 'createdAlbums',
+        },
+        success: (res: any) => {
+          resolve(res.data);
+        },
+        fail: (e) => {
+          reject(e)
+        }
+      })
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
+export const getAlbum = async (openID: string, albumID: string) => {
+  return new Promise((resolve, reject) => {
+    try {
+      wx.request({
+        url: devUrlPrefix + '/users/' + openID + '/albums/' + albumID,
         method: 'GET',
         data: {
           type: 'createdAlbums',

@@ -254,10 +254,11 @@ export const getLocationInfo = () => {
           success(res) {
             if ((res as any).data.status === 0) {
               const result = (res as any).data.result;
-              resolve({
-                city: result.address_component.city,
-                address: result.address
-              });
+              // resolve({
+              //   city: result.address_component.city,
+              //   address: result.address
+              // });
+              resolve(result.address_component.city);
             } else {
               console.log(res)
               reject('解析位置失败');
