@@ -1,6 +1,7 @@
 // components/photos-top-menu/photos-top-menu.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { uiStore } from '../../stores/uiStore'
+import { uiStore } from '../../stores/uiStore';
+import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore({
 
@@ -9,6 +10,11 @@ ComponentWithStore({
       store: uiStore,
       fields: ['photosTitleColor', 'displayedAlbumTitle'],
       actions: {setLoginStatus: 'setPhotosTitleColor'}
+    },
+    {
+      store: photosStore,
+      fields: ['albumTitle'],
+      actions: ['updatePhotos']
     }
   ],
 

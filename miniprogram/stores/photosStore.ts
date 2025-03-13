@@ -1,5 +1,5 @@
 import { action, observable } from "mobx-miniprogram";
-import { getAlbumPhotos } from "../utils/apis";
+import { getAlbum } from "../utils/apis";
 import { parseDate } from "../utils/utils";
 
 export const photosStore = observable({
@@ -7,11 +7,13 @@ export const photosStore = observable({
   photos: [] as { timestamp: string, imageUrl: string }[],
   normalOrdered: true,
   photoUrls: [] as string[],
+  albumTitle: '',
 
   updatePhotos: action(
     async (userID: string, albumID: string) => {
-      const photos = await getAlbumPhotos(userID, albumID);
-      photosStore.photos = photos;
+      const album = await getAlbum(userID, albumID);
+      photosStore.photos = album.images;
+      photosStore.albumTitle = album.title;
       photosStore.orderPhotos();
       photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
     }

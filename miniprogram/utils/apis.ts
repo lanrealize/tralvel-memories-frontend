@@ -53,7 +53,7 @@ export const getAlbums = async (openID: string): Promise<{ images: { imageUrl: s
   })
 }
 
-export const getAlbum = async (openID: string, albumID: string) => {
+export const getAlbum = async (openID: string, albumID: string): Promise<{ images: { timestamp: string, imageUrl: string }[], title: string }>  => {
   return new Promise((resolve, reject) => {
     try {
       wx.request({
