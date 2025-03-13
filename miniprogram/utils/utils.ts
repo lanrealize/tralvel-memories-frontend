@@ -283,6 +283,9 @@ export const getLocationInfo = (): Promise<string> => {
         } else {
           reject('No location permission.');
         }
+      },
+      fail() {
+        reject('Get permissions failed.');
       }
     });
   });

@@ -25,11 +25,17 @@ export const photoCreationStore = observable({
     }
   ),
 
+  photoCreationLocationInput: "",
   photeCreationLocation: "",
   isGettingLocation: false,
   setPhoteCreationLocation: action(
     (photeCreationLocation: string) => {
       photoCreationStore.photeCreationLocation = photeCreationLocation
+    }
+  ),
+  setPhotoCreationLocationInput: action(
+    (photoCreationLocationInput: string) => {
+      photoCreationStore.photoCreationLocationInput = photoCreationLocationInput
     }
   ),
   updatePhoteCreationLocation: action(
