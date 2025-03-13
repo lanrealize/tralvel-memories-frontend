@@ -83,7 +83,6 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             await this.updatePhotos(openID, albumID);
             this.setPhotoCreationComponentTop(100);
             // Step 4: Trigger event
-            console.log(photoID);
             this.triggerEvent('onAddNewPhoto', {id: `photos--${photoID}`});
         } else {
           throw("Publish photo failed: not 'index' or 'photos'.")

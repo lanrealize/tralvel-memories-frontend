@@ -42,10 +42,10 @@ ComponentWithStore({
       try {
         const photoPath = await chooseImage();
         (this as any).setPhotoCreationPath(photoPath);
-        async () => {
+        (async () => {
           const description = await getRandomWord();
           (this as any).setPhoteCreationDescription(description);
-        }
+        })();
         (this as any).correctPhotoCreationTime();
         (this as any).setPhotoCreationComponentTop(0);
       } catch (e) {
