@@ -239,42 +239,50 @@ export const getLocationPermission = () => {
   });
 }
 
-export const getLocationInfo = () => {
+export const getLocationInfo = (): Promise<string> => {
   return new Promise((resolve, reject) => {
-    wx.getLocation({
-      type: 'wgs84',
+    wx.getSetting({
       success(res) {
-        wx.request({
-          url: 'https://apis.map.qq.com/ws/geocoder/v1/',
-          data: {
-            location: `${res.latitude},${res.longitude}`,
-            key: qqmapkey,
-            get_poi: 0
-          },
-          success(res) {
-            if ((res as any).data.status === 0) {
-              const result = (res as any).data.result;
-              // resolve({
-              //   city: result.address_component.city,
-              //   address: result.address
-              // });
-              resolve(result.address_component.city);
-            } else {
-              console.log(res)
-              reject('解析位置失败');
+        if (res.authSetting['scope.userLocation']) {
+          wx.getLocation({
+            type: 'wgs84',
+            success(res) {
+              wx.request({
+                url: 'https://apis.map.qq.com/ws/geocoder/v1/',
+                data: {
+                  location: `${res.latitude},${res.longitude}`,
+                  key: qqmapkey,
+                  get_poi: 0
+                },
+                success(res) {
+                  if ((res as any).data.status === 0) {
+                    const result = (res as any).data.result;
+                    // resolve({
+                    //   city: result.address_component.city,
+                    //   address: result.address
+                    // });
+                    resolve(result.address_component.city);
+                  } else {
+                    console.log(res)
+                    reject('解析位置失败');
+                  }
+                },
+                fail() {
+                  reject('QQ map request failed.');
+                }
+              });
+            },
+            fail(e: any) {
+              wx.showToast({
+                title: '获取位置失败',
+                icon: 'none'
+              });
+              reject(e);
             }
-          },
-          fail() {
-            reject('QQ map request failed.');
-          }
-        });
-      },
-      fail(e: any) {
-        wx.showToast({
-          title: '获取位置失败',
-          icon: 'none'
-        });
-        reject(e);
+          });
+        } else {
+          reject('No location permission.');
+        }
       }
     });
   });

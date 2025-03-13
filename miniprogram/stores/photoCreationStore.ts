@@ -1,5 +1,6 @@
 import { action, observable } from "mobx-miniprogram";
 import { getCurrentTime, getIndicesFromDate } from "../utils/utils"
+import { getLocationInfo } from "../utils/utils"
 
 export const photoCreationStore = observable({
 
@@ -25,9 +26,26 @@ export const photoCreationStore = observable({
   ),
 
   photeCreationLocation: "",
+  isGettingLocation: false,
   setPhoteCreationLocation: action(
     (photeCreationLocation: string) => {
       photoCreationStore.photeCreationLocation = photeCreationLocation
+    }
+  ),
+  updatePhoteCreationLocation: action(
+    async () => {
+      try {
+        photoCreationStore.setIsGettingLocation(true);
+        const location = await getLocationInfo();
+        photoCreationStore.photeCreationLocation = location;
+      } catch(e) { } finally {
+        photoCreationStore.setIsGettingLocation(false);
+      }
+    }
+  ),
+  setIsGettingLocation: action(
+    (isGettingLocation: boolean) => {
+      photoCreationStore.isGettingLocation = isGettingLocation
     }
   ),
 

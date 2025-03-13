@@ -51,7 +51,7 @@ Page({
       {
         store: photoCreationStore,
         fields: ['photoCreationComponentTop', 'photoCreationPath'],
-        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime']
+        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime', 'updatePhoteCreationLocation']
       }
     );
 
@@ -132,6 +132,7 @@ Page({
     (async () => {
       const description = await getRandomWord();
       (this as any).setPhoteCreationDescription(description);
+      (this as any).updatePhoteCreationLocation();
     })();
     
     (this as any).correctPhotoCreationTime();

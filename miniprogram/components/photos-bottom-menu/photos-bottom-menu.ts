@@ -11,7 +11,7 @@ ComponentWithStore({
     {
       store: photoCreationStore,
       fields: ['photoCreationComponentTop', 'photoCreationPath'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime']
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'correctPhotoCreationTime', 'updatePhoteCreationLocation']
     },
     {
       store: uiStore,
@@ -45,6 +45,7 @@ ComponentWithStore({
         (async () => {
           const description = await getRandomWord();
           (this as any).setPhoteCreationDescription(description);
+          (this as any).updatePhoteCreationLocation();
         })();
         (this as any).correctPhotoCreationTime();
         (this as any).setPhotoCreationComponentTop(0);
