@@ -6,14 +6,15 @@ import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocat
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { albumsStore } from '../../stores/albumsStore';
+import { Texture } from 'XrFrame/kanata/lib/index';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
   storeBindings: [
     {
       store: photoCreationStore,
-      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation']
+      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation', 'photoCreationLocationInput'],
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation', 'setPhotoCreationLocationInput']
     },
     {
       store: photosStore,
@@ -43,7 +44,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   data: {
     isCreating: false,
     isRefreshing: false,
-    isLocationInputFocused: false
+    inputActivated: false
   },
 
   /**
@@ -125,7 +126,10 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
     async onGetLocationClick() {
       if ( (this as any).data.photeCreationLocation ) {
-        {}
+        this.setData({
+          inputActivated: true
+        })
+        // (this as any).setPhotoCreationLocationInput
       } else {
         try {
           (this as any).setIsGettingLocation(true);
@@ -138,16 +142,16 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       }
     },
 
-    onLocationInput(event: any) {
-      (this as any).setPhoteCreationLocation(event.detail.value);
+    onLocationInput() {
+      this.setData({
+        inputActivated: false
+      })
     },
 
-    onLocationFocus() {
-      this.setData({ isLocationInputFocused: true });
-    },
-  
-    onLocationBlur() {
-      this.setData({ isLocationInputFocused: false });
+    onLocationInputBlur() {
+      this.setData({
+        inputActivated: false
+      })
     }
   },
 

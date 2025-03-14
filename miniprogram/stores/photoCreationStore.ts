@@ -25,6 +25,7 @@ export const photoCreationStore = observable({
     }
   ),
 
+  photoCreationLocationInput: "",
   photeCreationLocation: "",
   isGettingLocation: false,
   setPhoteCreationLocation: action(
@@ -32,18 +33,19 @@ export const photoCreationStore = observable({
       photoCreationStore.photeCreationLocation = photeCreationLocation
     }
   ),
+  setPhotoCreationLocationInput: action(
+    (photoCreationLocationInput: string) => {
+      photoCreationStore.photoCreationLocationInput = photoCreationLocationInput
+    }
+  ),
   updatePhoteCreationLocation: action(
     async () => {
-      if (photoCreationStore.photeCreationLocation) {
-        {}
-      } else {
-        try {
-          photoCreationStore.setIsGettingLocation(true);
-          const location = await getLocationInfo();
-          photoCreationStore.photeCreationLocation = location;
-        } catch(e) { } finally {
-          photoCreationStore.setIsGettingLocation(false);
-        }
+      try {
+        photoCreationStore.setIsGettingLocation(true);
+        const location = await getLocationInfo();
+        photoCreationStore.photeCreationLocation = location;
+      } catch(e) { } finally {
+        photoCreationStore.setIsGettingLocation(false);
       }
     }
   ),
