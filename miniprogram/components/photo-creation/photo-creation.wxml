@@ -22,7 +22,7 @@
   </view>
   <view class="photo-creation-location">
     <image src="/assets/icons/location.svg" class="photo-creation-location-icon"></image>
-    <view wx:if="{{!isGettingLocation}}" class="photo-creation-location-text" bind:tap="onGetLocationClick">
+    <view wx:if="{{!isGettingLocation}}" class="photo-creation-location-text" bind:tap="onGetLocationClick" style="padding-right: {{photeCreationLocation === '' ? 0 : 20}}vw;">
       <view wx:if="{{!inputActivated}}">{{photeCreationLocation === '' ? '点击获取位置信息' : photeCreationLocation}}</view>
       <input wx:if="{{inputActivated}}" focus="{{inputActivated}}" bindinput="onLocationInput" bindblur="onLocationInputBlur" value="{{photeCreationLocation}}"/>
     </view>

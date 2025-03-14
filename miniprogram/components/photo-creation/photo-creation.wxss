@@ -89,7 +89,6 @@
   grid-area: location-text;
   margin-left: 6.95vw;
   color: #A6A6A6;
-  padding-right: 20vw;
 }
 
 .photo-creation-copyright {
