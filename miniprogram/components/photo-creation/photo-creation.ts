@@ -6,15 +6,14 @@ import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocat
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { albumsStore } from '../../stores/albumsStore';
-import { Texture } from 'XrFrame/kanata/lib/index';
 
 ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
 
   storeBindings: [
     {
       store: photoCreationStore,
-      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation', 'photoCreationLocationInput'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation', 'setPhotoCreationLocationInput']
+      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation'],
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation']
     },
     {
       store: photosStore,
@@ -142,10 +141,8 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       }
     },
 
-    onLocationInput() {
-      this.setData({
-        inputActivated: false
-      })
+    onLocationInput(event: any) {
+      (this as any).setPhoteCreationLocation(event.detail.value);
     },
 
     onLocationInputBlur() {
