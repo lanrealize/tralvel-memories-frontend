@@ -120,8 +120,8 @@ Page({
   },
 
   async updatePhotosOnPage() {
-    const openID =wx.getStorageSync('openID');
-    const albumID =wx.getStorageSync('albumID');
+    const openID = wx.getStorageSync('openID');
+    const albumID = wx.getStorageSync('albumID');
     (this as any).updatePhotos(openID, albumID);
     this.setFadeInOut();
 

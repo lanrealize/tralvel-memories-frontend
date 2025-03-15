@@ -73,7 +73,7 @@ Page({
     this.uiStoreBinding.destroyStoreBindings();
   },
 
-  async receiveLoginSuccess() {
+  async receiveStartClick() {
     try {
       (this as any).setMainStartLoading(true);
       const openID = wx.getStorageSync('openID') ? wx.getStorageSync('openID') : await wxLogin();
