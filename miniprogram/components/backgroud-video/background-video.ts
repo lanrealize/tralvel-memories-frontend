@@ -23,7 +23,7 @@ ComponentWithStore({
    * 组件的初始数据
    */
   data: {
-
+    
   },
 
   /**
@@ -34,6 +34,13 @@ ComponentWithStore({
     async onStartClick() {
       this.triggerEvent('onLoginSuccess');
     },
+
+    handleVideoEnd() {
+      const videoCtx = wx.createVideoContext('videos--mtm-background-video', this);
+      videoCtx.pause();
+      videoCtx.seek(0);
+      videoCtx.play();
+    }
 
   }
 })
