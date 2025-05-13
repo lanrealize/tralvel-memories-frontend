@@ -25,3 +25,5 @@
       </swiper-item>
     </block>
   </swiper>
+
+  <photos-bottom-menu style="pointer-events: none;"></photos-bottom-menu>
