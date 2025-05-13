@@ -7,6 +7,6 @@
     "photo-creation": "/components/photo-creation/photo-creation",
     "photo-player": "/components/photo-player/photo-player"
   },
-  "navigationBarTextStyle": "black"
+  "navigationBarTextStyle": "white"
 }
 

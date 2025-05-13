@@ -65,7 +65,7 @@ ComponentWithStore({
     opacity: 0,
     deleted: false,
     isDeleting: false,
-    isLoading: true
+    isLoading: true,
   },
 
   /**

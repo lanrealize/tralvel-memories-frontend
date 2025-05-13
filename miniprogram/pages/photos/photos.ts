@@ -21,16 +21,18 @@ Page({
     loading: false,
     threshold: 0,
     photoCreationComponentTop: 100,
-    photoDisplayTarget: ''
+    photoDisplayTarget: '',
+    autoplay: false,
+    interval: 6000,
+    duration: 800,
+    circular: false,
+    activeIndex: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function() {
-
-    this.calculateScrollThreshold();
-
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
@@ -55,14 +57,7 @@ Page({
       }
     );
 
-    const app: IAppOption = getApp();
-    this.setData({
-      menuHeight: app.globalData.navigationInfo.menuHeight,
-      menuTop: app.globalData.navigationInfo.menuTop,
-    });
-
     await this.updatePhotosOnPage();
-
   },
 
   /**
@@ -76,8 +71,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   async onShow() {
-    const scrollTop = await getScrollViewTop('scrollarea');
-    this.adjustTitlebar(scrollTop as number);
+
   },
 
   /**
@@ -91,8 +85,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    (this as any).setPhotoPlayerOpacity(0);
-    (this as any).setPhotoPlayerShown(false);
     this.photosStorageBinding.destroyStoreBindings();
     this.photoCreationStoreBinding.destroyStoreBindings();
     this.pagesStorageBinding.destroyStoreBindings();
@@ -123,61 +115,10 @@ Page({
     const openID = wx.getStorageSync('openID');
     const albumID = wx.getStorageSync('albumID');
     (this as any).updatePhotos(openID, albumID);
-    this.setFadeInOut();
-
   },
 
-  setFadeInOut() {
-    this.setData({
-      style: 'opacity: 0;'
-    });
-    wx.nextTick(() => {
-      this.setData({
-        style: 'opacity: 1; transition: opacity 0.5s ease-in-out;'
-      });
-    })
-  },
-
-  onScroll(event: any) {
-    this.adjustTitlebar(event.detail.scrollTop);
-  },
-
-  calculateScrollThreshold() {
-    const app: IAppOption = getApp();
-    const threshold = app.globalData.navigationInfo.menuTop + app.globalData.navigationInfo.menuHeight - 70;
-    this.setData({
-      threshold: threshold
-    });
-  },
-
-  receivePhotoDelete() {
-    // this.setFadeInOut();
-  },
-
-  // async adjustTitleBar() {
-  //   const scrollTop = await getScrollViewTop('scrollarea');
-  // },
-
-  adjustTitlebar(ScrollTop: number) {
-    if (ScrollTop > this.data.threshold) {
-      if ((this as any).data.photosTitleColor === "black") {
-        (this as any).setPhotosTitleColor('white');
-        setNavBarTextColor('white');
-      };
-    } else {
-      if ((this as any).data.photosTitleColor === "white") {
-        (this as any).setPhotosTitleColor('black');
-        setNavBarTextColor('black');
-      }
-    }
-  },
-
-  onAddNewPhoto(event: any) {
-    wx.nextTick(() => {
-      this.setData({
-        photoDisplayTarget: event.detail.id
-      });
-    });
+  onSwiperChange(e: any) {
+    this.setData({ activeIndex: e.detail.current });
   }
 
 })
