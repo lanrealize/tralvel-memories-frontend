@@ -12,12 +12,62 @@ page {
   height: 100vh;
 }
 
-.active {
+.tm-photos-swiper-appear-animation {
+  opacity: 0;
+  filter: blur(90px) brightness(0.4);
+  transform: scale(1.3);
+}
+
+.tm-photos-swiper.active {
+  animation: fadeIn 2.5s ease-out forwards;
+}
+
+.tm-photos-swiper-item-active {
   opacity: 1;
   transition: all 1.2s ease-out;
 }
 
-.quiet {
+.tm-photos-swiper-item-quiet {
   opacity: 0;
   transition: all 2s ease-out;
+}
+
+.tm-photos-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400%;
+  height: 100%;
+  background: linear-gradient(225deg, #000 25%, transparent 100%);
+  transform: translateX(-65%);
+  opacity: 1;
+  z-index: 10;
+}
+
+.tm-photos-gradient-overlay.active {
+  animation: slide 2.5s linear forwards 1.2s;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(-65%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    filter: blur(90px) brightness(0.4);
+    transform: scale(1.3);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+    transform: scale(1);
+  }
 }

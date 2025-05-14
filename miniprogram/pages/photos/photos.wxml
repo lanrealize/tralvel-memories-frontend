@@ -1,29 +1,42 @@
 <!--pages/photos/photos.wxml-->
 <swiper
-    autoplay="{{autoplay}}" 
-    interval="{{interval}}" 
-    duration="{{duration}}" 
-    circular="{{circular}}"
-    class="tm-photos-swiper"
-    bindchange="onSwiperChange"
+  autoplay="{{autoplay}}" 
+  interval="{{interval}}" 
+  duration="{{duration}}" 
+  circular="{{circular}}"
+  class="tm-photos-swiper {{apearAnimationClass}} {{showAppearAnimation ? 'tm-photos-swiper-appear-animation' : '' }}"
+  bindchange="onSwiperChange"
 
-    current="{{albumIndexTarget}}">
-    <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
-      <swiper-item class="{{activeIndex === index ? 'active' : 'quiet'}}">
-        <photo 
-          id="photos--{{photo.id}}" 
-          photoId="{{photo.id}}" 
-          title="{{photo.title}}" 
-          subTitle="{{photo.subTitle}}" 
-          photoUrl="{{photo.imageUrl}}" 
-          description="{{photo.description}}" 
-          photoUrls="{{photoUrls}}" 
-          photoOrientation="{{photo.orientation}}" 
-          index="{{index}}" 
-          bind:onDeletedPhoto="receivePhotoDelete">
-        </photo>
-      </swiper-item>
-    </block>
-  </swiper>
+  current="{{albumIndexTarget}}">
+  <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
+    <swiper-item class="{{activeIndex === index ? 'tm-photos-swiper-item-active' : 'tm-photos-swiper-item-quiet'}}">
+      <photo 
+        id="photos--{{photo.id}}" 
+        photoId="{{photo.id}}" 
+        title="{{photo.title}}" 
+        subTitle="{{photo.subTitle}}" 
+        photoUrl="{{photo.imageUrl}}" 
+        description="{{photo.description}}" 
+        photoUrls="{{photoUrls}}" 
+        photoOrientation="{{photo.orientation}}" 
+        index="{{index}}" 
+        bind:onDeletedPhoto="receivePhotoDelete">
+      </photo>
+    </swiper-item>
+  </block>
+</swiper>
 
-  <photos-bottom-menu style="pointer-events: none;"></photos-bottom-menu>
+<!-- <photos-bottom-menu style="pointer-events: none;"></photos-bottom-menu> -->
+
+<view 
+  class="tm-photos-gradient-overlay {{apearAnimationClass}}" 
+  style="pointer-events: none;"
+  wx:if="{{showAppearAnimation}}">
+</view>
+
+<!-- <view style="position: absolute; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 11; pointer-events: none;">
+  <busy-indicator 
+  size='2' 
+  style="transition: opacity 0.3s ease-in-out 0.7s; opacity: {{apearAnimationClass ? 0 : 1}};">
+  </busy-indicator>
+</view> -->

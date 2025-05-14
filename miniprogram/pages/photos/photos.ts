@@ -3,7 +3,6 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { getScrollViewTop, setNavBarTextColor } from '../../utils/utils'
 
 Page({
 
@@ -22,11 +21,15 @@ Page({
     threshold: 0,
     photoCreationComponentTop: 100,
     photoDisplayTarget: '',
+
     autoplay: false,
     interval: 6000,
     duration: 800,
     circular: false,
-    activeIndex: 0
+    activeIndex: 0,
+
+    apearAnimationClass: '',
+    showAppearAnimation: false
   },
 
   /**
@@ -119,6 +122,13 @@ Page({
 
   onSwiperChange(e: any) {
     this.setData({ activeIndex: e.detail.current });
+  },
+
+  showAppearAnimation() {
+    this.setData({
+      showAppearAnimation: true,
+      apearAnimationClass: 'active'
+    });
   }
 
 })
