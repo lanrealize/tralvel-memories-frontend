@@ -29,7 +29,9 @@ Page({
     activeIndex: 0,
 
     apearAnimationClass: '',
-    showAppearAnimation: false
+    showAppearAnimation: false,
+
+    openAlbumMaskShown: true
   },
 
   /**
@@ -73,8 +75,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  async onShow() {
-
+  onShow() {
+    setTimeout(() => {
+      this.setData({
+        openAlbumMaskShown: false
+      });
+    }, 300);
   },
 
   /**

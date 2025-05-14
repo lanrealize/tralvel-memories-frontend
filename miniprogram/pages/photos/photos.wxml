@@ -30,13 +30,9 @@
 
 <view 
   class="tm-photos-gradient-overlay {{apearAnimationClass}}" 
-  style="pointer-events: none;"
   wx:if="{{showAppearAnimation}}">
 </view>
 
-<!-- <view style="position: absolute; width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center; z-index: 11; pointer-events: none;">
-  <busy-indicator 
-  size='2' 
-  style="transition: opacity 0.3s ease-in-out 0.7s; opacity: {{apearAnimationClass ? 0 : 1}};">
-  </busy-indicator>
-</view> -->
+<view 
+  class="tm-photos-open-album-mask {{openAlbumMaskShown ? '' : 'fadeOut'}}">
+</view>

@@ -42,10 +42,24 @@ page {
   transform: translateX(-65%);
   opacity: 1;
   z-index: 10;
+  pointer-events: none;
 }
 
 .tm-photos-gradient-overlay.active {
   animation: slide 2.5s linear forwards 1.2s;
+}
+
+.tm-photos-open-album-mask {
+  z-index: 10;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: black;
+}
+
+.tm-photos-open-album-mask.fadeOut {
+  animation: fadeOut 1s ease-in-out forwards;
 }
 
 @keyframes slide {
@@ -69,5 +83,14 @@ page {
     opacity: 1;
     filter: blur(0px) brightness(1);
     transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
