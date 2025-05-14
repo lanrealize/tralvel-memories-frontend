@@ -61,8 +61,13 @@ Page({
         actions: ['setPhotosTitleColor', 'setPhotoPlayerShown', 'setPhotoPlayerOpacity']
       }
     );
-
-    await this.updatePhotosOnPage();
+    
+    try {
+      await this.updatePhotosOnPage();
+    } catch (e) {
+      //TODO need handle here
+    }
+    
   },
 
   /**
