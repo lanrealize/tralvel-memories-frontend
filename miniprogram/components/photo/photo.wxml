@@ -5,4 +5,12 @@
     class="tm-photo-image"
     bindload="onPhotoLoad">
   </image>
+
+  <view class="tm-photo-loading-mask {{isLoading ? '' : 'fadeOut'}}">
+    <busy-indicator 
+      size='2' 
+      style="opacity: 0;"
+      class="{{longLoading ? 'tm-photo-long-loading' : ''}}">
+    </busy-indicator>
+  </view>
 </view>

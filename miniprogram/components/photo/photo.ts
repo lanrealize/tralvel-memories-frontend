@@ -62,37 +62,26 @@ ComponentWithStore({
    * 组件的初始数据
    */
   data: {
-    opacity: 0,
     deleted: false,
     isDeleting: false,
     isLoading: true,
+    longLoading: false
+  },
+  
+  lifetimes: {
+    attached: function() {
+      setTimeout(() => {
+        this.setData({
+        longLoading: true
+        });
+      }, 1000);
+    }
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    previewImage() {
-      wx.previewImage({
-        current: this.properties.photoUrl,
-        urls: this.properties.photoUrls
-      });
-    },
-
-    onLongPress() {
-      this.setOpacity(1);
-    },
-
-    setOpacity(opacity: number) {
-      this.setData({
-        opacity: opacity
-      });
-    },
-
-    onCoverClick() {
-      this.setOpacity(0);
-    },
-
     async onDeleteClick() {
       try {
         this.setData({
@@ -119,7 +108,6 @@ ComponentWithStore({
         this.setData({
           isDeleting: false
         });
-        this.setOpacity(0);
       }
       
     },
