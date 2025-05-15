@@ -1,1 +1,14 @@
 /* components/photos-swiper-indicator/photos-swiper-indicator.wxss */
+.tm-photos-swiper-indicator-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tm-photos-swiper-indicator-item {
+  height: 0.6vh;
+  border-radius: 1vh;
+  margin: auto 0.5vh;
+  transition: width 0.5s ease-in-out;
+  background-color: rgb(100, 100, 100);
+}

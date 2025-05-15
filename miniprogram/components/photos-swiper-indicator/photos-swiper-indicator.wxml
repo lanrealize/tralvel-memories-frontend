@@ -1,2 +1,6 @@
 <!--components/photos-swiper-indicator/photos-swiper-indicator.wxml-->
-<text>components/photos-swiper-indicator/photos-swiper-indicator.wxml</text>
+<view class="tm-photos-swiper-indicator-root">
+  <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="dot" wx:key="unique" wx:for-index="index">
+    <view class="tm-photos-swiper-indicator-item" style="width: {{index === activedIndex ? 4 : 0.6}}vh; background-color: {{index === activedIndex ? 'white' : 'rgb(100, 100, 100);'}};"></view>
+  </block>
+</view>

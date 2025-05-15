@@ -48,7 +48,7 @@
 .tm-photos-bottom-menu-3rd-line {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-bottom: 5.5vh;
   justify-content: space-between;
 }
@@ -60,17 +60,25 @@
 }
 
 .tm-photos-bottom-menu-3rd-line-indices-index {
-  font-size: 20px;
+  font-size: 40rpx;
   font-weight: 700;
   color: rgba(255, 255, 255, 1);
 }
 
 .tm-photos-bottom-menu-3rd-line-indices-total {
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 700;
   color: rgba(166, 166, 166, 1);
 }
 
 .tm-photos-bottom-menu-3rd-line-indicators {
-  /* width: 45vw; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tm-photos-bottom-menu-3rd-line-indicators-placeholder::before {
+  content: "\200B";
+  display: inline-block;
+  font-size: 32rpx;
 }
