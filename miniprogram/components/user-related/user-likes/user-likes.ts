@@ -1,4 +1,4 @@
-// components/photos-swiper-indicator/photos-swiper-indicator.ts
+// components/user-related/user-likes/user-likes.ts
 Component({
 
   /**
@@ -12,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    activedIndex: 0
+
   },
 
   /**

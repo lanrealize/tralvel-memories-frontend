@@ -1,0 +1,25 @@
+/* components/user-related/user-visibility/user-visibility.wxss */
+.tm-user-visibility-root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tm-user-visibility-text {
+  font-size: 32rpx;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  margin-right: 5vw;
+}
+
+.tm-user-visibility-icons {
+  display: flex;
+  align-items: center;
+}
+
+.tm-user-visibility-icons-icon {
+  width: 2.4vh;
+  height: 2.4vh;
+  border-radius: 2vh;
+  margin-right: -0.65vh;
+}
