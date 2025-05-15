@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "photos-swiper-indicator": "/components/photos-swiper-indicator/photos-swiper-indicator"
+  }
 }

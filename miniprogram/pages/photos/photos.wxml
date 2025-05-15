@@ -26,7 +26,7 @@
   </block>
 </swiper>
 
-<!-- <photos-bottom-menu style="pointer-events: none;"></photos-bottom-menu> -->
+<photos-bottom-menu style="pointer-events: none;"></photos-bottom-menu>
 
 <view 
   class="tm-photos-gradient-overlay {{apearAnimationClass}}" 

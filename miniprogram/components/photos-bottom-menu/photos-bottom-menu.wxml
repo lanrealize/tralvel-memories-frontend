@@ -5,35 +5,16 @@
 </view>
 
 <view class="tm-photos-bottom-menu-root">
-  <view class="tm-photos-bottom-menu-main">
 
-    <!-- <view class="tm-photos-bottom-menu-main-title">
-      <image class="tm-photos-bottom-menu-main-title-image" src="/assets/icon.png"></image>
-      <view class="tm-photos-bottom-menu-main-title-text">
-        <view class="tm-photos-bottom-menu-main-title-text-main">我的旅行纪念册</view>
-        <view class="tm-photos-bottom-menu-main-title-text-sub">记录旅行中中的每一次感动</view>
-      </view>
-    </view> -->
-
-    <view class="tm-photos-bottom-menu-main-play tm-photos-bottom-menu-icon-container" bindtap="onPlayClick">
-      <image src="/assets/icons/play.svg" class="tm-photos-bottom-menu-icon"></image>
-      <view class="tm-photos-bottom-menu-icon-text">播放</view>
+  <view class="tm-photos-bottom-menu-3rd-line">
+    <view class="tm-photos-bottom-menu-3rd-line-indicators">
+      <photos-swiper-indicator></photos-swiper-indicator>
     </view>
 
-    <view class="tm-photos-bottom-menu-main-share tm-photos-bottom-menu-icon-container">
-      <image src="/assets/icons/share.svg" class="tm-photos-bottom-menu-icon"></image>
-      <view class="tm-photos-bottom-menu-icon-text">分享</view>
-      <button style="width: 14.5vw;" open-type="share" class="tm-photos-bottom-menu-icon-share"></button>
+    <view class="tm-photos-bottom-menu-3rd-line-indices">
+      <text class="tm-photos-bottom-menu-3rd-line-indices-index">7</text>
+      <text class="tm-photos-bottom-menu-3rd-line-indices-total">  /  15张照片</text>
     </view>
-
-    <view class="tm-photos-bottom-menu-main-add tm-photos-bottom-menu-icon-container" bind:tap="onAddClick">
-      <image src="/assets/icons/add.svg" class="tm-photos-bottom-menu-icon"></image>
-      <view class="tm-photos-bottom-menu-icon-text">添加</view>
-      <button style="width: 14.5vw;" class="tm-photos-bottom-menu-icon-share"></button>
-    </view>
-
-    <!-- <view class="tm-photos-bottom-menu-add tm-photos-bottom-menu-icon-container" bindtap="onAddClick">
-      添加
-    </view> -->
   </view>
+
 </view>
