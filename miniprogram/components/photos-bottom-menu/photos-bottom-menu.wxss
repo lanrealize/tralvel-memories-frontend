@@ -89,7 +89,7 @@
   margin-left: 0.4vh;
   display: flex;
   align-items: center;
-  margin-bottom: 2.2vh;
+  margin-bottom: 1.3vh;
   justify-content: space-between;
   line-height: 2.3vh;
 }

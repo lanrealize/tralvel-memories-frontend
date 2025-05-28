@@ -3,7 +3,8 @@ App<IAppOption>({
   globalData: {
     navigationInfo: {
       menuHeight: undefined,
-      menuTop: undefined
+      menuTop: undefined,
+      menuRight: undefined
     },
   },
 
@@ -12,9 +13,13 @@ App<IAppOption>({
   },
 
   setNavigationInfo() {
+    const systemInfo = wx.getSystemInfoSync();
+    const screenWidth = systemInfo.windowWidth; 
+
     const menuInfo = wx.getMenuButtonBoundingClientRect();
     this.globalData.navigationInfo.menuHeight = menuInfo.height;
     this.globalData.navigationInfo.menuTop = menuInfo.top;
+    this.globalData.navigationInfo.menuRight = screenWidth - menuInfo.right;
   },
 
 })

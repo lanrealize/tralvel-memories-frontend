@@ -7,15 +7,15 @@
 }
 
 .tm-photo-operation-icon {
-  width: 2.1vh;
-  height: 2.1vh;
+  width: 1.9vh;
+  height: 1.9vh;
 }
 
 .tm-photo-operation-line-container {
-  width: 5vw;
+  width: 7vw;
   display: flex;
   justify-content: center;
-  margin-left: 0.85vw;
+  margin-left: 0.65vw;
 }
 
 .tm-photo-operation-line {
@@ -23,7 +23,7 @@
   height: 0px;
   transform: rotate(90deg);
 
-  border: 0.5px solid rgba(166, 166, 166, 1);
+  border: 0.5px solid rgba(200, 200, 200, 1);
 }
 
 .tm-photo-operation-text {

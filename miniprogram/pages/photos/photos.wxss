@@ -62,6 +62,36 @@ page {
   animation: fadeOut 1s ease-in-out forwards;
 }
 
+.tm-photos-menu-bar {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tm-photos-menu-bar-icon {
+  width: 4vw;
+  height: 4vw;
+  /* margin-bottom: 0.2vh; */
+}
+
+.tm-photos-menu-bar-text {
+  font-size: 24rpx;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  /* margin-left: 2vw; */
+}
+
+.tm-photos-add-button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes slide {
   from {
     transform: translateX(-65%);

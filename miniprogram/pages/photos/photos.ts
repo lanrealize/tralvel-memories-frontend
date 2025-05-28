@@ -38,6 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function() {
+    this.adjustMenubarPosition();
+
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
@@ -140,6 +142,15 @@ Page({
       showAppearAnimation: true,
       apearAnimationClass: 'active'
     });
+  },
+
+  adjustMenubarPosition() {
+    const app: IAppOption = getApp();
+      this.setData({
+        menuHeight: app.globalData.navigationInfo.menuHeight,
+        menuTop: app.globalData.navigationInfo.menuTop,
+        menuLeft: app.globalData.navigationInfo.menuRight
+      });
   }
 
 })

@@ -8,7 +8,7 @@
 
   <view class="tm-photos-bottom-menu-2nd-line">
     <time-with-location></time-with-location>
-    <photo-operation></photo-operation>
+    <!-- <photo-operation></photo-operation> -->
   </view>
 
   <view class="tm-photos-bottom-menu-3rd-line">

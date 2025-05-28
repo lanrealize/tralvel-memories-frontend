@@ -36,3 +36,12 @@
 <view 
   class="tm-photos-open-album-mask {{openAlbumMaskShown ? '' : 'fadeOut'}}">
 </view>
+
+<view class="tm-photos-menu-bar" style="line-height: {{menuHeight}}px; left: {{menuLeft + 188}}px; top: {{menuTop}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px;">
+  <!-- <image src="/assets/icons/home.svg" class="tm-photos-menu-bar-icon"></image> -->
+  <text class="tm-photos-menu-bar-text">首页</text>
+</view>
+
+<view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; top: {{menuTop}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; left: {{260}}px;">
+  <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
+</view>
