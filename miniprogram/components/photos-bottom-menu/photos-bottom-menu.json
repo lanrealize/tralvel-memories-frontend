@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "photos-swiper-indicator": "/components/photos-swiper-indicator/photos-swiper-indicator",
-    "user-visibility": "/components/user-related/user-visibility/user-visibility",
-    "user-likes": "/components/user-related/user-likes/user-likes"
+    "photos-swiper-indicator": "/components/photos-swiper-indicator/photos-swiper-indicator"
   }
 }

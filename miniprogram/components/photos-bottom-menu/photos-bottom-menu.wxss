@@ -33,13 +33,13 @@
 .tm-photos-bottom-menu-root {
   position: fixed;
   height: 35vh;
-  width: 82vw;
+  width: 86vw;
   bottom: 0;
 
   z-index: 3;
 
-  margin-left: 9vw;
-  margin-right: 9vw;
+  margin-left: 7vw;
+  margin-right: 7vw;
 
   display: flex;
   justify-content: flex-end;
@@ -92,3 +92,4 @@
   margin-bottom: 2.7vh;
   justify-content: space-between;
 }
+

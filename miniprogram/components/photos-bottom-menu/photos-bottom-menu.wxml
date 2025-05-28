@@ -7,7 +7,7 @@
 <view class="tm-photos-bottom-menu-root">
 
   <view class="tm-photos-bottom-menu-2nd-line">
-    <user-visibility></user-visibility>
+
   </view>
 
   <view class="tm-photos-bottom-menu-3rd-line">
