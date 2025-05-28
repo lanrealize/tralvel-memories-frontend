@@ -1,0 +1,9 @@
+<!--components/photos-bottom-menu/photo-operation/photo-operation.wxml-->
+<view class="tm-photo-operation-root">
+  <image src="/assets/icons/like.svg" class="tm-photo-operation-icon"></image>
+  <view class="tm-photo-operation-line-container">
+    <view class="tm-photo-operation-line"></view>
+  </view>
+  <!-- <view class="tm-photo-operation-text">更多</view> -->
+  <image src="/assets/icons/pause.svg" class="tm-photo-operation-icon"></image>
+</view>

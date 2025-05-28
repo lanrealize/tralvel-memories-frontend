@@ -1,6 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "photos-swiper-indicator": "/components/photos-swiper-indicator/photos-swiper-indicator"
+    "photos-swiper-indicator": "/components/photos-bottom-menu/photos-swiper-indicator/photos-swiper-indicator",
+    "time-with-location": "/components/photos-bottom-menu/time-with-location/time-with-location",
+    "photo-operation": "/components/photos-bottom-menu/photo-operation/photo-operation"
   }
 }

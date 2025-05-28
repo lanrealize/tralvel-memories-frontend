@@ -1,0 +1,5 @@
+<!--components/photos-bottom-menu/time-with-location/time-with-location.wxml-->
+<view class="tm-time-with-location-root">
+  <text class="tm-time-with-location-time">13分钟前</text>
+  <text class="tm-time-with-location-location">  ·  上海市 虹桥火车站</text>
+</view>

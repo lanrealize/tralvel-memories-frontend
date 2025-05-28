@@ -1,0 +1,33 @@
+/* components/photos-bottom-menu/photo-operation/photo-operation.wxss */
+.tm-photo-operation-root {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+}
+
+.tm-photo-operation-icon {
+  width: 2.1vh;
+  height: 2.1vh;
+}
+
+.tm-photo-operation-line-container {
+  width: 5vw;
+  display: flex;
+  justify-content: center;
+  margin-left: 0.85vw;
+}
+
+.tm-photo-operation-line {
+  width: 12px;
+  height: 0px;
+  transform: rotate(90deg);
+
+  border: 0.5px solid rgba(166, 166, 166, 1);
+}
+
+.tm-photo-operation-text {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}

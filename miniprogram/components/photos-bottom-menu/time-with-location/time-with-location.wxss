@@ -1,0 +1,20 @@
+/* components/photos-bottom-menu/time-with-location/time-with-location.wxss */
+.tm-time-with-location-root {
+  display: flex;
+  flex-direction: row;
+  white-space: pre-wrap;
+  align-items: center;
+  text-align: center;
+}
+
+.tm-time-with-location-time {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+}
+
+.tm-time-with-location-location {
+  font-size: 28rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
