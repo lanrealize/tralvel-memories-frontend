@@ -61,13 +61,13 @@
 }
 
 .tm-photos-bottom-menu-3rd-line-indices-index {
-  font-size: 40rpx;
+  font-size: 34rpx;
   font-weight: 700;
   color: rgba(255, 255, 255, 1);
 }
 
 .tm-photos-bottom-menu-3rd-line-indices-total {
-  font-size: 32rpx;
+  font-size: 30rpx;
   font-weight: 700;
   color: rgba(166, 166, 166, 1);
 }
@@ -78,10 +78,11 @@
   align-items: center;
 }
 
-.tm-photos-bottom-menu-3rd-line-indicators-placeholder::before {
+.tm-photos-bottom-menu-3rd-line-indicators-placeholder {
   content: "\200B";
   display: inline-block;
-  font-size: 32rpx;
+  font-size: 30rpx;
+  color: rgba(255, 255, 255, 0);
 }
 
 .tm-photos-bottom-menu-2nd-line {
@@ -89,7 +90,7 @@
   margin-left: 0.4vh;
   display: flex;
   align-items: center;
-  margin-bottom: 1.3vh;
+  margin-bottom: 1.8vh;
   justify-content: space-between;
   line-height: 2.3vh;
 }
