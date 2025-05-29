@@ -3,8 +3,6 @@ import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore'
 import { photosStore } from '../../stores/photosStore'
-import { chooseImage, setNavBarTextColor } from '../../utils/utils';
-import { getRandomWord } from '../../utils/apis';
 
 ComponentWithStore({
 
@@ -44,28 +42,6 @@ ComponentWithStore({
    * 组件的方法列表
    */
   methods: {
-    async onAddClick() {
-      try {
-        const photoPath = await chooseImage();
-        (this as any).setPhotoCreationPath(photoPath);
-        (async () => {
-          const description = await getRandomWord();
-          (this as any).setPhoteCreationDescription(description);
-          (this as any).updatePhoteCreationLocation();
-        })();
-        (this as any).correctPhotoCreationTime();
-        (this as any).setPhotoCreationComponentTop(0);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-
-    onPlayClick() {
-      (this as any).setPhotoPlayerShown(true);
-      setNavBarTextColor('white');
-      wx.nextTick(() => {
-        (this as any).setPhotoPlayerOpacity(1);
-      });
-    }
+    
   }
 })

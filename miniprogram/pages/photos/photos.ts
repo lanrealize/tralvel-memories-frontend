@@ -3,7 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft, chooseImage } from "../../utils/utils";
+import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor } from "../../utils/utils";
 import { getRandomWord } from '../../utils/apis';
 
 Page({
@@ -168,6 +168,7 @@ Page({
         (this as any).updatePhoteCreationLocation();
       })();
       (this as any).correctPhotoCreationTime();
+      setNavBarTextColor('black', '');
       (this as any).setPhotoCreationComponentTop(0);
     } catch (e) {
       console.log(e);

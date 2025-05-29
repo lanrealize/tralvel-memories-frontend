@@ -2,7 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
-import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocationInfo } from '../../utils/utils'
+import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocationInfo, setNavBarTextColor } from '../../utils/utils'
 import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { albumsStore } from '../../stores/albumsStore';
@@ -52,6 +52,8 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   methods: {
 
     onCancelClick() {
+      console.log(this.data.page)
+      setNavBarTextColor('white', this.data.page);
       this.setPhotoCreationComponentTop(100);
     },
 
@@ -91,6 +93,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       } catch (e) {
         console.log(e);
       } finally {
+        setNavBarTextColor('white', this.data.page);
         this.setIsCreating(false);
       }
     },

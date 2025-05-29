@@ -53,7 +53,7 @@ ComponentWithStore({
     onQuit() {
       (this as any).setPhotoPlayerOpacity(0);
       if ((this as any).data.photosTitleColor === 'black') {
-        setNavBarTextColor('black');
+        setNavBarTextColor('black', '');
       }
       setTimeout(() => {
         (this as any).setPhotoPlayerShown(false);

@@ -183,9 +183,9 @@ export const getScrollViewTop = (scrollViewId: string) => {
  * Navigation bar related methods
  * ===============================================
 */
-export const setNavBarTextColor = (color: string) => {
+export const setNavBarTextColor = (color: string, condition: string) => {
+  if (condition === 'index') return
   setTimeout(() => {
-    
     if (color === 'white') {
       wx.setNavigationBarColor({
         frontColor: '#ffffff',
@@ -205,7 +205,6 @@ export const setNavBarTextColor = (color: string) => {
         }
       });
     }
-
   }, 200);
 }
 
