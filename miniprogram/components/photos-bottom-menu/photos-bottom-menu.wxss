@@ -86,8 +86,8 @@
 }
 
 .tm-photos-bottom-menu-2nd-line {
-  width: calc(100% - 0.6vh);
-  margin-left: 0.6vh;
+  width: calc(100% - 0.5vh);
+  margin-left: 0.5vh;
   display: flex;
   align-items: center;
   margin-bottom: 1.6vh;

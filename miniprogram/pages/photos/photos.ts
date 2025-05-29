@@ -138,8 +138,8 @@ Page({
     wx.nextTick(() => {
       setTimeout(() => {
         (this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);
-        (this as any).setShownPhotoTimestamp(formatReadableTime((this as any).data.photos[e.detail.current].timestamp));
-      }, 150);
+        (this as any).setShownPhotoTimestamp((this as any).data.photos[e.detail.current].timestamp);
+      }, 200);
     });
 
     (this as any).setPhotoDisplayIndex(e.detail.current);
