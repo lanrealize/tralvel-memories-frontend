@@ -6,6 +6,8 @@
   circular="{{circular}}"
   class="tm-photos-swiper {{apearAnimationClass}} {{showAppearAnimation ? 'tm-photos-swiper-appear-animation' : '' }}"
   bindchange="onSwiperChange"
+  bindtransition="onSwiperTransition"
+  bindanimationfinish="onSwiperAnimationFinish"
 
   current="{{albumIndexTarget}}">
   <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
@@ -18,7 +20,6 @@
         photoUrl="{{photo.imageUrl}}" 
         description="{{photo.description}}" 
         photoUrls="{{photoUrls}}"
-        photoLocation="{{photo.location}}"
         photoOrientation="{{photo.orientation}}" 
         index="{{index}}" 
         bind:onDeletedPhoto="receivePhotoDelete">

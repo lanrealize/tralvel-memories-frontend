@@ -3,7 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor } from "../../utils/utils";
+import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, formatReadableTime } from "../../utils/utils";
 import { getRandomWord } from '../../utils/apis';
 
 Page({
@@ -32,7 +32,7 @@ Page({
     apearAnimationClass: '',
     showAppearAnimation: false,
 
-    openAlbumMaskShown: true
+    openAlbumMaskShown: true,
   },
 
   /**
@@ -44,8 +44,8 @@ Page({
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
-        fields: ['photos', 'photoUrls', 'photoDisplayIndex', 'photoCountArray', 'photoCount'],
-        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoColorArray', 'setPhotoDisplayLeft']
+        fields: ['photos', 'photoUrls', 'photoDisplayIndex', 'photoCountArray', 'photoCount', 'photoIsSwitching'],
+        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoColorArray', 'setPhotoDisplayLeft', 'setPhotoIsSwitching', 'setShownPhotoLocation', 'setShownPhotoTimestamp']
       }
     );
 
@@ -135,11 +135,28 @@ Page({
   },
 
   onSwiperChange(e: any) {
+    wx.nextTick(() => {
+      setTimeout(() => {
+        (this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);
+        (this as any).setShownPhotoTimestamp(formatReadableTime((this as any).data.photos[e.detail.current].timestamp));
+      }, 150);
+    });
+
     (this as any).setPhotoDisplayIndex(e.detail.current);
     let colorArray = (this as any).data.photoCountArray.map((num: number) => calculateColor(
       (this as any).data.photoCount, num, e.detail.current));
     (this as any).setPhotoColorArray(colorArray);
     (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
+  },
+
+  onSwiperTransition() {
+    if (!(this as any).data.photoIsSwitching) {
+      (this as any).setPhotoIsSwitching(true);
+    }
+  },
+
+  onSwiperAnimationFinish() {
+    (this as any).setPhotoIsSwitching(false);
   },
 
   showAppearAnimation() {

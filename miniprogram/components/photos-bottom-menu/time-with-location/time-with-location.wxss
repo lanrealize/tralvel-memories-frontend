@@ -5,6 +5,7 @@
   white-space: pre-wrap;
   align-items: center;
   text-align: center;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .tm-time-with-location-time {

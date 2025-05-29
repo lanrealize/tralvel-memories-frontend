@@ -6,7 +6,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: photosStore,
-      fields: ['shownPhotoLocation', 'shownPhotoTimestamp'],
+      fields: ['shownPhotoLocation', 'shownPhotoTimestamp', 'photoIsSwitching'],
       actions: ['setPhotoDisplayIndex']
     }
   ],

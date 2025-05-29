@@ -82,6 +82,13 @@ export const photosStore = observable({
     (shownPhotoTimestamp: string) => {
       photosStore.shownPhotoTimestamp = formatReadableTime(shownPhotoTimestamp);
     }
-  )
+  ),
+
+  photoIsSwitching: false,
+  setPhotoIsSwitching: action(
+    (photoIsSwitching: boolean) => {
+      photosStore.photoIsSwitching = photoIsSwitching
+    }
+  ),
 
 });
