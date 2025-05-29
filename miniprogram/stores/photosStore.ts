@@ -1,19 +1,15 @@
 import { action, observable } from "mobx-miniprogram";
 import { getAlbum } from "../utils/apis";
-import { parseDate, calculateColor, calculateLeft } from "../utils/utils";
+import { parseDate, calculateColor, calculateLeft, formatReadableTime } from "../utils/utils";
 
 export const photosStore = observable({
 
-  photos: [] as { timestamp: string, imageUrl: string }[],
+  photos: [] as { timestamp: string, imageUrl: string, location: string }[],
   normalOrdered: true,
   photoUrls: [] as string[],
-  albumTitle: '',
   photoCount: 0,
   photoCountArray: [0],
-  photoColorArray: [''],
-  photoDisplayIndex: 0,
-  photoDisplayLeft: 0,
-
+  albumTitle: '',
   updatePhotos: action(
     async (userID: string, albumID: string) => {
       const album = await getAlbum(userID, albumID);
@@ -24,7 +20,9 @@ export const photosStore = observable({
       photosStore.photoDisplayIndex = 0;
       photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
         photosStore.photoCount, num, photosStore.photoDisplayIndex));
-      photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex)
+      photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
+      photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
+      photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
 
       photosStore.albumTitle = album.title;
       photosStore.orderPhotos();
@@ -51,21 +49,38 @@ export const photosStore = observable({
     photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
   }),
 
+  photoDisplayIndex: 0,
   setPhotoDisplayIndex: action(
     (photoDisplayIndex: number) => {
-      photosStore.photoDisplayIndex = photoDisplayIndex
+      photosStore.photoDisplayIndex = photoDisplayIndex;
     }
   ),
 
+  photoColorArray: [''],
   setPhotoColorArray: action(
     (photoColorArray: []) => {
-      photosStore.photoColorArray = photoColorArray
+      photosStore.photoColorArray = photoColorArray;
     }
   ),
 
+  photoDisplayLeft: 0,
   setPhotoDisplayLeft: action(
     (photoDisplayLeft: number) => {
-      photosStore.photoDisplayLeft = photoDisplayLeft
+      photosStore.photoDisplayLeft = photoDisplayLeft;
+    }
+  ),
+
+  shownPhotoLocation: '',
+  setShownPhotoLocation: action(
+    (shownPhotoLocation: string) => {
+      photosStore.shownPhotoLocation = shownPhotoLocation;
+    }
+  ),
+
+  shownPhotoTimestamp: '',
+  setShownPhotoTimestamp: action(
+    (shownPhotoTimestamp: string) => {
+      photosStore.shownPhotoTimestamp = formatReadableTime(shownPhotoTimestamp);
     }
   )
 

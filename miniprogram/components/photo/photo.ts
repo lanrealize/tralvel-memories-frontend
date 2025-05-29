@@ -52,6 +52,10 @@ ComponentWithStore({
       type: String,
       value: ''
     },
+    photoLocation: {
+      type: String,
+      value: ''
+    },
     index: {
       type: Number,
       value: 0

@@ -1,6 +1,15 @@
 // components/photos-bottom-menu/time-with-location/time-with-location.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { photosStore } from '../../../stores/photosStore'
 
+ComponentWithStore({
+  storeBindings: [
+    {
+      store: photosStore,
+      fields: ['shownPhotoLocation', 'shownPhotoTimestamp'],
+      actions: ['setPhotoDisplayIndex']
+    }
+  ],
   /**
    * 组件的属性列表
    */

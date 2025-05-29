@@ -328,3 +328,91 @@ export const calculateLeft = (count: number, activeIndex: number): number => {
   // Actually it at position 'activeIndex' but displayed on position 5)
   return -1.6 * (activeIndex - 4) 
 } 
+
+/**
+ * ===============================================
+ * Readable times
+ * ===============================================
+*/
+interface TimeComponents {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+}
+
+export const formatReadableTime = (input: string): string => {
+  // 1. 解析输入时间并验证格式
+  const parts = input.split('/');
+  if (parts.length !== 5) {
+      throw new Error('Invalid format, should be YYYY/MM/DD/HH/mm');
+  }
+
+  const components: TimeComponents = {
+    year: parseInt(parts[0]),
+    month: parseInt(parts[1]),
+    day: parseInt(parts[2]),
+    hour: parseInt(parts[3]),
+    minute: parseInt(parts[4])
+  };
+
+  // 验证数字有效性
+  if (Object.values(components).some(isNaN)) {
+      throw new Error('Invalida numbers');
+  }
+
+  // 2. 创建日期对象（注意月份从0开始）
+  const inputDate = new Date(
+      components.year,
+      components.month - 1,
+      components.day,
+      components.hour,
+      components.minute
+  );
+  
+  // 验证日期有效性
+  if (isNaN(inputDate.getTime())) {
+      throw new Error('Invalide date');
+  }
+
+  const now = new Date();
+  
+  // 3. 计算时间差（毫秒）
+  const timeDiff = now.getTime() - inputDate.getTime();
+  const minuteDiff = Math.floor(timeDiff / (1000 * 60));
+  const hourDiff = Math.floor(minuteDiff / 60);
+  
+  // 4. 辅助函数：获取日期部分（忽略时间）
+  const getDateValue = (date: Date): number => 
+      date.getFullYear() * 10000 + 
+      (date.getMonth() + 1) * 100 + 
+      date.getDate();
+  
+  // 5. 计算日期差
+  const todayValue = getDateValue(now);
+  const inputDateValue = getDateValue(inputDate);
+  const dateDiff = todayValue - inputDateValue;
+  
+  // 6. 格式化小时和分钟（移除前导零）
+  const formatTime = (h: number, m: number): string => 
+      `${h}:${m.toString().padStart(2, '0')}`;
+  
+  // 7. 按优先级判断时间范围
+  if (minuteDiff < 3) return "刚刚";  // 3分钟内
+  
+  if (dateDiff === 0) {  // 当天
+      if (minuteDiff < 60) return `${minuteDiff}分钟前`;
+      return `${hourDiff}小时前`;
+  }
+  
+  if (dateDiff === 1) return `昨天 ${formatTime(components.hour, components.minute)}`;
+  if (dateDiff === 2) return `前天${formatTime(components.hour, components.minute)}`;
+  
+  // 8. 处理更早时间
+  const isCurrentYear = now.getFullYear() === components.year;
+  
+  return isCurrentYear
+      ? `${components.month}月${components.day}日 ${formatTime(components.hour, components.minute)}`
+      : `${components.year}年${components.month}月${components.day}日 ${formatTime(components.hour, components.minute)}`;
+}

@@ -17,7 +17,8 @@
         subTitle="{{photo.subTitle}}" 
         photoUrl="{{photo.imageUrl}}" 
         description="{{photo.description}}" 
-        photoUrls="{{photoUrls}}" 
+        photoUrls="{{photoUrls}}"
+        photoLocation="{{photo.location}}"
         photoOrientation="{{photo.orientation}}" 
         index="{{index}}" 
         bind:onDeletedPhoto="receivePhotoDelete">

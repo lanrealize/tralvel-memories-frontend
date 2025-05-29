@@ -38,10 +38,10 @@
   </swiper>
   <view class="tm-albums-album-title" style="opacity: {{isSwitching ? 0 : 1}};">{{displayedAlbumTitle}}</view>
   <!-- <view class="tm-albums-album-mask"></view> -->
-  <!-- <view class="tm-albums-album-mask" style="opacity: {{albumMaskOpacity}}; pointer-events: {{albumMaskOpacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
+  <view class="tm-albums-album-mask" style="opacity: {{albumMaskOpacity}}; pointer-events: {{albumMaskOpacity === 0 ? 'none' : 'auto'}};" catchtap="onCoverClick">
     <view style="margin: auto; display: flex; flex-direction: column;">
       <image src="/assets/icons/delete.svg" style="width: 8vw; height: 8vw;" catchtap="onDeleteClick"></image>
     </view>
-  </view> -->
+  </view>
 </view>
 

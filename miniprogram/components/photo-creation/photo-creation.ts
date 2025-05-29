@@ -69,7 +69,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             generateAlbumTitle(this.data.photoCreationTime, this.data.photeCreationLocation)
           ) as string;
           wx.setStorageSync('albumID', albumID);
-          await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
+          await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
           // Step 2: Update albums
           await (this as any).updateAlbums(openID);
           // Step 3: Adjust display
@@ -79,7 +79,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             // Step 1: Post photo
             const openID = wx.getStorageSync('openID');
             const albumID = wx.getStorageSync('albumID');
-            const photoID = await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, getDatefromIndices(this.data.photoCreationTime));
+            const photoID = await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
             // Step 2: Update albums
             await (this as any).updateAlbums(openID);
             // Step 3: Adjust display
