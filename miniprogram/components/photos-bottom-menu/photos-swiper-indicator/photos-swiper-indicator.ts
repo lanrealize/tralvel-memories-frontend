@@ -6,7 +6,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: photosStore,
-      fields: ['photoCount', 'photoDisplayIndex', 'photoCountArray'],
+      fields: ['photoCount', 'photoDisplayIndex', 'photoCountArray', 'photoColorArray', 'photoDisplayLeft'],
       actions: ['setPhotoDisplayIndex']
     }
   ],
@@ -22,13 +22,13 @@ ComponentWithStore({
    * 组件的初始数据
    */
   data: {
-    
+    left: 0
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    
   }
 })

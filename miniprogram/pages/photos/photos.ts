@@ -3,6 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
+import { calculateColor, calculateLeft } from "../../utils/utils";
 
 Page({
 
@@ -42,8 +43,8 @@ Page({
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
-        fields: ['photos', 'photoUrls', 'photoDisplayIndex'],
-        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex']
+        fields: ['photos', 'photoUrls', 'photoDisplayIndex', 'photoCountArray', 'photoCount'],
+        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoColorArray', 'setPhotoDisplayLeft']
       }
     );
 
@@ -100,9 +101,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
-    this.photosStorageBinding.destroyStoreBindings();
-    this.photoCreationStoreBinding.destroyStoreBindings();
-    this.pagesStorageBinding.destroyStoreBindings();
+    this.photosStorageBinding?.destroyStoreBindings();
+    this.photoCreationStoreBinding?.destroyStoreBindings();
+    this.pagesStorageBinding?.destroyStoreBindings();
   },
 
   /**
@@ -134,6 +135,10 @@ Page({
 
   onSwiperChange(e: any) {
     (this as any).setPhotoDisplayIndex(e.detail.current);
+    let colorArray = (this as any).data.photoCountArray.map((num: number) => calculateColor(
+      (this as any).data.photoCount, num, e.detail.current));
+    (this as any).setPhotoColorArray(colorArray);
+    (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
   },
 
   showAppearAnimation() {

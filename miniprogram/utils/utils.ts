@@ -290,3 +290,42 @@ export const getLocationInfo = (): Promise<string> => {
     });
   });
 }
+
+/**
+ * ===============================================
+ * Photos swiper indicator related methods
+ * ===============================================
+*/
+export const calculateColor = (count: number, index: number, activeIndex: number): string => {
+  const normalColor = "rgb(180, 180, 180)";
+  const edgeColor = "rgb(100, 100, 100)";
+  
+  // 总项目数小于7时，全部使用普通颜色
+  if (count < 7) return normalColor;
+
+  // 处理特殊状态（activeIndex等于总数）
+  if (activeIndex === count - 1) {
+      return (activeIndex - index < 5) ? normalColor : edgeColor;
+  }
+
+  // 处理活跃项在前5项的情况
+  if (activeIndex < 5) {
+      return (index < 5) ? normalColor : edgeColor;
+  }
+
+  // 处理常规活跃项（>=6）
+  const diff = activeIndex - index;
+  return (diff > 0 && diff < 4) ? normalColor : edgeColor;
+}
+
+export const calculateLeft = (count: number, activeIndex: number): number => {
+  if (count < 7) return 0;
+
+  if (activeIndex < 5) return 0;
+
+  // Actually it at position 'activeIndex' but displayed on position 6
+  if (activeIndex === count - 1) return -1.6 * (activeIndex - 5)
+
+  // Actually it at position 'activeIndex' but displayed on position 5)
+  return -1.6 * (activeIndex - 4) 
+} 

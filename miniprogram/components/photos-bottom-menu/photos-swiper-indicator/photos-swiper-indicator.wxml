@@ -1,6 +1,8 @@
 <!--components/photos-swiper-indicator/photos-swiper-indicator.wxml-->
 <view class="tm-photos-swiper-indicator-root">
-  <block wx:for="{{photoCountArray}}" wx:for-item="dot" wx:key="unique" wx:for-index="index">
-    <view class="tm-photos-swiper-indicator-item" style="width: {{index === photoDisplayIndex ? 4 : 0.6}}vh; height: {{index === photoDisplayIndex ? 0.5 : 0.6}}vh; background-color: {{index === photoDisplayIndex ? 'white' : 'rgb(130, 130, 130);'}};"></view>
-  </block>
+  <view class="tm-photos-swiper-indicator-second-layer" style="left: {{photoDisplayLeft}}vh;">
+    <block wx:for="{{photoCountArray}}" wx:for-item="dot" wx:key="unique" wx:for-index="index">
+      <view class="tm-photos-swiper-indicator-item" style="width: {{index === photoDisplayIndex ? 4 : 0.6}}vh; height: {{index === photoDisplayIndex ? 0.5 : 0.6}}vh; background-color: {{index === photoDisplayIndex ? 'white' : photoColorArray[index]}}"></view>
+    </block>
+  </view>
 </view>

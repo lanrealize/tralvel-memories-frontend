@@ -1,6 +1,6 @@
 import { action, observable } from "mobx-miniprogram";
 import { getAlbum } from "../utils/apis";
-import { parseDate } from "../utils/utils";
+import { parseDate, calculateColor, calculateLeft } from "../utils/utils";
 
 export const photosStore = observable({
 
@@ -10,15 +10,22 @@ export const photosStore = observable({
   albumTitle: '',
   photoCount: 0,
   photoCountArray: [0],
+  photoColorArray: [''],
   photoDisplayIndex: 0,
+  photoDisplayLeft: 0,
 
   updatePhotos: action(
     async (userID: string, albumID: string) => {
       const album = await getAlbum(userID, albumID);
       photosStore.photos = album.images;
+
       photosStore.photoCount = album.images.length;
-      photosStore.photoCountArray = [...Array(album.images.length).keys()]
+      photosStore.photoCountArray = [...Array(album.images.length).keys()];
       photosStore.photoDisplayIndex = 0;
+      photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
+        photosStore.photoCount, num, photosStore.photoDisplayIndex));
+      photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex)
+
       photosStore.albumTitle = album.title;
       photosStore.orderPhotos();
       photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
@@ -49,5 +56,17 @@ export const photosStore = observable({
       photosStore.photoDisplayIndex = photoDisplayIndex
     }
   ),
+
+  setPhotoColorArray: action(
+    (photoColorArray: []) => {
+      photosStore.photoColorArray = photoColorArray
+    }
+  ),
+
+  setPhotoDisplayLeft: action(
+    (photoDisplayLeft: number) => {
+      photosStore.photoDisplayLeft = photoDisplayLeft
+    }
+  )
 
 });

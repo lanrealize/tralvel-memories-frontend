@@ -1,15 +1,26 @@
 /* components/photos-swiper-indicator/photos-swiper-indicator.wxss */
 .tm-photos-swiper-indicator-root {
+  position: absolute;
+  overflow: hidden;
+  width: 13vh;
+  height: 0.6vh;
+}
+
+.tm-photos-swiper-indicator-second-layer {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
+  overflow: hidden;
+  position: absolute;
+  transition: left 0.5s ease-in-out;
 }
 
 .tm-photos-swiper-indicator-item {
   height: 0.6vh;
   border-radius: 1vh;
   margin: auto 0.5vh;
-  transition: all 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   background-color: rgb(130, 130, 130);
   /* background-color: white; */
+  flex-shrink: 0
 }

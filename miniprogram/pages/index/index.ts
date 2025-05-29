@@ -67,10 +67,10 @@ Page({
   },
 
   onUnload() {
-    this.generalStorageBinding.destroyStoreBindings();
-    this.albumsStorageBinding.destroyStoreBindings();
-    this.photoCreationStoreBinding.destroyStoreBindings();
-    this.uiStoreBinding.destroyStoreBindings();
+    this.generalStorageBinding?.destroyStoreBindings();
+    this.albumsStorageBinding?.destroyStoreBindings();
+    this.photoCreationStoreBinding?.destroyStoreBindings();
+    this.uiStoreBinding?.destroyStoreBindings();
   },
 
   async receiveStartClick() {
