@@ -239,7 +239,7 @@ export const getLocationPermission = () => {
   });
 }
 
-export const getLocationInfo = (): Promise<{city: string; poi: string}> => {
+export const getLocationInfo = (): Promise<string> => {
   return new Promise((resolve, reject) => {
     wx.getSetting({
       success(res) {
@@ -252,7 +252,7 @@ export const getLocationInfo = (): Promise<{city: string; poi: string}> => {
                 data: {
                   location: `${res.latitude},${res.longitude}`,
                   key: qqmapkey,
-                  get_poi: 1
+                  get_poi: 0
                 },
                 success(res) {
                   if ((res as any).data.status === 0) {
@@ -261,10 +261,7 @@ export const getLocationInfo = (): Promise<{city: string; poi: string}> => {
                     //   city: result.address_component.city,
                     //   address: result.address
                     // });
-                    resolve({
-                      city: result.address_component.city,
-                      poi: result.pois[0].title
-                    });
+                    resolve(result.address_component.city);
                   } else {
                     console.log(res)
                     reject('解析位置失败');

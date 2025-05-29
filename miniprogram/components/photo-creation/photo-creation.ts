@@ -12,8 +12,8 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   storeBindings: [
     {
       store: photoCreationStore,
-      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation', 'photeCreationSubLocation'],
-      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation', 'setPhoteCreationSubLocation']
+      fields: ['photoCreationComponentTop', 'photoCreationPath', 'photeCreationDescription', 'photeCreationLocation', 'photoCreationTime', 'isGettingLocation'],
+      actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'setPhoteCreationLocation', 'setIsGettingLocation']
     },
     {
       store: photosStore,
@@ -134,8 +134,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           (this as any).setIsGettingLocation(true);
           await getLocationPermission();
           const location = await getLocationInfo();
-          (this as any).setPhoteCreationLocation(location.city);
-          (this as any).setPhoteCreationSubLocation(location.poi);
+          (this as any).setPhoteCreationLocation(location);
         } catch { } finally {
           (this as any).setIsGettingLocation(false);
         } 
