@@ -261,7 +261,7 @@ export const getLocationInfo = (): Promise<string> => {
                     //   city: result.address_component.city,
                     //   address: result.address
                     // });
-                    resolve(result.address_component.city);
+                    resolve(result.address_component.city + ' ' + result.address_component.street);
                   } else {
                     console.log(res)
                     reject('解析位置失败');

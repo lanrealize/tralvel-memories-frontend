@@ -99,6 +99,12 @@ page {
   /* margin-bottom: 0.2vh; */
 }
 
+.tm-photos-photo-creation {
+  border-radius: 2vh;
+  position: fixed;
+  transition: top 0.8s cubic-bezier(.2, 1, 0, 1);
+}
+
 @keyframes slide {
   from {
     transform: translateX(-65%);
