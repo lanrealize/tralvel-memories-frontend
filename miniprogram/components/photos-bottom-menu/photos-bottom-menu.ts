@@ -24,7 +24,14 @@ ComponentWithStore({
    * 组件的属性列表
    */
   properties: {
-
+    sum: {
+      type: String,
+      value: undefined
+    },
+    index: {
+      type: String,
+      value: undefined
+    },
   },
 
   /**

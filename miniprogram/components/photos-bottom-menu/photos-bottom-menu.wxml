@@ -18,8 +18,8 @@
     </view>
 
     <view class="tm-photos-bottom-menu-3rd-line-indices">
-      <text class="tm-photos-bottom-menu-3rd-line-indices-index">7</text>
-      <text class="tm-photos-bottom-menu-3rd-line-indices-total">  /  15张照片</text>
+      <text class="tm-photos-bottom-menu-3rd-line-indices-index">{{index}}</text>
+      <text class="tm-photos-bottom-menu-3rd-line-indices-total">  /  {{sum}}张照片</text>
     </view>
   </view>
 
