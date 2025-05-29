@@ -2,6 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore'
+import { photosStore } from '../../stores/photosStore'
 import { chooseImage, setNavBarTextColor } from '../../utils/utils';
 import { getRandomWord } from '../../utils/apis';
 
@@ -16,7 +17,12 @@ ComponentWithStore({
     {
       store: uiStore,
       fields: ['photoPlayerShown'],
-      actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity'],
+      actions: ['setPhotoPlayerShown', 'setPhotoPlayerOpacity']
+    },
+    {
+      store: photosStore,
+      fields: ['photoCount', 'photoDisplayIndex'],
+      actions: ['setPhotoDisplayIndex']
     }
   ],
 
@@ -24,14 +30,7 @@ ComponentWithStore({
    * 组件的属性列表
    */
   properties: {
-    sum: {
-      type: String,
-      value: undefined
-    },
-    index: {
-      type: String,
-      value: undefined
-    },
+
   },
 
   /**

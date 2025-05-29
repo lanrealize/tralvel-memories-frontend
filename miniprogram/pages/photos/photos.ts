@@ -26,7 +26,6 @@ Page({
     interval: 6000,
     duration: 800,
     circular: false,
-    activeIndex: 0,
 
     apearAnimationClass: '',
     showAppearAnimation: false,
@@ -43,8 +42,8 @@ Page({
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
-        fields: ['photos', 'photoUrls'],
-        actions: ['updatePhotos', 'reversePhotos']
+        fields: ['photos', 'photoUrls', 'photoDisplayIndex'],
+        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex']
       }
     );
 
@@ -134,7 +133,7 @@ Page({
   },
 
   onSwiperChange(e: any) {
-    this.setData({ activeIndex: e.detail.current });
+    (this as any).setPhotoDisplayIndex(e.detail.current);
   },
 
   showAppearAnimation() {

@@ -1,5 +1,15 @@
 // components/photos-swiper-indicator/photos-swiper-indicator.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { photosStore } from '../../../stores/photosStore'
+
+ComponentWithStore({
+  storeBindings: [
+    {
+      store: photosStore,
+      fields: ['photoCount', 'photoDisplayIndex', 'photoCountArray'],
+      actions: ['setPhotoDisplayIndex']
+    }
+  ],
 
   /**
    * 组件的属性列表
@@ -12,7 +22,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    activedIndex: 0
+    
   },
 
   /**
