@@ -3,7 +3,8 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft } from "../../utils/utils";
+import { calculateColor, calculateLeft, chooseImage } from "../../utils/utils";
+import { getRandomWord } from '../../utils/apis';
 
 Page({
 
@@ -52,7 +53,7 @@ Page({
       {
         store: photoCreationStore,
         fields: ['photoCreationComponentTop'],
-        actions: ['setPhotoCreationComponentTop']
+        actions: ['setPhotoCreationComponentTop', 'setPhotoCreationPath', 'setPhoteCreationDescription', 'updatePhoteCreationLocation', 'correctPhotoCreationTime']
       }
     );
 
@@ -155,6 +156,26 @@ Page({
         menuTop: app.globalData.navigationInfo.menuTop,
         menuLeft: app.globalData.navigationInfo.menuLeft
       });
+  },
+
+  async onAddClick() {
+    try {
+      const photoPath = await chooseImage();
+      (this as any).setPhotoCreationPath(photoPath);
+      (async () => {
+        const description = await getRandomWord();
+        (this as any).setPhoteCreationDescription(description);
+        (this as any).updatePhoteCreationLocation();
+      })();
+      (this as any).correctPhotoCreationTime();
+      (this as any).setPhotoCreationComponentTop(0);
+    } catch (e) {
+      console.log(e);
+    }
+  },
+
+  onAddNewPhoto() {
+    
   }
 
 })

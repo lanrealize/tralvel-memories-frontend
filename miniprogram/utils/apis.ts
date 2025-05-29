@@ -107,7 +107,9 @@ export const postPhoto = async (
   openID: string, 
   albumID: string, 
   photoPath: string, 
-  photoDescription: string, 
+  photoDescription: string,
+  photoLocation: string,
+  photoSubLocation: string,
   photoTimestamp: string) => {
 
   return new Promise((resolve, reject) => {
@@ -119,6 +121,8 @@ export const postPhoto = async (
         formData: {
           description: photoDescription,
           timeStamp: photoTimestamp,
+          location: photoLocation,
+          subLocation: photoSubLocation,
           type: 'createdAlbums'
         },
         success: (res: any) => {

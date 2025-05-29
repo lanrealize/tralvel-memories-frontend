@@ -44,8 +44,10 @@
     <text class="tm-photos-menu-bar-text">首页</text>
   </view>
 
-  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onAddClick">
     <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
   
 </view>
+
+<photo-creation bind:onAddNewPhoto="onAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
