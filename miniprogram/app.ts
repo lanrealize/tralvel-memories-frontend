@@ -19,7 +19,7 @@ App<IAppOption>({
     const menuInfo = wx.getMenuButtonBoundingClientRect();
     this.globalData.navigationInfo.menuHeight = menuInfo.height;
     this.globalData.navigationInfo.menuTop = menuInfo.top;
-    this.globalData.navigationInfo.menuRight = screenWidth - menuInfo.right;
+    this.globalData.navigationInfo.menuLeft = screenWidth - menuInfo.left;
   },
 
 })

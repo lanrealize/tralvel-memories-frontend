@@ -149,7 +149,7 @@ Page({
       this.setData({
         menuHeight: app.globalData.navigationInfo.menuHeight,
         menuTop: app.globalData.navigationInfo.menuTop,
-        menuLeft: app.globalData.navigationInfo.menuRight
+        menuLeft: app.globalData.navigationInfo.menuLeft
       });
   }
 

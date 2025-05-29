@@ -64,16 +64,19 @@ page {
 
 .tm-photos-menu-bar {
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.15);
+  /* background-color: rgba(0, 0, 0, 0.15); */
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: right;
 }
 
-.tm-photos-menu-bar-icon {
-  width: 4vw;
-  height: 4vw;
-  /* margin-bottom: 0.2vh; */
+.tm-photos-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   background-color: rgba(0, 0, 0, 0.15);
+   margin-right: 10px;
 }
 
 .tm-photos-menu-bar-text {
@@ -84,12 +87,16 @@ page {
 }
 
 .tm-photos-add-button {
-  position: absolute;
   background-color: rgba(0, 0, 0, 0.15);
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+}
+
+.tm-photos-menu-bar-icon {
+  width: 4vw;
+  height: 4vw;
+  /* margin-bottom: 0.2vh; */
 }
 
 @keyframes slide {
