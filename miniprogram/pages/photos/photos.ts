@@ -95,7 +95,10 @@ Page({
     
     this.setData({
       photoIndexTarget: options.index ? options.index : 0
-    }); 
+    });
+    setTimeout(() => {
+      (this as any).setPhotoIsSwitching(false);
+    }, 2000);
   },
 
   /**
