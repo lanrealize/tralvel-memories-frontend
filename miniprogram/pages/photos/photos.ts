@@ -96,7 +96,7 @@ Page({
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
         }, 1500);
-      }, 3500);
+      }, 5000);
     } else {
       setTimeout(() => {
         this.setData({
