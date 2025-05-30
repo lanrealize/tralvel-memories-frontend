@@ -4,7 +4,7 @@ import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
 import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, buildShareLink } from "../../utils/utils";
-import { getRandomWord } from '../../utils/apis';
+import { getRandomWord, deletePhoto } from '../../utils/apis';
 
 Page({
 
@@ -74,7 +74,8 @@ Page({
     if (options.isShared) {
       this.setData({
         openID: options.openID,
-        albumID: options.albumID
+        albumID: options.albumID,
+        isShared: true
       });
     } else {
       this.setData({
@@ -92,7 +93,6 @@ Page({
     } catch (e) { 
       console.log('Failed to load images in album on photos page.');
     }
-    
     this.setData({
       photoIndexTarget: options.index ? options.index : 0
     });
@@ -285,6 +285,25 @@ Page({
       coverPhotoIsLoading: false
     });
     this.viewInitialize();
-  }
+  },
+
+  async onDeleteClick() {
+    const oldPhotoIndex = (this as any).data.photoDisplayIndex;
+    const oldPhotoId = (this as any).data.photos[oldPhotoIndex].id;
+    const newPhotoIndex = (this as any).data.photoDisplayIndex === 0 ? 1 : (this as any).data.photoDisplayIndex - 1;
+    (this as any).setPhotoDisplayIndex(newPhotoIndex);
+    this.setData({
+      photoIndexTarget: newPhotoIndex as any
+    });
+
+    await deletePhoto(this.data.openID, this.data.albumID, oldPhotoId);
+
+    setTimeout(async () => {
+      await (this as any).updatePhotos(
+        this.data.openID, 
+        this.data.albumID,
+        oldPhotoIndex === 0 ? 0 : newPhotoIndex);
+    }, 800);
+  },
 
 })

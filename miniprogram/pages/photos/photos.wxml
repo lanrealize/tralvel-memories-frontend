@@ -23,8 +23,7 @@
         photoUrls="{{photoUrls}}"
         photoOrientation="{{photo.orientation}}" 
         index="{{index}}"
-        bind:onImageload="onImageload"
-        bind:onDeletedPhoto="receivePhotoDelete">
+        bind:onImageload="onImageload">
       </photo>
     </swiper-item>
   </block>
@@ -49,12 +48,16 @@
     <text class="tm-photos-menu-bar-text">首页</text>
   </view>
 
-  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" bind:tap="onAddClick">
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onAddClick" wx:if="{{isShared}}">
+    <image src="/assets/icons/like.svg" class="tm-photos-menu-bar-icon"></image>
+  </view>
+
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" bind:tap="onAddClick" wx:if="{{!isShared}}">
     <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 
-  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onAddClick">
-    <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onDeleteClick" wx:if="{{!isShared}}">
+    <image src="/assets/icons/delete.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
   
 </view>

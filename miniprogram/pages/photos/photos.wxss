@@ -86,7 +86,7 @@ page {
   /* margin-left: 2vw; */
 }
 
-.tm-photos-add-button {
+.tm-photos-function-button {
   background-color: rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: center;

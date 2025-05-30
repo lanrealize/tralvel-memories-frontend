@@ -1,5 +1,4 @@
 // components/photo/photo.ts
-import { deletePhoto } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 
@@ -87,36 +86,6 @@ ComponentWithStore({
    * 组件的方法列表
    */
   methods: {
-    async onDeleteClick() {
-      try {
-        this.setData({
-          isDeleting: true
-        });
-
-        const openID = wx.getStorageSync('openID');
-        const albumID = wx.getStorageSync('albumID');
-        await deletePhoto(openID, albumID, this.properties.photoId);
-  
-        this.setData({
-          deleted: true
-        })
-  
-        setTimeout(async () => {
-          await (this as any).updatePhotos(openID, albumID);
-          this.setData({
-            deleted: false
-          });
-        }, 200);
-
-        this.triggerEvent('onDeletedPhoto');
-      } finally {
-        this.setData({
-          isDeleting: false
-        });
-      }
-      
-    },
-
     onPhotoLoad() {
       this.setData({
         isLoading: false
