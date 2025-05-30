@@ -25,7 +25,7 @@ export const photosStore = observable({
       if (photosStore.photos[photosStore.photoDisplayIndex].location) {
         photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
       } else {
-        photosStore.setShownPhotoLocation('');
+        photosStore.setShownPhotoLocation('无位置信息');
       }
 
       photosStore.albumTitle = album.title;
