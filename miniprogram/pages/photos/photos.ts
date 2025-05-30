@@ -88,7 +88,11 @@ Page({
       this.setData({
         openAlbumMaskShown: false
       });
+      setTimeout(() => {
+        this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+      }, 600);
     }, 300);
+
   },
 
   /**
@@ -154,14 +158,7 @@ Page({
     (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
 
     // photo display animation related
-    const childBefore = this.selectComponent(`.photos--${(this as any).data.photoDisplayIndex}`);
-    if (childBefore) {
-      childBefore.revertShowAnimation();
-    }
-    const childAfter = this.selectComponent(`.photos--${e.detail.current}`);
-    if (childAfter) {
-      childAfter.setShowAnimation();
-    }
+    this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
 
     // update index
     (this as any).setPhotoDisplayIndex(e.detail.current);
@@ -225,6 +222,19 @@ Page({
       wx.navigateTo({
         url: '/pages/index/index'
       });
+    }
+  },
+
+  manageDisplyedImgaeAnimation(beforeIndex: number = -1, afterIndex: number) {
+    if (-1 !== beforeIndex) {
+      const childBefore = this.selectComponent(`.photos--${beforeIndex}`);
+      if (childBefore) {
+        childBefore.revertShowAnimation();
+      }
+    }
+    const childAfter = this.selectComponent(`.photos--${afterIndex}`);
+    if (childAfter) {
+      childAfter.setShowAnimation();
     }
   }
 
