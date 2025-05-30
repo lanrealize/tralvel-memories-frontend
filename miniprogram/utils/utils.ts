@@ -416,3 +416,16 @@ export const formatReadableTime = (input: string): string => {
       ? `${components.month}月${components.day}日 ${formatTime(components.hour, components.minute)}`
       : `${components.year}年${components.month}月${components.day}日 ${formatTime(components.hour, components.minute)}`;
 }
+
+/**
+ * ===============================================
+ * Share related
+ * ===============================================
+*/
+export const buildShareLink = (
+  openID: string = '',
+  albumID: string = '',
+  index: number = -1) => {
+    let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&albumID=${encodeURIComponent(index)}&isShared=${true}`;
+    return sharePath;
+}

@@ -11,13 +11,13 @@ export const photosStore = observable({
   photoCountArray: [0],
   albumTitle: '',
   updatePhotos: action(
-    async (userID: string, albumID: string) => {
+    async (userID: string, albumID: string, activedIndex: number = 0) => {
       const album = await getAlbum(userID, albumID);
       photosStore.photos = album.images;
 
       photosStore.photoCount = album.images.length;
       photosStore.photoCountArray = [...Array(album.images.length).keys()];
-      photosStore.photoDisplayIndex = 0;
+      photosStore.photoDisplayIndex = activedIndex;
       photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
         photosStore.photoCount, num, photosStore.photoDisplayIndex));
       photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);

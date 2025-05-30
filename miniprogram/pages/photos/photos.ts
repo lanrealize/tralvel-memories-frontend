@@ -41,7 +41,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function() {
+  onLoad: async function(options: any) {
+    console.log(options)
+
     this.adjustMenubarPosition();
 
     this.photosStorageBinding = createStoreBindings(this, 

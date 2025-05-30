@@ -3,8 +3,7 @@
     "photo": "/components/photo/photo",
     "photos-bottom-menu": "/components/photos-bottom-menu/photos-bottom-menu",
     "busy-indicator": "/components/busy-indicator/busy-indicator",
-    "photo-creation": "/components/photo-creation/photo-creation",
-    "photo-player": "/components/photo-player/photo-player"
+    "photo-creation": "/components/photo-creation/photo-creation"
   },
   "navigationBarTextStyle": "white"
 }
