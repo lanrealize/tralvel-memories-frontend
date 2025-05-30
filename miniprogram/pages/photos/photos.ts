@@ -76,24 +76,26 @@ Page({
         openID: options.openID,
         albumID: options.albumID
       });
-      this.setData({
-        photoIndexTarget: options.index
-      });
     } else {
       this.setData({
         openID: wx.getStorageSync('openID'),
         albumID: wx.getStorageSync('albumID')
       });
-
-      try {
-        await (this as any).updatePhotos(
-          this.data.openID, 
-          this.data.albumID,
-          options.index ? options.index : 0);;
-      } catch (e) { 
-        console.log('Failed to load images in album on photos page.');
-      }
     }
+    
+    try {
+      await (this as any).updatePhotos(
+        this.data.openID, 
+        this.data.albumID,
+        options.index ? options.index : 0);
+      this.photosStorageBinding.updateStoreBindings();
+    } catch (e) { 
+      console.log('Failed to load images in album on photos page.');
+    }
+    
+    this.setData({
+      photoIndexTarget: options.index ? options.index : 0
+    }); 
   },
 
   /**
@@ -115,7 +117,7 @@ Page({
         });
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
-        }, 1500);
+        }, 2500);
       }, 5000);
     } else {
       setTimeout(() => {
