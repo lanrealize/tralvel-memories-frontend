@@ -9,7 +9,7 @@
   bindtransition="onSwiperTransition"
   bindanimationfinish="onSwiperAnimationFinish"
 
-  current="{{albumIndexTarget}}">
+  current="{{photoIndexTarget}}">
   <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
     <swiper-item class="{{photoDisplayIndex === index ? 'tm-photos-swiper-item-active' : 'tm-photos-swiper-item-quiet'}}">
       <photo 

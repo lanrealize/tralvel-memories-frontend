@@ -426,6 +426,6 @@ export const buildShareLink = (
   openID: string = '',
   albumID: string = '',
   index: number = -1) => {
-    let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&albumID=${encodeURIComponent(index)}&isShared=${true}`;
+    let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&index=${encodeURIComponent(index)}&isShared=${true}`;
     return sharePath;
 }

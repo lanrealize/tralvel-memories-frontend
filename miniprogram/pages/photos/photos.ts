@@ -3,7 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor } from "../../utils/utils";
+import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, buildShareLink } from "../../utils/utils";
 import { getRandomWord } from '../../utils/apis';
 
 Page({
@@ -16,13 +16,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openID: '',
+    albumID: '',
+
     style: 'opacity: 1; transition: opacity 0.5s ease-in-out;',
     title: '',
     subTitle: '',
     loading: false,
     threshold: 0,
     photoCreationComponentTop: 100,
-    photoDisplayTarget: '',
+    photoIndexTarget: '',
 
     autoplay: false,
     interval: 6000,
@@ -42,8 +45,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function(options: any) {
-    console.log(options)
-
     this.adjustMenubarPosition();
 
     this.photosStorageBinding = createStoreBindings(this, 
@@ -70,12 +71,29 @@ Page({
       }
     );
     
-    try {
-      await this.updatePhotosOnPage();
-    } catch (e) {
-      //TODO need handle here
+    if (options.isShared) {
+      this.setData({
+        openID: options.openID,
+        albumID: options.albumID
+      });
+      this.setData({
+        photoIndexTarget: options.index
+      });
+    } else {
+      this.setData({
+        openID: wx.getStorageSync('openID'),
+        albumID: wx.getStorageSync('albumID')
+      });
+
+      try {
+        await (this as any).updatePhotos(
+          this.data.openID, 
+          this.data.albumID,
+          options.index ? options.index : 0);;
+      } catch (e) { 
+        console.log('Failed to load images in album on photos page.');
+      }
     }
-    
   },
 
   /**
@@ -145,13 +163,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
-  },
-
-  async updatePhotosOnPage() {
-    const openID = wx.getStorageSync('openID');
-    const albumID = wx.getStorageSync('albumID');
-    (this as any).updatePhotos(openID, albumID);
+    const shareLink = buildShareLink(this.data.openID, this.data.albumID, (this as any).data.photoDisplayIndex);
+    return {
+      path: shareLink
+    };
   },
 
   onSwiperChange(e: any) {
