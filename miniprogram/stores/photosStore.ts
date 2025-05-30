@@ -22,9 +22,14 @@ export const photosStore = observable({
         photosStore.photoCount, num, photosStore.photoDisplayIndex));
       photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
       photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
-      photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
+      if (photosStore.photos[photosStore.photoDisplayIndex].location) {
+        photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
+      } else {
+        photosStore.setShownPhotoLocation('');
+      }
 
       photosStore.albumTitle = album.title;
+      photosStore.normalOrdered = false;
       photosStore.orderPhotos();
       photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
     }

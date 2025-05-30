@@ -41,13 +41,17 @@
 
 <view class="tm-photos-menu-bar" style="line-height: {{menuHeight}}px; right: {{menuLeft + 10}}px; top: {{menuTop}}px;">
 
-  <view class="tm-photos-home" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px;">
+  <view class="tm-photos-home" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px;" bind:tap="onHomeClick">
     <!-- <image src="/assets/icons/home.svg" class="tm-photos-menu-bar-icon"></image> -->
     <text class="tm-photos-menu-bar-text">首页</text>
   </view>
 
-  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon" bind:tap="onAddClick"></image>
+  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" bind:tap="onAddClick">
+    <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
+  </view>
+
+  <view class="tm-photos-add-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onAddClick">
+    <image src="/assets/icons/add.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
   
 </view>

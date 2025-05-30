@@ -3,7 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, formatReadableTime } from "../../utils/utils";
+import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor } from "../../utils/utils";
 import { getRandomWord } from '../../utils/apis';
 
 Page({
@@ -137,7 +137,7 @@ Page({
   onSwiperChange(e: any) {
     wx.nextTick(() => {
       setTimeout(() => {
-        (this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);
+        if ((this as any).data.photos[e.detail.current].location) {(this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);}
         (this as any).setShownPhotoTimestamp((this as any).data.photos[e.detail.current].timestamp);
       }, 200);
     });
@@ -191,5 +191,23 @@ Page({
       console.log(e);
     }
   },
+
+  onHomeClick() {
+    const pages = getCurrentPages(); // 获取当前页面栈
+    const prevPage = pages[pages.length - 2]; // 上一页页面对象（如果存在）
+
+    // 检查上一页是否是首页（根据页面路径判断）
+    const isPrevPageHome = prevPage && prevPage.route === 'pages/index/index';
+
+    if (isPrevPageHome) {
+      // 情况1：上一页是首页，直接返回
+      wx.navigateBack();
+    } else {
+      // 情况2：上一页不是首页，跳转到首页
+      wx.navigateTo({
+        url: '/pages/index/index'
+      });
+    }
+  }
 
 })
