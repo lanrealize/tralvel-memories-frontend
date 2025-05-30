@@ -19,7 +19,7 @@ page {
 }
 
 .tm-photos-swiper.active {
-  animation: fadeIn 2.5s ease-out forwards;
+  animation: photosFadeIn 2.5s ease-out forwards;
 }
 
 .tm-photos-swiper-item-active {
@@ -116,7 +116,7 @@ page {
   }
 }
 
-@keyframes fadeIn {
+@keyframes photosFadeIn {
   from {
     opacity: 0;
     filter: blur(90px) brightness(0.4);

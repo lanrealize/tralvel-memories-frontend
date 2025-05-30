@@ -33,6 +33,9 @@ Page({
     showAppearAnimation: false,
 
     openAlbumMaskShown: true,
+
+    isShared: true,
+    sharedInitialized: false
   },
 
   /**
@@ -84,15 +87,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    setTimeout(() => {
-      this.setData({
-        openAlbumMaskShown: false
-      });
+    if (this.data.isShared) {
+      this.showAppearAnimation();
       setTimeout(() => {
-        this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
-      }, 600);
-    }, 300);
-
+        this.setData({
+          sharedInitialized: true
+        });
+        setTimeout(() => {
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+        }, 1500);
+      }, 3500);
+    } else {
+      setTimeout(() => {
+        this.setData({
+          openAlbumMaskShown: false
+        });
+        setTimeout(() => {
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+        }, 300);
+      }, 300);
+    }
   },
 
   /**
