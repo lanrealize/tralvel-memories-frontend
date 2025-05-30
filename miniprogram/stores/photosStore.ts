@@ -14,6 +14,8 @@ export const photosStore = observable({
     async (userID: string, albumID: string, activedIndex: number = 0) => {
       const album = await getAlbum(userID, albumID);
       photosStore.photos = album.images;
+      photosStore.normalOrdered = false;
+      photosStore.orderPhotos();
 
       photosStore.photoCount = album.images.length;
       photosStore.photoCountArray = [...Array(album.images.length).keys()];
@@ -29,8 +31,6 @@ export const photosStore = observable({
       }
 
       photosStore.albumTitle = album.title;
-      photosStore.normalOrdered = false;
-      photosStore.orderPhotos();
       photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
     }
   ),
