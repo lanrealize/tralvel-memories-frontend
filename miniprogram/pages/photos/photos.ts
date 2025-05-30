@@ -117,8 +117,8 @@ Page({
         });
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
-        }, 2500);
-      }, 5000);
+        }, 1500);
+      }, 4000);
     } else {
       setTimeout(() => {
         this.setData({
@@ -191,8 +191,10 @@ Page({
     (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
 
     // photo display animation related
-    this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
-
+    if(e.detail.source === 'touch') {
+      this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
+    }
+    
     // update index
     (this as any).setPhotoDisplayIndex(e.detail.current);
   },
