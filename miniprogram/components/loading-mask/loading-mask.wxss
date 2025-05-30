@@ -12,7 +12,7 @@
 }
 
 .tm-loading-mask-root.fadeOut {
-  animation: fadeOut 0.1s ease-in-out forwards;
+  animation: fadeOut 0.5s ease-in-out forwards;
 }
 
 .tm-loading-mask-long-loading {
