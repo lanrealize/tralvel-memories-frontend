@@ -1,0 +1,20 @@
+/* components/loading-mask/loading-mask.wxss */
+.tm-loading-mask-root {
+  background-color: black;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tm-loading-mask-root.fadeOut {
+  animation: fadeOut 0.1s ease-in-out forwards;
+}
+
+.tm-loading-mask-long-loading {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}

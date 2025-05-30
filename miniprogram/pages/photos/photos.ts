@@ -22,7 +22,7 @@ Page({
     style: 'opacity: 1; transition: opacity 0.5s ease-in-out;',
     title: '',
     subTitle: '',
-    loading: false,
+    coverPhotoIsLoading: true,
     threshold: 0,
     photoCreationComponentTop: 100,
     photoIndexTarget: '',
@@ -37,7 +37,7 @@ Page({
 
     openAlbumMaskShown: true,
 
-    isShared: true,
+    isShared: false,
     sharedInitialized: false
   },
 
@@ -112,26 +112,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    if (this.data.isShared) {
-      this.showAppearAnimation();
-      setTimeout(() => {
-        this.setData({
-          sharedInitialized: true
-        });
-        setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
-        }, 1500);
-      }, 4000);
-    } else {
-      setTimeout(() => {
-        this.setData({
-          openAlbumMaskShown: false
-        });
-        setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
-        }, 300);
-      }, 300);
-    }
+    this.viewInitialize()
   },
 
   /**
@@ -274,6 +255,36 @@ Page({
     if (childAfter) {
       childAfter.setShowAnimation();
     }
+  },
+
+  viewInitialize() {
+    if (this.data.isShared) {
+      this.showAppearAnimation();
+      setTimeout(() => {
+        this.setData({
+          sharedInitialized: true
+        });
+        setTimeout(() => {
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+        }, 1500);
+      }, 4000);
+    } else {
+      setTimeout(() => {
+        this.setData({
+          openAlbumMaskShown: false
+        });
+        setTimeout(() => {
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+        }, 300);
+      }, 300);
+    }
+  },
+
+  onImageload() {
+    this.setData({
+      coverPhotoIsLoading: false
+    });
+    this.viewInitialize();
   }
 
 })

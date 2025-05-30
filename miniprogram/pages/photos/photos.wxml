@@ -22,7 +22,8 @@
         description="{{photo.description}}" 
         photoUrls="{{photoUrls}}"
         photoOrientation="{{photo.orientation}}" 
-        index="{{index}}" 
+        index="{{index}}"
+        bind:onImageload="onImageload"
         bind:onDeletedPhoto="receivePhotoDelete">
       </photo>
     </swiper-item>
@@ -59,3 +60,5 @@
 </view>
 
 <photo-creation bind:onAddNewPhoto="onAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
+
+<loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}"></loading-mask>

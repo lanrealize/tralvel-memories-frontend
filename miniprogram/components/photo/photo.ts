@@ -7,7 +7,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: photosStore,
-      fields: ['photos'],
+      fields: ['photos', 'photoDisplayIndex'],
       actions: ['updatePhotos']
     }
   ],
@@ -121,6 +121,9 @@ ComponentWithStore({
       this.setData({
         isLoading: false
       });
+      if (this.data.index === (this as any).data.photoDisplayIndex) {
+        this.triggerEvent('onImageload', {index: this.data.index});
+      } 
     },
 
     setShowAnimation () {

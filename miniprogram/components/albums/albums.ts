@@ -4,7 +4,6 @@ import { albumsStore } from '../../stores/albumsStore';
 import { AlbumsComponentData } from '../../models/component-model/albums-model';
 import { uiStore } from '../../stores/uiStore';
 import { deleteAlbum } from '../../utils/apis';
-import { buildShareLink } from '../../utils/utils'
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
