@@ -87,7 +87,7 @@ Page({
       await (this as any).updatePhotos(
         this.data.openID, 
         this.data.albumID,
-        options.index ? options.index : 0);
+        options.index ? parseInt(options.index) : 0);
       this.photosStorageBinding.updateStoreBindings();
     } catch (e) { 
       console.log('Failed to load images in album on photos page.');
