@@ -2,7 +2,7 @@
   <image 
     src="{{photoUrl}}" 
     mode="aspectFill" 
-    class="tm-photo-image"
+    class="tm-photo-image {{animationClass}}"
     bindload="onPhotoLoad">
   </image>
 

@@ -69,7 +69,8 @@ ComponentWithStore({
     deleted: false,
     isDeleting: false,
     isLoading: true,
-    longLoading: false
+    longLoading: false,
+    animationClass: ''
   },
   
   lifetimes: {
@@ -120,6 +121,22 @@ ComponentWithStore({
       this.setData({
         isLoading: false
       });
-    }
+    },
+
+    setShowAnimation () {
+      setTimeout(() => {
+        this.setData({
+          animationClass: 'animation'
+        });
+      }, 800);
+    },
+
+    revertShowAnimation () {
+      setTimeout(() => {
+        this.setData({
+          animationClass: ''
+        });
+      }, 800);
+    },
   }
 })

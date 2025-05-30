@@ -135,6 +135,7 @@ Page({
   },
 
   onSwiperChange(e: any) {
+    // update displayed time and location
     wx.nextTick(() => {
       setTimeout(() => {
         if ((this as any).data.photos[e.detail.current].location) {
@@ -146,11 +147,24 @@ Page({
       }, 200);
     });
 
-    (this as any).setPhotoDisplayIndex(e.detail.current);
+    // update swiper related items
     let colorArray = (this as any).data.photoCountArray.map((num: number) => calculateColor(
       (this as any).data.photoCount, num, e.detail.current));
     (this as any).setPhotoColorArray(colorArray);
     (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
+
+    // photo display animation related
+    const childBefore = this.selectComponent(`.photos--${(this as any).data.photoDisplayIndex}`);
+    if (childBefore) {
+      childBefore.revertShowAnimation();
+    }
+    const childAfter = this.selectComponent(`.photos--${e.detail.current}`);
+    if (childAfter) {
+      childAfter.setShowAnimation();
+    }
+
+    // update index
+    (this as any).setPhotoDisplayIndex(e.detail.current);
   },
 
   onSwiperTransition() {

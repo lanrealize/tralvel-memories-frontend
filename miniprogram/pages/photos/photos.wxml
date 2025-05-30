@@ -13,7 +13,8 @@
   <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
     <swiper-item class="{{photoDisplayIndex === index ? 'tm-photos-swiper-item-active' : 'tm-photos-swiper-item-quiet'}}">
       <photo 
-        id="photos--{{photo.id}}" 
+        id="photos--{{photo.id}}"
+        class="photos--{{index}}" 
         photoId="{{photo.id}}" 
         title="{{photo.title}}" 
         subTitle="{{photo.subTitle}}" 
