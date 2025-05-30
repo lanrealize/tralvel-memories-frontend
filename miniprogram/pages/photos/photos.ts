@@ -137,7 +137,11 @@ Page({
   onSwiperChange(e: any) {
     wx.nextTick(() => {
       setTimeout(() => {
-        if ((this as any).data.photos[e.detail.current].location) {(this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);}
+        if ((this as any).data.photos[e.detail.current].location) {
+          (this as any).setShownPhotoLocation((this as any).data.photos[e.detail.current].location);
+        } else {
+          (this as any).setShownPhotoLocation('无位置信息')
+        }
         (this as any).setShownPhotoTimestamp((this as any).data.photos[e.detail.current].timestamp);
       }, 200);
     });
