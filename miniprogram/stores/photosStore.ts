@@ -4,14 +4,14 @@ import { parseDate, calculateColor, calculateLeft, formatReadableTime } from "..
 
 export const photosStore = observable({
 
-  photos: [] as { timestamp: string, imageUrl: string, location: string }[],
+  photos: [] as { timestamp: string, imageUrl: string, location: string, id: string }[],
   normalOrdered: true,
   photoUrls: [] as string[],
   photoCount: 0,
   photoCountArray: [0],
   albumTitle: '',
   updatePhotos: action(
-    async (userID: string, albumID: string, activedIndex: number = 0) => {
+    async (userID: string, albumID: string, activedIndex: number = 0, photoID: string = '') => {
       const album = await getAlbum(userID, albumID);
       photosStore.photos = album.images;
       photosStore.normalOrdered = false;
@@ -19,6 +19,9 @@ export const photosStore = observable({
 
       photosStore.photoCount = album.images.length;
       photosStore.photoCountArray = [...Array(album.images.length).keys()];
+      if (photoID) {
+        activedIndex = photosStore.photos.findIndex(item => item.id === photoID);
+      }
       photosStore.photoDisplayIndex = activedIndex;
       photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
         photosStore.photoCount, num, photosStore.photoDisplayIndex));

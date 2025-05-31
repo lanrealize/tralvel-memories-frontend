@@ -425,7 +425,7 @@ export const formatReadableTime = (input: string): string => {
 export const buildShareLink = (
   openID: string = '',
   albumID: string = '',
-  index: number = -1) => {
-    let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&index=${encodeURIComponent(index)}&isShared=${true}`;
+  photoID: number = -1) => {
+    let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&photoID=${encodeURIComponent(photoID)}&isShared=${true}`;
     return sharePath;
 }

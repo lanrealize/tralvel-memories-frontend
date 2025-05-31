@@ -90,12 +90,16 @@ Page({
       await (this as any).updatePhotos(
         this.data.openID, 
         this.data.albumID,
-        options.index ? parseInt(options.index) : 0);
+        0, 
+        options.photoID ? options.photoID : '');
       this.photosStorageBinding.updateStoreBindings();
     } catch (e) { 
       console.log('Failed to load images in album on photos page.');
     }
-    this.switchWithoutAnimation(options.index ? options.index : 0);
+
+    console.log((this as any).data.photoDisplayIndex);
+
+    this.switchWithoutAnimation((this as any).data.photoDisplayIndex);
     setTimeout(() => {
       (this as any).setPhotoIsSwitching(false);
     }, 2000);
@@ -149,7 +153,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-    const shareLink = buildShareLink(this.data.openID, this.data.albumID, (this as any).data.photoDisplayIndex);
+    const photoID = (this as any).data.photos[(this as any).data.photoDisplayIndex].id;
+    const shareLink = buildShareLink(this.data.openID, this.data.albumID, photoID);
     return {
       path: shareLink,
       imageUrl: (this as any).data.photos[(this as any).data.photoDisplayIndex].imageUrl
