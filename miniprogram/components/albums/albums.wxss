@@ -20,7 +20,7 @@
 .tm-albums-album-title {
   position: absolute;
   top: 47vh;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 30px;
   color: rgba(255, 255, 255, 1);
