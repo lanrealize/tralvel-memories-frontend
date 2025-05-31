@@ -2,7 +2,7 @@
 .tm-photos-swiper-indicator-root {
   position: absolute;
   overflow: hidden;
-  width: 13vh;
+  width: 12vh;
   height: 0.6vh;
 }
 
