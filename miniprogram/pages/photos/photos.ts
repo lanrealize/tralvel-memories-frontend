@@ -239,9 +239,12 @@ Page({
       wx.navigateBack();
     } else {
       // 情况2：上一页不是首页，跳转到首页
-      wx.navigateTo({
-        url: '/pages/index/index'
-      });
+      // wx.navigateTo({
+      //   url: '/pages/index/index'
+      // });
+      wx.reLaunch({
+        url: '/pages/index/index' // 替换为目标页面路径
+      })
     }
   },
 
