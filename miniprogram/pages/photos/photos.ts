@@ -97,8 +97,6 @@ Page({
       console.log('Failed to load images in album on photos page.');
     }
 
-    console.log((this as any).data.photoDisplayIndex);
-
     this.switchWithoutAnimation((this as any).data.photoDisplayIndex);
     setTimeout(() => {
       (this as any).setPhotoIsSwitching(false);
@@ -230,6 +228,17 @@ Page({
     } catch (e) {
       console.log(e);
     }
+  },
+
+  beforeAddNewPhoto() {
+    this.setForceRemoveAnimation(true);
+  },
+
+  onAddNewPhoto() {
+    this.switchWithoutAnimation(0);
+    setTimeout(() => {
+      this.setForceRemoveAnimation(false);
+    }, 100);
   },
 
   onHomeClick() {
