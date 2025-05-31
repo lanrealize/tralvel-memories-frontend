@@ -276,7 +276,7 @@ Page({
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
         }, 300);
-      }, 300);
+      }, 150);
     }
   },
 
