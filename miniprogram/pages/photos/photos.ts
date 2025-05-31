@@ -38,7 +38,9 @@ Page({
     openAlbumMaskShown: true,
 
     isShared: false,
-    sharedInitialized: false
+    sharedInitialized: false,
+
+    forceRemoveAnimation: false
   },
 
   /**
@@ -297,10 +299,18 @@ Page({
     await deletePhoto(this.data.openID, this.data.albumID, oldPhotoId);
 
     setTimeout(async () => {
+      this.setForceRemoveAnimation(true);
       await (this as any).updatePhotos(
         this.data.openID, 
         this.data.albumID,
         oldPhotoIndex === 0 ? 0 : newPhotoIndex);
+      
+      if (oldPhotoIndex === 0) {
+        this.switchWithoutAnimation(0);
+      }
+      setTimeout(() => {
+        this.setForceRemoveAnimation(false);
+      }, 100);
     }, 800);
   },
 
@@ -313,6 +323,12 @@ Page({
     });
     this.setData({
       duration: 800
+    });
+  },
+
+  setForceRemoveAnimation(forceRemoveAnimation: boolean) {
+    this.setData({
+      forceRemoveAnimation: forceRemoveAnimation
     });
   }
 

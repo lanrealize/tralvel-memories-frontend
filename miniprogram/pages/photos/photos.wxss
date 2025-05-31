@@ -32,6 +32,18 @@ page {
   transition: all 2s ease-out;
 }
 
+.tm-photos-swiper-item-fr-active {
+  opacity: 1; 
+  transition: none !important;
+  animation: none !important;
+}
+
+.tm-photos-swiper-item-fr-quiet {
+  opacity: 0;
+  transition: none !important;
+  animation: none !important;
+}
+
 .tm-photos-gradient-overlay {
   position: absolute;
   top: 0;
