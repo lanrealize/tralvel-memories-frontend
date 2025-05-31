@@ -29,7 +29,7 @@
   </block>
 </swiper>
 
-<photos-bottom-menu style="pointer-events: none; opacity: {{(isShared && !sharedInitialized) ? 0 : 1}}; transition: opacity 1s ease-in-out;"></photos-bottom-menu>
+<photos-bottom-menu style="pointer-events: none; opacity: {{(isShared && !sharedInitialized) ? 0 : 1}}; transition: {{(isShared && !sharedInitialized) ? 'opacity 0.1s ease-in-out' : 'opacity 1s ease-in-out'}};"></photos-bottom-menu>
 
 <view 
   class="tm-photos-gradient-overlay {{apearAnimationClass}}" 
@@ -41,7 +41,7 @@
   wx:if="{{!isShared}}">
 </view>
 
-<view class="tm-photos-menu-bar" style="line-height: {{menuHeight}}px; right: {{menuLeft + 10}}px; top: {{menuTop}}px; opacity: {{(isShared && !sharedInitialized) ? 0 : 1}}; transition: opacity 1s ease-in-out;">
+<view class="tm-photos-menu-bar" style="line-height: {{menuHeight}}px; right: {{menuLeft + 10}}px; top: {{menuTop}}px; opacity: {{(isShared && !sharedInitialized) ? 0 : 1}}; transition: {{(isShared && !sharedInitialized) ? 'opacity 0.1s ease-in-out' : 'opacity 1s ease-in-out'}};">
 
   <view class="tm-photos-home" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px;" bind:tap="onHomeClick">
     <!-- <image src="/assets/icons/home.svg" class="tm-photos-menu-bar-icon"></image> -->
