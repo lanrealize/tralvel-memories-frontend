@@ -151,7 +151,8 @@ Page({
   onShareAppMessage() {
     const shareLink = buildShareLink(this.data.openID, this.data.albumID, (this as any).data.photoDisplayIndex);
     return {
-      path: shareLink
+      path: shareLink,
+      imageUrl: (this as any).data.photos[(this as any).data.photoDisplayIndex].imageUrl
     };
   },
 
