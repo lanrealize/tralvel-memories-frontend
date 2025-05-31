@@ -8,10 +8,9 @@
   bindchange="onSwiperChange"
   bindtransition="onSwiperTransition"
   bindanimationfinish="onSwiperAnimationFinish"
-  skip-hidden-item-layout
   current="{{photoIndexTarget}}">
   <block wx:for="{{photos}}" wx:for-item="photo" wx:key="id" wx:for-index="index">
-    <swiper-item class="{{photoDisplayIndex === index ? 'tm-photos-swiper-item-active' : 'tm-photos-swiper-item-quiet'}}" style="transition: none !important; animation: none !important;">
+    <swiper-item class="{{photoDisplayIndex === index ? 'tm-photos-swiper-item-active' : 'tm-photos-swiper-item-quiet'}}">
       <photo 
         id="photos--{{photo.id}}"
         class="photos--{{index}}" 
