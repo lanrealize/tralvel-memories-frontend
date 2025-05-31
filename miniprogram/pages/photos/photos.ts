@@ -93,9 +93,7 @@ Page({
     } catch (e) { 
       console.log('Failed to load images in album on photos page.');
     }
-    this.setData({
-      photoIndexTarget: options.index ? options.index : 0
-    });
+    this.switchWithoutAnimation(options.index ? options.index : 0);
     setTimeout(() => {
       (this as any).setPhotoIsSwitching(false);
     }, 2000);
@@ -305,5 +303,17 @@ Page({
         oldPhotoIndex === 0 ? 0 : newPhotoIndex);
     }, 800);
   },
+
+  switchWithoutAnimation(index: number) {
+    this.setData({
+      duration: 0
+    });
+    this.setData({
+      photoIndexTarget: index as any
+    });
+    this.setData({
+      duration: 800
+    });
+  }
 
 })
