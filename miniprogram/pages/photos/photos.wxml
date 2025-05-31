@@ -47,7 +47,7 @@
     <text class="tm-photos-menu-bar-text">首页</text>
   </view>
 
-  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" bind:tap="onAddClick" wx:if="{{isShared}}">
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" wx:if="{{isShared}}">
     <image src="/assets/icons/like.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 
