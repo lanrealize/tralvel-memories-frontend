@@ -96,9 +96,7 @@ Page({
         options.photoID ? options.photoID : '');
       this.photosStorageBinding.updateStoreBindings();
     } catch (e) {
-      this.setData({
-        loadPhotosFailed: true
-      });
+      this.setData({loadPhotosFailed: true});
       console.log('Failed to load images in album on photos page.');
       return;
     }

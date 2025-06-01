@@ -22,8 +22,10 @@
 .tm-loading-mask-failed {
   color: white;
   font-size: 28rpx;
+  opacity: 0;
+  position: absolute;
 }
 
 .tm-loading-mask-failed.fadeIn {
-  animation: fadeIn 0.5s ease-in-out forwards 2s;
+  animation: fadeIn 0.5s ease-in-out forwards;
 }
