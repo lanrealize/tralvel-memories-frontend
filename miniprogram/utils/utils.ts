@@ -217,9 +217,9 @@ export const getLocationPermission = () => {
   return new Promise((resolve, reject) => {
     wx.getSetting({
       success(res) {
-        if (!res.authSetting['scope.userLocation']) {
+        if (!res.authSetting['scope.userFuzzyLocation']) {
           wx.authorize({
-            scope: 'scope.userLocation',
+            scope: 'scope.userFuzzyLocation',
             success() {
               resolve('Got location permission.');
             },
@@ -242,8 +242,8 @@ export const getLocationInfo = (): Promise<string> => {
   return new Promise((resolve, reject) => {
     wx.getSetting({
       success(res) {
-        if (res.authSetting['scope.userLocation']) {
-          wx.getLocation({
+        if (res.authSetting['scope.userFuzzyLocation']) {
+          wx.getFuzzyLocation({
             type: 'wgs84',
             success(res) {
               wx.request({
