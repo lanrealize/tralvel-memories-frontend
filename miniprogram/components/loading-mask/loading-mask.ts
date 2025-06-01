@@ -9,6 +9,10 @@ Component({
       type: Boolean,
       value: true
     },
+    isFailed: {
+      type: Boolean,
+      value: false
+    }
   },
 
   /**

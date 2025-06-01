@@ -40,7 +40,9 @@ Page({
     isShared: false,
     sharedInitialized: false,
 
-    forceRemoveAnimation: false
+    forceRemoveAnimation: false,
+
+    loadPhotosFailed: false
   },
 
   /**
@@ -93,10 +95,14 @@ Page({
         0, 
         options.photoID ? options.photoID : '');
       this.photosStorageBinding.updateStoreBindings();
-    } catch (e) { 
+    } catch (e) {
+      this.setData({
+        loadPhotosFailed: true
+      });
       console.log('Failed to load images in album on photos page.');
+      return;
     }
-
+    console.log((this as any).data.photos)
     this.switchWithoutAnimation((this as any).data.photoDisplayIndex);
     setTimeout(() => {
       (this as any).setPhotoIsSwitching(false);
@@ -299,6 +305,7 @@ Page({
   },
 
   onImageload() {
+    console.log('show animation')
     this.setData({
       coverPhotoIsLoading: false
     });

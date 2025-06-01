@@ -63,4 +63,4 @@
 
 <photo-creation bind:onAddNewPhoto="onAddNewPhoto" bind:beforeAddNewPhoto="beforeAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
 
-<loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}"></loading-mask>
+<loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}" isFailed="{{loadPhotosFailed}}"></loading-mask>

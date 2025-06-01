@@ -1,8 +1,10 @@
 <!--components/loading-mask/loading-mask.wxml-->
 <view class="tm-loading-mask-root {{isLoading ? '' : 'fadeOut'}}">
-  <busy-indicator 
-      size='2' 
-      style="opacity: 0;"
-      class="{{longLoading ? 'tm-loading-mask-long-loading' : ''}}">
-    </busy-indicator>
+  <busy-indicator
+    wx:if="{{!isFailed}}"
+    size='2' 
+    style="opacity: 0;"
+    class="{{longLoading ? 'tm-loading-mask-long-loading' : ''}}">
+  </busy-indicator>
+  <view class="tm-loading-mask-failed {{isFailed ? 'fadeIn' : ''}}">加载图片失败</view>
 </view>

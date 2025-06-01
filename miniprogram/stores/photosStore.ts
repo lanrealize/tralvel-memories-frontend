@@ -12,29 +12,37 @@ export const photosStore = observable({
   albumTitle: '',
   updatePhotos: action(
     async (userID: string, albumID: string, activedIndex: number = 0, photoID: string = '') => {
-      const album = await getAlbum(userID, albumID);
-      photosStore.photos = album.images;
-      photosStore.normalOrdered = false;
-      photosStore.orderPhotos();
-
-      photosStore.photoCount = album.images.length;
-      photosStore.photoCountArray = [...Array(album.images.length).keys()];
-      if (photoID) {
-        activedIndex = photosStore.photos.findIndex(item => item.id === photoID);
+      try {
+        const album = await getAlbum(userID, albumID);
+        photosStore.photos = album.images;
+        photosStore.normalOrdered = false;
+        photosStore.orderPhotos();
+  
+        photosStore.photoCount = album.images.length;
+        photosStore.photoCountArray = [...Array(album.images.length).keys()];
+        if (photoID) {
+          activedIndex = photosStore.photos.findIndex(item => item.id === photoID);
+          if (activedIndex === -1) {
+            throw new Error(`Photo with ID ${photoID} not found in album`);
+          }
+        }
+        photosStore.photoDisplayIndex = activedIndex;
+        photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
+          photosStore.photoCount, num, photosStore.photoDisplayIndex));
+        photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
+        photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
+        if (photosStore.photos[photosStore.photoDisplayIndex].location) {
+          photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
+        } else {
+          photosStore.setShownPhotoLocation('无位置信息');
+        }
+  
+        photosStore.albumTitle = album.title;
+        photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
+      } catch {
+        photosStore.photos = [];
+        throw new Error(`Album or Photo not exist.`);
       }
-      photosStore.photoDisplayIndex = activedIndex;
-      photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
-        photosStore.photoCount, num, photosStore.photoDisplayIndex));
-      photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
-      photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
-      if (photosStore.photos[photosStore.photoDisplayIndex].location) {
-        photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
-      } else {
-        photosStore.setShownPhotoLocation('无位置信息');
-      }
-
-      photosStore.albumTitle = album.title;
-      photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
     }
   ),
 

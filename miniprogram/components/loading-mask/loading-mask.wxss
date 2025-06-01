@@ -18,3 +18,12 @@
 .tm-loading-mask-long-loading {
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
+.tm-loading-mask-failed {
+  color: white;
+  font-size: 28rpx;
+}
+
+.tm-loading-mask-failed.fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards 2s;
+}
