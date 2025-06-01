@@ -100,7 +100,6 @@ Page({
       console.log('Failed to load images in album on photos page.');
       return;
     }
-    console.log((this as any).data.photos)
     this.switchWithoutAnimation((this as any).data.photoDisplayIndex);
     setTimeout(() => {
       (this as any).setPhotoIsSwitching(false);
