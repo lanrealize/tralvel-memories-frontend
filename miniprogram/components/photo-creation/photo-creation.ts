@@ -73,8 +73,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           try {
             await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
           } catch (e) {
-            await deleteAlbum(openID, albumID);
-            this.dealUnallowed(e);
+            await this.dealWithPostPhotoFailure(e, this.data.page, openID, albumID);
             return;
           }
           // Step 2: Update albums
@@ -89,7 +88,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             try {
               await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
             } catch (e) {
-              this.dealUnallowed(e);
+              await this.dealWithPostPhotoFailure(e);
               return;
             }
             // Step 2: Update albums
@@ -112,10 +111,18 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       }
     },
 
-    dealUnallowed(e: any) {
-      if (e === 'Unallowed content') {
+    async dealWithPostPhotoFailure(e: any, page: string = '', openID: string = '', albumID: string = '') {
+      if (page === 'index') {
+        await deleteAlbum(openID, albumID);
+      }
+      if (e.errcode === 87014) {
         this.setData({
           showUnallowed: true
+        });
+      } else {
+        wx.showToast({
+          title: '发布照片失败，请稍后重试',
+          icon: 'none'
         });
       }
     },
