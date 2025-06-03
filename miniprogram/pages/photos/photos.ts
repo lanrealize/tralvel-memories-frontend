@@ -238,10 +238,12 @@ Page({
   },
 
   onAddNewPhoto() {
-    this.switchWithoutAnimation(0);
     setTimeout(() => {
-      this.setForceRemoveAnimation(false);
-    }, 100);
+      this.switchWithoutAnimation((this as any).data.photoCount - 1);
+      setTimeout(() => {
+        this.setForceRemoveAnimation(false);
+      }, 100);
+    }, 200);
   },
 
   onHomeClick() {
