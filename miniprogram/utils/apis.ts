@@ -124,7 +124,11 @@ export const postPhoto = async (
           type: 'createdAlbums'
         },
         success: (res: any) => {
-          resolve(JSON.parse(res.data).id);
+          if (JSON.parse(res.data).message === "Unallowed content") {
+            reject("Unallowed content");
+          } else {
+            resolve(JSON.parse(res.data).id);
+          }
         },
         fail: (e) => {
           reject(e);

@@ -3,7 +3,7 @@ import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { PhotoCreationComponentData } from "../../models/component-model/photo-creation-model"
 import { generateAlbumTitle, getDatefromIndices, getLocationPermission, getLocationInfo, setNavBarTextColor } from '../../utils/utils'
-import { getRandomWord, postAlbum, postPhoto } from '../../utils/apis';
+import { getRandomWord, postAlbum, postPhoto, deleteAlbum } from '../../utils/apis';
 import { photosStore } from '../../stores/photosStore';
 import { albumsStore } from '../../stores/albumsStore';
 
@@ -43,7 +43,8 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
   data: {
     isCreating: false,
     isRefreshing: false,
-    inputActivated: false
+    inputActivated: false,
+    showUnallowed: false
   },
 
   /**
@@ -69,7 +70,13 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             generateAlbumTitle(this.data.photoCreationTime, this.data.photeCreationLocation)
           ) as string;
           wx.setStorageSync('albumID', albumID);
-          await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
+          try {
+            await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
+          } catch (e) {
+            await deleteAlbum(openID, albumID);
+            this.dealUnallowed(e);
+            return;
+          }
           // Step 2: Update albums
           await (this as any).updateAlbums(openID);
           // Step 3: Adjust display
@@ -79,7 +86,12 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             // Step 1: Post photo
             const openID = wx.getStorageSync('openID');
             const albumID = wx.getStorageSync('albumID');
-            await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
+            try {
+              await postPhoto(openID, albumID, this.data.photoCreationPath, this.data.photeCreationDescription, this.data.photeCreationLocation, getDatefromIndices(this.data.photoCreationTime));
+            } catch (e) {
+              this.dealUnallowed(e);
+              return;
+            }
             // Step 2: Update albums
             this.triggerEvent('beforeAddNewPhoto');
             await (this as any).updateAlbums(openID);
@@ -98,6 +110,20 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
         setNavBarTextColor('white', this.data.page);
         this.setIsCreating(false);
       }
+    },
+
+    dealUnallowed(e: any) {
+      if (e === 'Unallowed content') {
+        this.setData({
+          showUnallowed: true
+        });
+      }
+    },
+
+    confirmUnallowed() {
+      this.setData({
+        showUnallowed: false
+      });
     },
 
     setIsCreating(isCreating: boolean) {

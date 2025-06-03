@@ -30,6 +30,10 @@
   </view>
 
   <!-- <view class="photo-creation-top-placeholder" wx:if="{{page === 'photos'}}" style="height: {{menuTop + menuHeight}}px;"></view> -->
+  <view class="photo-creation-unallowed-mask" style="opacity: {{showUnallowed ? 1 : 0}}; {{showUnallowed ? '' : 'pointer-events: none;'}}">
+    <text style="color: gray; font-size: 32rpx;">发布内容含违规信息</text>
+    <view style="margin-top: 5vh;" bind:tap="confirmUnallowed">点击返回</view>
+  </view>
 
 </view>
 
