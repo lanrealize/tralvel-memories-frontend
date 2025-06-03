@@ -5,6 +5,7 @@
   duration="{{duration}}" 
   circular="{{circular}}"
   class="tm-photos-swiper {{apearAnimationClass}} {{showAppearAnimation ? 'tm-photos-swiper-appear-animation' : '' }}"
+  style="transition: {{playShow ? 'opacity 1s ease-in-out' : 'opacity 0.5s ease-in-out'}}; opacity: {{playShow ? 1 : 0}};"
   bindchange="onSwiperChange"
   bindtransition="onSwiperTransition"
   bindanimationfinish="onSwiperAnimationFinish"

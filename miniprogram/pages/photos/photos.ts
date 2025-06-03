@@ -42,7 +42,10 @@ Page({
 
     forceRemoveAnimation: false,
 
-    loadPhotosFailed: false
+    loadPhotosFailed: false,
+
+    photoPlay: false,
+    playShow: true
   },
 
   /**
@@ -362,6 +365,21 @@ Page({
     this.setData({
       forceRemoveAnimation: forceRemoveAnimation
     });
+  },
+
+  onPlayClick() {
+    this.setData({
+      playShow: false
+    });
+    const oldIndex = (this as any).data.photoDisplayIndex;
+    const newIndex = (this as any).data.photoDisplayIndex === (this as any).data.photoCount - 1 ? 0 : (this as any).data.photoDisplayIndex + 1;
+    setTimeout(() => {
+      this.switchWithoutAnimation(newIndex);
+      this.setData({
+        playShow: true
+      });
+      this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
+    }, 500);
   }
 
 })
