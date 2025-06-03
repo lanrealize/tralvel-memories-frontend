@@ -12,8 +12,8 @@
   </view>
   <view class="photo-creation-description">{{photeCreationDescription}}...</view>
   <view class="photo-creation-description-action">
-    <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image>
-    <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
+    <!-- <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image> -->
+    <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" style="margin-left: auto;" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
     <busy-indicator wx:if="{{isRefreshing}}"></busy-indicator>
   </view>
   <image src="{{photoCreationPath}}" class="photo-creation-image" mode="aspectFill"></image>

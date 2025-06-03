@@ -15,7 +15,7 @@ export const photosStore = observable({
       try {
         const album = await getAlbum(userID, albumID);
         photosStore.photos = album.images;
-        photosStore.normalOrdered = false;
+        // photosStore.normalOrdered = false;
         photosStore.orderPhotos();
   
         photosStore.photoCount = album.images.length;
