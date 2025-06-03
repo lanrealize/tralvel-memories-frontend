@@ -30,18 +30,22 @@ export const photosStore = observable({
         photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
           photosStore.photoCount, num, photosStore.photoDisplayIndex));
         photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
-        photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
-        if (photosStore.photos[photosStore.photoDisplayIndex].location) {
-          photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
+        if(photosStore.photos[photosStore.photoDisplayIndex]) {
+          photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
+          if (photosStore.photos[photosStore.photoDisplayIndex].location) {
+            photosStore.setShownPhotoLocation(photosStore.photos[photosStore.photoDisplayIndex].location);
+          } else {
+            photosStore.setShownPhotoLocation('无位置信息');
+          }
         } else {
-          photosStore.setShownPhotoLocation('无位置信息');
+          photosStore.setShownPhotoLocation('');
+          photosStore.shownPhotoTimestamp = '';
         }
-  
         photosStore.albumTitle = album.title;
         photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
-      } catch {
+      } catch(e) {
         photosStore.photos = [];
-        throw new Error(`Album or Photo not exist.`);
+        throw e;
       }
     }
   ),

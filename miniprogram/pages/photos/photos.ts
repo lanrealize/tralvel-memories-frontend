@@ -4,7 +4,7 @@ import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
 import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, buildShareLink } from "../../utils/utils";
-import { getRandomWord, deletePhoto } from '../../utils/apis';
+import { getRandomWord, deletePhoto, deleteAlbum } from '../../utils/apis';
 
 Page({
 
@@ -310,6 +310,7 @@ Page({
   },
 
   async onDeleteClick() {
+    const length = (this as any).data.photoCount;
     const oldPhotoIndex = (this as any).data.photoDisplayIndex;
     const oldPhotoId = (this as any).data.photos[oldPhotoIndex].id;
     const newPhotoIndex = (this as any).data.photoDisplayIndex === 0 ? 1 : (this as any).data.photoDisplayIndex - 1;
@@ -333,6 +334,13 @@ Page({
       setTimeout(() => {
         this.setForceRemoveAnimation(false);
       }, 100);
+
+      if (length === 1) {
+        await deleteAlbum(this.data.openID, this.data.albumID);
+        wx.reLaunch({
+          url: '/pages/index/index'
+        })
+      }
     }, 800);
   },
 
