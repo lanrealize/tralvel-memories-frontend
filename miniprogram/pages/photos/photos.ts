@@ -188,9 +188,7 @@ Page({
 
     // photo display animation related
     if(e.detail.source === 'touch') {
-      setTimeout(() => {
-        this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
-      }, 700);
+      this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current, 700);
       this.pausePlay();
     }
     
@@ -276,7 +274,7 @@ Page({
     }
   },
 
-  manageDisplyedImgaeAnimation(beforeIndex: number = -1, afterIndex: number) {
+  manageDisplyedImgaeAnimation(beforeIndex: number = -1, afterIndex: number, delay: number = 0) {
     if (-1 !== beforeIndex) {
       const childBefore = this.selectComponent(`.photos--${beforeIndex}`);
       if (childBefore) {
@@ -285,7 +283,7 @@ Page({
     }
     const childAfter = this.selectComponent(`.photos--${afterIndex}`);
     if (childAfter) {
-      childAfter.setShowAnimation();
+      childAfter.setShowAnimation(delay);
     }
   },
 
@@ -428,7 +426,7 @@ Page({
       if (this.data.isPlaying) {
         this.scheduleNext();
       }
-    }, 8000);
+    }, 7500);
     this.setData({ timer });
   },
 

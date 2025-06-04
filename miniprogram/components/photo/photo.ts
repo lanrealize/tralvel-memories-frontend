@@ -95,12 +95,12 @@ ComponentWithStore({
       } 
     },
 
-    setShowAnimation () {
+    setShowAnimation (delay: number = 0) {
       setTimeout(() => {
         this.setData({
           animationClass: 'animation'
         });
-      }, 800);
+      }, 800 + delay);
     },
 
     revertShowAnimation () {
