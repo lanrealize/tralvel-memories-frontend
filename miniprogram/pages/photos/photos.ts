@@ -188,7 +188,9 @@ Page({
 
     // photo display animation related
     if(e.detail.source === 'touch') {
-      this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
+      setTimeout(() => {
+        this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
+      }, 700);
       this.pausePlay();
     }
     
@@ -426,7 +428,7 @@ Page({
       if (this.data.isPlaying) {
         this.scheduleNext();
       }
-    }, 11000);
+    }, 8000);
     this.setData({ timer });
   },
 
