@@ -378,8 +378,10 @@ Page({
       this.setData({
         playShow: true
       });
-      this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
-    }, 500);
+      setTimeout(() => {
+        this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
+      }, 1500);
+    }, 800);
   }
 
 })

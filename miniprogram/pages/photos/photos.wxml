@@ -5,7 +5,6 @@
   duration="{{duration}}" 
   circular="{{circular}}"
   class="tm-photos-swiper {{apearAnimationClass}} {{showAppearAnimation ? 'tm-photos-swiper-appear-animation' : '' }}"
-  style="transition: {{playShow ? 'opacity 1s ease-in-out' : 'opacity 0.5s ease-in-out'}}; opacity: {{playShow ? 1 : 0}};"
   bindchange="onSwiperChange"
   bindtransition="onSwiperTransition"
   bindanimationfinish="onSwiperAnimationFinish"
@@ -69,3 +68,5 @@
 <photo-creation bind:onAddNewPhoto="onAddNewPhoto" bind:beforeAddNewPhoto="beforeAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
 
 <loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}" isFailed="{{loadPhotosFailed}}"></loading-mask>
+
+<view class="tm-photos-playing-mask" style="transition: {{playShow ? 'opacity 2s ease-in' : 'opacity 0.8s ease-in'}}; opacity: {{playShow ? 0 : 1}};"></view>
