@@ -43,16 +43,16 @@
 
 <view class="tm-photos-menu-bar" style="line-height: {{menuHeight}}px; right: {{menuLeft + 10}}px; top: {{menuTop}}px; opacity: {{(isShared && !sharedInitialized) ? 0 : 1}}; transition: {{(isShared && !sharedInitialized) ? 'opacity 0.1s ease-in-out' : 'opacity 1s ease-in-out'}};">
 
-  <view class="tm-photos-home" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px;" bind:tap="onHomeClick">
+  <view class="tm-photos-home" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; padding-left: {{menuHeight / 2}}px; padding-right: {{menuHeight / 2}}px; margin-right: 10px;" bind:tap="onHomeClick">
     <!-- <image src="/assets/icons/home.svg" class="tm-photos-menu-bar-icon"></image> -->
     <text class="tm-photos-menu-bar-text">首页</text>
   </view>
 
-  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;" wx:if="{{isShared}}">
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" wx:if="{{isShared}}">
     <image src="/assets/icons/like.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 
-  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" bind:tap="onPlayClick">
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: {{isShared ? '' : '10px'}};" bind:tap="onPlayClick">
     <image src="/assets/icons/play.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 

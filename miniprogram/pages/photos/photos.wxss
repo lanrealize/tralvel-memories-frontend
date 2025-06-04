@@ -88,7 +88,6 @@ page {
   align-items: center;
   justify-content: center;
    background-color: rgba(0, 0, 0, 0.15);
-   margin-right: 10px;
 }
 
 .tm-photos-menu-bar-text {
