@@ -35,7 +35,7 @@ Component({
         this.setData({
           longLoading: true
         });
-      }, 1000);
+      }, 1500);
     }
   }
 })
