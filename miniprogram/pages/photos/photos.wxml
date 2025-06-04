@@ -73,4 +73,4 @@
 
 <loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}" isFailed="{{loadPhotosFailed}}"></loading-mask>
 
-<view class="tm-photos-playing-mask" style="transition: {{playShow ? 'opacity 2s ease-in' : 'opacity 0.8s ease-in'}}; opacity: {{playShow ? 0 : 1}};"></view>
+<view class="tm-photos-playing-mask" style="transition: {{playShow ? 'opacity 2s ease-in' : 'opacity 0.8s ease-in'}}; opacity: {{playShow ? 0 : 1}}; {{isPlaySwitching ? '': 'pointer-events: none;'}}"></view>

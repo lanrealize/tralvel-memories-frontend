@@ -46,7 +46,8 @@ Page({
 
     isPlaying: false,
     playShow: true,
-    timer: -1
+    timer: -1,
+    isPlaySwitching: false
   },
 
   /**
@@ -380,14 +381,16 @@ Page({
     const showAnimationTimeout = 1000;
 
     this.setData({
-      playShow: false
+      playShow: false,
+      isPlaySwitching: true
     });
     const oldIndex = (this as any).data.photoDisplayIndex;
     const newIndex = (this as any).data.photoDisplayIndex === (this as any).data.photoCount - 1 ? 0 : (this as any).data.photoDisplayIndex + 1;
     setTimeout(() => {
       this.switchWithoutAnimation(newIndex);
       this.setData({
-        playShow: true
+        playShow: true,
+        isPlaySwitching: false
       });
       setTimeout(() => {
         this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
