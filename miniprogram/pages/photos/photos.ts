@@ -295,7 +295,10 @@ Page({
           sharedInitialized: true
         });
         setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
+          setTimeout(() => {
+            this.startPlay();
+          }, 5000);
         }, 1500);
       }, 4000);
     } else {
