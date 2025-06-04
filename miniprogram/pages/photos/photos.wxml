@@ -51,8 +51,12 @@
     <image src="/assets/icons/like.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 
-  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: {{isShared ? '' : '10px'}};" bind:tap="onPlayClick">
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: {{isShared ? '' : '10px'}};" bind:tap="onPlayClick" wx:if="{{!isPlaying}}">
     <image src="/assets/icons/play.svg" class="tm-photos-menu-bar-icon"></image>
+  </view>
+
+  <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: {{isShared ? '' : '10px'}};" bind:tap="onPauseClick" wx:if="{{isPlaying}}">
+    <image src="/assets/icons/pause.svg" class="tm-photos-menu-bar-icon"></image>
   </view>
 
   <view class="tm-photos-function-button" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px; margin-right: 10px;" bind:tap="onAddClick" wx:if="{{!isShared}}">
@@ -65,7 +69,7 @@
   
 </view>
 
-<photo-creation bind:onAddNewPhoto="onAddNewPhoto" bind:beforeAddNewPhoto="beforeAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 4;"></photo-creation>
+<photo-creation bind:onAddNewPhoto="onAddNewPhoto" bind:beforeAddNewPhoto="beforeAddNewPhoto" page="photos" class="tm-photos-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 9;"></photo-creation>
 
 <loading-mask style="z-index: 12; pointer-events: none;" isLoading="{{coverPhotoIsLoading}}" isFailed="{{loadPhotosFailed}}"></loading-mask>
 

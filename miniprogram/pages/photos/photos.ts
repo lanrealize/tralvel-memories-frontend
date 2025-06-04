@@ -44,8 +44,9 @@ Page({
 
     loadPhotosFailed: false,
 
-    photoPlay: false,
-    playShow: true
+    isPlaying: false,
+    playShow: true,
+    timer: -1
   },
 
   /**
@@ -127,13 +128,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide() {
-
+    this.pausePlay();
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload() {
+    this.pausePlay();
     this.photosStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
     this.pagesStorageBinding?.destroyStoreBindings();
@@ -187,6 +189,7 @@ Page({
     // photo display animation related
     if(e.detail.source === 'touch') {
       this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current);
+      this.pausePlay();
     }
     
     // update index
@@ -241,6 +244,7 @@ Page({
   },
 
   onAddNewPhoto() {
+    this.pausePlay();
     setTimeout(() => {
       this.switchWithoutAnimation((this as any).data.photoCount - 1);
       setTimeout(() => {
@@ -315,6 +319,7 @@ Page({
   },
 
   async onDeleteClick() {
+    this.pausePlay();
     const length = (this as any).data.photoCount;
     const oldPhotoIndex = (this as any).data.photoDisplayIndex;
     const oldPhotoId = (this as any).data.photos[oldPhotoIndex].id;
@@ -367,7 +372,10 @@ Page({
     });
   },
 
-  onPlayClick() {
+  photoPlayNext() {
+    const shownUpTimeout = 800;
+    const showAnimationTimeout = 1000;
+
     this.setData({
       playShow: false
     });
@@ -380,8 +388,54 @@ Page({
       });
       setTimeout(() => {
         this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
-      }, 1500);
-    }, 800);
+      }, showAnimationTimeout);
+    }, shownUpTimeout);
+  },
+
+  // core of start: show next + add timer + set isPlaying
+  startPlay() {
+    this.photoPlayNext();
+    this.setData({ isPlaying: true });
+    this.scheduleNext();
+  },
+
+  // core of pause: remove timer + set isPlaying
+  pausePlay(): void {
+    this.clearTimer();
+    this.setData({ 
+      isPlaying: false
+    });
+  },
+
+  clearTimer() {
+    try {
+      if (this.data.timer !== -1) {
+        clearTimeout(this.data.timer);
+        this.setData({ timer: -1 });
+      }
+    } catch(e) {
+      console.log('clear timer failed' + e)
+    }
+
+  },
+
+  scheduleNext() {
+    this.clearTimer();
+    const timer = setTimeout(() => {
+      this.photoPlayNext();
+      if (this.data.isPlaying) {
+        this.scheduleNext();
+      }
+    }, 11000);
+    this.setData({ timer });
+  },
+
+  onPlayClick() {
+    this.startPlay();
+  },
+
+  onPauseClick() {
+    this.pausePlay();
   }
 
 })
