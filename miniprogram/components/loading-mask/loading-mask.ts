@@ -26,7 +26,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    confirmFailed() {
+      wx.reLaunch({
+        url: '/pages/index/index' // 替换为目标页面路径
+      })
+    }
   },
 
   lifetimes: {

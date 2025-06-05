@@ -6,5 +6,8 @@
     style="opacity: 0; position: absolute;"
     class="{{longLoading ? 'tm-loading-mask-long-loading' : ''}}">
   </busy-indicator>
-  <view class="tm-loading-mask-failed {{isFailed ? 'fadeIn' : ''}}">加载图片失败</view>
+  <view class="tm-loading-mask-failed {{isFailed ? 'fadeIn' : ''}}">
+    <text style="color: gray; font-size: 32rpx; font-weight: 700;">加载图片失败</text>
+    <view style="margin-top: 3vh; pointer-events: auto;" bind:tap="confirmFailed">返回首页</view>
+  </view>
 </view>

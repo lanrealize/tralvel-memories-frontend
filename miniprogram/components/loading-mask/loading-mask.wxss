@@ -24,6 +24,10 @@
   font-size: 28rpx;
   opacity: 0;
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .tm-loading-mask-failed.fadeIn {
