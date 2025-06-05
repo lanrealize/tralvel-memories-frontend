@@ -47,6 +47,7 @@ Page({
     isPlaying: false,
     playShow: true,
     timer: -1,
+    autoPlayTimer: -1,
     isPlaySwitching: false
   },
 
@@ -191,6 +192,7 @@ Page({
     if(e.detail.source === 'touch') {
       this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current, 700);
       this.pausePlay();
+      this.clearAutoPlayTimer();
     }
     
     // update index
@@ -297,9 +299,10 @@ Page({
         });
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
-          setTimeout(() => {
+          const autoPlayTimer = setTimeout(() => {
             this.startPlay();
           }, 5000);
+          this.setData({ autoPlayTimer });
         }, 1500);
       }, 4000);
     } else {
@@ -422,7 +425,17 @@ Page({
     } catch(e) {
       console.log('clear timer failed' + e)
     }
+  },
 
+  clearAutoPlayTimer() {
+    try {
+      if (this.data.autoPlayTimer !== -1) {
+        clearTimeout(this.data.autoPlayTimer);
+        this.setData({ autoPlayTimer: -1 });
+      }
+    } catch(e) {
+      console.log('clear autoPlayTimer failed' + e)
+    }
   },
 
   scheduleNext() {
