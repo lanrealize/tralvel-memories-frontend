@@ -96,6 +96,7 @@ ComponentWithStore({
     },
 
     setShowAnimation (delay: number = 0) {
+      if ((this as any).data.animationClass === 'animation') return;
       setTimeout(() => {
         this.setData({
           animationClass: 'animation'
@@ -104,11 +105,12 @@ ComponentWithStore({
     },
 
     revertShowAnimation () {
+      if ((this as any).data.animationClass === '') return;
       setTimeout(() => {
         this.setData({
           animationClass: ''
         });
-      }, 800);
+      }, 0);
     },
   }
 })

@@ -190,7 +190,6 @@ Page({
 
     // photo display animation related
     if(e.detail.source === 'touch') {
-      this.manageDisplyedImgaeAnimation((this as any).data.photoDisplayIndex, e.detail.current, 700);
       this.pausePlay();
       this.clearAutoPlayTimer();
     }
@@ -203,12 +202,14 @@ Page({
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
     }
-    (this as any).setDynamicWordsAnimationClass('');
+    // (this as any).setDynamicWordsAnimationClass('');
   },
 
-  onSwiperAnimationFinish() {
+  onSwiperAnimationFinish(e: any) {
     (this as any).setPhotoIsSwitching(false);
-    this.scheduleDynamicWordsAnimation();
+    if(e.detail.source === 'touch') {
+      this.manageDisplyedImgaeAnimation(true, e.detail.current);
+    }
   },
 
   showAppearAnimation() {
@@ -279,17 +280,23 @@ Page({
     }
   },
 
-  manageDisplyedImgaeAnimation(beforeIndex: number = -1, afterIndex: number, delay: number = 0) {
-    if (-1 !== beforeIndex) {
-      const childBefore = this.selectComponent(`.photos--${beforeIndex}`);
-      if (childBefore) {
-        childBefore.revertShowAnimation();
+  manageDisplyedImgaeAnimation(adjustBeforeIndex: boolean = false, afterIndex: number, delay: number = 0) {
+    if (adjustBeforeIndex) {
+      for (let idx in (this as any).data.photoCountArray) {
+        if (parseInt(idx) !== afterIndex) {
+          const childBefore = this.selectComponent(`.photos--${idx}`);
+          if (childBefore) {
+            childBefore.revertShowAnimation();
+          }
+        }
       }
     }
+
     const childAfter = this.selectComponent(`.photos--${afterIndex}`);
     if (childAfter) {
       childAfter.setShowAnimation(delay);
     }
+    this.scheduleDynamicWordsAnimation();
   },
 
   viewInitialize() {
@@ -300,8 +307,7 @@ Page({
           sharedInitialized: true
         });
         setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
-          this.scheduleDynamicWordsAnimation();
+          this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
           const autoPlayTimer = setTimeout(() => {
             this.startPlay();
           }, 5000);
@@ -314,8 +320,7 @@ Page({
           openAlbumMaskShown: false
         });
         setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
-          this.scheduleDynamicWordsAnimation();
+          this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
         }, 300);
       }, 150);
     }
@@ -399,8 +404,7 @@ Page({
         isPlaySwitching: false
       });
       setTimeout(() => {
-        this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
-        this.scheduleDynamicWordsAnimation();
+        this.manageDisplyedImgaeAnimation(true, newIndex);
       }, showAnimationTimeout);
     }, shownUpTimeout);
   },
@@ -462,6 +466,7 @@ Page({
   },
 
   scheduleDynamicWordsAnimation() {
+    (this as any).setDynamicWordsAnimationClass('');
     setTimeout(() => {
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
