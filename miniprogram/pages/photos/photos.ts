@@ -48,7 +48,9 @@ Page({
     playShow: true,
     timer: -1,
     autoPlayTimer: -1,
-    isPlaySwitching: false
+    isPlaySwitching: false,
+
+    dynamicWordsTimer: -1
   },
 
   /**
@@ -202,7 +204,8 @@ Page({
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
     }
-    // (this as any).setDynamicWordsAnimationClass('');
+    this.clearDynamicWordsTimer();
+    (this as any).setDynamicWordsAnimationClass('');
   },
 
   onSwiperAnimationFinish(e: any) {
@@ -446,6 +449,17 @@ Page({
     }
   },
 
+  clearDynamicWordsTimer() {
+    try {
+      if (this.data.dynamicWordsTimer !== -1) {
+        clearTimeout(this.data.dynamicWordsTimer);
+        this.setData({ dynamicWordsTimer: -1 });
+      }
+    } catch(e) {
+      console.log('clear dynamicWordsTimer failed' + e)
+    }
+  },
+
   scheduleNext() {
     this.clearTimer();
     const timer = setTimeout(() => {
@@ -466,10 +480,10 @@ Page({
   },
 
   scheduleDynamicWordsAnimation() {
-    (this as any).setDynamicWordsAnimationClass('');
-    setTimeout(() => {
+    const dynamicWordsTimer = setTimeout(() => {
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
+    this.setData({ dynamicWordsTimer });
   }
 
 })
