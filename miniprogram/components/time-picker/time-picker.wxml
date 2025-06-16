@@ -1,6 +1,7 @@
 <!--components/time-picker/time-picker.wxml-->
 <view class="time-picker-root">
-  <image class="time-picker-icon" src="/assets/icons/date.svg"></image>
+  <!-- <image class="time-picker-icon" src="/assets/icons/date.svg"></image> -->
+  <view class="time-picker-icon">时间</view>
 
   <picker-view indicator-class="time-picker-indicator" class="time-picker-date" value="{{photoCreationTime}}" bindchange="bindChange" mask-style="background: transparent;">
     <picker-view-column style="flex: 0 0 24%;">

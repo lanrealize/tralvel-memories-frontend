@@ -19,7 +19,7 @@
   border-radius: 3px;
   color: white;
   margin-right: 0;
-  margin-left: auto;
+  /* margin-left: auto; */
   padding-right: 4vw;
   padding-left: 4vw;
 
@@ -30,6 +30,19 @@
 .photo-creation-cancel {
   border-radius: 3px;
   color: white;
+  font-weight: 400;
+  margin-right: 5vw;
+  margin-left: auto;
+}
+
+.photo-creation-actions-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  top: 69;
+  left: 8vw;
 }
 
 .photo-creation-actions {
@@ -40,9 +53,12 @@
   margin-top: 2vh;
   z-index: 3;
   position: absolute;
-  justify-content: space-between ;
+  justify-content: end;
   width: 86.5vw;
   font-weight: 700;
+  /* top: 70vh; */
+  bottom: 10vh;
+  font-size: 30rpx;
 }
 
 .photo-creation-description {
@@ -50,7 +66,7 @@
   padding-left: 8vw;
   padding-right: 8vw;
   padding-top: 3vh;
-  font-size: 36rpx;
+  font-size: 30rpx;
   position: absolute;
   z-index: 3;
   top: 15vh;
@@ -66,7 +82,7 @@
   position: absolute;
   z-index: 3;
   right: 0.5vw;
-  top: 25vh;
+  top: 30vh;
 }
 
 .photo-creation-description-action-item {
@@ -96,18 +112,21 @@
 }
 
 .photo-creation-time-picker {
-  margin-top: 5vh;
+  margin-top: 10vh;
   z-index: 3;
   position: absolute;
-  top: 30vh;
+  top: 33vh;
 }
 
 .photo-creation-location {
   padding-top: 2.5vh;
-  padding-left: 7.75vw;
+  padding-left: 8.5vw;
   padding-right: 8vw;
   display: flex;
   align-items: center;
+  position: absolute;
+  z-index: 3;
+  top: 55vh;
 }
 
 .photo-creation-location-icon {
@@ -165,4 +184,5 @@
   justify-content: center;
   flex-direction: column;
   transition: opacity 0.5s ease-in-out;
+  z-index: 5;
 }

@@ -1,6 +1,7 @@
 /* components/photos-bottom-menu/photos-bottom-menu.wxss */
 /* effect part */
 .blur {
+  mask-image: linear-gradient(transparent, #000, #000);
 	-webkit-mask-image: linear-gradient(transparent, #000, #000);
 	/* backdrop-filter: blur(1.5px); */
   width: 100%;

@@ -1,6 +1,6 @@
 /* components/time-picker/time-picker.wxss */
 .time-picker-root {
-  padding-left: 8vw;
+  padding-left: 8.5vw;
   padding-right: 8vw;
 
   display: grid;
@@ -18,9 +18,10 @@
 
 .time-picker-icon {
   grid-area: picker-icon;
-  width: 6vw;
-  height: 6vw;
+  font-size: 30rpx;
+  color: white;
   margin: auto;
+  width: 10vw;
 }
 
 .time-picker-date {
@@ -33,6 +34,7 @@
   line-height: 3vh;
   text-align: center;
   color: white;
+  font-size: 30rpx;
 }
 
 .time-picker-indicator {

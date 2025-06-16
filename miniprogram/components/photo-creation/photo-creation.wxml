@@ -1,6 +1,7 @@
 <!--components/photo-creation/photo-creation.wxml-->
 <view class="photo-creation-root">
   <view class="photo-creation-title" style="padding-top: {{menuTop}}px; height: {{menuHeight}}px;"></view>
+  <!-- <view class="photo-creation-actions-title">发布照片：</view> -->
   <view class="photo-creation-actions">
     <view class="photo-creation-cancel" style="line-height: {{menuHeight}}px; display: flex;">
       <view style="margin: auto;" bindtap="onCancelClick">取消</view>
@@ -10,19 +11,31 @@
       <view style="margin: auto;">添加</view>
     </view>
   </view>
-  <view class="photo-creation-description">{{photeCreationDescription}}...</view>
+  <view class="photo-creation-description">
+    <view style="margin-bottom: 1vh; font-weight: 700;">
+      写点什么：
+    </view> 
+    <view>
+      {{photeCreationDescription}}...
+    </view> 
+  </view>
   <view class="photo-creation-description-action">
-    <!-- <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image> -->
+    <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image>
     <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" style="margin-left: auto;" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
     <busy-indicator wx:if="{{isRefreshing}}"></busy-indicator>
   </view>
   <image src="{{photoCreationPath}}" class="photo-creation-image" mode="aspectFill"></image>
   <view class="photo-creation-image-mask"></view>
+
   <view class="photo-creation-time-picker">
+    <view style="margin-bottom: 3vh; font-size: 30rpx; color: white; font-weight: 700; margin-left: 8vw;">
+      照片时间和地点：
+    </view> 
     <time-picker></time-picker>
   </view>
-  <view class="photo-creation-location">
-    <image src="/assets/icons/location.svg" class="photo-creation-location-icon"></image>
+  <view class="photo-creation-location" style="font-size: 30rpx;">
+    <!-- <image src="/assets/icons/location.svg" class="photo-creation-location-icon"></image> -->
+    <view style="color: white;">地点</view>
     <view wx:if="{{!isGettingLocation}}" class="photo-creation-location-text" bind:tap="onGetLocationClick" style="padding-right: {{photeCreationLocation === '' ? 0 : 20}}vw;">
       <view wx:if="{{!inputActivated}}">{{photeCreationLocation === '' ? '点击获取位置信息' : photeCreationLocation}}</view>
       <input wx:if="{{inputActivated}}" focus="{{inputActivated}}" bindinput="onLocationInput" bindblur="onLocationInputBlur" value="{{photeCreationLocation}}"/>
