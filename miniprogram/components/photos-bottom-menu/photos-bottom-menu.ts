@@ -1,8 +1,8 @@
 // components/photos-bottom-menu/photos-bottom-menu.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore';
-import { uiStore } from '../../stores/uiStore'
-import { photosStore } from '../../stores/photosStore'
+import { uiStore } from '../../stores/uiStore';
+import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore({
 

@@ -1,6 +1,7 @@
 /* components/photos-bottom-menu/photos-bottom-menu.wxss */
 /* effect part */
 .blur {
+  mask-image: linear-gradient(transparent, #000, #000);
 	-webkit-mask-image: linear-gradient(transparent, #000, #000);
 	/* backdrop-filter: blur(1.5px); */
   width: 100%;
@@ -54,22 +55,23 @@
   justify-content: space-between;
 }
 
-.tm-photos-bottom-menu-3rd-line-indices {
+.tm-photos-bottom-menu-3rd-line-word {
   display: flex;
   align-items: flex-end;
   white-space: pre-wrap;
 }
 
-.tm-photos-bottom-menu-3rd-line-indices-index {
-  font-size: 36rpx;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 1);
+.tm-photos-bottom-menu-3rd-line-word-content {
+
 }
 
-.tm-photos-bottom-menu-3rd-line-indices-total {
-  font-size: 30rpx;
-  font-weight: 700;
-  color: rgba(166, 166, 166, 1);
+.tm-photos-bottom-menu-3rd-line-word-mask {
+  background-color: linear-gradient(90deg, 
+  transparent 0%, 
+  white 25%, 
+  white 75%,
+  transparent 100%) 
+200% 0 / 200% 100%;
 }
 
 .tm-photos-bottom-menu-3rd-line-indicators {

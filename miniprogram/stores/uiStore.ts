@@ -59,4 +59,16 @@ export const uiStore = observable({
     }
   ),
 
+/**
+ * ===============================================
+ * Dynamic Words Related
+ * ===============================================
+*/
+  dynamicWordsAnimationClass: '',
+  setDynamicWordsAnimationClass: action(
+    (dynamicWordsAnimationClass: string) => {
+      uiStore.dynamicWordsAnimationClass = dynamicWordsAnimationClass
+    }
+  )
+
 });

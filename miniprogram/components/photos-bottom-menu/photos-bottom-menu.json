@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "photos-swiper-indicator": "/components/photos-bottom-menu/photos-swiper-indicator/photos-swiper-indicator",
-    "time-with-location": "/components/photos-bottom-menu/time-with-location/time-with-location"
+    "time-with-location": "/components/photos-bottom-menu/time-with-location/time-with-location",
+    "dynamic-words": "/components/photos-bottom-menu/dynamic-words/dynamic-words"
   }
 }

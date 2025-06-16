@@ -8,7 +8,6 @@
 
   <view class="tm-photos-bottom-menu-2nd-line">
     <time-with-location></time-with-location>
-    <!-- <photo-operation></photo-operation> -->
   </view>
 
   <view class="tm-photos-bottom-menu-3rd-line">
@@ -17,9 +16,8 @@
       <view class="tm-photos-bottom-menu-3rd-line-indicators-placeholder">a</view>
     </view>
 
-    <view class="tm-photos-bottom-menu-3rd-line-indices">
-      <text class="tm-photos-bottom-menu-3rd-line-indices-index">{{photoDisplayIndex + 1}}</text>
-      <text class="tm-photos-bottom-menu-3rd-line-indices-total">  /  {{photoCount}} 张照片</text>
+    <view class="tm-photos-bottom-menu-3rd-line-word">
+      <dynamic-words></dynamic-words>
     </view>
   </view>
 

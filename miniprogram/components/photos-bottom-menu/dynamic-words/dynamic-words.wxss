@@ -1,0 +1,29 @@
+/* components/photos-bottom-menu/dynamic-words/dynamic-words.wxss *//* 组件文件：text-color-wave.wxss */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.char {
+  opacity: 0.3;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.char.animation {
+  /* animation: color-wave 4s cubic-bezier(0.4, 0, 0.2, 1) 2; */
+  animation: color-wave 3s ease-in infinite;
+}
+
+@keyframes color-wave {
+  0%, 100% { 
+    opacity: 0.3; 
+  }
+  30%, 70% { 
+    opacity: 0.3; 
+  }
+  50% { 
+    opacity: 1;
+  }
+}
