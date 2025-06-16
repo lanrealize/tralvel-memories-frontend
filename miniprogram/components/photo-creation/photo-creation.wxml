@@ -17,6 +17,7 @@
     <busy-indicator wx:if="{{isRefreshing}}"></busy-indicator>
   </view>
   <image src="{{photoCreationPath}}" class="photo-creation-image" mode="aspectFill"></image>
+  <view class="photo-creation-image-mask"></view>
   <view class="photo-creation-time-picker">
     <time-picker></time-picker>
   </view>
