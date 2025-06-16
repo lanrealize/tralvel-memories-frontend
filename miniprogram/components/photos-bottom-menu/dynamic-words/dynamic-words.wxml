@@ -1,7 +1,7 @@
 <view class="container">
   <block wx:for="{{characters}}" wx:key="index">
     <text 
-      class="char {{setDynamicWordsAnimationClass}}" 
+      class="char {{dynamicWordsAnimationClass}}" 
       style="animation-delay: {{item.delay}}s; color: {{primaryColor}};"
     >{{item.char}}</text>
   </block>

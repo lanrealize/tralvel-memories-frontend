@@ -1,6 +1,6 @@
 // components/photos-bottom-menu/time-with-location/time-with-location.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { photosStore } from '../../../stores/photosStore'
+import { photosStore } from '../../../stores/photosStore';
 
 ComponentWithStore({
   storeBindings: [

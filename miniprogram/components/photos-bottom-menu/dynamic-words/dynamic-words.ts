@@ -1,6 +1,6 @@
 // components/photos-bottom-menu/dynamic-words/dynamic-words.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { uiStore } from '../../../stores/uiStore'
+import { uiStore } from '../../../stores/uiStore';
 
 ComponentWithStore({
   storeBindings: [
@@ -39,6 +39,10 @@ ComponentWithStore({
   lifetimes: {
     attached() {
       this.prepareCharacters(this.data.text);
+    },
+
+    detached() {
+      (this as any).setDynamicWordsAnimationClass('');
     }
   },
 

@@ -6,7 +6,7 @@
 }
 
 .char {
-  opacity: 0.3;
+  opacity: 0.5;
   font-size: 28rpx;
   font-weight: bold;
 }
@@ -18,10 +18,10 @@
 
 @keyframes color-wave {
   0%, 100% { 
-    opacity: 0.3; 
+    opacity: 0.5; 
   }
   30%, 70% { 
-    opacity: 0.3; 
+    opacity: 0.5; 
   }
   50% { 
     opacity: 1;

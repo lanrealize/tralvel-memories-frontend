@@ -77,7 +77,7 @@ Page({
       {
         store: uiStore,
         fields: ['photosTitleColor', 'photoPlayerShown', 'photoPlayerOpacity'],
-        actions: ['setPhotosTitleColor', 'setPhotoPlayerShown', 'setPhotoPlayerOpacity']
+        actions: ['setPhotosTitleColor', 'setPhotoPlayerShown', 'setPhotoPlayerOpacity', 'setDynamicWordsAnimationClass']
       }
     );
     
@@ -203,10 +203,12 @@ Page({
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
     }
+    (this as any).setDynamicWordsAnimationClass('');
   },
 
   onSwiperAnimationFinish() {
     (this as any).setPhotoIsSwitching(false);
+    this.scheduleDynamicWordsAnimation();
   },
 
   showAppearAnimation() {
@@ -299,6 +301,7 @@ Page({
         });
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
+          this.scheduleDynamicWordsAnimation();
           const autoPlayTimer = setTimeout(() => {
             this.startPlay();
           }, 5000);
@@ -311,14 +314,14 @@ Page({
           openAlbumMaskShown: false
         });
         setTimeout(() => {
-          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex)
+          this.manageDisplyedImgaeAnimation(-1, (this as any).data.photoDisplayIndex);
+          this.scheduleDynamicWordsAnimation();
         }, 300);
       }, 150);
     }
   },
 
   onImageload() {
-    console.log('show animation')
     this.setData({
       coverPhotoIsLoading: false
     });
@@ -397,6 +400,7 @@ Page({
       });
       setTimeout(() => {
         this.manageDisplyedImgaeAnimation(oldIndex, newIndex);
+        this.scheduleDynamicWordsAnimation();
       }, showAnimationTimeout);
     }, shownUpTimeout);
   },
@@ -455,6 +459,12 @@ Page({
 
   onPauseClick() {
     this.pausePlay();
+  },
+
+  scheduleDynamicWordsAnimation() {
+    setTimeout(() => {
+      (this as any).setDynamicWordsAnimationClass('animation');
+    }, 5500);
   }
 
 })
