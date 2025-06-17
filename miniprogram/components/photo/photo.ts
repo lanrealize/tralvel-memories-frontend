@@ -43,10 +43,6 @@ ComponentWithStore({
       type: String,
       value: undefined
     },
-    photoUrls: {
-      type: Array,
-      value: []
-    },
     photoOrientation: {
       type: String,
       value: ''

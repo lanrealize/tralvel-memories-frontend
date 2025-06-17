@@ -3,7 +3,7 @@ import { createStoreBindings } from 'mobx-miniprogram-bindings';
 import { photosStore } from '../../stores/photosStore';
 import { photoCreationStore } from '../../stores/photoCreationStore';
 import { uiStore } from '../../stores/uiStore';
-import { calculateColor, calculateLeft, chooseImage, setNavBarTextColor, buildShareLink } from "../../utils/utils";
+import { chooseImage, setNavBarTextColor, buildShareLink } from "../../utils/utils";
 import { getRandomWord, deletePhoto, deleteAlbum } from '../../utils/apis';
 
 Page({
@@ -62,8 +62,8 @@ Page({
     this.photosStorageBinding = createStoreBindings(this, 
       {
         store: photosStore,
-        fields: ['photos', 'photoUrls', 'photoDisplayIndex', 'photoCountArray', 'photoCount', 'photoIsSwitching'],
-        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoColorArray', 'setPhotoDisplayLeft', 'setPhotoIsSwitching', 'setShownPhotoLocation', 'setShownPhotoTimestamp']
+        fields: ['photos', 'photoDisplayIndex', 'photoCount', 'photoIsSwitching'],
+        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoIsSwitching', 'setShownPhotoLocation', 'setShownPhotoTimestamp']
       }
     );
 
@@ -184,12 +184,6 @@ Page({
       }, 200);
     });
 
-    // update swiper related items
-    let colorArray = (this as any).data.photoCountArray.map((num: number) => calculateColor(
-      (this as any).data.photoCount, num, e.detail.current));
-    (this as any).setPhotoColorArray(colorArray);
-    (this as any).setPhotoDisplayLeft(calculateLeft((this as any).data.photoCount, e.detail.current));
-
     // photo display animation related
     if(e.detail.source === 'touch') {
       this.pausePlay();
@@ -285,8 +279,8 @@ Page({
 
   manageDisplyedImgaeAnimation(adjustBeforeIndex: boolean = false, afterIndex: number, delay: number = 0) {
     if (adjustBeforeIndex) {
-      for (let idx in (this as any).data.photoCountArray) {
-        if (parseInt(idx) !== afterIndex) {
+      for (let idx = 0; idx < (this as any).data.photoCount; idx++) {
+        if (idx !== afterIndex) {
           const childBefore = this.selectComponent(`.photos--${idx}`);
           if (childBefore) {
             childBefore.revertShowAnimation();

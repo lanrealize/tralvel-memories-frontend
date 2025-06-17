@@ -19,7 +19,6 @@
         subTitle="{{photo.subTitle}}" 
         photoUrl="{{photo.imageUrl}}" 
         description="{{photo.description}}" 
-        photoUrls="{{photoUrls}}"
         photoOrientation="{{photo.orientation}}" 
         index="{{index}}"
         bind:onImageload="onImageload">

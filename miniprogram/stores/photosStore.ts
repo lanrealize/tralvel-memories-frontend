@@ -1,14 +1,12 @@
 import { action, observable } from "mobx-miniprogram";
 import { getAlbum } from "../utils/apis";
-import { parseDate, calculateColor, calculateLeft, formatReadableTime } from "../utils/utils";
+import { parseDate, formatReadableTime } from "../utils/utils";
 
 export const photosStore = observable({
 
   photos: [] as { timestamp: string, imageUrl: string, location: string, id: string }[],
   normalOrdered: true,
-  photoUrls: [] as string[],
   photoCount: 0,
-  photoCountArray: [0],
   albumTitle: '',
   updatePhotos: action(
     async (userID: string, albumID: string, activedIndex: number = 0, photoID: string = '') => {
@@ -19,7 +17,6 @@ export const photosStore = observable({
         photosStore.orderPhotos();
   
         photosStore.photoCount = album.images.length;
-        photosStore.photoCountArray = [...Array(album.images.length).keys()];
         if (photoID) {
           activedIndex = photosStore.photos.findIndex(item => item.id === photoID);
           if (activedIndex === -1) {
@@ -27,9 +24,6 @@ export const photosStore = observable({
           }
         }
         photosStore.photoDisplayIndex = activedIndex;
-        photosStore.photoColorArray = photosStore.photoCountArray.map(num => calculateColor(
-          photosStore.photoCount, num, photosStore.photoDisplayIndex));
-        photosStore.photoDisplayLeft = calculateLeft(photosStore.photoCount, photosStore.photoDisplayIndex);
         if(photosStore.photos[photosStore.photoDisplayIndex]) {
           photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
           if (photosStore.photos[photosStore.photoDisplayIndex].location) {
@@ -42,7 +36,6 @@ export const photosStore = observable({
           photosStore.shownPhotoTimestamp = '';
         }
         photosStore.albumTitle = album.title;
-        photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
       } catch(e) {
         photosStore.photos = [];
         throw e;
@@ -54,7 +47,6 @@ export const photosStore = observable({
     () => {
       photosStore.normalOrdered = !photosStore.normalOrdered;
       photosStore.orderPhotos();
-      photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
     }
   ),
 
@@ -66,27 +58,12 @@ export const photosStore = observable({
         dateA.getTime() - dateB.getTime() :
         dateB.getTime() - dateA.getTime();
     });
-    photosStore.photoUrls = photosStore.photos.map(item => item.imageUrl);
   }),
 
   photoDisplayIndex: 0,
   setPhotoDisplayIndex: action(
     (photoDisplayIndex: number) => {
       photosStore.photoDisplayIndex = photoDisplayIndex;
-    }
-  ),
-
-  photoColorArray: [''],
-  setPhotoColorArray: action(
-    (photoColorArray: []) => {
-      photosStore.photoColorArray = photoColorArray;
-    }
-  ),
-
-  photoDisplayLeft: 0,
-  setPhotoDisplayLeft: action(
-    (photoDisplayLeft: number) => {
-      photosStore.photoDisplayLeft = photoDisplayLeft;
     }
   ),
 
