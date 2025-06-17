@@ -305,6 +305,7 @@ Page({
         });
         setTimeout(() => {
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
+          this.clearAutoPlayTimer();
           const autoPlayTimer = setTimeout(() => {
             this.startPlay();
           }, 6000);
@@ -392,7 +393,6 @@ Page({
       playShow: false,
       isPlaySwitching: true
     });
-    const oldIndex = (this as any).data.photoDisplayIndex;
     const newIndex = (this as any).data.photoDisplayIndex === (this as any).data.photoCount - 1 ? 0 : (this as any).data.photoDisplayIndex + 1;
     setTimeout(() => {
       this.switchWithoutAnimation(newIndex);
@@ -445,12 +445,14 @@ Page({
 
   clearDynamicWordsTimer() {
     try {
-      if (this.data.dynamicWordsTimer !== -1) {
-        clearTimeout(this.data.dynamicWordsTimer);
-        this.setData({ dynamicWordsTimer: -1 });
+      const dynamicWordsTimer = wx.getStorageSync('dynamicWordsTimer');
+      if (dynamicWordsTimer !== -1) {
+        clearTimeout(dynamicWordsTimer);
       }
     } catch(e) {
       console.log('clear dynamicWordsTimer failed' + e)
+    } finally {
+      wx.setStorageSync('dynamicWordsTimer', -1);
     }
   },
 
@@ -461,7 +463,7 @@ Page({
       if (this.data.isPlaying) {
         this.scheduleNext();
       }
-    }, 7500);
+    }, 8000);
     this.setData({ timer });
   },
 
@@ -474,10 +476,11 @@ Page({
   },
 
   scheduleDynamicWordsAnimation() {
+    this.clearDynamicWordsTimer();
     const dynamicWordsTimer = setTimeout(() => {
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
-    this.setData({ dynamicWordsTimer });
+    wx.setStorageSync('dynamicWordsTimer', dynamicWordsTimer);
   }
 
 })

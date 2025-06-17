@@ -47,7 +47,6 @@ ComponentWithStore({
   },
 
   methods: {
-
     prepareCharacters(text: string) {
       const { delayStep, direction } = this.data;
       const chars = text.split('');
@@ -58,14 +57,6 @@ ComponentWithStore({
         return { char, delay };
       });
       this.setData({ characters: charactersData });
-    },
-
-    startAnimation() {
-      (this as any).setDynamicWordsAnimationClass('animation');
-    },
-
-    endAnimation() {
-      (this as any).setDynamicWordsAnimationClass('');
     }
   }
 })
