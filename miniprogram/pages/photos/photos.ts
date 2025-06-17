@@ -307,7 +307,7 @@ Page({
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
           const autoPlayTimer = setTimeout(() => {
             this.startPlay();
-          }, 5000);
+          }, 6000);
           this.setData({ autoPlayTimer });
         }, 1500);
       }, 4000);
