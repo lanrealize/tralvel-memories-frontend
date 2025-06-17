@@ -133,6 +133,7 @@ Page({
    */
   onHide() {
     this.pausePlay();
+    this.clearDynamicWordsTimer();
   },
 
   /**
@@ -445,14 +446,12 @@ Page({
 
   clearDynamicWordsTimer() {
     try {
-      const dynamicWordsTimer = wx.getStorageSync('dynamicWordsTimer');
-      if (dynamicWordsTimer !== -1) {
-        clearTimeout(dynamicWordsTimer);
+      if (this.data.dynamicWordsTimer !== -1) {
+        clearTimeout(this.data.dynamicWordsTimer);
+        this.setData({ dynamicWordsTimer: -1 });
       }
     } catch(e) {
       console.log('clear dynamicWordsTimer failed' + e)
-    } finally {
-      wx.setStorageSync('dynamicWordsTimer', -1);
     }
   },
 
@@ -476,11 +475,10 @@ Page({
   },
 
   scheduleDynamicWordsAnimation() {
-    this.clearDynamicWordsTimer();
     const dynamicWordsTimer = setTimeout(() => {
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
-    wx.setStorageSync('dynamicWordsTimer', dynamicWordsTimer);
+    this.setData({ dynamicWordsTimer });
   }
 
 })
