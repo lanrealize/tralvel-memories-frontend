@@ -1,0 +1,29 @@
+/* components/photos-bottom-menu/photos-timeline/photos-timeline.wxss */
+.tm-photos-timeline-root {
+  width: 200px;       /* 线条长度 */
+  height: 3px;        /* 线条宽度 */
+  position: relative;
+  background: 
+      /* 创建虚线图案：1px白色 + 4px透明 */
+      repeating-linear-gradient(
+          to right,
+          white 0px,
+          white 0.8px,   /* 实线部分长度 */
+          transparent 0.8px,
+          transparent 5px  /* 1px实线 + 4px间隔 = 5px周期 */
+      );
+  
+  /* 右侧渐隐遮罩：从85%位置开始渐变到完全透明 */
+  mask: linear-gradient(
+      to right,
+      black 0%,
+      black 70%,
+      transparent 100%
+  );
+  -webkit-mask: linear-gradient( /* 兼容Webkit浏览器 */
+      to right,
+      black 0%,
+      black 70%,
+      transparent 100%
+  );
+}

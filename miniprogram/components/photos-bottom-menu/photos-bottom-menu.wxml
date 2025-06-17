@@ -11,9 +11,8 @@
   </view>
 
   <view class="tm-photos-bottom-menu-3rd-line">
-    <view class="tm-photos-bottom-menu-3rd-line-indicators">
-      <photos-swiper-indicator></photos-swiper-indicator>
-      <view class="tm-photos-bottom-menu-3rd-line-indicators-placeholder">a</view>
+    <view class="tm-photos-bottom-menu-3rd-line-timeline">
+      <photos-timeline></photos-timeline>
     </view>
 
     <view class="tm-photos-bottom-menu-3rd-line-word">

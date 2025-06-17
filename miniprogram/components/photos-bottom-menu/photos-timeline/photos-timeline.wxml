@@ -1,0 +1,2 @@
+<!--components/photos-bottom-menu/photos-timeline/photos-timeline.wxml-->
+<view class="tm-photos-timeline-root"></view>
