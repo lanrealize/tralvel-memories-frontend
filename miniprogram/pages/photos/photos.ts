@@ -198,9 +198,9 @@ Page({
   onSwiperTransition() {
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
+      this.clearDynamicWordsTimer();
+      (this as any).setDynamicWordsAnimationClass('');
     }
-    this.clearDynamicWordsTimer();
-    (this as any).setDynamicWordsAnimationClass('');
   },
 
   onSwiperAnimationFinish(e: any) {
