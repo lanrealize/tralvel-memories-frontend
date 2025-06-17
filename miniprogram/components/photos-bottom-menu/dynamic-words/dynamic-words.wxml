@@ -2,7 +2,7 @@
   <block wx:for="{{characters}}" wx:key="index">
     <text 
       class="char {{dynamicWordsAnimationClass}}" 
-      style="animation-delay: {{item.delay}}s; color: {{primaryColor}};"
+      style="animation-delay: {{item.delay}}s;"
     >{{item.char}}</text>
   </block>
 </view>
