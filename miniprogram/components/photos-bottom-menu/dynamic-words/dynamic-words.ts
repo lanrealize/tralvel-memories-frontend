@@ -25,6 +25,10 @@ ComponentWithStore({
     delayStep: {
       type: Number,
       value: 0.1
+    },
+    primaryColor: {
+      type: String,
+      value: 'white' // 默认主题色
     }
   },
 

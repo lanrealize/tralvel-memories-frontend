@@ -61,6 +61,19 @@
   white-space: pre-wrap;
 }
 
+.tm-photos-bottom-menu-3rd-line-word-content {
+
+}
+
+.tm-photos-bottom-menu-3rd-line-word-mask {
+  background-color: linear-gradient(90deg, 
+  transparent 0%, 
+  white 25%, 
+  white 75%,
+  transparent 100%) 
+200% 0 / 200% 100%;
+}
+
 .tm-photos-bottom-menu-3rd-line-indicators {
   display: flex;
   flex-direction: row;

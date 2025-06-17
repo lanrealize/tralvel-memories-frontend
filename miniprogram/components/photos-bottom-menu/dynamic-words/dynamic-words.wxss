@@ -6,7 +6,7 @@
 }
 
 .char {
-  color: #808080;
+  opacity: 0.4;
   font-size: 28rpx;
   font-weight: bold;
 }
@@ -18,12 +18,12 @@
 
 @keyframes color-wave {
   0%, 100% { 
-    color: #808080; 
+    opacity: 0.4; 
   }
   30%, 70% { 
-    color: #808080; 
+    opacity: 0.4; 
   }
   50% { 
-    color: white;
+    opacity: 1;
   }
 }
