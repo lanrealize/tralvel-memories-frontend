@@ -141,6 +141,7 @@ Page({
    */
   onUnload() {
     this.pausePlay();
+    this.clearDynamicWordsTimer();
     this.photosStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
     this.pagesStorageBinding?.destroyStoreBindings();
