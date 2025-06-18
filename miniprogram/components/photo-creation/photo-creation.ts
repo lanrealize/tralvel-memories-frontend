@@ -77,7 +77,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             return;
           }
           // Step 2: Update albums
-          await (this as any).updateAlbums(openID);
+          await (this as any).updateAlbums(openID, true);
           // Step 3: Adjust display
           this.setPhotoCreationComponentTop(100);
           wx.navigateTo({ url: `/pages/photos/photos` });
@@ -93,7 +93,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
             }
             // Step 2: Update albums
             this.triggerEvent('beforeAddNewPhoto');
-            await (this as any).updateAlbums(openID);
+            await (this as any).updateAlbums(openID, true);
             // Step 3: Adjust display
             await this.updatePhotos(openID, albumID);
             // Step 4: Trigger event

@@ -2,7 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { uiStore } from '../../stores/uiStore';
 import { parseDate } from "../../utils/utils";
-import { photosStore } from '../../stores/photosStore';
+import { albumsStore } from '../../stores/albumsStore';
 
 ComponentWithStore({
   storeBindings: [
@@ -12,9 +12,9 @@ ComponentWithStore({
       actions: ['setDisplayedAlbumIndex'],
     },
     {
-      store: photosStore,
+      store: albumsStore,
       fields: [],
-      actions: ['setCurrentPhotoID'],
+      actions: ['updateAlbumsCoverActivatedIndices'],
     }
   ],
 
@@ -187,7 +187,9 @@ ComponentWithStore({
       const targetImageUrl = e.currentTarget.dataset.src;
       const targetObj = this.data.photos.find(item => item.imageUrl === targetImageUrl);
       const photoId = targetObj ? targetObj.id : null;
-      (this as any).setCurrentPhotoID(photoId);
+      setTimeout(() => {
+        (this as any).updateAlbumsCoverActivatedIndices(this.data.index, photoId);
+      }, 300);
     }
 
   },

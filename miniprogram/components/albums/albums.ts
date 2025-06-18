@@ -4,20 +4,14 @@ import { albumsStore } from '../../stores/albumsStore';
 import { AlbumsComponentData } from '../../models/component-model/albums-model';
 import { uiStore } from '../../stores/uiStore';
 import { deleteAlbum } from '../../utils/apis';
-import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
   storeBindings: [
     {
       store: albumsStore,
-      fields: ['albums'],
+      fields: ['albums', 'albumsCoverActivatedIndices'],
       actions: ['updateAlbums'],
-    },
-    {
-      store: photosStore,
-      fields: ['currentPhotoID'],
-      actions: [],
     },
     {
       store: uiStore,
@@ -81,8 +75,9 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     onAlbumClick(event: any) {
       var albumid = event.currentTarget.dataset.albumid;
       wx.setStorageSync('albumID', albumid);
+      const albumIdx = (this as any).data.albums.findIndex((item: { id: any; }) => item.id === albumid);
       wx.navigateTo({ 
-        url: `/pages/photos/photos?&photoID=${encodeURIComponent((this as any).data.currentPhotoID)}`
+        url: `/pages/photos/photos?&photoID=${encodeURIComponent((this as any).data.albumsCoverActivatedIndices[albumIdx])}`
       });
     },
 
@@ -143,7 +138,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       await deleteAlbum(openID, oldAlbumId);
 
       setTimeout(async () => {
-        await this.updateAlbums(openID);
+        await this.updateAlbums(openID, true);
         if (child) {
           child.onDeleted();
         }

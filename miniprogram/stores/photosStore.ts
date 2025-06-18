@@ -103,13 +103,6 @@ export const photosStore = observable({
       .reduce((total, num) => total + num, 0);
       photosStore.photoDisplayLeft = `calc(-${vw}vw + -${px}px)`;
     }
-  ),
-
-  currentPhotoID: '',
-  setCurrentPhotoID: action(
-    (currentPhotoID: string) => {
-      photosStore.currentPhotoID = currentPhotoID
-    }
-  ),
+  )
 
 });

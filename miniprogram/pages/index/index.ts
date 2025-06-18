@@ -77,7 +77,7 @@ Page({
     try {
       (this as any).setMainStartLoading(true);
       const openID = wx.getStorageSync('openID') ? wx.getStorageSync('openID') : await wxLogin();
-      await (this as any).updateAlbums(openID);
+      await (this as any).updateAlbums(openID, true);
       this.albumsStorageBinding.updateStoreBindings();
       (this as any).setLoginStatus(true);
       if (0 === (this as any).data.albums.length) {
@@ -112,7 +112,7 @@ Page({
       if (isTimeDiffGreaterThanThreshold(now, new Date(lastLoginTime))) {
         wx.removeStorageSync('openID');
       } else {
-        await (this as any).updateAlbums(openID);
+        await (this as any).updateAlbums(openID, true);
         this.albumsStorageBinding.updateStoreBindings();
         if (0 < (this as any).data.albums.length) {
           (this as any).setLoginStatus(true);

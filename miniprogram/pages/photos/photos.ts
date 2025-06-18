@@ -105,7 +105,7 @@ Page({
       this.photosStorageBinding.updateStoreBindings();
     } catch (e) {
       this.setData({loadPhotosFailed: true});
-      console.log('Failed to load images in album on photos page.');
+      console.log('Failed to load images in album on photos page.' + e);
       return;
     }
     this.switchWithoutAnimation((this as any).data.photoDisplayIndex);
