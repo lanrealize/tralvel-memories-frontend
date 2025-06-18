@@ -1,6 +1,7 @@
 // components/album/album.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
-import { uiStore } from '../../stores/uiStore'
+import { uiStore } from '../../stores/uiStore';
+import { parseDate } from "../../utils/utils";
 
 ComponentWithStore({
   storeBindings: [
@@ -25,7 +26,7 @@ ComponentWithStore({
     },
     photos: {
       type: Array,
-      value: [{imageUrl: ''}]
+      value: [{imageUrl: '', timestamp: ''}]
     },
     index: {
       type: Number,
@@ -89,6 +90,7 @@ ComponentWithStore({
     },
 
     initialize() {
+      this.sortPhotos();
       this.setData({
         activatedIndex: -1,
         currentImageIndex: 0,
@@ -156,6 +158,19 @@ ComponentWithStore({
     onDeleted() {
       this.setData({
         deleted: false
+      });
+    },
+
+    sortPhotos(normalOrdered: boolean = true) {
+      const sortedPhotos = this.data.photos.slice().sort((a, b) => {
+        const dateA = parseDate(a.timestamp);
+        const dateB = parseDate(b.timestamp);
+        return normalOrdered ? 
+          dateA.getTime() - dateB.getTime() :
+          dateB.getTime() - dateA.getTime();
+      });
+      this.setData({
+        photos: sortedPhotos
       });
     }
 
