@@ -1,6 +1,15 @@
 // components/photos-bottom-menu/photos-timeline/photos-timeline.ts
-Component({
+import { ComponentWithStore } from 'mobx-miniprogram-bindings';
+import { photosStore } from '../../../stores/photosStore';
 
+ComponentWithStore({
+  storeBindings: [
+    {
+      store: photosStore,
+      fields: ['timelineSpacings', 'photoDisplayIndex', 'photoCountArray', 'photoCount'],
+      actions: []
+    }
+  ],
   /**
    * 组件的属性列表
    */

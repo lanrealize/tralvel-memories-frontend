@@ -1,13 +1,15 @@
 import { action, observable } from "mobx-miniprogram";
 import { getAlbum } from "../utils/apis";
-import { parseDate, formatReadableTime } from "../utils/utils";
+import { parseDate, formatReadableTime, calculateTimeAxisSpacing } from "../utils/utils";
 
 export const photosStore = observable({
 
   photos: [] as { timestamp: string, imageUrl: string, location: string, id: string }[],
   normalOrdered: true,
   photoCount: 0,
+  photoCountArray: [] as Number[],
   albumTitle: '',
+  timelineSpacings: [] as String[],
   updatePhotos: action(
     async (userID: string, albumID: string, activedIndex: number = 0, photoID: string = '') => {
       try {
@@ -15,8 +17,10 @@ export const photosStore = observable({
         photosStore.photos = album.images;
         // photosStore.normalOrdered = false;
         photosStore.orderPhotos();
+        photosStore.timelineSpacings = calculateTimeAxisSpacing(photosStore.photos.map(item => item.timestamp));
   
         photosStore.photoCount = album.images.length;
+        photosStore.photoCountArray = [...Array(album.images.length).keys()];
         if (photoID) {
           activedIndex = photosStore.photos.findIndex(item => item.id === photoID);
           if (activedIndex === -1) {

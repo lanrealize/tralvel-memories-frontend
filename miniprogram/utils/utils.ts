@@ -390,3 +390,39 @@ export const buildShareLink = (
     let sharePath = `/pages/photos/photos?openID=${encodeURIComponent(openID)}&albumID=${encodeURIComponent(albumID)}&photoID=${encodeURIComponent(photoID)}&isShared=${true}`;
     return sharePath;
 }
+
+/**
+ * ===============================================
+ * Timeline related
+ * ===============================================
+*/
+export const calculateTimeAxisSpacing = (timestamps: string[]): string[] => {
+  const parseDate = (timestamp: string): Date => {
+      const [year, month, day, hour, minute] = timestamp.split('/').map(Number);
+      return new Date(year, month - 1, day, hour, minute);
+  };
+
+  const dates = timestamps.map(parseDate);
+  const spacings: string[] = [];
+
+  for (let i = 0; i < dates.length - 1; i++) {
+      const diffMs = dates[i + 1].getTime() - dates[i].getTime();
+      const diffMinutes = diffMs / (1000 * 60);
+
+      let vw;
+      if (diffMinutes < 5) vw = 7.5;
+      else if (diffMinutes < 15) vw = 10;
+      else if (diffMinutes < 30) vw = 12.5;
+      else if (diffMinutes < 60) vw = 15;
+      else if (diffMinutes < 120) vw = 17.5;
+      else if (diffMinutes < 240) vw = 20;
+      else if (diffMinutes < 480) vw = 22.5;
+      else if (diffMinutes < 1440) vw = 25;
+      else if (diffMinutes < 4320) vw = 27.5;
+      else vw = 30;
+
+      spacings.push(`${vw}`);
+  }
+
+  return spacings;
+}

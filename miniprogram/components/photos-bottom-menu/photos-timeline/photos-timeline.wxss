@@ -2,12 +2,16 @@
 .tm-photos-timeline-container {
   overflow: hidden;
   width: 50vw;
+}
+
+.tm-photos-timeline-transition-root {
   display: flex;
   flex-direction: row;
   align-items: center;
+  transition: left 0.5s ease-in-out;
 }
 
-.tm-photos-timeline-container > view {
+.tm-photos-timeline-transition-root > view {
   flex-shrink: 0; /* 禁止子项收缩 */
 }
 
@@ -29,6 +33,7 @@
   height: 8px;
   background-color: white;
   border-radius: 4px;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .tm-photos-timeline-mask {
