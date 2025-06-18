@@ -1,26 +1,17 @@
 /* components/photos-bottom-menu/photos-timeline/photos-timeline.wxss */
 .tm-photos-timeline-container {
-  mask: linear-gradient(
-      to right,
-      black 0%,
-      black 70%,
-      transparent 100%
-  );
-  -webkit-mask: linear-gradient(
-      to right,
-      black 0%,
-      black 70%,
-      transparent 100%
-  );
   overflow: hidden;
   width: 50vw;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
+  align-items: center;
+}
+
+.tm-photos-timeline-container > view {
+  flex-shrink: 0; /* 禁止子项收缩 */
 }
 
 .tm-photos-timeline-axis {
-  width: 200vw;
   height: 3px;
   position: relative;
   background: 
@@ -38,4 +29,25 @@
   height: 8px;
   background-color: white;
   border-radius: 4px;
+}
+
+.tm-photos-timeline-mask {
+  --stop-point: 70%;
+  
+  mask: linear-gradient(
+    to right,
+    black 0%,
+    black var(--stop-point),
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(
+    to right,
+    black 0%,
+    black var(--stop-point),
+    transparent 100%
+  );
+}
+
+.tm-photos-timeline-mask-end {
+  --stop-point: 50%;
 }
