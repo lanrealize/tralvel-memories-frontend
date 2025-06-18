@@ -28,6 +28,7 @@ export const photosStore = observable({
           }
         }
         photosStore.photoDisplayIndex = activedIndex;
+        photosStore.setPhotoDisplayLeft();
         if(photosStore.photos[photosStore.photoDisplayIndex]) {
           photosStore.setShownPhotoTimestamp(photosStore.photos[photosStore.photoDisplayIndex].timestamp);
           if (photosStore.photos[photosStore.photoDisplayIndex].location) {
@@ -91,5 +92,17 @@ export const photosStore = observable({
       photosStore.photoIsSwitching = photoIsSwitching
     }
   ),
+
+  photoDisplayLeft: '',
+  setPhotoDisplayLeft: action(
+    (idx: number = -1) => {
+      if (idx === -1) idx = photosStore.photoDisplayIndex;
+      let px = idx * 8;
+      let vw = photosStore.timelineSpacings.slice(0, idx)
+      .map(str => parseFloat(str as any))
+      .reduce((total, num) => total + num, 0);
+      photosStore.photoDisplayLeft = `calc(-${vw}vw + -${px}px)`;
+    }
+  )
 
 });

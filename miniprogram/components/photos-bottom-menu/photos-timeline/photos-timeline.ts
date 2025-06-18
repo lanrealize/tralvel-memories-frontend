@@ -6,7 +6,7 @@ ComponentWithStore({
   storeBindings: [
     {
       store: photosStore,
-      fields: ['timelineSpacings', 'photoDisplayIndex', 'photoCountArray', 'photoCount'],
+      fields: ['timelineSpacings', 'photoDisplayIndex', 'photoCountArray', 'photoCount', 'photoDisplayLeft'],
       actions: []
     }
   ],

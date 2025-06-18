@@ -1,7 +1,7 @@
 <!--components/photos-bottom-menu/photos-timeline/photos-timeline.wxml-->
 <view class="tm-photos-timeline-container tm-photos-timeline-mask">
-  <view class="tm-photos-timeline-transition-root" style="left: {{photoDisplayLeft}}vh;">
-    <view class="tm-photos-timeline-axis" style="width: 10vw;"></view>
+  <view class="tm-photos-timeline-transition-root" style="transform: translateX({{photoDisplayLeft}});">
+    <view class="tm-photos-timeline-axis" style="width: 7.5vw;"></view>
     <block wx:for="{{photoCountArray}}" wx:for-item="photo" wx:key="*this" wx:for-index="index">
       <view class="tm-photos-timeline-point" style="background-color: {{index === photoDisplayIndex ? 'white' : '#A6A6A6' }};"></view>
       <view class="tm-photos-timeline-axis" style="width: {{index < timelineSpacings.length ? timelineSpacings[index] : 0}}vw;"></view>

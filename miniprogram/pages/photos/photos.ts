@@ -63,7 +63,7 @@ Page({
       {
         store: photosStore,
         fields: ['photos', 'photoDisplayIndex', 'photoCount', 'photoIsSwitching'],
-        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoIsSwitching', 'setShownPhotoLocation', 'setShownPhotoTimestamp']
+        actions: ['updatePhotos', 'reversePhotos', 'setPhotoDisplayIndex', 'setPhotoIsSwitching', 'setShownPhotoLocation', 'setShownPhotoTimestamp', 'setPhotoDisplayLeft']
       }
     );
 
@@ -184,6 +184,9 @@ Page({
         (this as any).setShownPhotoTimestamp((this as any).data.photos[e.detail.current].timestamp);
       }, 200);
     });
+
+    // update timeline related items
+    (this as any).setPhotoDisplayLeft(e.detail.current);
 
     // photo display animation related
     if(e.detail.source === 'touch') {
