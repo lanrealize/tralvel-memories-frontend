@@ -355,23 +355,26 @@ export const formatReadableTime = (input: string): string => {
   const inputDateValue = getDateValue(inputDate);
   const dateDiff = todayValue - inputDateValue;
   
-  // 6. 修改后的时间段格式化函数
+  // 6. 修改后的时间段格式化函数（返回"时间段 时间"格式）
   const formatTime = (h: number, m: number): string => {
     const totalMinutes = h * 60 + m;
+    let timePeriod = '';
     
     // 定义时间段规则
-    if (totalMinutes >= 0 && totalMinutes < 300) return "深夜";         // 00:00-05:00
-    if (totalMinutes < 420) return "凌晨";                            // 05:00-07:00
-    if (totalMinutes < 510) return "清晨";                            // 07:00-08:30
-    if (totalMinutes < 600) return "早上";                            // 08:30-10:00
-    if (totalMinutes < 690) return "上午";                            // 10:00-11:30
-    if (totalMinutes < 780) return "中午";                            // 11:30-13:00
-    if (totalMinutes < 900) return "午后";                            // 13:00-15:00
-    if (totalMinutes < 1020) return "下午";                           // 15:00-17:00
-    if (totalMinutes < 1140) return "傍晚";                           // 17:00-19:00
-    if (totalMinutes < 1260) return "晚上";                           // 19:00-21:00
-    if (totalMinutes < 1380) return "夜间";                           // 21:00-23:00
-    return "午夜";                                                   // 23:00-00:00
+    if (totalMinutes >= 0 && totalMinutes < 300) timePeriod = "深夜";         // 00:00-05:00
+    else if (totalMinutes < 420) timePeriod = "凌晨";                        // 05:00-07:00
+    else if (totalMinutes < 510) timePeriod = "清晨";                        // 07:00-08:30
+    else if (totalMinutes < 600) timePeriod = "早上";                        // 08:30-10:00
+    else if (totalMinutes < 690) timePeriod = "上午";                        // 10:00-11:30
+    else if (totalMinutes < 780) timePeriod = "中午";                        // 11:30-13:00
+    else if (totalMinutes < 900) timePeriod = "午后";                        // 13:00-15:00
+    else if (totalMinutes < 1020) timePeriod = "下午";                       // 15:00-17:00
+    else if (totalMinutes < 1140) timePeriod = "傍晚";                       // 17:00-19:00
+    else if (totalMinutes < 1260) timePeriod = "晚上";                       // 19:00-21:00
+    else if (totalMinutes < 1380) timePeriod = "夜晚";                       // 21:00-23:00
+    else timePeriod = "午夜";                                                // 23:00-00:00
+    
+    return `${timePeriod} ${h}:${m.toString().padStart(2, '0')}`;
   };
   
   // 7. 按优先级判断时间范围
