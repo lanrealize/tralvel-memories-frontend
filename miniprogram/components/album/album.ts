@@ -2,6 +2,7 @@
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { uiStore } from '../../stores/uiStore';
 import { parseDate } from "../../utils/utils";
+import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore({
   storeBindings: [
@@ -9,6 +10,11 @@ ComponentWithStore({
       store: uiStore,
       fields: ['displayedAlbumIndex'],
       actions: ['setDisplayedAlbumIndex'],
+    },
+    {
+      store: photosStore,
+      fields: [],
+      actions: ['setCurrentPhotoID'],
     }
   ],
 
@@ -26,7 +32,7 @@ ComponentWithStore({
     },
     photos: {
       type: Array,
-      value: [{imageUrl: '', timestamp: ''}]
+      value: [{imageUrl: '', timestamp: '', id: ''}]
     },
     index: {
       type: Number,
@@ -57,7 +63,9 @@ ComponentWithStore({
    * 组件的方法列表
    */
   methods: {
-    onFirstImageLoad() {
+    onFirstImageLoad(e: any) {
+      this.setCurrentPhotoIdAccordingToUrl(e);
+
       this.setData({
         activatedIndex: 0
       });
@@ -73,7 +81,8 @@ ComponentWithStore({
       }
     },
 
-    onSecondImageLoad() {
+    onSecondImageLoad(e: any) {
+      this.setCurrentPhotoIdAccordingToUrl(e);
       this.setData({
         activatedIndex: 1
       });
@@ -172,6 +181,13 @@ ComponentWithStore({
       this.setData({
         photos: sortedPhotos
       });
+    },
+
+    setCurrentPhotoIdAccordingToUrl(e: any) {
+      const targetImageUrl = e.currentTarget.dataset.src;
+      const targetObj = this.data.photos.find(item => item.imageUrl === targetImageUrl);
+      const photoId = targetObj ? targetObj.id : null;
+      (this as any).setCurrentPhotoID(photoId);
     }
 
   },

@@ -4,6 +4,7 @@ import { albumsStore } from '../../stores/albumsStore';
 import { AlbumsComponentData } from '../../models/component-model/albums-model';
 import { uiStore } from '../../stores/uiStore';
 import { deleteAlbum } from '../../utils/apis';
+import { photosStore } from '../../stores/photosStore';
 
 ComponentWithStore<any, AlbumsComponentData, any, any, any>({
 
@@ -14,10 +15,15 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       actions: ['updateAlbums'],
     },
     {
+      store: photosStore,
+      fields: ['currentPhotoID'],
+      actions: [],
+    },
+    {
       store: uiStore,
       fields: ['displayedAlbumIndex', 'displayedAlbumTitle'],
       actions: ['setDisplayedAlbumIndex', 'setDisplayedAlbumTitle'],
-    }
+    },
   ],
 
   lifetimes: {
@@ -76,7 +82,7 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
       var albumid = event.currentTarget.dataset.albumid;
       wx.setStorageSync('albumID', albumid);
       wx.navigateTo({ 
-        url: `/pages/photos/photos`
+        url: `/pages/photos/photos?&photoID=${encodeURIComponent((this as any).data.currentPhotoID)}`
       });
     },
 
