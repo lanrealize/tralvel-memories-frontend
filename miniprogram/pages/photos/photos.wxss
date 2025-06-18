@@ -24,7 +24,7 @@ page {
 
 .tm-photos-swiper-item-active {
   opacity: 1; 
-  transition: all 1.2s ease-out;
+  transition: all 1s ease-out;
 }
 
 .tm-photos-swiper-item-quiet {

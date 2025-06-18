@@ -29,7 +29,7 @@ Page({
 
     autoplay: false,
     interval: 6000,
-    duration: 800,
+    duration: 650,
     circular: false,
 
     apearAnimationClass: '',
@@ -379,7 +379,7 @@ Page({
       photoIndexTarget: index as any
     });
     this.setData({
-      duration: 800
+      duration: 650
     });
   },
 
