@@ -355,9 +355,24 @@ export const formatReadableTime = (input: string): string => {
   const inputDateValue = getDateValue(inputDate);
   const dateDiff = todayValue - inputDateValue;
   
-  // 6. 格式化小时和分钟（移除前导零）
-  const formatTime = (h: number, m: number): string => 
-      `${h}:${m.toString().padStart(2, '0')}`;
+  // 6. 修改后的时间段格式化函数
+  const formatTime = (h: number, m: number): string => {
+    const totalMinutes = h * 60 + m;
+    
+    // 定义时间段规则
+    if (totalMinutes >= 0 && totalMinutes < 300) return "深夜";         // 00:00-05:00
+    if (totalMinutes < 420) return "凌晨";                            // 05:00-07:00
+    if (totalMinutes < 510) return "清晨";                            // 07:00-08:30
+    if (totalMinutes < 600) return "早上";                            // 08:30-10:00
+    if (totalMinutes < 690) return "上午";                            // 10:00-11:30
+    if (totalMinutes < 780) return "中午";                            // 11:30-13:00
+    if (totalMinutes < 900) return "午后";                            // 13:00-15:00
+    if (totalMinutes < 1020) return "下午";                           // 15:00-17:00
+    if (totalMinutes < 1140) return "傍晚";                           // 17:00-19:00
+    if (totalMinutes < 1260) return "晚上";                           // 19:00-21:00
+    if (totalMinutes < 1380) return "夜间";                           // 21:00-23:00
+    return "午夜";                                                   // 23:00-00:00
+  };
   
   // 7. 按优先级判断时间范围
   if (minuteDiff < 3) return "刚刚";  // 3分钟内
@@ -368,7 +383,7 @@ export const formatReadableTime = (input: string): string => {
   }
   
   if (dateDiff === 1) return `昨天 ${formatTime(components.hour, components.minute)}`;
-  if (dateDiff === 2) return `前天${formatTime(components.hour, components.minute)}`;
+  if (dateDiff === 2) return `前天 ${formatTime(components.hour, components.minute)}`;
   
   // 8. 处理更早时间
   const isCurrentYear = now.getFullYear() === components.year;
