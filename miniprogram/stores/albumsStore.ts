@@ -20,7 +20,8 @@ export const albumsStore = observable({
   ),
   updateAlbumsCoverActivatedIndices: action(
     async (idx: number, photoId: string) => {
-      albumsStore.albumsCoverActivatedIndices[idx] = photoId;
+      let tempArray = albumsStore.albumsCoverActivatedIndices.map((item, index) => index === idx ? photoId : item);
+      albumsStore.albumsCoverActivatedIndices = tempArray;
     }
   ),
 });
