@@ -133,6 +133,7 @@ Page({
    */
   onHide() {
     this.pausePlay();
+    console.log('clear dynamic word timer via: hide')
     this.clearDynamicWordsTimer();
   },
 
@@ -142,6 +143,7 @@ Page({
   onUnload() {
     this.pausePlay();
     this.clearDynamicWordsTimer();
+    console.log('clear dynamic word timer via: unload')
     this.photosStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
     this.pagesStorageBinding?.destroyStoreBindings();
@@ -192,7 +194,6 @@ Page({
     // photo display animation related
     if(e.detail.source === 'touch') {
       this.pausePlay();
-      this.clearAutoPlayTimer();
     }
     
     // update index
@@ -202,6 +203,7 @@ Page({
   onSwiperTransition() {
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
+      console.log('clear dynamic word timer via: transition')
       this.clearDynamicWordsTimer();
       (this as any).setDynamicWordsAnimationClass('');
     }
@@ -210,6 +212,7 @@ Page({
   onSwiperAnimationFinish(e: any) {
     (this as any).setPhotoIsSwitching(false);
     if(e.detail.source === 'touch') {
+      console.log('set dynamic word time via: Swiper finish');
       this.manageDisplyedImgaeAnimation(true, e.detail.current);
     }
   },
@@ -309,6 +312,7 @@ Page({
           sharedInitialized: true
         });
         setTimeout(() => {
+          console.log('set dynamic word time via: share initial');
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
           this.clearAutoPlayTimer();
           const autoPlayTimer = setTimeout(() => {
@@ -323,6 +327,7 @@ Page({
           openAlbumMaskShown: false
         });
         setTimeout(() => {
+          console.log('set dynamic word time via: normal initial');
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
         }, 300);
       }, 150);
@@ -406,6 +411,7 @@ Page({
         isPlaySwitching: false
       });
       setTimeout(() => {
+        console.log('set dynamic word time via: photo play next');
         this.manageDisplyedImgaeAnimation(true, newIndex);
       }, showAnimationTimeout);
     }, shownUpTimeout);
@@ -421,6 +427,7 @@ Page({
   // core of pause: remove timer + set isPlaying
   pausePlay(): void {
     this.clearTimer();
+    this.clearAutoPlayTimer();
     this.setData({ 
       isPlaying: false
     });
@@ -449,8 +456,10 @@ Page({
   },
 
   clearDynamicWordsTimer() {
+    console.log('before clear dynamic word timer: ' + this.data.dynamicWordsTimer)
     try {
       if (this.data.dynamicWordsTimer !== -1) {
+        console.log('clear dynamic word timer: ' + this.data.dynamicWordsTimer)
         clearTimeout(this.data.dynamicWordsTimer);
         this.setData({ dynamicWordsTimer: -1 });
       }
@@ -483,6 +492,7 @@ Page({
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
     this.setData({ dynamicWordsTimer });
+    console.log('set dynamic word timer: ' + dynamicWordsTimer)
   }
 
 })
