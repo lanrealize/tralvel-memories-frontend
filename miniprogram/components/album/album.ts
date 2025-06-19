@@ -189,9 +189,7 @@ ComponentWithStore({
       const photoId = targetObj ? targetObj.id : null;
       setTimeout(() => {
         (this as any).updateAlbumsCoverActivatedIndices(this.data.index, photoId);
-      }, 300);
+      }, 500);
     }
-
   },
-
 })
