@@ -73,7 +73,7 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
-        this.preloadDeactivatedImageInSeconds(4000);
+        // this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
           pending: true

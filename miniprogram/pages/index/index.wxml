@@ -4,8 +4,8 @@
 
 <view style="opacity: {{(loginStatus && albums.length > 0) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;" bind:tap="onNewAlbum">
   <view class="tm-index-add-button-circle">
-  <image src="/assets/icons/addGray.svg" class="tm-photos-bottom-menu-icon"></image>  
-</view>
+    <image src="/assets/icons/addGray.svg" class="tm-photos-bottom-menu-icon"></image>  
+  </view>
 </view>
 
 
