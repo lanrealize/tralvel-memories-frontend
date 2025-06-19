@@ -47,10 +47,10 @@ Page({
     isPlaying: false,
     playShow: true,
     timer: -1,
-    autoPlayTimer: -1,
+    autoPlayTimers: [] as any [],
     isPlaySwitching: false,
 
-    dynamicWordsTimer: -1
+    dynamicWordsTimers: [] as any[]
   },
 
   /**
@@ -133,7 +133,6 @@ Page({
    */
   onHide() {
     this.pausePlay();
-    console.log('clear dynamic word timer via: hide')
     this.clearDynamicWordsTimer();
   },
 
@@ -143,7 +142,6 @@ Page({
   onUnload() {
     this.pausePlay();
     this.clearDynamicWordsTimer();
-    console.log('clear dynamic word timer via: unload')
     this.photosStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
     this.pagesStorageBinding?.destroyStoreBindings();
@@ -203,7 +201,6 @@ Page({
   onSwiperTransition() {
     if (!(this as any).data.photoIsSwitching) {
       (this as any).setPhotoIsSwitching(true);
-      console.log('clear dynamic word timer via: transition')
       this.clearDynamicWordsTimer();
       (this as any).setDynamicWordsAnimationClass('');
     }
@@ -212,7 +209,6 @@ Page({
   onSwiperAnimationFinish(e: any) {
     (this as any).setPhotoIsSwitching(false);
     if(e.detail.source === 'touch') {
-      console.log('set dynamic word time via: Swiper finish');
       this.manageDisplyedImgaeAnimation(true, e.detail.current);
     }
   },
@@ -312,13 +308,8 @@ Page({
           sharedInitialized: true
         });
         setTimeout(() => {
-          console.log('set dynamic word time via: share initial');
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
-          this.clearAutoPlayTimer();
-          const autoPlayTimer = setTimeout(() => {
-            this.startPlay();
-          }, 6000);
-          this.setData({ autoPlayTimer });
+
         }, 1500);
       }, 4000);
     } else {
@@ -327,11 +318,21 @@ Page({
           openAlbumMaskShown: false
         });
         setTimeout(() => {
-          console.log('set dynamic word time via: normal initial');
           this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
         }, 300);
       }, 150);
     }
+  },
+
+  startAutoPlay() {
+    this.clearAutoPlayTimer();
+    const autoPlayTimer = setTimeout(() => {
+      this.startPlay();
+    }, 6000);
+    const currentAutoPlayTimers = this.data.autoPlayTimers;
+    this.setData({
+      autoPlayTimers: [...currentAutoPlayTimers, autoPlayTimer]
+    });
   },
 
   onImageload() {
@@ -411,7 +412,6 @@ Page({
         isPlaySwitching: false
       });
       setTimeout(() => {
-        console.log('set dynamic word time via: photo play next');
         this.manageDisplyedImgaeAnimation(true, newIndex);
       }, showAnimationTimeout);
     }, shownUpTimeout);
@@ -434,38 +434,25 @@ Page({
   },
 
   clearTimer() {
-    try {
-      if (this.data.timer !== -1) {
-        clearTimeout(this.data.timer);
-        this.setData({ timer: -1 });
-      }
-    } catch(e) {
-      console.log('clear timer failed' + e)
+    if (this.data.timer !== -1) {
+      clearTimeout(this.data.timer);
+      this.setData({ timer: -1 });
     }
   },
 
   clearAutoPlayTimer() {
-    try {
-      if (this.data.autoPlayTimer !== -1) {
-        clearTimeout(this.data.autoPlayTimer);
-        this.setData({ autoPlayTimer: -1 });
-      }
-    } catch(e) {
-      console.log('clear autoPlayTimer failed' + e)
+    for (let timer of this.data.autoPlayTimers) {
+      clearTimeout(timer);
     }
+    this.setData({ autoPlayTimers: [] });
+
   },
 
   clearDynamicWordsTimer() {
-    console.log('before clear dynamic word timer: ' + this.data.dynamicWordsTimer)
-    try {
-      if (this.data.dynamicWordsTimer !== -1) {
-        console.log('clear dynamic word timer: ' + this.data.dynamicWordsTimer)
-        clearTimeout(this.data.dynamicWordsTimer);
-        this.setData({ dynamicWordsTimer: -1 });
-      }
-    } catch(e) {
-      console.log('clear dynamicWordsTimer failed' + e)
+    for (let timer of this.data.dynamicWordsTimers) {
+      clearTimeout(timer);
     }
+    this.setData({ dynamicWordsTimers: [] });
   },
 
   scheduleNext() {
@@ -491,8 +478,10 @@ Page({
     const dynamicWordsTimer = setTimeout(() => {
       (this as any).setDynamicWordsAnimationClass('animation');
     }, 5500);
-    this.setData({ dynamicWordsTimer });
-    console.log('set dynamic word timer: ' + dynamicWordsTimer)
+    const currentDynamicWordsTimers = this.data.dynamicWordsTimers;
+    this.setData({
+      dynamicWordsTimers: [...currentDynamicWordsTimers, dynamicWordsTimer]
+    });
   }
 
 })
