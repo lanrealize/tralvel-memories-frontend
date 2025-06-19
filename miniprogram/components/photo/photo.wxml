@@ -2,7 +2,7 @@
   <image 
     src="{{photoUrl}}" 
     mode="aspectFill" 
-    class="tm-photo-image {{animationClass}}"
+    class="{{photoOrientation === 'horizontal' ? 'tm-photo-image-horizontal' : 'tm-photo-image'}} {{animationClass}}"
     bindload="onPhotoLoad">
   </image>
 

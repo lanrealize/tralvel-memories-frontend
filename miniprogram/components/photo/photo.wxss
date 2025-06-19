@@ -8,8 +8,17 @@
   height: 100%;
 }
 
+.tm-photo-image-horizontal {
+  width: 150%;
+  height: 100%;
+  transform: translateX(0%);
+}
+
 .tm-photo-image.animation {
   animation: show 5s ease-in-out forwards;
+}
+.tm-photo-image-animation-horizontal {
+  animation: showSlide 5s ease-in-out forwards;
 }
 
 .tm-photo-loading-mask {
@@ -55,5 +64,14 @@
   }
   to {
     transform: scale(1.2);
+  }
+}
+
+@keyframes showSlide {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-30%);
   }
 }

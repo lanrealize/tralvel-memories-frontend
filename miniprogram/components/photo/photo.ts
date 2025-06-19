@@ -92,11 +92,17 @@ ComponentWithStore({
     },
 
     setShowAnimation (delay: number = 0) {
-      if ((this as any).data.animationClass === 'animation') return;
+      if ((this as any).data.animationClass === 'animation' || (this as any).data.animationClass === 'animationHorizontal') return;
       setTimeout(() => {
-        this.setData({
-          animationClass: 'animation'
-        });
+        if (this.data.photoOrientation === 'horizontal') {
+          this.setData({
+            animationClass: 'tm-photo-image-animation-horizontal'
+          });
+        } else {
+          this.setData({
+            animationClass: 'animation'
+          });
+        }
       }, 800 + delay);
     },
 

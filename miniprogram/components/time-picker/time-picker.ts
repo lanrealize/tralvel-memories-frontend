@@ -1,5 +1,5 @@
 // components/time-picker/time-picker.
-import { getDateSelections, getCurrentTime, getIndicesFromDate } from "../../utils/utils"
+import { getDateSelections } from "../../utils/utils"
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { photoCreationStore } from '../../stores/photoCreationStore'
 import { TimePickerComponentData } from '../../models/component-model/time-picker-model'
