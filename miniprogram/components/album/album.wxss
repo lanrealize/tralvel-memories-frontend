@@ -18,6 +18,8 @@
   position: absolute;
   top: 0;
   left: 0;
+
+  transition: all 5s ease-in-out;
 }
 
 .tm-album-main-image-avtive {
