@@ -50,7 +50,9 @@ ComponentWithStore({
     currentImageIndex: 0,
     pending: true,
     imageSwitching: false,
-    deleted: false
+    deleted: false,
+    imageLoadTimers: [] as any [],
+    showAnimation: true
   },
 
   lifetimes: {
@@ -126,7 +128,7 @@ ComponentWithStore({
       });
 
       // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
-      setTimeout(() => {
+      const imageLoadTimer = setTimeout(() => {
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl
         this.setData({
@@ -156,6 +158,11 @@ ComponentWithStore({
           imageSwitching: false
         });
       }, timeout);
+
+      const currentImageLoadTimers = (this as any).data.imageLoadTimers;
+      this.setData({
+        imageLoadTimers: [...currentImageLoadTimers, imageLoadTimer]
+      });
     },
 
     onDeleting() {
@@ -190,6 +197,29 @@ ComponentWithStore({
       setTimeout(() => {
         (this as any).updateAlbumsCoverActivatedIndices(this.data.index, photoId);
       }, 500);
-    }
+    },
+
+    ////////////////////////////////////
+    // Animation management
+    ////////////////////////////////////
+    clearImageLoadTimers() {
+      for (let timer of (this as any).data.imageLoadTimers) {
+        clearTimeout(timer);
+      }
+      this.setData({ imageLoadTimers: [] });
+    },
+
+    clearAllAnimation() {
+      this.setData({showAnimation: false});
+    },
+
+    clearAnimationWithTimers() {
+      this.clearImageLoadTimers();
+      this.clearAllAnimation();
+    },
+
+    addAllAnimation() {
+      this.setData({showAnimation: true});
+    },
   },
 })
