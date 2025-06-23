@@ -20,7 +20,7 @@
       <text style="color: white; font-size: 28rpx; line-height: 2.76vh;">点击开始</text>
     </view>
 
-    <!-- <busy-indicator size="2" wx:if="{{mainStartLoading}}"></busy-indicator> -->
+    <busy-indicator size="2" wx:if="{{mainStartLoading}}" showAnimation="{{mainStartLoading}}"></busy-indicator>
 
   </view>
 

@@ -129,6 +129,7 @@ ComponentWithStore({
 
       // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       const imageLoadTimer = setTimeout(() => {
+        console.log('load image')
         this.clearImageLoadTimers();
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl

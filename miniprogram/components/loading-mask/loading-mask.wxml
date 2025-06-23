@@ -1,12 +1,12 @@
 <!--components/loading-mask/loading-mask.wxml-->
 <view class="tm-loading-mask-root {{isLoading ? '' : 'fadeOut'}}">
-  <!-- <busy-indicator
+  <busy-indicator
     wx:if="{{!isFailed}}"
     size='2' 
     style="opacity: 0; position: absolute;"
-    showAnimation="{{!isFailed}}"
+    showAnimation="{{isLoading}}"
     class="{{longLoading ? 'tm-loading-mask-long-loading' : ''}}">
-  </busy-indicator> -->
+  </busy-indicator>
   <view class="tm-loading-mask-failed {{isFailed ? 'fadeIn' : ''}}">
     <text style="color: gray; font-size: 32rpx; font-weight: 700;">加载图片失败</text>
     <view style="margin-top: 3vh; pointer-events: {{isFailed ? 'auto' : 'none'}};" bind:tap="confirmFailed">返回首页</view>

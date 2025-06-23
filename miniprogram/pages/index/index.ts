@@ -74,7 +74,7 @@ Page({
   },
 
   onHide() {
-
+    this.pauseAllAnimation();
   },
 
   onShow() {
@@ -145,7 +145,9 @@ Page({
     
     (this as any).correctPhotoCreationTime();
     (this as any).setPhotoCreationComponentTop(0);
-    this.pauseAllAnimation();
+    setTimeout(() => {
+      this.pauseAllAnimation();
+    }, 500);
   },
 
   pauseAllAnimation() {
