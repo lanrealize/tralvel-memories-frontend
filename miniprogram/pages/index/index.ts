@@ -74,11 +74,11 @@ Page({
   },
 
   onHide() {
-    this.pauseAllAnimation();
+
   },
 
   onShow() {
-    this.resumeAnimation();
+    
   },
 
   async receiveStartClick() {
@@ -167,6 +167,10 @@ Page({
   },
 
   onCancelCreation() {
+    this.resumeAnimation();
+  },
+
+  onAddNewPhoto() {
     this.resumeAnimation();
   }
 

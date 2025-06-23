@@ -24,4 +24,11 @@ export const albumsStore = observable({
       albumsStore.albumsCoverActivatedIndices = tempArray;
     }
   ),
+
+  albumShowTimers: [] as any[],
+  setAlbumShowTimers: action(
+    async (albumShowTimers: any[]) => {
+      albumsStore.albumShowTimers = albumShowTimers;
+    }
+  ),
 });

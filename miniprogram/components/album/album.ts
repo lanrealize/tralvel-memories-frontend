@@ -13,8 +13,8 @@ ComponentWithStore({
     },
     {
       store: albumsStore,
-      fields: [],
-      actions: ['updateAlbumsCoverActivatedIndices'],
+      fields: ['albumShowTimers'],
+      actions: ['updateAlbumsCoverActivatedIndices', 'setAlbumShowTimers'],
     }
   ],
 
@@ -51,8 +51,9 @@ ComponentWithStore({
     pending: true,
     imageSwitching: false,
     deleted: false,
-    imageLoadTimers: [] as any [],
-    showAnimation: true
+    showAnimation: true,
+    pause: false,
+    localImageLoadTimer: [] as any[]
   },
 
   lifetimes: {
@@ -75,6 +76,7 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
+        console.log('onFirstImageLoad')
         this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
@@ -92,6 +94,7 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
+        console.log('onSecondImageLoad')
         this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
@@ -119,6 +122,10 @@ ComponentWithStore({
 
     // when only 2 images, 1st container load 1st iamge, 2nd container preload 2nd iamge. Then 1st container preload 1st image again (if we have more than 2 iamge then in this situation 1st container will preload 3rd imgae) which will not trigger bindload method.
     preloadDeactivatedImageInSeconds(timeout: number) {
+      if ((this as any).data.pause) {
+        return;
+      }
+
       if ((this as any).data.imageSwitching) {
         return;
       }
@@ -129,8 +136,6 @@ ComponentWithStore({
 
       // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       const imageLoadTimer = setTimeout(() => {
-        console.log('load image')
-        this.clearImageLoadTimers();
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl
         this.setData({
@@ -161,10 +166,11 @@ ComponentWithStore({
         });
       }, timeout);
 
-      const currentImageLoadTimers = (this as any).data.imageLoadTimers;
-      this.setData({
-        imageLoadTimers: [...currentImageLoadTimers, imageLoadTimer]
-      });
+      console.log('set time out: ' + imageLoadTimer)
+
+      const currentImageLoadTimers = (this as any).data.albumShowTimers;
+      const updatedImageLoadTimers =  [...currentImageLoadTimers, imageLoadTimer];
+      (this as any).setAlbumShowTimers(updatedImageLoadTimers);
     },
 
     onDeleting() {
@@ -205,10 +211,12 @@ ComponentWithStore({
     // Animation management
     ////////////////////////////////////
     clearImageLoadTimers() {
-      for (let timer of (this as any).data.imageLoadTimers) {
+      for (let timer of (this as any).data.albumShowTimers) {
+        console.log('clear timer: ' + timer)
         clearTimeout(timer);
       }
-      this.setData({ imageLoadTimers: [], imageSwitching: false });
+      (this as any).setAlbumShowTimers([]);
+      this.setData({ imageSwitching: false });
     },
 
     clearAllAnimation() {
@@ -216,6 +224,7 @@ ComponentWithStore({
     },
 
     clearAnimationWithTimers() {
+      this.setData({pause: true});
       this.clearImageLoadTimers();
       this.clearAllAnimation();
     },
@@ -225,6 +234,7 @@ ComponentWithStore({
     },
 
     resumeAnimation(delay: number = 0) {
+      this.setData({pause: false});
       this.addAllAnimation();
       this.continueSwitching(delay);
     }
