@@ -16,6 +16,10 @@ Component({
     color: {
       type: String,
       value: "white"
+    },
+    showAnimation: {
+      type: Boolean,
+      value: false
     }
   },
 

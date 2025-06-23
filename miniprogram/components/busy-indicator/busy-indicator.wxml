@@ -1,6 +1,6 @@
 <!--components/busy-indicator/busy-indicator.wxml-->
 <view class="sk-three-bounce sk-three-bounce-publish">
-  <view class="sk-child sk-bounce1" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
-  <view class="sk-child sk-bounce2" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
-  <view class="sk-child" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
+  <view class="sk-child sk-bounce1 {{showAnimation ? 'sk-child-animation' : ''}}" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
+  <view class="sk-child sk-bounce2 {{showAnimation ? 'sk-child-animation' : ''}}" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
+  <view class="sk-child {{showAnimation ? 'sk-child-animation' : ''}}" style="width: {{size}}vw; height: {{size}}vw; background-color: {{color}};"></view>
 </view>
