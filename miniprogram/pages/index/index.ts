@@ -67,10 +67,15 @@ Page({
   },
 
   onUnload() {
+    this.pauseAllAnimation();
     this.generalStorageBinding?.destroyStoreBindings();
     this.albumsStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
     this.uiStoreBinding?.destroyStoreBindings();
+  },
+
+  onHide() {
+    this.pauseAllAnimation();
   },
 
   async receiveStartClick() {
@@ -137,6 +142,19 @@ Page({
     
     (this as any).correctPhotoCreationTime();
     (this as any).setPhotoCreationComponentTop(0);
+  },
+
+  pauseAllAnimation() {
+    const albums = this.selectComponent(`#tm-albums`);
+    if (albums) {
+      for (let idx in (this as any).data.albums) {
+        const album = albums.selectComponent(`.albums--${idx}`);
+        if (album) {
+          album.clearAnimationWithTimers();
+        }
+      }
+    }
+    
   }
 
 })
