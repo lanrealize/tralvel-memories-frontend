@@ -23,12 +23,5 @@ export const albumsStore = observable({
       let tempArray = albumsStore.albumsCoverActivatedIndices.map((item, index) => index === idx ? photoId : item);
       albumsStore.albumsCoverActivatedIndices = tempArray;
     }
-  ),
-
-  albumShowTimers: [] as any[],
-  setAlbumShowTimers: action(
-    async (albumShowTimers: any[]) => {
-      albumsStore.albumShowTimers = albumShowTimers;
-    }
-  ),
+  )
 });

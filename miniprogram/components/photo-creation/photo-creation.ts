@@ -82,6 +82,8 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
           // Step 3: Adjust display
           this.setPhotoCreationComponentTop(100);
           wx.navigateTo({ url: `/pages/photos/photos` });
+          // Step 4: Trigger event
+          this.triggerEvent('onAddNewPhoto');
         } else if (this.data.page == "photos") {
             // Step 1: Post photo
             const openID = wx.getStorageSync('openID');

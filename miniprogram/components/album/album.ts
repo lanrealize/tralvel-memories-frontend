@@ -13,8 +13,8 @@ ComponentWithStore({
     },
     {
       store: albumsStore,
-      fields: ['albumShowTimers'],
-      actions: ['updateAlbumsCoverActivatedIndices', 'setAlbumShowTimers'],
+      fields: [],
+      actions: ['updateAlbumsCoverActivatedIndices'],
     }
   ],
 
@@ -53,7 +53,7 @@ ComponentWithStore({
     deleted: false,
     showAnimation: true,
     pause: false,
-    localImageLoadTimer: [] as any[]
+    imageLoadTimers: [] as any[]
   },
 
   lifetimes: {
@@ -68,7 +68,6 @@ ComponentWithStore({
   methods: {
     onFirstImageLoad(e: any) {
       this.setCurrentPhotoIdAccordingToUrl(e);
-
       this.setData({
         activatedIndex: 0
       });
@@ -76,7 +75,6 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
-        console.log('onFirstImageLoad')
         this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
@@ -94,7 +92,6 @@ ComponentWithStore({
         this.setData({
           pending: false
         });
-        console.log('onSecondImageLoad')
         this.preloadDeactivatedImageInSeconds(4000);
       } else {
         this.setData({
@@ -136,6 +133,7 @@ ComponentWithStore({
 
       // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       const imageLoadTimer = setTimeout(() => {
+        this.clearImageLoadTimers();
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl
         this.setData({
@@ -166,11 +164,10 @@ ComponentWithStore({
         });
       }, timeout);
 
-      console.log('set time out: ' + imageLoadTimer)
-
-      const currentImageLoadTimers = (this as any).data.albumShowTimers;
-      const updatedImageLoadTimers =  [...currentImageLoadTimers, imageLoadTimer];
-      (this as any).setAlbumShowTimers(updatedImageLoadTimers);
+      const currentImageLoadTimers = (this as any).data.imageLoadTimers;
+      this.setData({
+        imageLoadTimers: [...currentImageLoadTimers, imageLoadTimer]
+      });
     },
 
     onDeleting() {
@@ -211,12 +208,10 @@ ComponentWithStore({
     // Animation management
     ////////////////////////////////////
     clearImageLoadTimers() {
-      for (let timer of (this as any).data.albumShowTimers) {
-        console.log('clear timer: ' + timer)
+      for (let timer of (this as any).data.imageLoadTimers) {
         clearTimeout(timer);
       }
-      (this as any).setAlbumShowTimers([]);
-      this.setData({ imageSwitching: false });
+      this.setData({ imageLoadTimers: [], imageSwitching: false });
     },
 
     clearAllAnimation() {
@@ -237,6 +232,16 @@ ComponentWithStore({
       this.setData({pause: false});
       this.addAllAnimation();
       this.continueSwitching(delay);
+    },
+
+    setPendingWithoutAnimation() {
+      this.setData({
+        showAnimation: false,
+        pending: true
+      });
+      this.setData({
+        showAnimation: true
+      });
     }
   },
 })

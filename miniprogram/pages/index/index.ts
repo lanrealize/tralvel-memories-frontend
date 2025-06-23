@@ -147,7 +147,7 @@ Page({
     (this as any).setPhotoCreationComponentTop(0);
     setTimeout(() => {
       this.pauseAllAnimation();
-    }, 500);
+    }, 0);
   },
 
   pauseAllAnimation() {
@@ -162,7 +162,7 @@ Page({
     const albums = this.selectComponent(`#tm-albums`);
     const album = albums.selectComponent(`.albums--${(this as any).data.displayedAlbumIndex}`);
     if (album) {
-      album.resumeAnimation(500);
+      album.resumeAnimation(1000);
     }
   },
 

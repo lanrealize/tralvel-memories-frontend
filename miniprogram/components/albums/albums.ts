@@ -82,6 +82,13 @@ ComponentWithStore<any, AlbumsComponentData, any, any, any>({
     },
 
     onSwiperChange(event: any) {
+      const lastChild = this.selectComponent(`.albums--${(this as any).data.displayedAlbumIndex}`);
+      if (lastChild) {
+        lastChild.clearImageLoadTimers();
+        setTimeout(() => {
+          lastChild.setPendingWithoutAnimation();
+        }, 800);
+      }
       (this as any).setDisplayedAlbumIndex(event.detail.current);
       wx.nextTick(() => {
         setTimeout(() => {
