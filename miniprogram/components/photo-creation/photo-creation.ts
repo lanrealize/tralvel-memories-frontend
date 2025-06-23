@@ -56,6 +56,7 @@ ComponentWithStore<any, PhotoCreationComponentData, any, any, any>({
       console.log(this.data.page)
       setNavBarTextColor('white', this.data.page);
       this.setPhotoCreationComponentTop(100);
+      this.triggerEvent('onCancelCreation');
     },
 
     async onPublishClick() {

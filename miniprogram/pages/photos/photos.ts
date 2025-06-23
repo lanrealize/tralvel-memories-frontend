@@ -241,6 +241,9 @@ Page({
       (this as any).correctPhotoCreationTime();
       setNavBarTextColor('black', '');
       (this as any).setPhotoCreationComponentTop(0);
+      setTimeout(() => {
+        this.clearAllAnimationWithTimer();
+      }, 500);
     } catch (e) {
       console.log(e);
     }
@@ -258,6 +261,10 @@ Page({
         this.setForceRemoveAnimation(false);
       }, 100);
     }, 200);
+  },
+
+  onCancelCreation() {
+    this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
   },
 
   onHomeClick() {
@@ -482,6 +489,15 @@ Page({
     this.setData({
       dynamicWordsTimers: [...currentDynamicWordsTimers, dynamicWordsTimer]
     });
+  },
+
+  clearAllAnimationWithTimer() {
+    (this as any).setDynamicWordsAnimationClass('');
+    this.clearDynamicWordsTimer();
+    const childBefore = this.selectComponent(`.photos--${(this as any).data.photoDisplayIndex}`);
+    if (childBefore) {
+      childBefore.revertShowAnimation();
+    }
   }
 
 })
