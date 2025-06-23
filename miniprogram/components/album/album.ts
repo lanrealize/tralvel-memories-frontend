@@ -109,11 +109,11 @@ ComponentWithStore({
       });
     },
 
-    continueSwitching() {
+    continueSwitching(delay : number = 4000) {
       this.setData({
         pending: false
       });
-      this.preloadDeactivatedImageInSeconds(4000);
+      this.preloadDeactivatedImageInSeconds(delay);
     },
 
 
@@ -129,6 +129,7 @@ ComponentWithStore({
 
       // console.log(`Changed image for ${this.data.index}th album to ${(this as any).data.currentImageIndex}th image`)
       const imageLoadTimer = setTimeout(() => {
+        this.clearImageLoadTimers();
         const newIndex = ((this as any).data.currentImageIndex + 1) % this.data.photos.length;
         const url = this.data.photos[newIndex].imageUrl
         this.setData({
@@ -206,7 +207,7 @@ ComponentWithStore({
       for (let timer of (this as any).data.imageLoadTimers) {
         clearTimeout(timer);
       }
-      this.setData({ imageLoadTimers: [] });
+      this.setData({ imageLoadTimers: [], imageSwitching: false });
     },
 
     clearAllAnimation() {
@@ -221,5 +222,10 @@ ComponentWithStore({
     addAllAnimation() {
       this.setData({showAnimation: true});
     },
+
+    resumeAnimation(delay: number = 0) {
+      this.addAllAnimation();
+      this.continueSwitching(delay);
+    }
   },
 })

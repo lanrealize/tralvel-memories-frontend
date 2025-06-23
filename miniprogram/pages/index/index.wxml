@@ -15,10 +15,10 @@
 <albums id="tm-albums" style="opacity: {{(indexInitialized && (loginStatus && albums.length > 0)) ? 1 : 0}}; transition: opacity 0.4s ease-in-out; margin-top: -56vh;"></albums>
 
 <view class="tm-index-mask" style="opacity: {{indexInitialized ? 0 : 1}}; pointer-events: {{indexInitialized ? 'none' : 'auto'}};">
-  <busy-indicator 
+  <!-- <busy-indicator 
   size='2' 
   wx:if="{{!indexInitialized}}" 
-  style="transition: opacity 0.4s ease-in-out; opacity: {{longTimeInitialize ? 1 : 0}};"></busy-indicator>
+  style="transition: opacity 0.4s ease-in-out; opacity: {{longTimeInitialize ? 1 : 0}};"></busy-indicator> -->
 </view>
 
 <!-- <view class="mock-swipper" style="opacity: {{((loginStatus && albums.length === 0) || !loginStatus) ? 1 : 0}}; transition: opacity 0.4s ease-in-out;"></view> -->
@@ -28,4 +28,4 @@
 <!-- <view class="tm-index-text-2">更多好玩的？</view> -->
 <view class="tm-index-text-3">提示：在长按照片后可以根据按钮对图片进行删除操作。</view>
 
-<photo-creation page="index" class="albums-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 6;"></photo-creation>
+<photo-creation bind:onCancelCreation="onCancelCreation" page="index" class="albums-photo-creation" style="top: {{photoCreationComponentTop}}vh; z-index: 6;"></photo-creation>

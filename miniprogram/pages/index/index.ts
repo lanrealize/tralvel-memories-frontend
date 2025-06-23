@@ -67,7 +67,6 @@ Page({
   },
 
   onUnload() {
-    this.pauseAllAnimation();
     this.generalStorageBinding?.destroyStoreBindings();
     this.albumsStorageBinding?.destroyStoreBindings();
     this.photoCreationStoreBinding?.destroyStoreBindings();
@@ -75,7 +74,11 @@ Page({
   },
 
   onHide() {
-    this.pauseAllAnimation();
+
+  },
+
+  onShow() {
+    this.resumeAnimation();
   },
 
   async receiveStartClick() {
@@ -142,19 +145,27 @@ Page({
     
     (this as any).correctPhotoCreationTime();
     (this as any).setPhotoCreationComponentTop(0);
+    this.pauseAllAnimation();
   },
 
   pauseAllAnimation() {
     const albums = this.selectComponent(`#tm-albums`);
-    if (albums) {
-      for (let idx in (this as any).data.albums) {
-        const album = albums.selectComponent(`.albums--${idx}`);
-        if (album) {
-          album.clearAnimationWithTimers();
-        }
-      }
+    const album = albums.selectComponent(`.albums--${(this as any).data.displayedAlbumIndex}`);
+    if (album) {
+      album.clearAnimationWithTimers();
     }
-    
+  },
+
+  resumeAnimation() {
+    const albums = this.selectComponent(`#tm-albums`);
+    const album = albums.selectComponent(`.albums--${(this as any).data.displayedAlbumIndex}`);
+    if (album) {
+      album.resumeAnimation(500);
+    }
+  },
+
+  onCancelCreation() {
+    this.resumeAnimation();
   }
 
 })

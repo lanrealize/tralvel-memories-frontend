@@ -7,11 +7,11 @@
   </image>
 
   <view class="tm-photo-loading-mask {{isLoading ? '' : 'fadeOut'}}">
-    <busy-indicator 
+    <!-- <busy-indicator 
       size='2' 
       style="opacity: 0;"
       showAnimation="{{isLoading}}"
       class="{{longLoading ? 'tm-photo-long-loading' : ''}}">
-    </busy-indicator>
+    </busy-indicator> -->
   </view>
 </view>

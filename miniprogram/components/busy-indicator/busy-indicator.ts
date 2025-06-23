@@ -19,7 +19,7 @@ Component({
     },
     showAnimation: {
       type: Boolean,
-      value: false
+      value: true
     }
   },
 
