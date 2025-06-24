@@ -20,6 +20,7 @@ App<IAppOption>({
     this.globalData.navigationInfo.menuHeight = menuInfo.height;
     this.globalData.navigationInfo.menuTop = menuInfo.top;
     this.globalData.navigationInfo.menuLeft = screenWidth - menuInfo.left;
+    this.globalData.navigationInfo.menuRight = screenWidth - menuInfo.right;
   },
 
 })

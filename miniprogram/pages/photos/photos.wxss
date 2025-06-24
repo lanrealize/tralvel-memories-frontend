@@ -88,7 +88,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
-   background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 
 .tm-photos-menu-bar-text {
@@ -109,6 +109,28 @@ page {
   width: 4vw;
   height: 4vw;
   /* margin-bottom: 0.2vh; */
+}
+
+.tm-photos-todos-root {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
+}
+
+.tm-photos-todo-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tm-photos-todo-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5vw;
+  height: 5vw;
 }
 
 .tm-photos-photo-creation {
