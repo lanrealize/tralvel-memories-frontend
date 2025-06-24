@@ -134,7 +134,7 @@ page {
 }
 
 .tm-photos-todo-padding {
-  width: 5px;
+  width: 20px;
 }
 
 .tm-photos-photo-creation {

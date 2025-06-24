@@ -13,8 +13,10 @@
   <view class="photo-creation-description">{{photeCreationDescription}}...</view>
   <view class="photo-creation-description-action">
     <!-- <image src="/assets/icons/edit.svg" class="photo-creation-description-action-item" style="margin-left: auto;"></image> -->
-    <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" style="margin-left: auto;" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
-    <busy-indicator wx:if="{{isRefreshing}}"></busy-indicator>
+    <view class="photo-creation-description-action-container">
+      <image src="/assets/icons/refresh.svg" class="photo-creation-description-action-item" bindtap="onRefreshClick" wx:if="{{!isRefreshing}}"></image>
+      <busy-indicator color="#808080" wx:if="{{isRefreshing}}" style="width: 6vw;"></busy-indicator>
+    </view>
   </view>
   <image src="{{photoCreationPath}}" class="photo-creation-image" mode="aspectFill"></image>
   <view class="photo-creation-time-picker">

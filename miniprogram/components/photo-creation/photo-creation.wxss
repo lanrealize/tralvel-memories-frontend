@@ -53,12 +53,22 @@
   display: flex;
   flex-direction: row;
   padding-top: 2vh;
+  min-height: 7.6vw;
+}
+
+.photo-creation-description-action-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 7.6vw;
+  height: 7.6vw;
 }
 
 .photo-creation-description-action-item {
-  width: 7.6vw;
-  height: 7.6vw;
-  padding-left: 3.8vw;
+  width: 100%;
+  height: 100%;
+  /* padding-left: 3.8vw; */
 }
 
 .photo-creation-image {
