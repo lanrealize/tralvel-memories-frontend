@@ -133,6 +133,10 @@ page {
   height: 5vw;
 }
 
+.tm-photos-todo-padding {
+  width: 5px;
+}
+
 .tm-photos-photo-creation {
   border-radius: 2vh;
   position: fixed;
