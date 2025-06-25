@@ -38,16 +38,19 @@
 
 .tm-photos-timeline-mask {
   --stop-point: 70%;
+  --start-point: 7%;
   
   mask: linear-gradient(
     to right,
-    black 0%,
+    transparent 0%,
+    black var(--start-point),
     black var(--stop-point),
     transparent 100%
   );
   -webkit-mask: linear-gradient(
     to right,
-    black 0%,
+    transparent 0%,
+    black var(--start-point),
     black var(--stop-point),
     transparent 100%
   );

@@ -73,14 +73,6 @@ Page({
     this.uiStoreBinding?.destroyStoreBindings();
   },
 
-  onHide() {
-
-  },
-
-  onShow() {
-    
-  },
-
   async receiveStartClick() {
     try {
       (this as any).setMainStartLoading(true);
@@ -147,7 +139,7 @@ Page({
     (this as any).setPhotoCreationComponentTop(0);
     setTimeout(() => {
       this.pauseAllAnimation();
-    }, 0);
+    }, 500);
   },
 
   pauseAllAnimation() {

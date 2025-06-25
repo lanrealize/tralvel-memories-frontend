@@ -71,24 +71,24 @@
 <view class="tm-photos-todos-root" style="height: {{menuHeight}}px; right: {{menuRight}}px; top: {{menuTop + menuHeight + 15}}px; border-radius: {{menuHeight / 2}}px;">
 
   <view class="tm-photos-todo-padding"></view>
-  <!-- <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px;">
+  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px;">
     <text style="font-size: 24rpx; color: white;">为此次旅行拍摄 3 / 5 张照片</text>
+  </view>
+  <!-- <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
+  </view>
+  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
+  </view>
+  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
+  </view>
+  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+    <image src="/assets/icons/todo-notchecked.svg" class="tm-photos-todo-icon"></image>
+  </view>
+  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
+    <image src="/assets/icons/todo-notchecked.svg" class="tm-photos-todo-icon"></image>
   </view> -->
-  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
-  </view>
-  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
-  </view>
-  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/todo-checked.svg" class="tm-photos-todo-icon"></image>
-  </view>
-  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/todo-notchecked.svg" class="tm-photos-todo-icon"></image>
-  </view>
-  <view class="tm-photos-todo-item" style="line-height: {{menuHeight}}px; border-radius: {{menuHeight / 2}}px; height: {{menuHeight}}px; width: {{menuHeight}}px;">
-    <image src="/assets/icons/todo-notchecked.svg" class="tm-photos-todo-icon"></image>
-  </view>
   <view class="tm-photos-todo-padding"></view>
 
 </view>
