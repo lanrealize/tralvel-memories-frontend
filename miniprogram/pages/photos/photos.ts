@@ -467,6 +467,12 @@ Page({
     this.setData({
       dynamicWordsTimers: [...currentDynamicWordsTimers, dynamicWordsTimer]
     });
+
+    const bottomMenu = this.selectComponent(`#photos-bottom-menu`);
+    const dynamicWords = bottomMenu.selectComponent(`#dynamic-words`);
+    if (dynamicWords) {
+      dynamicWords.updateTextAndDirection();
+    }
   },
 
   clearAllAnimationWithTimer() {

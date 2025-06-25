@@ -1,6 +1,7 @@
 // components/photos-bottom-menu/dynamic-words/dynamic-words.ts
 import { ComponentWithStore } from 'mobx-miniprogram-bindings';
 import { uiStore } from '../../../stores/uiStore';
+import { photosStore } from '../../../stores/photosStore';
 
 ComponentWithStore({
   storeBindings: [
@@ -8,6 +9,11 @@ ComponentWithStore({
       store: uiStore,
       fields: ['dynamicWordsAnimationClass'],
       actions: ['setDynamicWordsAnimationClass']
+    },
+    {
+      store: photosStore,
+      fields: ['photoDisplayIndex', 'photoCount'],
+      actions: []
     }
   ],
 
@@ -38,7 +44,7 @@ ComponentWithStore({
 
   lifetimes: {
     attached() {
-      this.prepareCharacters(this.data.text);
+      this.updateTextAndDirection();
     },
 
     detached() {
@@ -57,6 +63,28 @@ ComponentWithStore({
         return { char, delay };
       });
       this.setData({ characters: charactersData });
-    }
+    },
+
+    updateTextAndDirection() {
+      let text = '';
+      let direction = '';
+
+      if ((this as any).data.photoCount === 1) {
+        text = '当前展示唯一照片';
+      } else if ((this as any).data.photoDisplayIndex === (this as any).data.photoCount - 1) {
+        text = '右滑查看之前照片';
+        direction = 'right';
+      } else {
+        text = '左滑查看后续照片';
+        direction = 'left';
+      }
+
+      this.setData({
+        text,
+        direction
+      }, () => {
+        this.prepareCharacters(text);
+      });
+    },
   }
 })

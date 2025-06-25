@@ -16,7 +16,7 @@
     </view>
 
     <view class="tm-photos-bottom-menu-3rd-line-word">
-      <dynamic-words></dynamic-words>
+      <dynamic-words id="dynamic-words"></dynamic-words>
     </view>
   </view>
 
