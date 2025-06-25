@@ -357,6 +357,8 @@ Page({
         wx.reLaunch({
           url: '/pages/index/index'
         })
+      } else {
+        this.manageDisplyedImgaeAnimation(false, (this as any).data.photoDisplayIndex);
       }
     }, 800);
   },
